@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tlLogics>
+    <tlLogic id="center" type="static" programID="rl" offset="0">
+        <phase duration="100" state="rgggrrrrrgggrrrr" />
+        <phase duration="1" state="ryyyrrrrryyyrrrr" />
+        <phase duration="1" state="rrrrrrrrrrrrrrrr" />
+        <phase duration="100" state="grrrrrrrgrrrrrrr" />
+        <phase duration="1" state="yrrrrrrryrrrrrrr" />
+        <phase duration="1" state="rrrrrrrrrrrrrrrr" />
+        <phase duration="100" state="rrrrrgggrrrrrggg" />
+        <phase duration="1" state="rrrrryyyrrrrryyy" />
+        <phase duration="1" state="rrrrrrrrrrrrrrrr" />
+        <phase duration="100" state="rrrrgrrrrrrrgrrr" />
+        <phase duration="1" state="rrrryrrrrrrryrrr" />
+        <phase duration="1" state="rrrrrrrrrrrrrrrr" />
+    </tlLogic>
+</tlLogics>

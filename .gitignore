@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+results/*.csv
+results/*.png
+results/*.zip
+results/tensorboard/
+sumo/generated/*.rou.xml
+sumo/intersection.net.xml
+
