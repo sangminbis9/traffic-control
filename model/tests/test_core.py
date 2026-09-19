@@ -6,11 +6,11 @@ from pathlib import Path
 
 import numpy as np
 
-from controller.signal_controller import SignalController
-from env.reward import calculate_reward
-from env.state_provider import SnapshotStateProvider, TrafficSnapshot
-from traffic.route_generator import TrafficDemand, generate_route_file
-from utils.config import RewardConfig, SignalConfig
+from model.controller.signal_controller import SignalController
+from model.env.reward import calculate_reward
+from model.env.state_provider import SnapshotStateProvider, TrafficSnapshot
+from model.traffic.route_generator import TrafficDemand, generate_route_file
+from model.utils.config import ProjectConfig, RewardConfig, SignalConfig
 
 
 class FakeTrafficLight:
@@ -28,7 +28,7 @@ class FakeConnection:
 
 class CoreTests(unittest.TestCase):
     def test_route_generation_is_seed_reproducible(self) -> None:
-        directory = Path("sumo/generated")
+        directory = ProjectConfig().sumo_dir / "generated"
         first = generate_route_file(
             directory / "unit_first.rou.xml",
             TrafficDemand(duration=20, scenario="random", seed=11),

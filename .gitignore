@@ -1,10 +1,16 @@
 __pycache__/
 *.py[cod]
 .venv/
-results/*.csv
-results/*.png
-results/*.zip
-results/tensorboard/
-sumo/generated/*.rou.xml
-sumo/intersection.net.xml
+model/results/*.csv
+model/results/*.png
+model/results/*.zip
+model/results/tensorboard/
+model/sumo/generated/*.rou.xml
+model/sumo/intersection.net.xml
 
+# Future responsive web application
+web/node_modules/
+web/dist/
+web/.next/
+web/.env*
+!web/.env.example

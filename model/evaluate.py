@@ -8,9 +8,9 @@ from pathlib import Path
 import pandas as pd
 from stable_baselines3 import DQN
 
-from env.intersection_env import IntersectionEnv
-from utils.config import ProjectConfig, ensure_directories
-from utils.metrics import save_comparison_plots, save_metrics
+from model.env.intersection_env import IntersectionEnv
+from model.utils.config import ProjectConfig, ensure_directories
+from model.utils.metrics import save_comparison_plots, save_metrics
 
 
 def evaluate_dqn(env: IntersectionEnv, model: DQN, episodes: int, seeds: list[int]) -> list[dict[str, object]]:
@@ -38,7 +38,11 @@ def evaluate_fixed(env: IntersectionEnv, episodes: int, seeds: list[int]) -> lis
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--model", type=Path, default=Path("results/dqn_intersection.zip"))
+    parser.add_argument(
+        "--model",
+        type=Path,
+        default=ProjectConfig().results_dir / "dqn_intersection.zip",
+    )
     parser.add_argument("--episodes", type=int, default=30)
     parser.add_argument("--seed-start", type=int, default=2001)
     parser.add_argument("--scenario", default="random")
@@ -72,4 +76,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

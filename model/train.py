@@ -10,8 +10,8 @@ from stable_baselines3 import DQN
 from stable_baselines3.common.callbacks import EvalCallback
 from stable_baselines3.common.env_checker import check_env
 
-from env.intersection_env import IntersectionEnv
-from utils.config import ProjectConfig, ensure_directories
+from model.env.intersection_env import IntersectionEnv
+from model.utils.config import ProjectConfig, ensure_directories
 
 
 def main() -> int:

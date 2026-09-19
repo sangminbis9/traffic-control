@@ -5,14 +5,14 @@ from __future__ import annotations
 import argparse
 
 try:
-    from env.intersection_env import IntersectionEnv
-    from env.state_provider import LANE_GROUPS
+    from model.env.intersection_env import IntersectionEnv
+    from model.env.state_provider import LANE_GROUPS
 except ModuleNotFoundError as exc:
     raise SystemExit(
-        f"Missing Python dependency: {exc.name}. Run 'python -m pip install -r requirements.txt' "
+        f"Missing Python dependency: {exc.name}. Run 'python -m pip install -r model/requirements.txt' "
         "inside the activated virtual environment."
     ) from exc
-from utils.config import ProjectConfig
+from model.utils.config import ProjectConfig
 
 
 def main() -> int:

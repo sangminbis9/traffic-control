@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-09-18T13:58:16.768194+09:00 by Eclipse SUMO netconvert 1.27.1
+<!-- generated on 2026-09-19T21:07:20.250107+09:00 by Eclipse SUMO netconvert 1.27.1
 <netconvertConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
 
     <input>
-        <node-files value="C:\Users\sangm\OneDrive\문서\Coding\Traffic Control\sumo\nodes.nod.xml"/>
-        <edge-files value="C:\Users\sangm\OneDrive\문서\Coding\Traffic Control\sumo\edges.edg.xml"/>
-        <connection-files value="C:\Users\sangm\OneDrive\문서\Coding\Traffic Control\sumo\connections.con.xml"/>
-        <tllogic-files value="C:\Users\sangm\OneDrive\문서\Coding\Traffic Control\sumo\traffic_lights.add.xml"/>
+        <node-files value="nodes.nod.xml"/>
+        <edge-files value="edges.edg.xml"/>
+        <connection-files value="connections.con.xml"/>
+        <tllogic-files value="traffic_lights.add.xml"/>
     </input>
 
     <output>
-        <output-file value="C:\Users\sangm\OneDrive\문서\Coding\Traffic Control\sumo\intersection.net.xml"/>
+        <output-file value="intersection.net.xml"/>
     </output>
 
     <building_defaults>

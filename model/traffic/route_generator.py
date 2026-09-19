@@ -6,7 +6,9 @@ import argparse
 import random
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Iterable, Mapping
+from typing import Dict
+
+from model.utils.config import SUMO_DIR
 
 
 SCENARIOS = (
@@ -134,7 +136,7 @@ def generate_route_file(path: Path, demand: TrafficDemand) -> Path:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=Path("sumo/routes.rou.xml"))
+    parser.add_argument("--output", type=Path, default=SUMO_DIR / "routes.rou.xml")
     parser.add_argument("--scenario", choices=SCENARIOS, default="uniform")
     parser.add_argument("--seed", type=int, default=1)
     parser.add_argument("--duration", type=int, default=300)

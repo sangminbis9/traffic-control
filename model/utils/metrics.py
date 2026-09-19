@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from env.state_provider import TrafficSnapshot
+from model.env.state_provider import TrafficSnapshot
 
 
 @dataclass
@@ -102,4 +102,3 @@ def save_comparison_plots(frame: pd.DataFrame, output_dir: Path) -> None:
     fig.tight_layout()
     fig.savefig(output_dir / "episode_reward.png", dpi=160)
     plt.close(fig)
-

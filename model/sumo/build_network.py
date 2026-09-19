@@ -16,6 +16,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=SUMO_DIR / "intersection.net.xml")
     args = parser.parse_args()
+    output_path = args.output.resolve()
+    try:
+        output_argument = str(output_path.relative_to(SUMO_DIR))
+    except ValueError:
+        output_argument = str(output_path)
 
     netconvert = shutil.which("netconvert")
     candidate_roots = []
@@ -49,21 +54,21 @@ def main() -> int:
     if not netconvert:
         raise SystemExit(
             "netconvert was not found. Install SUMO and add SUMO/bin to PATH, "
-            "then run: python sumo/build_network.py"
+            "then run: python -m model.sumo.build_network"
         )
 
     command = [
         netconvert,
         "--node-files",
-        str(SUMO_DIR / "nodes.nod.xml"),
+        "nodes.nod.xml",
         "--edge-files",
-        str(SUMO_DIR / "edges.edg.xml"),
+        "edges.edg.xml",
         "--connection-files",
-        str(SUMO_DIR / "connections.con.xml"),
+        "connections.con.xml",
         "--tllogic-files",
-        str(SUMO_DIR / "traffic_lights.add.xml"),
+        "traffic_lights.add.xml",
         "--output-file",
-        str(args.output),
+        output_argument,
         "--no-turnarounds",
         "--junctions.corner-detail",
         "5",
@@ -72,8 +77,8 @@ def main() -> int:
         "--tls.default-type",
         "static",
     ]
-    subprocess.run(command, check=True)
-    print(f"Created {args.output}")
+    subprocess.run(command, cwd=SUMO_DIR, check=True)
+    print(f"Created {output_path}")
     return 0
 
 

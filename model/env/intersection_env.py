@@ -10,11 +10,11 @@ import gymnasium as gym
 import numpy as np
 from gymnasium import spaces
 
-from controller.signal_controller import SignalController
-from controller.fixed_controller import FixedTimeController
-from traffic.route_generator import SCENARIOS, TrafficDemand, generate_route_file
-from utils.config import ProjectConfig, ensure_directories, resolve_sumo_binary
-from utils.metrics import EpisodeMetrics
+from model.controller.signal_controller import SignalController
+from model.controller.fixed_controller import FixedTimeController
+from model.traffic.route_generator import SCENARIOS, TrafficDemand, generate_route_file
+from model.utils.config import ProjectConfig, ensure_directories, resolve_sumo_binary
+from model.utils.metrics import EpisodeMetrics
 
 from .reward import calculate_reward
 from .state_provider import SUMOTrafficStateProvider, TrafficSnapshot
