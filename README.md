@@ -143,4 +143,5 @@ reward = 1.0 * queue_improvement
 - Train seed와 evaluation seed를 분리할 수 있습니다. 기본 평가 seed는 `2001`부터입니다.
 - Route generator의 seed가 같으면 controller 이름이 달라도 동일한 route XML이 생성됩니다.
 - 현재 환경은 한 Python 프로세스에서 SUMO를 episode마다 재시작합니다. 장시간 학습에서는 `libsumo` 전환을 추가하면 속도를 개선할 수 있습니다.
-- 이 저장소의 현재 실행 환경에서는 Python 패키지 인덱스 접근과 SUMO 바이너리가 제공되지 않아 실제 TraCI/DQN 실행까지는 수행하지 못했습니다. 설치 후 `build_network.py` → `test_sumo.py` → `train.py --timesteps 1000 --check-env` 순서로 검증하세요.
+- Windows에서 네트워크 생성, 60초 TraCI 테스트, 단위 테스트, Gymnasium `check_env()`, DQN 학습 및 모델 재로딩을 실제 실행해 검증했습니다.
+- `results/evaluation_metrics.csv`는 평가 seed 2001~2030의 동일한 남북 혼잡 시나리오에서 Fixed-Time과 DQN을 비교한 결과입니다. 현재 모델은 평균 대기시간과 평균 queue에서 Fixed-Time보다 소폭 개선됐으며, 다른 교통 시나리오에 대한 추가 학습·평가는 계속 필요합니다.
