@@ -6,7 +6,7 @@ import argparse
 import random
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Mapping
 
 from model.utils.config import SUMO_DIR
 
@@ -37,6 +37,7 @@ class TrafficDemand:
     right_ratio: float = 0.20
     seed: int = 1
     vehicle_type: str = "passenger"
+    approach_arrival_rates: tuple[float, float, float, float] | None = None
 
     def __post_init__(self) -> None:
         if self.scenario not in SCENARIOS:
@@ -44,6 +45,11 @@ class TrafficDemand:
         ratio_total = self.left_ratio + self.straight_ratio + self.right_ratio
         if abs(ratio_total - 1.0) > 1e-6:
             raise ValueError("left_ratio + straight_ratio + right_ratio must equal 1")
+        if self.approach_arrival_rates is not None:
+            if len(self.approach_arrival_rates) != 4:
+                raise ValueError("approach_arrival_rates must contain N, S, E, W values")
+            if any(rate < 0.0 for rate in self.approach_arrival_rates):
+                raise ValueError("arrival rates cannot be negative")
 
 
 def _scenario_multipliers(scenario: str, rng: random.Random) -> Dict[str, float]:
@@ -89,6 +95,9 @@ def generate_route_file(path: Path, demand: TrafficDemand) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     rng = random.Random(demand.seed)
     multipliers = _scenario_multipliers(demand.scenario, rng)
+    custom_rates: Mapping[str, float] | None = None
+    if demand.approach_arrival_rates is not None:
+        custom_rates = dict(zip(APPROACHES, demand.approach_arrival_rates, strict=True))
     ratios = {"left": demand.left_ratio, "straight": demand.straight_ratio, "right": demand.right_ratio}
 
     lines = [
@@ -109,9 +118,13 @@ def generate_route_file(path: Path, demand: TrafficDemand) -> Path:
     for depart in range(demand.duration):
         for approach in APPROACHES:
             for movement in MOVEMENTS:
+                approach_rate = (
+                    custom_rates[approach]
+                    if custom_rates is not None
+                    else demand.base_arrivals_per_second * multipliers[approach]
+                )
                 probability = (
-                    demand.base_arrivals_per_second
-                    * multipliers[approach]
+                    approach_rate
                     * _movement_multiplier(demand.scenario, movement)
                     * ratios[movement]
                 )

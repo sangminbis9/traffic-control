@@ -43,6 +43,12 @@ class SignalController:
     def in_transition(self) -> bool:
         return self._transition_stage is not None
 
+    @property
+    def signal_state(self) -> str:
+        """Human-readable transition state for APIs and visualizations."""
+
+        return self._transition_stage.upper() if self._transition_stage else "GREEN"
+
     def reset(self, initial_phase: int = 0) -> None:
         self.current_phase = int(initial_phase)
         self.phase_elapsed = 0.0

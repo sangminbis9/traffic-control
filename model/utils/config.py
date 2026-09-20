@@ -52,6 +52,7 @@ class DQNConfig:
     exploration_fraction: float = 0.25
     exploration_final_eps: float = 0.05
     policy: str = "MlpPolicy"
+    network_architecture: Tuple[int, ...] = (64, 64)
 
 
 @dataclass(frozen=True)

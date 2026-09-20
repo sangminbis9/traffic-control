@@ -14,3 +14,14 @@ web/dist/
 web/.next/
 web/.env*
 !web/.env.example
+web/.npm-cache/
+
+# API runtime state and generated experiment artifacts
+api/data/
+api/artifacts/
+api/.pytest_tmp/
+api/.pytest_*/
+pytest-cache-files-*/
+web/*.tsbuildinfo
+.playwright-cli/
+output/playwright/

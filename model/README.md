@@ -124,16 +124,16 @@ DQN은 yellow/all-red를 직접 선택하지 않습니다. 다른 Phase를 선�
 
 ## Reward
 
-현재 보상은 이전 step 대비 queue, total waiting, maximum waiting이 줄어든 정도에서 signal switching penalty를 빼는 형태입니다.
+현재 보상은 **현재 step의 정규화된 절대 혼잡 비용**과 signal switching 비용에 음수를 부여합니다. README보다 `model/env/reward.py`가 source of truth입니다.
 
 ```text
-reward = 1.0 * queue_improvement
-       + 0.3 * waiting_improvement
-       + 0.5 * max_waiting_improvement
+reward = -1.0 * normalized_current_queue
+       - 0.3 * normalized_total_waiting
+       - 0.5 * normalized_max_waiting
        - 0.2 * switched
 ```
 
-각 항목은 `utils/config.py`의 scale로 먼저 정규화합니다. 최대 대기시간 항이 starvation을 억제하고, 전환 penalty와 yellow/all-red 손실이 잦은 전환을 억제합니다. 실제 성능에 따라 weight와 scale을 조정해야 합니다.
+각 항목은 `utils/config.py`의 scale로 정규화합니다. 최대 대기시간 항이 starvation을 억제하고, 전환 penalty와 yellow/all-red 처리 손실이 잦은 전환을 억제합니다. 이전 snapshot은 향후 delta reward 실험을 위해 함수 signature에 남아 있지만 현재 계산에는 사용하지 않습니다.
 
 ## Fixed-Time Controller
 

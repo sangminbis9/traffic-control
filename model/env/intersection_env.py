@@ -20,6 +20,9 @@ from .reward import calculate_reward
 from .state_provider import SUMOTrafficStateProvider, TrafficSnapshot
 
 
+PHASE_NAMES = ("NS Straight", "NS Left", "EW Straight", "EW Left")
+
+
 class IntersectionEnv(gym.Env[np.ndarray, int]):
     """Discrete four-action signal control environment."""
 
@@ -35,6 +38,7 @@ class IntersectionEnv(gym.Env[np.ndarray, int]):
         use_gui: bool | None = None,
         episode_seconds: int | None = None,
         route_dir: Path | None = None,
+        route_file: Path | None = None,
     ) -> None:
         super().__init__()
         self.config = config or ProjectConfig()
@@ -45,6 +49,7 @@ class IntersectionEnv(gym.Env[np.ndarray, int]):
         self.use_gui = self.config.simulation.use_gui if use_gui is None else use_gui
         self.episode_seconds = episode_seconds or self.config.simulation.episode_seconds
         self.route_dir = route_dir or (self.config.sumo_dir / "generated")
+        self.route_file = route_file
         self.action_space = spaces.Discrete(4)
         self.observation_space = spaces.Box(low=0.0, high=1.0, shape=(12,), dtype=np.float32)
         self._connection: Any | None = None
@@ -123,11 +128,15 @@ class IntersectionEnv(gym.Env[np.ndarray, int]):
             raise ValueError(f"Unknown scenario {scenario!r}")
         self.close()
 
-        self._last_route_file = self.route_dir / f"routes_{self.controller_name.lower()}_{self._episode_seed}_{scenario}.rou.xml"
-        generate_route_file(
-            self._last_route_file,
-            TrafficDemand(duration=self.episode_seconds, scenario=scenario, seed=self._episode_seed),
-        )
+        self._last_route_file = self.route_file
+        if self._last_route_file is None:
+            self._last_route_file = self.route_dir / f"routes_{self.controller_name.lower()}_{self._episode_seed}_{scenario}.rou.xml"
+            generate_route_file(
+                self._last_route_file,
+                TrafficDemand(duration=self.episode_seconds, scenario=scenario, seed=self._episode_seed),
+            )
+        elif not self._last_route_file.exists():
+            raise FileNotFoundError(f"Route file does not exist: {self._last_route_file}")
         self._start_sumo(self._last_route_file, self._episode_seed)
         self._signal_controller = SignalController(self.connection, self.config.tl_id, self.config.signal)
         self._signal_controller.reset(0)
@@ -187,6 +196,7 @@ class IntersectionEnv(gym.Env[np.ndarray, int]):
             "throughput": current_snapshot.arrived,
             "phase_changed": result.switched,
             "ignored_action": result.ignored,
+            "signal_state": self.signal_controller.signal_state,
         }
         return observation, reward, terminated, truncated, info
 
@@ -194,6 +204,61 @@ class IntersectionEnv(gym.Env[np.ndarray, int]):
         if self._metrics is None:
             raise RuntimeError("No episode has been started")
         return self._metrics.summary(episode)
+
+    def visualization_state(self) -> dict[str, Any]:
+        """Return a UI-neutral live frame from the active SUMO episode."""
+        snapshot = self._previous_snapshot
+        if snapshot is None or self._metrics is None:
+            raise RuntimeError("No episode has been started")
+
+        vehicles: list[dict[str, Any]] = []
+        for vehicle_id in self.connection.vehicle.getIDList():
+            x, y = self.connection.vehicle.getPosition(vehicle_id)
+            vehicles.append(
+                {
+                    "id": vehicle_id,
+                    "x": float(x),
+                    "y": float(y),
+                    "angle": float(self.connection.vehicle.getAngle(vehicle_id)),
+                    "speed": float(self.connection.vehicle.getSpeed(vehicle_id)),
+                    "waiting_time": float(
+                        self.connection.vehicle.getAccumulatedWaitingTime(vehicle_id)
+                    ),
+                    "lane": self.connection.vehicle.getLaneID(vehicle_id),
+                    "route": list(self.connection.vehicle.getRoute(vehicle_id)),
+                }
+            )
+
+        lower, upper = self.connection.simulation.getNetBoundary()
+        queue_names = (
+            "N_left", "N_straight", "S_left", "S_straight",
+            "E_left", "E_straight", "W_left", "W_straight",
+        )
+        side = {
+            "phase": self.signal_controller.current_phase,
+            "phase_name": PHASE_NAMES[self.signal_controller.current_phase],
+            "phase_elapsed": self.signal_controller.phase_elapsed,
+            "signal_state": self.signal_controller.signal_state,
+            "vehicles": vehicles,
+            "metrics": {
+                "vehicles_remaining": int(self.connection.simulation.getMinExpectedNumber()),
+                "current_queue": snapshot.total_queue,
+                "average_waiting": snapshot.total_waiting_time / max(snapshot.vehicle_count, 1),
+                "maximum_waiting": snapshot.max_waiting_time,
+                "throughput": int(self._metrics.throughput),
+                "phase_changes": self.signal_controller.phase_changes,
+                "clearance_percent": 0.0,
+                "approach_queues": dict(zip(queue_names, snapshot.queue_by_group, strict=True)),
+            },
+        }
+        return {
+            "simulation_time": float(self.connection.simulation.getTime()),
+            "network_bounds": [
+                [float(lower[0]), float(lower[1])],
+                [float(upper[0]), float(upper[1])],
+            ],
+            "side": side,
+        }
 
     def close(self) -> None:
         if self._connection is not None:
