@@ -70,6 +70,17 @@ class CoreTests(unittest.TestCase):
         self.assertLess(reward_after, 0.0)
         self.assertGreater(reward_after, reward_worse)
 
+    def test_reward_strongly_penalizes_starvation_and_switching(self) -> None:
+        snapshot = TrafficSnapshot((1, 0, 0, 0, 0, 0, 0, 0), 1, 0, 90, 0, 0)
+        config = RewardConfig()
+        reward_held = calculate_reward(snapshot, snapshot, False, config)
+        reward_switched = calculate_reward(snapshot, snapshot, True, config)
+
+        self.assertAlmostEqual(config.max_waiting_weight, 1.0)
+        self.assertAlmostEqual(config.max_waiting_scale, 90.0)
+        self.assertAlmostEqual(reward_held, -1.025)
+        self.assertAlmostEqual(reward_switched - reward_held, -0.4)
+
 
 if __name__ == "__main__":
     unittest.main()

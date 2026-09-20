@@ -41,3 +41,7 @@
 다음 학습은 300초 이상 episode, 더 강한 maximum-wait/switch penalty, 다양한
 traffic horizon을 사용한 validation, 30개 이상의 고정 hold-out seed를 사용해야
 합니다.
+
+다음 실험부터 기본 reward 설정은 starvation과 과도한 전환을 줄이기 위해
+`max_waiting_weight=1.0`, `max_waiting_scale=90.0`,
+`switch_penalty=0.4`로 강화했습니다.

@@ -30,11 +30,11 @@ class RewardConfig:
 
     queue_weight: float = 1.0
     waiting_weight: float = 0.3
-    max_waiting_weight: float = 0.5
-    switch_penalty: float = 0.2
+    max_waiting_weight: float = 1.0
+    switch_penalty: float = 0.4
     queue_scale: float = 40.0
     waiting_scale: float = 120.0
-    max_waiting_scale: float = 120.0
+    max_waiting_scale: float = 90.0
 
 
 @dataclass(frozen=True)
