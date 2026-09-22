@@ -1,0 +1,35 @@
+{
+  "seed": 4022,
+  "scenario": "balanced",
+  "realized_scenario": "balanced",
+  "rates_vph": {
+    "N": 600,
+    "S": 600,
+    "E": 600,
+    "W": 600
+  },
+  "turn_ratios": {
+    "N": [
+      0.25,
+      0.6,
+      0.15
+    ],
+    "S": [
+      0.25,
+      0.6,
+      0.15
+    ],
+    "E": [
+      0.25,
+      0.6,
+      0.15
+    ],
+    "W": [
+      0.25,
+      0.6,
+      0.15
+    ]
+  },
+  "scheduled": 155,
+  "sha256": "300cae4c6306bb6a14766f4fc251ad0c98a92bce48c90a2d12bc9e5a491efb64"
+}

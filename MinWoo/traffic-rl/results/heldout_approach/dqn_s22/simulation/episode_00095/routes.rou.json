@@ -1,0 +1,35 @@
+{
+  "seed": 4005,
+  "scenario": "left_heavy",
+  "realized_scenario": "left_heavy",
+  "rates_vph": {
+    "N": 1300,
+    "S": 600,
+    "E": 600,
+    "W": 600
+  },
+  "turn_ratios": {
+    "N": [
+      0.7,
+      0.2,
+      0.1
+    ],
+    "S": [
+      0.25,
+      0.6,
+      0.15
+    ],
+    "E": [
+      0.25,
+      0.6,
+      0.15
+    ],
+    "W": [
+      0.25,
+      0.6,
+      0.15
+    ]
+  },
+  "scheduled": 194,
+  "sha256": "7bb1d99523e472d05415dbeffcbf2e6d85e819d65d03c49ebe2440ce00c6b3a9"
+}

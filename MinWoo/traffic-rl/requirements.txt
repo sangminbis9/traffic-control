@@ -1,0 +1,9 @@
+eclipse-sumo==1.27.1
+traci==1.27.1
+sumolib==1.27.1
+gymnasium>=1.0,<2
+stable-baselines3>=2.9,<3
+numpy>=1.26,<3
+pandas>=2.2,<4
+matplotlib>=3.9,<4
+pytest>=8,<10

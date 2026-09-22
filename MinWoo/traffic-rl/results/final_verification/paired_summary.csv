@@ -1,0 +1,4 @@
+,avg_waiting_time,max_waiting_time,avg_queue,max_queue,throughput,phase_changes,episode_reward,unfinished,not_inserted
+mean,10.056737588652481,56.5,4.728333333333333,11.0,-10.0,-11.0,-34.28969171468776,10.0,0.0
+std,,,,,,,,,
+count,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0

@@ -1,0 +1,15 @@
+{
+  "timesteps": 50000,
+  "gradient_updates": 11249,
+  "training_seed_range": [
+    1,
+    1000
+  ],
+  "training_seed": 22,
+  "observation_size": 26,
+  "network_sha256": "449b1d78b133f6ea97663e5a581a65370cf5aa45ea81bcf272b990f91471dde1",
+  "network_hash_format": "canonical_xml_v1",
+  "training_output": "C:\\Users\\minwo\\OneDrive\\\ubb38\uc11c\\ChatGPT\\Capstone\\traffic-rl\\results\\experiments_switch\\switch_s22",
+  "backend": "libsumo",
+  "elapsed_seconds": 277.0563038000837
+}

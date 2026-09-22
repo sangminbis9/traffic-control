@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+traffic-rl/results/runs/
+traffic-rl/results/training/
+traffic-rl/results/models/
+traffic-rl/results/experiments*/**/simulation/
+traffic-rl/results/selection_*/**/simulation/
+traffic-rl/results/heldout_*/**/simulation/
+traffic-rl/results/**/final.replay.pkl

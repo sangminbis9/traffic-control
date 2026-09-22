@@ -1,0 +1,5 @@
+controller,episodes,emergency_braking,emergency_stop
+fixed,180,12,11
+dqn_s11,180,15,15
+dqn_s22,180,12,12
+dqn_s33,180,11,11

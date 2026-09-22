@@ -1,0 +1,43 @@
+Captured 30 frames, simulation t=30s
+Captured 60 frames, simulation t=60s
+Captured 90 frames, simulation t=90s
+Captured 120 frames, simulation t=120s
+Captured 150 frames, simulation t=150s
+Captured 180 frames, simulation t=180s
+Captured 210 frames, simulation t=210s
+Captured 240 frames, simulation t=240s
+Captured 270 frames, simulation t=270s
+Captured 300 frames, simulation t=300s
+{
+  "gif": "C:\\Users\\minwo\\OneDrive\\\ubb38\uc11c\\ChatGPT\\Capstone\\traffic-rl\\results\\capture_20260922_dqn\\dqn_sumo_5x.gif",
+  "frames": 300,
+  "metrics": {
+    "episode": 1,
+    "controller": "dqn",
+    "seed": 4001,
+    "traffic_scenario": "ns_heavy",
+    "realized_scenario": "ns_heavy",
+    "avg_waiting_time": 8.997630331753555,
+    "max_waiting_time": 82.5,
+    "avg_queue": 6.328333333333333,
+    "max_queue": 13,
+    "throughput": 201,
+    "episode_reward": -40.597921267869246,
+    "departed": 211,
+    "unfinished": 10,
+    "pending": 0,
+    "max_pending": 2,
+    "collisions": 0,
+    "teleports": 0,
+    "duration": 300.0,
+    "reward_queue": -23.731250448152423,
+    "reward_waiting": -0.622504166346334,
+    "reward_max_waiting": -9.444166653370491,
+    "reward_switching": -6.800000000000003,
+    "phase_changes": 34,
+    "forced_changes": 7,
+    "scheduled": 211,
+    "not_inserted": 0,
+    "route_sha256": "49661176c787b94a3f7c7d6ec581e971443314fe1aa7d6d5c7576cf41bd083a7"
+  }
+}

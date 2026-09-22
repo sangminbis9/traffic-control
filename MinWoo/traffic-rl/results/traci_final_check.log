@@ -1,0 +1,16 @@
+balanced seed=4001 fixed: waiting=12.43, throughput=162
+balanced seed=4001 dqn: waiting=7.48, throughput=160
+ns_heavy seed=4001 fixed: waiting=24.66, throughput=171
+ns_heavy seed=4001 dqn: waiting=9.00, throughput=201
+ew_heavy seed=4001 fixed: waiting=24.25, throughput=170
+ew_heavy seed=4001 dqn: waiting=12.12, throughput=189
+left_heavy seed=4001 fixed: waiting=29.18, throughput=156
+left_heavy seed=4001 dqn: waiting=16.61, throughput=181
+heavy seed=4001 fixed: waiting=29.39, throughput=313
+heavy seed=4001 dqn: waiting=28.73, throughput=337
+low seed=4001 fixed: waiting=9.49, throughput=34
+low seed=4001 dqn: waiting=9.83, throughput=33
+            avg_waiting_time  max_waiting_time  avg_queue  max_queue  throughput
+controller                                                                      
+dqn                13.960775        105.666667  12.234722  29.166667  183.500000
+fixed              21.567610        100.500000  17.210278  39.166667  167.666667

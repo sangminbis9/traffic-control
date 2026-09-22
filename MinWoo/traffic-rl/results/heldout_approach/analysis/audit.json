@@ -1,0 +1,93 @@
+{
+  "episodes": 720,
+  "model_hashes_match": true,
+  "paired_routes_match": true,
+  "collisions": 0,
+  "teleports": 0,
+  "traci_parity": [
+    {
+      "controller": "fixed",
+      "cases": 6,
+      "numeric_columns": [
+        "seed",
+        "avg_waiting_time",
+        "max_waiting_time",
+        "avg_queue",
+        "max_queue",
+        "throughput",
+        "episode_reward",
+        "departed",
+        "unfinished",
+        "pending",
+        "max_pending",
+        "collisions",
+        "teleports",
+        "duration",
+        "reward_queue",
+        "reward_waiting",
+        "reward_max_waiting",
+        "reward_switching",
+        "phase_changes",
+        "forced_changes",
+        "scheduled",
+        "not_inserted"
+      ],
+      "exact_match": true
+    },
+    {
+      "controller": "dqn",
+      "cases": 6,
+      "numeric_columns": [
+        "seed",
+        "avg_waiting_time",
+        "max_waiting_time",
+        "avg_queue",
+        "max_queue",
+        "throughput",
+        "episode_reward",
+        "departed",
+        "unfinished",
+        "pending",
+        "max_pending",
+        "collisions",
+        "teleports",
+        "duration",
+        "reward_queue",
+        "reward_waiting",
+        "reward_max_waiting",
+        "reward_switching",
+        "phase_changes",
+        "forced_changes",
+        "scheduled",
+        "not_inserted"
+      ],
+      "exact_match": true
+    }
+  ],
+  "warnings": [
+    {
+      "controller": "fixed",
+      "episodes": 180,
+      "emergency_braking": 12,
+      "emergency_stop": 11
+    },
+    {
+      "controller": "dqn_s11",
+      "episodes": 180,
+      "emergency_braking": 15,
+      "emergency_stop": 15
+    },
+    {
+      "controller": "dqn_s22",
+      "episodes": 180,
+      "emergency_braking": 12,
+      "emergency_stop": 12
+    },
+    {
+      "controller": "dqn_s33",
+      "episodes": 180,
+      "emergency_braking": 11,
+      "emergency_stop": 11
+    }
+  ]
+}

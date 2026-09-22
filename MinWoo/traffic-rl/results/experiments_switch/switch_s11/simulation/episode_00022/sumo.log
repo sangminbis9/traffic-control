@@ -1,0 +1,6 @@
+Loading net-file from 'C:\Users\minwo\OneDrive\문서\ChatGPT\Capstone\traffic-rl\sumo\intersection.net.xml' ... done (3ms).
+Loading route-files incrementally from 'C:\Users\minwo\OneDrive\문서\ChatGPT\Capstone\traffic-rl\results\experiments_switch\switch_s11\simulation\episode_00022\routes.rou.xml'
+Loading done.
+Simulation version 1.27.1 started via libsumo with time: 0.00.
+Simulation ended at time: 300.00.
+Reason: Libsumo requested termination.

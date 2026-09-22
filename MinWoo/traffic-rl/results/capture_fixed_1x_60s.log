@@ -1,0 +1,12 @@
+ Retrying in 1 seconds
+t=30s, captured=60
+t=60s, captured=120
+t=90s, captured=120
+t=120s, captured=120
+t=150s, captured=120
+t=180s, captured=120
+t=210s, captured=120
+t=240s, captured=120
+t=270s, captured=120
+t=300s, captured=120
+C:\Users\minwo\OneDrive\����\ChatGPT\Capstone\traffic-rl\results\capture_fixed_1x_60s\fixed_sumo_1x_60s.gif

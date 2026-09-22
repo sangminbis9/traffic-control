@@ -1,0 +1,21 @@
+ Retrying in 1 seconds
+Traceback (most recent call last):
+  File "C:\Users\minwo\OneDrive\����\ChatGPT\Capstone\traffic-rl\capture_sumo.py", line 88, in <module>
+    main()
+  File "C:\Users\minwo\OneDrive\����\ChatGPT\Capstone\traffic-rl\capture_sumo.py", line 51, in main
+    obs, _, terminated, truncated, info = env.step(action)
+                                          ^^^^^^^^^^^^^^^^
+  File "C:\Users\minwo\OneDrive\����\ChatGPT\Capstone\traffic-rl\env\intersection_env.py", line 101, in step
+    self.snapshot = self.backend.step()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\minwo\OneDrive\����\ChatGPT\Capstone\traffic-rl\simulation\backend.py", line 89, in step
+    self.connection.simulationStep()
+  File "C:\Program Files (x86)\Eclipse\Sumo\tools\traci\connection.py", line 370, in simulationStep
+    result = self._sendCmd(tc.CMD_SIMSTEP, None, None, "D", step)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files (x86)\Eclipse\Sumo\tools\traci\connection.py", line 232, in _sendCmd
+    return self._sendExact()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Program Files (x86)\Eclipse\Sumo\tools\traci\connection.py", line 137, in _sendExact
+    raise FatalTraCIError("Connection closed by SUMO.")
+traci.exceptions.FatalTraCIError: Connection closed by SUMO.

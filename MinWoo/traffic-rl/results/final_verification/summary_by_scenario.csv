@@ -1,0 +1,3 @@
+traffic_scenario,controller,avg_waiting_time_mean,avg_waiting_time_std,avg_waiting_time_count,max_waiting_time_mean,max_waiting_time_std,max_waiting_time_count,avg_queue_mean,avg_queue_std,avg_queue_count,max_queue_mean,max_queue_std,max_queue_count,throughput_mean,throughput_std,throughput_count,phase_changes_mean,phase_changes_std,phase_changes_count,episode_reward_mean,episode_reward_std,episode_reward_count,unfinished_mean,unfinished_std,unfinished_count,not_inserted_mean,not_inserted_std,not_inserted_count
+balanced,dqn,18.361702127659573,,1,96.5,,1,8.631666666666666,,1,24.0,,1,130.0,,1,22.0,,1,-63.508383449968065,,1,11.0,,1,0.0,,1
+balanced,fixed,8.304964539007091,,1,40.0,,1,3.9033333333333333,,1,13.0,,1,140.0,,1,33.0,,1,-29.218691735280306,,1,1.0,,1,0.0,,1

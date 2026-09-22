@@ -1,0 +1,33 @@
+Warning: Vehicle 'veh_000188' performs emergency braking on lane 'N_in_0' with decel=9.00, wished=4.50, severity=1.00, time=227.00.
+Warning: Vehicle 'veh_000188' performs emergency stop at the end of lane 'N_in_0' because of a red traffic light (decel=-13.07, offset=2.04), time=227.00.
+Warning: Vehicle 'veh_000185' performs emergency braking on lane 'S_in_0' with decel=9.00, wished=4.50, severity=1.00, time=227.00.
+Warning: Vehicle 'veh_000185' performs emergency stop at the end of lane 'S_in_0' because of a red traffic light (decel=-12.80, offset=1.90), time=227.00.
+Warning: Vehicle 'veh_000043' performs emergency braking on lane 'S_in_0' with decel=9.00, wished=4.50, severity=1.00, time=47.00.
+Warning: Vehicle 'veh_000043' performs emergency stop at the end of lane 'S_in_0' because of a red traffic light (decel=-12.04, offset=1.52), time=47.00.
+Warning: Vehicle 'veh_000041' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=69.00.
+Warning: Vehicle 'veh_000041' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-12.15, offset=1.58), time=69.00.
+{"model": "temporal_s22/models/dqn_20000.zip", "waiting_improvement_pct": -17.114998927312012, "queue_improvement_pct": -17.10643657033932, "throughput_change_pct": -12.639476721816084, "all_primary_better": false}
+{"model": "temporal_s11/models/dqn_20000.zip", "waiting_improvement_pct": -38.70830649392441, "queue_improvement_pct": -43.6202729841043, "throughput_change_pct": -18.487879953828408, "all_primary_better": false}
+{"model": "temporal_s33/models/dqn_20000.zip", "waiting_improvement_pct": -29.421584362667655, "queue_improvement_pct": -28.763742809489763, "throughput_change_pct": -12.870334744132363, "all_primary_better": false}
+Warning: Vehicle 'veh_000143' performs emergency braking on lane 'S_in_0' with decel=9.00, wished=4.50, severity=1.00, time=228.00.
+Warning: Vehicle 'veh_000143' performs emergency stop at the end of lane 'S_in_0' because of a red traffic light (decel=-11.36, offset=1.18), time=228.00.
+Warning: Vehicle 'veh_000054' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=52.00.
+Warning: Vehicle 'veh_000054' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-12.74, offset=1.87), time=52.00.
+{"model": "temporal_s22/models/dqn_50000.zip", "waiting_improvement_pct": -15.366353697806074, "queue_improvement_pct": -26.38142891180772, "throughput_change_pct": -8.599461331281264, "all_primary_better": false}
+{"model": "temporal_s33/models/dqn_50000.zip", "waiting_improvement_pct": -25.99564332510108, "queue_improvement_pct": -35.907621089894114, "throughput_change_pct": -12.524047710657955, "all_primary_better": false}
+Warning: Vehicle 'veh_000039' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=72.00.
+Warning: Vehicle 'veh_000039' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-13.04, offset=2.02), time=72.00.
+{"model": "temporal_s11/models/dqn_50000.zip", "waiting_improvement_pct": -15.868464041503586, "queue_improvement_pct": -22.640661697130586, "throughput_change_pct": -7.868410927279734, "all_primary_better": false}
+Warning: Vehicle 'veh_000075' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=111.00.
+Warning: Vehicle 'veh_000075' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-13.33, offset=1.72), time=111.00.
+Warning: Vehicle 'veh_000106' performs emergency braking on lane 'N_in_0' with decel=9.00, wished=4.50, severity=1.00, time=167.00.
+Warning: Vehicle 'veh_000106' performs emergency stop at the end of lane 'N_in_0' because of a red traffic light (decel=-12.98, offset=1.99), time=167.00.
+{"model": "temporal_s11/models/dqn_100000.zip", "waiting_improvement_pct": -6.422807185231686, "queue_improvement_pct": -18.42098097280369, "throughput_change_pct": -5.405925355906121, "all_primary_better": false}
+Warning: Vehicle 'veh_000013' performs emergency braking on lane 'W_in_0' with decel=9.00, wished=4.50, severity=1.00, time=39.00.
+Warning: Vehicle 'veh_000013' performs emergency stop at the end of lane 'W_in_0' because of a red traffic light (decel=-12.95, offset=1.97), time=39.00.
+Warning: Vehicle 'veh_000053' performs emergency braking on lane 'W_in_0' with decel=9.00, wished=4.50, severity=1.00, time=103.00.
+Warning: Vehicle 'veh_000053' performs emergency stop at the end of lane 'W_in_0' because of a red traffic light (decel=-13.32, offset=2.16), time=103.00.
+Warning: Vehicle 'veh_000075' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=111.00.
+Warning: Vehicle 'veh_000075' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-13.08, offset=2.04), time=111.00.
+{"model": "temporal_s22/models/dqn_100000.zip", "waiting_improvement_pct": 2.106169623898216, "queue_improvement_pct": -7.303175737771878, "throughput_change_pct": -3.0781069642170116, "all_primary_better": false}
+{"model": "temporal_s33/models/dqn_100000.zip", "waiting_improvement_pct": -6.6147098013755405, "queue_improvement_pct": -14.997787535314325, "throughput_change_pct": -5.098114659484422, "all_primary_better": false}

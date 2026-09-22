@@ -1,0 +1,10 @@
+Loading net-file from 'C:\Users\minwo\OneDrive\문서\ChatGPT\Capstone\traffic-rl\sumo\intersection.net.xml' ... done (2ms).
+Loading route-files incrementally from 'C:\Users\minwo\OneDrive\문서\ChatGPT\Capstone\traffic-rl\results\heldout_approach\fixed\simulation\episode_00095\routes.rou.xml'
+Loading done.
+Simulation version 1.27.1 started via libsumo with time: 0.00.
+Warning: Vehicle 'veh_000011' performs emergency braking on lane 'N_in_0' with decel=9.00, wished=4.50, severity=1.00, time=47.00.
+Warning: Vehicle 'veh_000011' performs emergency stop at the end of lane 'N_in_0' because of a red traffic light (decel=-13.19, offset=2.10), time=47.00.
+Warning: Vehicle 'veh_000127' performs emergency braking on lane 'S_in_0' with decel=9.00, wished=4.50, severity=1.00, time=191.00.
+Warning: Vehicle 'veh_000127' performs emergency stop at the end of lane 'S_in_0' because of a red traffic light (decel=-11.60, offset=1.30), time=191.00.
+Simulation ended at time: 300.00.
+Reason: Libsumo requested termination.

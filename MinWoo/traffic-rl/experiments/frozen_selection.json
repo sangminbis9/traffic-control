@@ -1,0 +1,47 @@
+{
+  "frozen_at_utc": "2026-09-18T06:14:46.314736+00:00",
+  "network_sha256": "449b1d78b133f6ea97663e5a581a65370cf5aa45ea81bcf272b990f91471dde1",
+  "selection_rule": "Lowest across-seed mean validation waiting among common budgets where every seed improves waiting/queue and maintains throughput",
+  "validation_seeds": [
+    3001,
+    3002,
+    3003,
+    3004,
+    3005
+  ],
+  "test_seed_start": 4001,
+  "test_seed_count": 30,
+  "default_model_training_seed": 22,
+  "models": [
+    {
+      "training_seed": 11,
+      "steps": 150000,
+      "model": "results/models/dqn_s11.zip",
+      "model_sha256": "ef0ee4f0445128a84d3308943452d0bdd7ceca8be90c088ca8c5f2cef9b7e83f",
+      "source_model": "results/experiments_approach/approach_s11/models/dqn_150000.zip",
+      "validation_waiting_improvement_pct": 27.06788444848464,
+      "validation_queue_improvement_pct": 17.85765342591647,
+      "validation_throughput_change_pct": 4.424778761061941
+    },
+    {
+      "training_seed": 22,
+      "steps": 150000,
+      "model": "results/models/dqn_s22.zip",
+      "model_sha256": "920fe8d6141ad7f7621ec8e28cf5957fe7e92237ed2dc9d6f35b4f3efa13b28d",
+      "source_model": "results/experiments_approach/approach_s22/models/dqn_150000.zip",
+      "validation_waiting_improvement_pct": 32.1439915348434,
+      "validation_queue_improvement_pct": 23.575342932026285,
+      "validation_throughput_change_pct": 7.021931512120039
+    },
+    {
+      "training_seed": 33,
+      "steps": 150000,
+      "model": "results/models/dqn_s33.zip",
+      "model_sha256": "3b3f534a80317c18e88367dfb477201e75e0fa1278464525c58b03d7cc4852fa",
+      "source_model": "results/experiments_approach/approach_s33/models/dqn_150000.zip",
+      "validation_waiting_improvement_pct": 26.20166776395149,
+      "validation_queue_improvement_pct": 16.654753395282366,
+      "validation_throughput_change_pct": 5.69449788380145
+    }
+  ]
+}

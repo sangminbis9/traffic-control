@@ -1,0 +1,62 @@
+Warning: Vehicle 'veh_000009' performs emergency braking on lane 'W_in_0' with decel=9.00, wished=4.50, severity=1.00, time=30.00.
+Warning: Vehicle 'veh_000009' performs emergency stop at the end of lane 'W_in_0' because of a red traffic light (decel=-13.00, offset=2.00), time=30.00.
+{"seed": 33, "steps": 10000, "updates": 1249, "elapsed": 27.3}
+{"seed": 33, "steps": 20000, "updates": 3749, "elapsed": 52.4}
+Warning: Vehicle 'veh_000078' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=136.00.
+Warning: Vehicle 'veh_000078' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-11.57, offset=1.29), time=136.00.
+Warning: Vehicle 'veh_000255' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=263.00.
+Warning: Vehicle 'veh_000255' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-10.83, offset=0.91), time=263.00.
+Warning: Vehicle 'veh_000183' performs emergency braking on lane 'S_in_0' with decel=9.00, wished=4.50, severity=1.00, time=208.00.
+Warning: Vehicle 'veh_000183' performs emergency stop at the end of lane 'S_in_0' because of a red traffic light (decel=-12.69, offset=1.84), time=208.00.
+{"seed": 33, "steps": 30000, "updates": 6249, "elapsed": 84.1}
+{"seed": 33, "steps": 40000, "updates": 8749, "elapsed": 126.7}
+Warning: Vehicle 'veh_000060' performs emergency braking on lane 'W_in_0' with decel=9.00, wished=4.50, severity=1.00, time=75.00.
+Warning: Vehicle 'veh_000060' performs emergency stop at the end of lane 'W_in_0' because of a red traffic light (decel=-11.28, offset=1.14), time=75.00.
+{"seed": 33, "steps": 50000, "updates": 11249, "elapsed": 191.5}
+Warning: Vehicle 'veh_000236' performs emergency braking on lane 'S_in_0' with decel=9.00, wished=4.50, severity=1.00, time=181.00.
+Warning: Vehicle 'veh_000236' performs emergency stop at the end of lane 'S_in_0' because of a red traffic light (decel=-13.12, offset=2.06), time=181.00.
+Warning: Vehicle 'veh_000078' performs emergency braking on lane 'W_in_0' with decel=9.00, wished=4.50, severity=1.00, time=101.00.
+Warning: Vehicle 'veh_000078' performs emergency stop at the end of lane 'W_in_0' because of a red traffic light (decel=-11.95, offset=1.47), time=101.00.
+{"seed": 33, "steps": 60000, "updates": 13749, "elapsed": 252.0}
+Warning: Vehicle 'veh_000112' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=134.00.
+Warning: Vehicle 'veh_000112' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-11.54, offset=1.27), time=134.00.
+Warning: Vehicle 'veh_000120' performs emergency braking on lane 'S_in_0' with decel=9.00, wished=4.50, severity=1.00, time=142.00.
+Warning: Vehicle 'veh_000120' performs emergency stop at the end of lane 'S_in_0' because of a red traffic light (decel=-10.86, offset=0.93), time=142.00.
+{"seed": 33, "steps": 70000, "updates": 16249, "elapsed": 294.2}
+Warning: Vehicle 'veh_000091' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=124.00.
+Warning: Vehicle 'veh_000091' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-12.50, offset=1.75), time=124.00.
+{"seed": 33, "steps": 80000, "updates": 18749, "elapsed": 333.9}
+Warning: Vehicle 'veh_000031' performs emergency braking on lane 'W_in_0' with decel=9.00, wished=4.50, severity=1.00, time=51.00.
+Warning: Vehicle 'veh_000031' performs emergency stop at the end of lane 'W_in_0' because of a red traffic light (decel=-12.96, offset=1.98), time=51.00.
+{"seed": 33, "steps": 90000, "updates": 21249, "elapsed": 388.2}
+Warning: Vehicle 'veh_000037' performs emergency braking on lane 'S_in_0' with decel=9.00, wished=4.50, severity=1.00, time=53.00.
+Warning: Vehicle 'veh_000037' performs emergency stop at the end of lane 'S_in_0' because of a red traffic light (decel=-11.72, offset=1.36), time=53.00.
+Warning: Vehicle 'veh_000006' performs emergency braking on lane 'S_in_0' with decel=9.00, wished=4.50, severity=1.00, time=27.00.
+Warning: Vehicle 'veh_000006' performs emergency stop at the end of lane 'S_in_0' because of a red traffic light (decel=-12.35, offset=1.67), time=27.00.
+Warning: Vehicle 'veh_000283' performs emergency braking on lane 'N_in_0' with decel=9.00, wished=4.50, severity=1.00, time=260.00.
+Warning: Vehicle 'veh_000283' performs emergency stop at the end of lane 'N_in_0' because of a red traffic light (decel=-13.09, offset=2.04), time=260.00.
+{"seed": 33, "steps": 100000, "updates": 23749, "elapsed": 441.6}
+{"seed": 33, "steps": 110000, "updates": 26249, "elapsed": 494.3}
+{"seed": 33, "steps": 120000, "updates": 28749, "elapsed": 562.1}
+Warning: Vehicle 'veh_000227' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=234.00.
+Warning: Vehicle 'veh_000227' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-11.66, offset=1.33), time=234.00.
+Warning: Vehicle 'veh_000013' performs emergency braking on lane 'N_in_0' with decel=9.00, wished=4.50, severity=1.00, time=38.00.
+Warning: Vehicle 'veh_000013' performs emergency stop at the end of lane 'N_in_0' because of a red traffic light (decel=-13.34, offset=2.17), time=38.00.
+Warning: Vehicle 'veh_000202' performs emergency braking on lane 'S_in_0' with decel=9.00, wished=4.50, severity=1.00, time=241.00.
+Warning: Vehicle 'veh_000202' performs emergency stop at the end of lane 'S_in_0' because of a red traffic light (decel=-13.18, offset=2.09), time=241.00.
+Warning: Vehicle 'veh_000155' performs emergency braking on lane 'S_in_0' with decel=9.00, wished=4.50, severity=1.00, time=186.00.
+Warning: Vehicle 'veh_000155' performs emergency stop at the end of lane 'S_in_0' because of a red traffic light (decel=-12.81, offset=1.90), time=186.00.
+{"seed": 33, "steps": 130000, "updates": 31249, "elapsed": 614.8}
+Warning: Vehicle 'veh_000144' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=189.00.
+Warning: Vehicle 'veh_000144' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-13.84, offset=2.42), time=189.00.
+{"seed": 33, "steps": 140000, "updates": 33749, "elapsed": 671.3}
+Warning: Vehicle 'veh_000178' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=219.00.
+Warning: Vehicle 'veh_000178' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-13.46, offset=2.23), time=219.00.
+Warning: Vehicle 'veh_000038' performs emergency braking on lane 'S_in_0' with decel=9.00, wished=4.50, severity=1.00, time=56.00.
+Warning: Vehicle 'veh_000038' performs emergency stop at the end of lane 'S_in_0' because of a red traffic light (decel=-13.14, offset=2.07), time=56.00.
+Warning: Vehicle 'veh_000003' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=25.00.
+Warning: Vehicle 'veh_000003' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-13.37, offset=1.84), time=25.00.
+Warning: Vehicle 'veh_000004' performs emergency braking on lane 'E_in_0' with decel=9.00, wished=4.50, severity=1.00, time=28.00.
+Warning: Vehicle 'veh_000004' performs emergency stop at the end of lane 'E_in_0' because of a red traffic light (decel=-13.29, offset=1.87), time=28.00.
+{"seed": 33, "steps": 150000, "updates": 36249, "elapsed": 704.7}
+COMPLETE seed=33 steps=150000

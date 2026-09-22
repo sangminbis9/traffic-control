@@ -1,0 +1,67 @@
+{
+  "simulation": {
+    "step_length": 0.5,
+    "episode_seconds": 300,
+    "demand_seconds": 240,
+    "decision_interval": 1.0
+  },
+  "signal": {
+    "minimum_green": 3.0,
+    "maximum_green": 15.0,
+    "yellow": 1.0,
+    "all_red": 1.0,
+    "max_red": 60.0,
+    "fixed_green": [
+      10.0,
+      4.0,
+      10.0,
+      4.0
+    ]
+  },
+  "normalization": {
+    "queue_per_group": 40.0,
+    "total_waiting": 6000.0,
+    "max_waiting": 120.0
+  },
+  "reward": {
+    "queue": 1.0,
+    "waiting": 0.3,
+    "max_waiting": 0.5,
+    "switching": 1.0
+  },
+  "traffic": {
+    "scenario": "random",
+    "left_direction": "N",
+    "turn_ratios": [
+      0.25,
+      0.6,
+      0.15
+    ],
+    "random_rate_range": [
+      150.0,
+      1500.0
+    ],
+    "rates": null
+  },
+  "training": {
+    "seed": 33,
+    "traffic_seed_min": 1,
+    "traffic_seed_max": 1000,
+    "total_timesteps": 200000,
+    "learning_rate": 0.0001,
+    "buffer_size": 100000,
+    "learning_starts": 5000,
+    "batch_size": 64,
+    "gamma": 0.99,
+    "train_freq": 4,
+    "gradient_steps": 1,
+    "target_update_interval": 1000,
+    "exploration_fraction": 0.45,
+    "exploration_final_eps": 0.05,
+    "net_arch": [
+      128,
+      128
+    ],
+    "torch_threads": 1
+  }
+}

@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="11.11" tau="1.0" />
+  <route id="N_left" edges="N_in E_out" />
+  <route id="N_straight" edges="N_in S_out" />
+  <route id="N_right" edges="N_in W_out" />
+  <route id="S_left" edges="S_in W_out" />
+  <route id="S_straight" edges="S_in N_out" />
+  <route id="S_right" edges="S_in E_out" />
+  <route id="E_left" edges="E_in S_out" />
+  <route id="E_straight" edges="E_in W_out" />
+  <route id="E_right" edges="E_in N_out" />
+  <route id="W_left" edges="W_in N_out" />
+  <route id="W_straight" edges="W_in E_out" />
+  <route id="W_right" edges="W_in S_out" />
+  <vehicle id="veh_000000" type="car" route="S_right" depart="0.462" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000001" type="car" route="S_straight" depart="1.284" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000002" type="car" route="W_straight" depart="6.237" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000003" type="car" route="E_straight" depart="7.238" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000004" type="car" route="N_straight" depart="11.750" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000005" type="car" route="N_straight" depart="14.051" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000006" type="car" route="S_straight" depart="19.647" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000007" type="car" route="N_left" depart="22.082" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000008" type="car" route="N_left" depart="23.996" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000009" type="car" route="S_left" depart="24.165" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000010" type="car" route="N_straight" depart="26.468" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000011" type="car" route="S_straight" depart="27.665" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000012" type="car" route="S_straight" depart="28.598" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000013" type="car" route="S_right" depart="30.332" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000014" type="car" route="N_left" depart="31.321" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000015" type="car" route="W_right" depart="31.680" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000016" type="car" route="S_straight" depart="31.871" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000017" type="car" route="E_straight" depart="35.060" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000018" type="car" route="N_straight" depart="35.551" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000019" type="car" route="S_straight" depart="35.593" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000020" type="car" route="E_right" depart="38.747" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000021" type="car" route="S_straight" depart="38.839" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000022" type="car" route="N_left" depart="40.752" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000023" type="car" route="S_right" depart="42.765" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000024" type="car" route="W_right" depart="52.327" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000025" type="car" route="S_straight" depart="53.435" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000026" type="car" route="S_straight" depart="54.732" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000027" type="car" route="W_right" depart="54.906" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000028" type="car" route="S_right" depart="55.299" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000029" type="car" route="N_left" depart="58.208" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000030" type="car" route="S_straight" depart="59.020" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000031" type="car" route="W_right" depart="59.696" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000032" type="car" route="W_left" depart="61.395" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000033" type="car" route="S_straight" depart="62.875" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000034" type="car" route="S_straight" depart="65.205" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000035" type="car" route="E_left" depart="65.371" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000036" type="car" route="S_right" depart="69.921" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000037" type="car" route="E_right" depart="70.141" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000038" type="car" route="E_right" depart="70.643" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000039" type="car" route="N_left" depart="71.368" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000040" type="car" route="W_straight" depart="72.403" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000041" type="car" route="N_left" depart="72.617" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000042" type="car" route="S_left" depart="73.421" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000043" type="car" route="S_straight" depart="76.311" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000044" type="car" route="E_left" depart="76.998" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000045" type="car" route="S_straight" depart="78.391" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000046" type="car" route="W_straight" depart="78.484" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000047" type="car" route="W_straight" depart="80.485" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000048" type="car" route="N_straight" depart="81.135" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000049" type="car" route="W_straight" depart="81.187" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000050" type="car" route="S_left" depart="81.226" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000051" type="car" route="W_left" depart="81.532" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000052" type="car" route="W_straight" depart="85.310" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000053" type="car" route="W_straight" depart="85.645" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000054" type="car" route="S_right" depart="86.476" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000055" type="car" route="E_straight" depart="87.776" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000056" type="car" route="W_left" depart="87.990" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000057" type="car" route="S_straight" depart="89.924" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000058" type="car" route="S_straight" depart="93.163" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000059" type="car" route="S_straight" depart="94.055" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000060" type="car" route="W_straight" depart="96.729" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000061" type="car" route="S_straight" depart="97.069" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000062" type="car" route="S_straight" depart="97.666" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000063" type="car" route="S_straight" depart="98.055" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000064" type="car" route="W_left" depart="100.650" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000065" type="car" route="W_straight" depart="101.638" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000066" type="car" route="W_left" depart="101.735" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000067" type="car" route="E_left" depart="101.930" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000068" type="car" route="W_left" depart="104.087" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000069" type="car" route="S_straight" depart="106.364" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000070" type="car" route="W_straight" depart="106.504" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000071" type="car" route="S_straight" depart="108.530" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000072" type="car" route="S_right" depart="111.056" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000073" type="car" route="S_straight" depart="113.682" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000074" type="car" route="N_left" depart="116.093" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000075" type="car" route="S_straight" depart="116.292" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000076" type="car" route="W_right" depart="116.747" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000077" type="car" route="S_straight" depart="118.427" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000078" type="car" route="W_right" depart="119.057" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000079" type="car" route="W_straight" depart="120.542" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000080" type="car" route="W_straight" depart="123.366" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000081" type="car" route="W_left" depart="125.478" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000082" type="car" route="N_left" depart="125.762" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000083" type="car" route="E_right" depart="126.049" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000084" type="car" route="W_left" depart="127.177" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000085" type="car" route="N_left" depart="128.015" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000086" type="car" route="S_straight" depart="128.311" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000087" type="car" route="W_left" depart="129.889" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000088" type="car" route="S_left" depart="130.854" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000089" type="car" route="S_straight" depart="130.873" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000090" type="car" route="S_straight" depart="131.867" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000091" type="car" route="W_straight" depart="135.139" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000092" type="car" route="S_straight" depart="136.951" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000093" type="car" route="S_straight" depart="139.017" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000094" type="car" route="S_right" depart="140.526" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000095" type="car" route="W_left" depart="140.685" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000096" type="car" route="S_straight" depart="142.022" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000097" type="car" route="S_left" depart="143.558" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000098" type="car" route="S_straight" depart="144.526" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000099" type="car" route="S_straight" depart="151.026" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000100" type="car" route="E_straight" depart="151.637" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000101" type="car" route="N_straight" depart="152.554" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000102" type="car" route="S_straight" depart="155.629" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000103" type="car" route="E_straight" depart="158.902" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000104" type="car" route="W_straight" depart="159.788" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000105" type="car" route="E_right" depart="162.710" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000106" type="car" route="E_straight" depart="164.658" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000107" type="car" route="S_straight" depart="168.041" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000108" type="car" route="W_left" depart="168.207" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000109" type="car" route="S_straight" depart="168.365" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000110" type="car" route="S_straight" depart="168.737" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000111" type="car" route="E_straight" depart="169.597" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000112" type="car" route="E_straight" depart="171.599" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000113" type="car" route="S_straight" depart="172.183" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000114" type="car" route="S_left" depart="173.165" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000115" type="car" route="W_left" depart="174.254" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000116" type="car" route="S_straight" depart="174.436" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000117" type="car" route="N_straight" depart="174.976" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000118" type="car" route="W_left" depart="175.642" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000119" type="car" route="W_left" depart="177.378" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000120" type="car" route="W_left" depart="181.446" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000121" type="car" route="W_left" depart="183.776" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000122" type="car" route="S_straight" depart="183.788" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000123" type="car" route="S_straight" depart="185.668" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000124" type="car" route="S_straight" depart="186.713" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000125" type="car" route="N_left" depart="187.982" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000126" type="car" route="N_left" depart="188.674" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000127" type="car" route="E_straight" depart="190.347" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000128" type="car" route="S_straight" depart="190.552" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000129" type="car" route="W_straight" depart="191.966" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000130" type="car" route="N_straight" depart="193.307" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000131" type="car" route="W_straight" depart="194.475" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000132" type="car" route="N_left" depart="199.093" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000133" type="car" route="E_right" depart="199.097" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000134" type="car" route="S_straight" depart="199.860" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000135" type="car" route="W_straight" depart="201.222" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000136" type="car" route="S_straight" depart="202.622" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000137" type="car" route="S_straight" depart="205.531" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000138" type="car" route="W_right" depart="206.102" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000139" type="car" route="E_straight" depart="206.484" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000140" type="car" route="S_straight" depart="206.790" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000141" type="car" route="S_straight" depart="209.394" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000142" type="car" route="E_straight" depart="210.581" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000143" type="car" route="S_straight" depart="211.045" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000144" type="car" route="E_left" depart="212.000" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000145" type="car" route="E_right" depart="212.281" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000146" type="car" route="S_straight" depart="217.169" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000147" type="car" route="S_right" depart="217.815" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000148" type="car" route="N_left" depart="219.340" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000149" type="car" route="S_straight" depart="219.822" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000150" type="car" route="S_straight" depart="220.401" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000151" type="car" route="E_straight" depart="222.641" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000152" type="car" route="S_straight" depart="225.551" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000153" type="car" route="E_left" depart="226.932" departLane="2" departSpeed="max" />
+  <vehicle id="veh_000154" type="car" route="W_straight" depart="230.393" departLane="1" departSpeed="max" />
+  <vehicle id="veh_000155" type="car" route="E_right" depart="231.607" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000156" type="car" route="N_straight" depart="231.855" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000157" type="car" route="S_right" depart="232.055" departLane="0" departSpeed="max" />
+  <vehicle id="veh_000158" type="car" route="W_straight" depart="236.433" departLane="1" departSpeed="max" />
+</routes>

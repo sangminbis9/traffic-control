@@ -1,0 +1,2746 @@
+{
+  "source": "actual sumo-gui screenshot API, unmodified PNG frames",
+  "model": "C:\\Users\\minwo\\OneDrive\\\ubb38\uc11c\\ChatGPT\\Capstone\\traffic-rl\\results\\models\\dqn.zip",
+  "model_sha256": "920fe8d6141ad7f7621ec8e28cf5957fe7e92237ed2dc9d6f35b4f3efa13b28d",
+  "scenario": "ns_heavy",
+  "traffic_seed": 4001,
+  "speedup": 5,
+  "resolution": [
+    960,
+    720
+  ],
+  "frame_duration_ms": 200,
+  "simulation_step": 0.5,
+  "note": "PNG capture occurs on the first simulation substep; phase/stage fields describe the following full decision observation.",
+  "metrics": {
+    "episode": 1,
+    "controller": "dqn",
+    "seed": 4001,
+    "traffic_scenario": "ns_heavy",
+    "realized_scenario": "ns_heavy",
+    "avg_waiting_time": 8.997630331753555,
+    "max_waiting_time": 82.5,
+    "avg_queue": 6.328333333333333,
+    "max_queue": 13,
+    "throughput": 201,
+    "episode_reward": -40.597921267869246,
+    "departed": 211,
+    "unfinished": 10,
+    "pending": 0,
+    "max_pending": 2,
+    "collisions": 0,
+    "teleports": 0,
+    "duration": 300.0,
+    "reward_queue": -23.731250448152423,
+    "reward_waiting": -0.622504166346334,
+    "reward_max_waiting": -9.444166653370491,
+    "reward_switching": -6.800000000000003,
+    "phase_changes": 34,
+    "forced_changes": 7,
+    "scheduled": 211,
+    "not_inserted": 0,
+    "route_sha256": "49661176c787b94a3f7c7d6ec581e971443314fe1aa7d6d5c7576cf41bd083a7"
+  },
+  "frames": [
+    {
+      "file": "frames\\frame_0000.png",
+      "capture_time_seconds": 0.5,
+      "decision_action": 0,
+      "following_observation_time": 1.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0001.png",
+      "capture_time_seconds": 1.5,
+      "decision_action": 0,
+      "following_observation_time": 2.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0002.png",
+      "capture_time_seconds": 2.5,
+      "decision_action": 0,
+      "following_observation_time": 3.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0003.png",
+      "capture_time_seconds": 3.5,
+      "decision_action": 0,
+      "following_observation_time": 4.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0004.png",
+      "capture_time_seconds": 4.5,
+      "decision_action": 0,
+      "following_observation_time": 5.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0005.png",
+      "capture_time_seconds": 5.5,
+      "decision_action": 0,
+      "following_observation_time": 6.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0006.png",
+      "capture_time_seconds": 6.5,
+      "decision_action": 0,
+      "following_observation_time": 7.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0007.png",
+      "capture_time_seconds": 7.5,
+      "decision_action": 0,
+      "following_observation_time": 8.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0008.png",
+      "capture_time_seconds": 8.5,
+      "decision_action": 0,
+      "following_observation_time": 9.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0009.png",
+      "capture_time_seconds": 9.5,
+      "decision_action": 0,
+      "following_observation_time": 10.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0010.png",
+      "capture_time_seconds": 10.5,
+      "decision_action": 0,
+      "following_observation_time": 11.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0011.png",
+      "capture_time_seconds": 11.5,
+      "decision_action": 0,
+      "following_observation_time": 12.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0012.png",
+      "capture_time_seconds": 12.5,
+      "decision_action": 0,
+      "following_observation_time": 13.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0013.png",
+      "capture_time_seconds": 13.5,
+      "decision_action": 0,
+      "following_observation_time": 14.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0014.png",
+      "capture_time_seconds": 14.5,
+      "decision_action": 0,
+      "following_observation_time": 15.0,
+      "phase": 0,
+      "stage": "yellow",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0015.png",
+      "capture_time_seconds": 15.5,
+      "decision_action": 1,
+      "following_observation_time": 16.0,
+      "phase": 0,
+      "stage": "all_red",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0016.png",
+      "capture_time_seconds": 16.5,
+      "decision_action": 1,
+      "following_observation_time": 17.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0017.png",
+      "capture_time_seconds": 17.5,
+      "decision_action": 1,
+      "following_observation_time": 18.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0018.png",
+      "capture_time_seconds": 18.5,
+      "decision_action": 1,
+      "following_observation_time": 19.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0019.png",
+      "capture_time_seconds": 19.5,
+      "decision_action": 1,
+      "following_observation_time": 20.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0020.png",
+      "capture_time_seconds": 20.5,
+      "decision_action": 1,
+      "following_observation_time": 21.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0021.png",
+      "capture_time_seconds": 21.5,
+      "decision_action": 1,
+      "following_observation_time": 22.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0022.png",
+      "capture_time_seconds": 22.5,
+      "decision_action": 1,
+      "following_observation_time": 23.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0023.png",
+      "capture_time_seconds": 23.5,
+      "decision_action": 0,
+      "following_observation_time": 24.0,
+      "phase": 1,
+      "stage": "all_red",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0024.png",
+      "capture_time_seconds": 24.5,
+      "decision_action": 0,
+      "following_observation_time": 25.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0025.png",
+      "capture_time_seconds": 25.5,
+      "decision_action": 0,
+      "following_observation_time": 26.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0026.png",
+      "capture_time_seconds": 26.5,
+      "decision_action": 0,
+      "following_observation_time": 27.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0027.png",
+      "capture_time_seconds": 27.5,
+      "decision_action": 0,
+      "following_observation_time": 28.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0028.png",
+      "capture_time_seconds": 28.5,
+      "decision_action": 0,
+      "following_observation_time": 29.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0029.png",
+      "capture_time_seconds": 29.5,
+      "decision_action": 0,
+      "following_observation_time": 30.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0030.png",
+      "capture_time_seconds": 30.5,
+      "decision_action": 0,
+      "following_observation_time": 31.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 1
+    },
+    {
+      "file": "frames\\frame_0031.png",
+      "capture_time_seconds": 31.5,
+      "decision_action": 0,
+      "following_observation_time": 32.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 1
+    },
+    {
+      "file": "frames\\frame_0032.png",
+      "capture_time_seconds": 32.5,
+      "decision_action": 0,
+      "following_observation_time": 33.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 1
+    },
+    {
+      "file": "frames\\frame_0033.png",
+      "capture_time_seconds": 33.5,
+      "decision_action": 1,
+      "following_observation_time": 34.0,
+      "phase": 0,
+      "stage": "all_red",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0034.png",
+      "capture_time_seconds": 34.5,
+      "decision_action": 1,
+      "following_observation_time": 35.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0035.png",
+      "capture_time_seconds": 35.5,
+      "decision_action": 1,
+      "following_observation_time": 36.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 1
+    },
+    {
+      "file": "frames\\frame_0036.png",
+      "capture_time_seconds": 36.5,
+      "decision_action": 1,
+      "following_observation_time": 37.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0037.png",
+      "capture_time_seconds": 37.5,
+      "decision_action": 1,
+      "following_observation_time": 38.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0038.png",
+      "capture_time_seconds": 38.5,
+      "decision_action": 1,
+      "following_observation_time": 39.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0039.png",
+      "capture_time_seconds": 39.5,
+      "decision_action": 1,
+      "following_observation_time": 40.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0040.png",
+      "capture_time_seconds": 40.5,
+      "decision_action": 1,
+      "following_observation_time": 41.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0041.png",
+      "capture_time_seconds": 41.5,
+      "decision_action": 1,
+      "following_observation_time": 42.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0042.png",
+      "capture_time_seconds": 42.5,
+      "decision_action": 2,
+      "following_observation_time": 43.0,
+      "phase": 1,
+      "stage": "all_red",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0043.png",
+      "capture_time_seconds": 43.5,
+      "decision_action": 2,
+      "following_observation_time": 44.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0044.png",
+      "capture_time_seconds": 44.5,
+      "decision_action": 2,
+      "following_observation_time": 45.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0045.png",
+      "capture_time_seconds": 45.5,
+      "decision_action": 0,
+      "following_observation_time": 46.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0046.png",
+      "capture_time_seconds": 46.5,
+      "decision_action": 0,
+      "following_observation_time": 47.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0047.png",
+      "capture_time_seconds": 47.5,
+      "decision_action": 0,
+      "following_observation_time": 48.0,
+      "phase": 2,
+      "stage": "all_red",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0048.png",
+      "capture_time_seconds": 48.5,
+      "decision_action": 0,
+      "following_observation_time": 49.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0049.png",
+      "capture_time_seconds": 49.5,
+      "decision_action": 0,
+      "following_observation_time": 50.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0050.png",
+      "capture_time_seconds": 50.5,
+      "decision_action": 1,
+      "following_observation_time": 51.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 0
+    },
+    {
+      "file": "frames\\frame_0051.png",
+      "capture_time_seconds": 51.5,
+      "decision_action": 1,
+      "following_observation_time": 52.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 1
+    },
+    {
+      "file": "frames\\frame_0052.png",
+      "capture_time_seconds": 52.5,
+      "decision_action": 1,
+      "following_observation_time": 53.0,
+      "phase": 0,
+      "stage": "all_red",
+      "queue": 1
+    },
+    {
+      "file": "frames\\frame_0053.png",
+      "capture_time_seconds": 53.5,
+      "decision_action": 1,
+      "following_observation_time": 54.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0054.png",
+      "capture_time_seconds": 54.5,
+      "decision_action": 1,
+      "following_observation_time": 55.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 1
+    },
+    {
+      "file": "frames\\frame_0055.png",
+      "capture_time_seconds": 55.5,
+      "decision_action": 1,
+      "following_observation_time": 56.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 1
+    },
+    {
+      "file": "frames\\frame_0056.png",
+      "capture_time_seconds": 56.5,
+      "decision_action": 1,
+      "following_observation_time": 57.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0057.png",
+      "capture_time_seconds": 57.5,
+      "decision_action": 1,
+      "following_observation_time": 58.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0058.png",
+      "capture_time_seconds": 58.5,
+      "decision_action": 1,
+      "following_observation_time": 59.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0059.png",
+      "capture_time_seconds": 59.5,
+      "decision_action": 1,
+      "following_observation_time": 60.0,
+      "phase": 1,
+      "stage": "yellow",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0060.png",
+      "capture_time_seconds": 60.5,
+      "decision_action": 1,
+      "following_observation_time": 61.0,
+      "phase": 1,
+      "stage": "all_red",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0061.png",
+      "capture_time_seconds": 61.5,
+      "decision_action": 1,
+      "following_observation_time": 62.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 4
+    },
+    {
+      "file": "frames\\frame_0062.png",
+      "capture_time_seconds": 62.5,
+      "decision_action": 1,
+      "following_observation_time": 63.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0063.png",
+      "capture_time_seconds": 63.5,
+      "decision_action": 1,
+      "following_observation_time": 64.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0064.png",
+      "capture_time_seconds": 64.5,
+      "decision_action": 1,
+      "following_observation_time": 65.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0065.png",
+      "capture_time_seconds": 65.5,
+      "decision_action": 1,
+      "following_observation_time": 66.0,
+      "phase": 3,
+      "stage": "all_red",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0066.png",
+      "capture_time_seconds": 66.5,
+      "decision_action": 1,
+      "following_observation_time": 67.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0067.png",
+      "capture_time_seconds": 67.5,
+      "decision_action": 1,
+      "following_observation_time": 68.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0068.png",
+      "capture_time_seconds": 68.5,
+      "decision_action": 1,
+      "following_observation_time": 69.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0069.png",
+      "capture_time_seconds": 69.5,
+      "decision_action": 1,
+      "following_observation_time": 70.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0070.png",
+      "capture_time_seconds": 70.5,
+      "decision_action": 0,
+      "following_observation_time": 71.0,
+      "phase": 1,
+      "stage": "all_red",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0071.png",
+      "capture_time_seconds": 71.5,
+      "decision_action": 0,
+      "following_observation_time": 72.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 13
+    },
+    {
+      "file": "frames\\frame_0072.png",
+      "capture_time_seconds": 72.5,
+      "decision_action": 0,
+      "following_observation_time": 73.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0073.png",
+      "capture_time_seconds": 73.5,
+      "decision_action": 0,
+      "following_observation_time": 74.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0074.png",
+      "capture_time_seconds": 74.5,
+      "decision_action": 0,
+      "following_observation_time": 75.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0075.png",
+      "capture_time_seconds": 75.5,
+      "decision_action": 0,
+      "following_observation_time": 76.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0076.png",
+      "capture_time_seconds": 76.5,
+      "decision_action": 0,
+      "following_observation_time": 77.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0077.png",
+      "capture_time_seconds": 77.5,
+      "decision_action": 0,
+      "following_observation_time": 78.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0078.png",
+      "capture_time_seconds": 78.5,
+      "decision_action": 0,
+      "following_observation_time": 79.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0079.png",
+      "capture_time_seconds": 79.5,
+      "decision_action": 0,
+      "following_observation_time": 80.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0080.png",
+      "capture_time_seconds": 80.5,
+      "decision_action": 0,
+      "following_observation_time": 81.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0081.png",
+      "capture_time_seconds": 81.5,
+      "decision_action": 0,
+      "following_observation_time": 82.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0082.png",
+      "capture_time_seconds": 82.5,
+      "decision_action": 0,
+      "following_observation_time": 83.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0083.png",
+      "capture_time_seconds": 83.5,
+      "decision_action": 0,
+      "following_observation_time": 84.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0084.png",
+      "capture_time_seconds": 84.5,
+      "decision_action": 1,
+      "following_observation_time": 85.0,
+      "phase": 0,
+      "stage": "all_red",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0085.png",
+      "capture_time_seconds": 85.5,
+      "decision_action": 1,
+      "following_observation_time": 86.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0086.png",
+      "capture_time_seconds": 86.5,
+      "decision_action": 1,
+      "following_observation_time": 87.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0087.png",
+      "capture_time_seconds": 87.5,
+      "decision_action": 1,
+      "following_observation_time": 88.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0088.png",
+      "capture_time_seconds": 88.5,
+      "decision_action": 1,
+      "following_observation_time": 89.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0089.png",
+      "capture_time_seconds": 89.5,
+      "decision_action": 1,
+      "following_observation_time": 90.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0090.png",
+      "capture_time_seconds": 90.5,
+      "decision_action": 1,
+      "following_observation_time": 91.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0091.png",
+      "capture_time_seconds": 91.5,
+      "decision_action": 1,
+      "following_observation_time": 92.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0092.png",
+      "capture_time_seconds": 92.5,
+      "decision_action": 1,
+      "following_observation_time": 93.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0093.png",
+      "capture_time_seconds": 93.5,
+      "decision_action": 2,
+      "following_observation_time": 94.0,
+      "phase": 1,
+      "stage": "all_red",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0094.png",
+      "capture_time_seconds": 94.5,
+      "decision_action": 2,
+      "following_observation_time": 95.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0095.png",
+      "capture_time_seconds": 95.5,
+      "decision_action": 2,
+      "following_observation_time": 96.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0096.png",
+      "capture_time_seconds": 96.5,
+      "decision_action": 0,
+      "following_observation_time": 97.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0097.png",
+      "capture_time_seconds": 97.5,
+      "decision_action": 0,
+      "following_observation_time": 98.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0098.png",
+      "capture_time_seconds": 98.5,
+      "decision_action": 0,
+      "following_observation_time": 99.0,
+      "phase": 2,
+      "stage": "all_red",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0099.png",
+      "capture_time_seconds": 99.5,
+      "decision_action": 0,
+      "following_observation_time": 100.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0100.png",
+      "capture_time_seconds": 100.5,
+      "decision_action": 0,
+      "following_observation_time": 101.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 4
+    },
+    {
+      "file": "frames\\frame_0101.png",
+      "capture_time_seconds": 101.5,
+      "decision_action": 0,
+      "following_observation_time": 102.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0102.png",
+      "capture_time_seconds": 102.5,
+      "decision_action": 0,
+      "following_observation_time": 103.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 4
+    },
+    {
+      "file": "frames\\frame_0103.png",
+      "capture_time_seconds": 103.5,
+      "decision_action": 0,
+      "following_observation_time": 104.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0104.png",
+      "capture_time_seconds": 104.5,
+      "decision_action": 0,
+      "following_observation_time": 105.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0105.png",
+      "capture_time_seconds": 105.5,
+      "decision_action": 0,
+      "following_observation_time": 106.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0106.png",
+      "capture_time_seconds": 106.5,
+      "decision_action": 0,
+      "following_observation_time": 107.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0107.png",
+      "capture_time_seconds": 107.5,
+      "decision_action": 0,
+      "following_observation_time": 108.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0108.png",
+      "capture_time_seconds": 108.5,
+      "decision_action": 0,
+      "following_observation_time": 109.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0109.png",
+      "capture_time_seconds": 109.5,
+      "decision_action": 1,
+      "following_observation_time": 110.0,
+      "phase": 0,
+      "stage": "all_red",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0110.png",
+      "capture_time_seconds": 110.5,
+      "decision_action": 1,
+      "following_observation_time": 111.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0111.png",
+      "capture_time_seconds": 111.5,
+      "decision_action": 1,
+      "following_observation_time": 112.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0112.png",
+      "capture_time_seconds": 112.5,
+      "decision_action": 1,
+      "following_observation_time": 113.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0113.png",
+      "capture_time_seconds": 113.5,
+      "decision_action": 1,
+      "following_observation_time": 114.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0114.png",
+      "capture_time_seconds": 114.5,
+      "decision_action": 1,
+      "following_observation_time": 115.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0115.png",
+      "capture_time_seconds": 115.5,
+      "decision_action": 1,
+      "following_observation_time": 116.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0116.png",
+      "capture_time_seconds": 116.5,
+      "decision_action": 1,
+      "following_observation_time": 117.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0117.png",
+      "capture_time_seconds": 117.5,
+      "decision_action": 1,
+      "following_observation_time": 118.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0118.png",
+      "capture_time_seconds": 118.5,
+      "decision_action": 1,
+      "following_observation_time": 119.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0119.png",
+      "capture_time_seconds": 119.5,
+      "decision_action": 0,
+      "following_observation_time": 120.0,
+      "phase": 1,
+      "stage": "all_red",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0120.png",
+      "capture_time_seconds": 120.5,
+      "decision_action": 0,
+      "following_observation_time": 121.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0121.png",
+      "capture_time_seconds": 121.5,
+      "decision_action": 0,
+      "following_observation_time": 122.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0122.png",
+      "capture_time_seconds": 122.5,
+      "decision_action": 0,
+      "following_observation_time": 123.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0123.png",
+      "capture_time_seconds": 123.5,
+      "decision_action": 0,
+      "following_observation_time": 124.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0124.png",
+      "capture_time_seconds": 124.5,
+      "decision_action": 0,
+      "following_observation_time": 125.0,
+      "phase": 0,
+      "stage": "yellow",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0125.png",
+      "capture_time_seconds": 125.5,
+      "decision_action": 0,
+      "following_observation_time": 126.0,
+      "phase": 0,
+      "stage": "all_red",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0126.png",
+      "capture_time_seconds": 126.5,
+      "decision_action": 0,
+      "following_observation_time": 127.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0127.png",
+      "capture_time_seconds": 127.5,
+      "decision_action": 3,
+      "following_observation_time": 128.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0128.png",
+      "capture_time_seconds": 128.5,
+      "decision_action": 2,
+      "following_observation_time": 129.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0129.png",
+      "capture_time_seconds": 129.5,
+      "decision_action": 2,
+      "following_observation_time": 130.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0130.png",
+      "capture_time_seconds": 130.5,
+      "decision_action": 0,
+      "following_observation_time": 131.0,
+      "phase": 3,
+      "stage": "all_red",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0131.png",
+      "capture_time_seconds": 131.5,
+      "decision_action": 0,
+      "following_observation_time": 132.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0132.png",
+      "capture_time_seconds": 132.5,
+      "decision_action": 0,
+      "following_observation_time": 133.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0133.png",
+      "capture_time_seconds": 133.5,
+      "decision_action": 0,
+      "following_observation_time": 134.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0134.png",
+      "capture_time_seconds": 134.5,
+      "decision_action": 0,
+      "following_observation_time": 135.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0135.png",
+      "capture_time_seconds": 135.5,
+      "decision_action": 0,
+      "following_observation_time": 136.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0136.png",
+      "capture_time_seconds": 136.5,
+      "decision_action": 0,
+      "following_observation_time": 137.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0137.png",
+      "capture_time_seconds": 137.5,
+      "decision_action": 0,
+      "following_observation_time": 138.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0138.png",
+      "capture_time_seconds": 138.5,
+      "decision_action": 0,
+      "following_observation_time": 139.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0139.png",
+      "capture_time_seconds": 139.5,
+      "decision_action": 0,
+      "following_observation_time": 140.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0140.png",
+      "capture_time_seconds": 140.5,
+      "decision_action": 0,
+      "following_observation_time": 141.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0141.png",
+      "capture_time_seconds": 141.5,
+      "decision_action": 0,
+      "following_observation_time": 142.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0142.png",
+      "capture_time_seconds": 142.5,
+      "decision_action": 0,
+      "following_observation_time": 143.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0143.png",
+      "capture_time_seconds": 143.5,
+      "decision_action": 0,
+      "following_observation_time": 144.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0144.png",
+      "capture_time_seconds": 144.5,
+      "decision_action": 0,
+      "following_observation_time": 145.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0145.png",
+      "capture_time_seconds": 145.5,
+      "decision_action": 0,
+      "following_observation_time": 146.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0146.png",
+      "capture_time_seconds": 146.5,
+      "decision_action": 0,
+      "following_observation_time": 147.0,
+      "phase": 0,
+      "stage": "yellow",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0147.png",
+      "capture_time_seconds": 147.5,
+      "decision_action": 2,
+      "following_observation_time": 148.0,
+      "phase": 0,
+      "stage": "all_red",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0148.png",
+      "capture_time_seconds": 148.5,
+      "decision_action": 2,
+      "following_observation_time": 149.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0149.png",
+      "capture_time_seconds": 149.5,
+      "decision_action": 2,
+      "following_observation_time": 150.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0150.png",
+      "capture_time_seconds": 150.5,
+      "decision_action": 2,
+      "following_observation_time": 151.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0151.png",
+      "capture_time_seconds": 151.5,
+      "decision_action": 2,
+      "following_observation_time": 152.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0152.png",
+      "capture_time_seconds": 152.5,
+      "decision_action": 2,
+      "following_observation_time": 153.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0153.png",
+      "capture_time_seconds": 153.5,
+      "decision_action": 2,
+      "following_observation_time": 154.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0154.png",
+      "capture_time_seconds": 154.5,
+      "decision_action": 1,
+      "following_observation_time": 155.0,
+      "phase": 2,
+      "stage": "all_red",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0155.png",
+      "capture_time_seconds": 155.5,
+      "decision_action": 1,
+      "following_observation_time": 156.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0156.png",
+      "capture_time_seconds": 156.5,
+      "decision_action": 1,
+      "following_observation_time": 157.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0157.png",
+      "capture_time_seconds": 157.5,
+      "decision_action": 1,
+      "following_observation_time": 158.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0158.png",
+      "capture_time_seconds": 158.5,
+      "decision_action": 1,
+      "following_observation_time": 159.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0159.png",
+      "capture_time_seconds": 159.5,
+      "decision_action": 1,
+      "following_observation_time": 160.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0160.png",
+      "capture_time_seconds": 160.5,
+      "decision_action": 1,
+      "following_observation_time": 161.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0161.png",
+      "capture_time_seconds": 161.5,
+      "decision_action": 1,
+      "following_observation_time": 162.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0162.png",
+      "capture_time_seconds": 162.5,
+      "decision_action": 0,
+      "following_observation_time": 163.0,
+      "phase": 1,
+      "stage": "all_red",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0163.png",
+      "capture_time_seconds": 163.5,
+      "decision_action": 0,
+      "following_observation_time": 164.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0164.png",
+      "capture_time_seconds": 164.5,
+      "decision_action": 0,
+      "following_observation_time": 165.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0165.png",
+      "capture_time_seconds": 165.5,
+      "decision_action": 0,
+      "following_observation_time": 166.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0166.png",
+      "capture_time_seconds": 166.5,
+      "decision_action": 0,
+      "following_observation_time": 167.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0167.png",
+      "capture_time_seconds": 167.5,
+      "decision_action": 0,
+      "following_observation_time": 168.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0168.png",
+      "capture_time_seconds": 168.5,
+      "decision_action": 0,
+      "following_observation_time": 169.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0169.png",
+      "capture_time_seconds": 169.5,
+      "decision_action": 0,
+      "following_observation_time": 170.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0170.png",
+      "capture_time_seconds": 170.5,
+      "decision_action": 0,
+      "following_observation_time": 171.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0171.png",
+      "capture_time_seconds": 171.5,
+      "decision_action": 0,
+      "following_observation_time": 172.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0172.png",
+      "capture_time_seconds": 172.5,
+      "decision_action": 0,
+      "following_observation_time": 173.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0173.png",
+      "capture_time_seconds": 173.5,
+      "decision_action": 0,
+      "following_observation_time": 174.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0174.png",
+      "capture_time_seconds": 174.5,
+      "decision_action": 0,
+      "following_observation_time": 175.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0175.png",
+      "capture_time_seconds": 175.5,
+      "decision_action": 1,
+      "following_observation_time": 176.0,
+      "phase": 0,
+      "stage": "all_red",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0176.png",
+      "capture_time_seconds": 176.5,
+      "decision_action": 1,
+      "following_observation_time": 177.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0177.png",
+      "capture_time_seconds": 177.5,
+      "decision_action": 1,
+      "following_observation_time": 178.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0178.png",
+      "capture_time_seconds": 178.5,
+      "decision_action": 1,
+      "following_observation_time": 179.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0179.png",
+      "capture_time_seconds": 179.5,
+      "decision_action": 1,
+      "following_observation_time": 180.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0180.png",
+      "capture_time_seconds": 180.5,
+      "decision_action": 1,
+      "following_observation_time": 181.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0181.png",
+      "capture_time_seconds": 181.5,
+      "decision_action": 1,
+      "following_observation_time": 182.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0182.png",
+      "capture_time_seconds": 182.5,
+      "decision_action": 1,
+      "following_observation_time": 183.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0183.png",
+      "capture_time_seconds": 183.5,
+      "decision_action": 0,
+      "following_observation_time": 184.0,
+      "phase": 1,
+      "stage": "all_red",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0184.png",
+      "capture_time_seconds": 184.5,
+      "decision_action": 0,
+      "following_observation_time": 185.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0185.png",
+      "capture_time_seconds": 185.5,
+      "decision_action": 0,
+      "following_observation_time": 186.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0186.png",
+      "capture_time_seconds": 186.5,
+      "decision_action": 0,
+      "following_observation_time": 187.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0187.png",
+      "capture_time_seconds": 187.5,
+      "decision_action": 0,
+      "following_observation_time": 188.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0188.png",
+      "capture_time_seconds": 188.5,
+      "decision_action": 0,
+      "following_observation_time": 189.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0189.png",
+      "capture_time_seconds": 189.5,
+      "decision_action": 0,
+      "following_observation_time": 190.0,
+      "phase": 0,
+      "stage": "yellow",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0190.png",
+      "capture_time_seconds": 190.5,
+      "decision_action": 1,
+      "following_observation_time": 191.0,
+      "phase": 0,
+      "stage": "all_red",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0191.png",
+      "capture_time_seconds": 191.5,
+      "decision_action": 0,
+      "following_observation_time": 192.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0192.png",
+      "capture_time_seconds": 192.5,
+      "decision_action": 3,
+      "following_observation_time": 193.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0193.png",
+      "capture_time_seconds": 193.5,
+      "decision_action": 2,
+      "following_observation_time": 194.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0194.png",
+      "capture_time_seconds": 194.5,
+      "decision_action": 0,
+      "following_observation_time": 195.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0195.png",
+      "capture_time_seconds": 195.5,
+      "decision_action": 0,
+      "following_observation_time": 196.0,
+      "phase": 3,
+      "stage": "all_red",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0196.png",
+      "capture_time_seconds": 196.5,
+      "decision_action": 0,
+      "following_observation_time": 197.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0197.png",
+      "capture_time_seconds": 197.5,
+      "decision_action": 0,
+      "following_observation_time": 198.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0198.png",
+      "capture_time_seconds": 198.5,
+      "decision_action": 0,
+      "following_observation_time": 199.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0199.png",
+      "capture_time_seconds": 199.5,
+      "decision_action": 0,
+      "following_observation_time": 200.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0200.png",
+      "capture_time_seconds": 200.5,
+      "decision_action": 0,
+      "following_observation_time": 201.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0201.png",
+      "capture_time_seconds": 201.5,
+      "decision_action": 0,
+      "following_observation_time": 202.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0202.png",
+      "capture_time_seconds": 202.5,
+      "decision_action": 0,
+      "following_observation_time": 203.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0203.png",
+      "capture_time_seconds": 203.5,
+      "decision_action": 0,
+      "following_observation_time": 204.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0204.png",
+      "capture_time_seconds": 204.5,
+      "decision_action": 0,
+      "following_observation_time": 205.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0205.png",
+      "capture_time_seconds": 205.5,
+      "decision_action": 0,
+      "following_observation_time": 206.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0206.png",
+      "capture_time_seconds": 206.5,
+      "decision_action": 0,
+      "following_observation_time": 207.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0207.png",
+      "capture_time_seconds": 207.5,
+      "decision_action": 0,
+      "following_observation_time": 208.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0208.png",
+      "capture_time_seconds": 208.5,
+      "decision_action": 0,
+      "following_observation_time": 209.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0209.png",
+      "capture_time_seconds": 209.5,
+      "decision_action": 0,
+      "following_observation_time": 210.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0210.png",
+      "capture_time_seconds": 210.5,
+      "decision_action": 0,
+      "following_observation_time": 211.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0211.png",
+      "capture_time_seconds": 211.5,
+      "decision_action": 0,
+      "following_observation_time": 212.0,
+      "phase": 0,
+      "stage": "yellow",
+      "queue": 12
+    },
+    {
+      "file": "frames\\frame_0212.png",
+      "capture_time_seconds": 212.5,
+      "decision_action": 2,
+      "following_observation_time": 213.0,
+      "phase": 0,
+      "stage": "all_red",
+      "queue": 12
+    },
+    {
+      "file": "frames\\frame_0213.png",
+      "capture_time_seconds": 213.5,
+      "decision_action": 2,
+      "following_observation_time": 214.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 12
+    },
+    {
+      "file": "frames\\frame_0214.png",
+      "capture_time_seconds": 214.5,
+      "decision_action": 2,
+      "following_observation_time": 215.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0215.png",
+      "capture_time_seconds": 215.5,
+      "decision_action": 2,
+      "following_observation_time": 216.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0216.png",
+      "capture_time_seconds": 216.5,
+      "decision_action": 2,
+      "following_observation_time": 217.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0217.png",
+      "capture_time_seconds": 217.5,
+      "decision_action": 2,
+      "following_observation_time": 218.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0218.png",
+      "capture_time_seconds": 218.5,
+      "decision_action": 1,
+      "following_observation_time": 219.0,
+      "phase": 2,
+      "stage": "all_red",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0219.png",
+      "capture_time_seconds": 219.5,
+      "decision_action": 1,
+      "following_observation_time": 220.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0220.png",
+      "capture_time_seconds": 220.5,
+      "decision_action": 1,
+      "following_observation_time": 221.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0221.png",
+      "capture_time_seconds": 221.5,
+      "decision_action": 1,
+      "following_observation_time": 222.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0222.png",
+      "capture_time_seconds": 222.5,
+      "decision_action": 1,
+      "following_observation_time": 223.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0223.png",
+      "capture_time_seconds": 223.5,
+      "decision_action": 1,
+      "following_observation_time": 224.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0224.png",
+      "capture_time_seconds": 224.5,
+      "decision_action": 0,
+      "following_observation_time": 225.0,
+      "phase": 1,
+      "stage": "all_red",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0225.png",
+      "capture_time_seconds": 225.5,
+      "decision_action": 0,
+      "following_observation_time": 226.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0226.png",
+      "capture_time_seconds": 226.5,
+      "decision_action": 0,
+      "following_observation_time": 227.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0227.png",
+      "capture_time_seconds": 227.5,
+      "decision_action": 0,
+      "following_observation_time": 228.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 4
+    },
+    {
+      "file": "frames\\frame_0228.png",
+      "capture_time_seconds": 228.5,
+      "decision_action": 0,
+      "following_observation_time": 229.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 4
+    },
+    {
+      "file": "frames\\frame_0229.png",
+      "capture_time_seconds": 229.5,
+      "decision_action": 0,
+      "following_observation_time": 230.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 4
+    },
+    {
+      "file": "frames\\frame_0230.png",
+      "capture_time_seconds": 230.5,
+      "decision_action": 0,
+      "following_observation_time": 231.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0231.png",
+      "capture_time_seconds": 231.5,
+      "decision_action": 0,
+      "following_observation_time": 232.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0232.png",
+      "capture_time_seconds": 232.5,
+      "decision_action": 0,
+      "following_observation_time": 233.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0233.png",
+      "capture_time_seconds": 233.5,
+      "decision_action": 0,
+      "following_observation_time": 234.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0234.png",
+      "capture_time_seconds": 234.5,
+      "decision_action": 0,
+      "following_observation_time": 235.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0235.png",
+      "capture_time_seconds": 235.5,
+      "decision_action": 0,
+      "following_observation_time": 236.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0236.png",
+      "capture_time_seconds": 236.5,
+      "decision_action": 0,
+      "following_observation_time": 237.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0237.png",
+      "capture_time_seconds": 237.5,
+      "decision_action": 0,
+      "following_observation_time": 238.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0238.png",
+      "capture_time_seconds": 238.5,
+      "decision_action": 0,
+      "following_observation_time": 239.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0239.png",
+      "capture_time_seconds": 239.5,
+      "decision_action": 0,
+      "following_observation_time": 240.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0240.png",
+      "capture_time_seconds": 240.5,
+      "decision_action": 0,
+      "following_observation_time": 241.0,
+      "phase": 0,
+      "stage": "yellow",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0241.png",
+      "capture_time_seconds": 241.5,
+      "decision_action": 1,
+      "following_observation_time": 242.0,
+      "phase": 0,
+      "stage": "all_red",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0242.png",
+      "capture_time_seconds": 242.5,
+      "decision_action": 1,
+      "following_observation_time": 243.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0243.png",
+      "capture_time_seconds": 243.5,
+      "decision_action": 1,
+      "following_observation_time": 244.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0244.png",
+      "capture_time_seconds": 244.5,
+      "decision_action": 1,
+      "following_observation_time": 245.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0245.png",
+      "capture_time_seconds": 245.5,
+      "decision_action": 1,
+      "following_observation_time": 246.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0246.png",
+      "capture_time_seconds": 246.5,
+      "decision_action": 1,
+      "following_observation_time": 247.0,
+      "phase": 3,
+      "stage": "all_red",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0247.png",
+      "capture_time_seconds": 247.5,
+      "decision_action": 1,
+      "following_observation_time": 248.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 12
+    },
+    {
+      "file": "frames\\frame_0248.png",
+      "capture_time_seconds": 248.5,
+      "decision_action": 1,
+      "following_observation_time": 249.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0249.png",
+      "capture_time_seconds": 249.5,
+      "decision_action": 1,
+      "following_observation_time": 250.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 11
+    },
+    {
+      "file": "frames\\frame_0250.png",
+      "capture_time_seconds": 250.5,
+      "decision_action": 1,
+      "following_observation_time": 251.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0251.png",
+      "capture_time_seconds": 251.5,
+      "decision_action": 1,
+      "following_observation_time": 252.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0252.png",
+      "capture_time_seconds": 252.5,
+      "decision_action": 1,
+      "following_observation_time": 253.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0253.png",
+      "capture_time_seconds": 253.5,
+      "decision_action": 0,
+      "following_observation_time": 254.0,
+      "phase": 1,
+      "stage": "all_red",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0254.png",
+      "capture_time_seconds": 254.5,
+      "decision_action": 0,
+      "following_observation_time": 255.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0255.png",
+      "capture_time_seconds": 255.5,
+      "decision_action": 0,
+      "following_observation_time": 256.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 4
+    },
+    {
+      "file": "frames\\frame_0256.png",
+      "capture_time_seconds": 256.5,
+      "decision_action": 0,
+      "following_observation_time": 257.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 3
+    },
+    {
+      "file": "frames\\frame_0257.png",
+      "capture_time_seconds": 257.5,
+      "decision_action": 0,
+      "following_observation_time": 258.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 4
+    },
+    {
+      "file": "frames\\frame_0258.png",
+      "capture_time_seconds": 258.5,
+      "decision_action": 0,
+      "following_observation_time": 259.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 4
+    },
+    {
+      "file": "frames\\frame_0259.png",
+      "capture_time_seconds": 259.5,
+      "decision_action": 0,
+      "following_observation_time": 260.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0260.png",
+      "capture_time_seconds": 260.5,
+      "decision_action": 0,
+      "following_observation_time": 261.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0261.png",
+      "capture_time_seconds": 261.5,
+      "decision_action": 1,
+      "following_observation_time": 262.0,
+      "phase": 0,
+      "stage": "all_red",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0262.png",
+      "capture_time_seconds": 262.5,
+      "decision_action": 1,
+      "following_observation_time": 263.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0263.png",
+      "capture_time_seconds": 263.5,
+      "decision_action": 1,
+      "following_observation_time": 264.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0264.png",
+      "capture_time_seconds": 264.5,
+      "decision_action": 1,
+      "following_observation_time": 265.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 10
+    },
+    {
+      "file": "frames\\frame_0265.png",
+      "capture_time_seconds": 265.5,
+      "decision_action": 1,
+      "following_observation_time": 266.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0266.png",
+      "capture_time_seconds": 266.5,
+      "decision_action": 1,
+      "following_observation_time": 267.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 9
+    },
+    {
+      "file": "frames\\frame_0267.png",
+      "capture_time_seconds": 267.5,
+      "decision_action": 1,
+      "following_observation_time": 268.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0268.png",
+      "capture_time_seconds": 268.5,
+      "decision_action": 1,
+      "following_observation_time": 269.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0269.png",
+      "capture_time_seconds": 269.5,
+      "decision_action": 1,
+      "following_observation_time": 270.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0270.png",
+      "capture_time_seconds": 270.5,
+      "decision_action": 1,
+      "following_observation_time": 271.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0271.png",
+      "capture_time_seconds": 271.5,
+      "decision_action": 1,
+      "following_observation_time": 272.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0272.png",
+      "capture_time_seconds": 272.5,
+      "decision_action": 1,
+      "following_observation_time": 273.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0273.png",
+      "capture_time_seconds": 273.5,
+      "decision_action": 1,
+      "following_observation_time": 274.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0274.png",
+      "capture_time_seconds": 274.5,
+      "decision_action": 1,
+      "following_observation_time": 275.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0275.png",
+      "capture_time_seconds": 275.5,
+      "decision_action": 2,
+      "following_observation_time": 276.0,
+      "phase": 1,
+      "stage": "all_red",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0276.png",
+      "capture_time_seconds": 276.5,
+      "decision_action": 2,
+      "following_observation_time": 277.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 8
+    },
+    {
+      "file": "frames\\frame_0277.png",
+      "capture_time_seconds": 277.5,
+      "decision_action": 2,
+      "following_observation_time": 278.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0278.png",
+      "capture_time_seconds": 278.5,
+      "decision_action": 2,
+      "following_observation_time": 279.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0279.png",
+      "capture_time_seconds": 279.5,
+      "decision_action": 2,
+      "following_observation_time": 280.0,
+      "phase": 2,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0280.png",
+      "capture_time_seconds": 280.5,
+      "decision_action": 1,
+      "following_observation_time": 281.0,
+      "phase": 2,
+      "stage": "all_red",
+      "queue": 6
+    },
+    {
+      "file": "frames\\frame_0281.png",
+      "capture_time_seconds": 281.5,
+      "decision_action": 1,
+      "following_observation_time": 282.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 7
+    },
+    {
+      "file": "frames\\frame_0282.png",
+      "capture_time_seconds": 282.5,
+      "decision_action": 1,
+      "following_observation_time": 283.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0283.png",
+      "capture_time_seconds": 283.5,
+      "decision_action": 1,
+      "following_observation_time": 284.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0284.png",
+      "capture_time_seconds": 284.5,
+      "decision_action": 1,
+      "following_observation_time": 285.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0285.png",
+      "capture_time_seconds": 285.5,
+      "decision_action": 1,
+      "following_observation_time": 286.0,
+      "phase": 1,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0286.png",
+      "capture_time_seconds": 286.5,
+      "decision_action": 0,
+      "following_observation_time": 287.0,
+      "phase": 1,
+      "stage": "all_red",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0287.png",
+      "capture_time_seconds": 287.5,
+      "decision_action": 0,
+      "following_observation_time": 288.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 5
+    },
+    {
+      "file": "frames\\frame_0288.png",
+      "capture_time_seconds": 288.5,
+      "decision_action": 0,
+      "following_observation_time": 289.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0289.png",
+      "capture_time_seconds": 289.5,
+      "decision_action": 0,
+      "following_observation_time": 290.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0290.png",
+      "capture_time_seconds": 290.5,
+      "decision_action": 0,
+      "following_observation_time": 291.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0291.png",
+      "capture_time_seconds": 291.5,
+      "decision_action": 0,
+      "following_observation_time": 292.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0292.png",
+      "capture_time_seconds": 292.5,
+      "decision_action": 0,
+      "following_observation_time": 293.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0293.png",
+      "capture_time_seconds": 293.5,
+      "decision_action": 0,
+      "following_observation_time": 294.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0294.png",
+      "capture_time_seconds": 294.5,
+      "decision_action": 0,
+      "following_observation_time": 295.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0295.png",
+      "capture_time_seconds": 295.5,
+      "decision_action": 0,
+      "following_observation_time": 296.0,
+      "phase": 0,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0296.png",
+      "capture_time_seconds": 296.5,
+      "decision_action": 3,
+      "following_observation_time": 297.0,
+      "phase": 0,
+      "stage": "all_red",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0297.png",
+      "capture_time_seconds": 297.5,
+      "decision_action": 3,
+      "following_observation_time": 298.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 2
+    },
+    {
+      "file": "frames\\frame_0298.png",
+      "capture_time_seconds": 298.5,
+      "decision_action": 3,
+      "following_observation_time": 299.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 1
+    },
+    {
+      "file": "frames\\frame_0299.png",
+      "capture_time_seconds": 299.5,
+      "decision_action": 3,
+      "following_observation_time": 300.0,
+      "phase": 3,
+      "stage": "green",
+      "queue": 1
+    }
+  ]
+}

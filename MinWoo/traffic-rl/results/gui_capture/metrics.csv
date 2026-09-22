@@ -1,0 +1,2 @@
+episode,controller,seed,traffic_scenario,avg_waiting_time,max_waiting_time,avg_queue,max_queue,throughput,episode_reward,departed,unfinished,pending,max_pending,collisions,teleports,duration,reward_queue,reward_waiting,reward_max_waiting,reward_switching,phase_changes,route_sha256
+1,fixed,2001,balanced,8.577586206896552,28.0,4.145833333333333,13,32,-9.351450031931744,58,26,0,2,0,0,120.0,-1.5546875289874151,-0.212387500848854,-4.984375002095476,-2.6,13,66b201aa7f77fe25f49da18f98a79fa8c34428c1adec4d7cfada0013c2a61705

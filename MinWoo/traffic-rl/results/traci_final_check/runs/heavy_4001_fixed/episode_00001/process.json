@@ -1,0 +1,28 @@
+{
+  "pid": 12492,
+  "command": [
+    "C:\\Users\\minwo\\OneDrive\\\ubb38\uc11c\\ChatGPT\\Capstone\\.venv\\Lib\\site-packages\\sumo\\bin\\sumo.exe",
+    "-c",
+    "C:\\Users\\minwo\\OneDrive\\\ubb38\uc11c\\ChatGPT\\Capstone\\traffic-rl\\sumo\\simulation.sumocfg",
+    "--route-files",
+    "results\\traci_final_check\\runs\\heavy_4001_fixed\\episode_00001\\routes.rou.xml",
+    "--step-length",
+    "0.5",
+    "--end",
+    "300",
+    "--seed",
+    "4001",
+    "--waiting-time-memory",
+    "301",
+    "--tripinfo-output",
+    "results\\traci_final_check\\runs\\heavy_4001_fixed\\episode_00001\\tripinfo.xml",
+    "--tripinfo-output.write-unfinished",
+    "true",
+    "--no-step-log",
+    "true",
+    "--duration-log.disable",
+    "true",
+    "--remote-port",
+    "63683"
+  ]
+}
