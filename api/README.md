@@ -34,6 +34,8 @@ GET  /api/reports/{report_id}/download
 
 `simulation_frame`은 simulation time, network bounds, 두 controller의 phase/state/vehicles/metrics, delta를 담습니다. `training_progress`는 timestep, episode, epsilon, replay-buffer size, rolling reward, validation 및 checkpoint를 담습니다.
 
+현재 모델 호환성 기준은 60차원 Observation과 8개 Action입니다. 기존 34차원·4개 Action 모델은 목록에 `compatible: false`로 표시되며 비교 실행에 사용할 수 없습니다. 새 환경에서 다시 학습한 모델을 선택해야 합니다. Phase 번호는 0 남북 직진, 1 남북 좌회전, 2 북쪽 직진+좌회전, 3 남쪽 직진+좌회전, 4 동서 직진, 5 동서 좌회전, 6 동쪽 직진+좌회전, 7 서쪽 직진+좌회전입니다.
+
 ## Training lifecycle
 
 Pause/Stop은 process suspend가 아니라 SB3 callback 종료 신호입니다. 종료 시 `final.zip`과 `final.replay.pkl`을 함께 저장합니다. Resume은 두 파일과 `num_timesteps`를 복원합니다. Validation은 별도 환경·seed를 사용하고 평균/최대 대기, queue, throughput, phase change를 평가합니다. Best model은 평균 대기 중심 score, 최대 대기 제한, 기존 best 대비 throughput 90% 유지 조건으로 선택합니다.

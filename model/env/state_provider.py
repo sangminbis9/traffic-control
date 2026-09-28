@@ -7,6 +7,8 @@ from typing import Any, Mapping, Protocol
 
 import numpy as np
 
+from model.controller.signal_controller import CONTROLLER_FEATURE_COUNT
+
 
 LANE_GROUPS: tuple[tuple[str, str], ...] = (
     ("N", "left"),
@@ -19,6 +21,9 @@ LANE_GROUPS: tuple[tuple[str, str], ...] = (
     ("W", "straight"),
 )
 INCOMING_EDGES = {approach: f"{approach}_in" for approach in ("N", "S", "E", "W")}
+GROUP_COUNT = len(LANE_GROUPS)
+# queues, total waiting, max waiting, controller state, approaching vehicles.
+OBSERVATION_SIZE = GROUP_COUNT * 4 + CONTROLLER_FEATURE_COUNT
 
 
 @dataclass(frozen=True)
@@ -31,13 +36,18 @@ class TrafficSnapshot:
     max_waiting_time: float
     vehicle_count: int
     arrived: int
-    approaching_by_group: tuple[float, ...] = (0.0,) * 8
+    approaching_by_group: tuple[float, ...] = (0.0,) * GROUP_COUNT
     vehicle_waiting: Mapping[str, float] = field(default_factory=dict)
     departed_ids: tuple[str, ...] = ()
     arrived_ids: tuple[str, ...] = ()
     pending: int = 0
     collisions: int = 0
     teleports: int = 0
+    # Global waiting above remains available for reward and episode metrics.
+    # Missing group measurements default to zero; global totals cannot be
+    # distributed across movements without knowing the vehicles' lanes.
+    total_waiting_by_group: tuple[float, ...] = (0.0,) * GROUP_COUNT
+    max_waiting_by_group: tuple[float, ...] = (0.0,) * GROUP_COUNT
 
 
 class TrafficStateProvider(Protocol):
@@ -60,13 +70,10 @@ def _observation(
     traffic = np.concatenate(
         [
             np.asarray(snapshot.queue_by_group, dtype=np.float32) / max(queue_scale, 1e-9),
-            np.asarray(
-                [
-                    snapshot.total_waiting_time / max(waiting_scale, 1e-9),
-                    snapshot.max_waiting_time / max(max_waiting_scale, 1e-9),
-                ],
-                dtype=np.float32,
-            ),
+            np.asarray(snapshot.total_waiting_by_group, dtype=np.float32)
+            / max(waiting_scale, 1e-9),
+            np.asarray(snapshot.max_waiting_by_group, dtype=np.float32)
+            / max(max_waiting_scale, 1e-9),
         ]
     )
     approaching = (
@@ -83,7 +90,7 @@ def _observation(
 
 
 class SUMOTrafficStateProvider:
-    """Read MinWoo-compatible queue, waiting, and approaching features from TraCI."""
+    """Read movement-level queue, waiting, and approaching features from TraCI."""
 
     def __init__(
         self,
@@ -105,11 +112,13 @@ class SUMOTrafficStateProvider:
         queue_values: list[float] = []
         approaching_values: list[float] = []
         moving_by_lane: dict[str, int] = {}
+        waiting_by_lane: dict[str, list[float]] = {}
         lane_lengths: dict[str, float] = {}
         for approach in ("N", "S", "E", "W"):
             for lane in range(3):
                 lane_id = f"{approach}_in_{lane}"
                 moving_by_lane[lane_id] = 0
+                waiting_by_lane[lane_id] = []
                 lane_lengths[lane_id] = float(self.connection.lane.getLength(lane_id))
 
         vehicle_ids = tuple(self.connection.vehicle.getIDList())
@@ -122,14 +131,26 @@ class SUMOTrafficStateProvider:
             if lane_id not in lane_lengths:
                 continue
             incoming_waiting.append(waiting)
+            # Include every vehicle on an incoming lane, even if moving or
+            # outside the approaching-feature detection distance.
+            waiting_by_lane[lane_id].append(waiting)
             speed = float(self.connection.vehicle.getSpeed(vehicle_id))
             lane_position = float(self.connection.vehicle.getLanePosition(vehicle_id))
             if speed >= 0.1 and lane_lengths[lane_id] - lane_position <= self.detection_distance:
                 moving_by_lane[lane_id] += 1
 
+        total_waiting_values: list[float] = []
+        max_waiting_values: list[float] = []
         for approach, group in LANE_GROUPS:
             edge_id = INCOMING_EDGES[approach]
             lane_indices = (2,) if group == "left" else (0, 1)
+            group_waiting = [
+                waiting
+                for lane in lane_indices
+                for waiting in waiting_by_lane[f"{edge_id}_{lane}"]
+            ]
+            total_waiting_values.append(float(sum(group_waiting)))
+            max_waiting_values.append(max(group_waiting, default=0.0))
             queue_values.append(
                 float(
                     sum(
@@ -160,6 +181,8 @@ class SUMOTrafficStateProvider:
             vehicle_count=len(vehicle_ids),
             arrived=len(arrived_ids),
             approaching_by_group=tuple(approaching_values),
+            total_waiting_by_group=tuple(total_waiting_values),
+            max_waiting_by_group=tuple(max_waiting_values),
             vehicle_waiting=vehicle_waiting,
             departed_ids=departed,
             arrived_ids=arrived_ids,

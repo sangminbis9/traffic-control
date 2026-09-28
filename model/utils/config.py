@@ -87,7 +87,10 @@ class ProjectConfig:
     dqn: DQNConfig = field(default_factory=DQNConfig)
     simulation: SimulationConfig = field(default_factory=SimulationConfig)
     fixed_green_times: Dict[int, float] = field(
-        default_factory=lambda: {0: 10.0, 1: 4.0, 2: 10.0, 3: 4.0}
+        default_factory=lambda: {
+            0: 10.0, 1: 4.0, 2: 4.0, 3: 4.0,
+            4: 10.0, 5: 4.0, 6: 4.0, 7: 4.0,
+        }
     )
     approaching_distance: float = 50.0
     approaching_scale: float = 10.0

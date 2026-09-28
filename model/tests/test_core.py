@@ -10,7 +10,7 @@ import numpy as np
 from model.controller.signal_controller import GREEN_LINKS, SignalController
 from model.env.reward import calculate_reward
 from model.env.state_provider import SnapshotStateProvider, TrafficSnapshot
-from model.sumo.build_network import network_fingerprint
+from model.sumo.build_network import validate_network
 from model.traffic.route_generator import TrafficDemand, _route_for, generate_route_file
 from model.utils.config import ProjectConfig, RewardConfig, SignalConfig
 
@@ -34,7 +34,7 @@ class CoreTests(unittest.TestCase):
         self.assertEqual(config_path.name, "simulation.sumocfg")
         self.assertTrue(config_path.exists())
 
-    def test_default_model_and_network_match_minwoo_artifacts(self) -> None:
+    def test_legacy_model_is_preserved_and_network_is_valid(self) -> None:
         config = ProjectConfig()
         model_path = config.results_dir / "dqn_intersection.zip"
         model_hash = hashlib.sha256(model_path.read_bytes()).hexdigest()
@@ -43,10 +43,7 @@ class CoreTests(unittest.TestCase):
             model_hash,
             "920fe8d6141ad7f7621ec8e28cf5957fe7e92237ed2dc9d6f35b4f3efa13b28d",
         )
-        self.assertEqual(
-            network_fingerprint(config.network_file),
-            "449b1d78b133f6ea97663e5a581a65370cf5aa45ea81bcf272b990f91471dde1",
-        )
+        validate_network(config.network_file)
 
     def test_route_movements_use_correct_lanes_and_horizontal_turns(self) -> None:
         expected_destinations = {
@@ -97,7 +94,7 @@ class CoreTests(unittest.TestCase):
                 {"0"},
             )
 
-    def test_generated_network_signal_links_match_four_logical_phases(self) -> None:
+    def test_generated_network_signal_links_match_eight_logical_phases(self) -> None:
         root = ET.parse(ProjectConfig().network_file).getroot()
         controlled = {
             int(connection.attrib["linkIndex"]): (
@@ -110,8 +107,12 @@ class CoreTests(unittest.TestCase):
         expected = {
             0: {(approach, movement) for approach in "NS" for movement in ("s", "r")},
             1: {(approach, "l") for approach in "NS"},
-            2: {(approach, movement) for approach in "EW" for movement in ("s", "r")},
-            3: {(approach, "l") for approach in "EW"},
+            2: {("N", movement) for movement in ("s", "r", "l")},
+            3: {("S", movement) for movement in ("s", "r", "l")},
+            4: {(approach, movement) for approach in "EW" for movement in ("s", "r")},
+            5: {(approach, "l") for approach in "EW"},
+            6: {("E", movement) for movement in ("s", "r", "l")},
+            7: {("W", movement) for movement in ("s", "r", "l")},
         }
 
         for phase, link_indices in GREEN_LINKS.items():
@@ -156,7 +157,7 @@ class CoreTests(unittest.TestCase):
         controller.reset(2)
         controller.advance(5.0)
         observation = provider.observation(controller)
-        self.assertEqual(observation.shape, (34,))
+        self.assertEqual(observation.shape, (60,))
         self.assertTrue(np.all(observation >= 0.0))
         self.assertTrue(np.all(observation <= 1.0))
         reward_after = calculate_reward(before, after, False, RewardConfig())

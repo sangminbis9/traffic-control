@@ -13,15 +13,13 @@ from typing import Any, Callable
 
 import numpy as np
 from api.app.schemas.models import ComparisonCreate
+from model.controller.signal_controller import PHASE_NAMES
 from model.controller.traffic_dqn import TrafficDQN
 from model.env.intersection_env import IntersectionEnv
 from model.traffic.initial_placement import LanePlacement, generate_initial_route_file
 from model.traffic.route_generator import TrafficDemand, generate_route_file
 from model.utils.config import ProjectConfig
 from model.utils.reproducibility import collect_reproducibility_metadata
-
-
-PHASE_NAMES = ("NS Straight", "NS Left", "EW Straight", "EW Left")
 
 
 class SynchronizedComparisonRunner:

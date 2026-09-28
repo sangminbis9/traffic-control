@@ -154,6 +154,10 @@ dl { background: #f8fafc; border-color: #e2e8f0; }
 .phase-1 { background: #d97706; }
 .phase-2 { background: #059669; }
 .phase-3 { background: #dc2626; }
+.phase-4 { background: #7c3aed; }
+.phase-5 { background: #0891b2; }
+.phase-6 { background: #db2777; }
+.phase-7 { background: #57534e; }
 .objective-summary { color: #334155; }
 .result-summary th, .result-summary td { border-bottom-color: #e2e8f0; }
 .result-summary pre { color: #334155; background: #f8fafc; }

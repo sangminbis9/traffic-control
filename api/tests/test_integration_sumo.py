@@ -8,8 +8,9 @@ import time
 import pytest
 
 from api.app.schemas.models import ComparisonCreate, InitialTrafficInput, LanePlacementInput
-from api.app.services.model_registry import ModelRegistry
 from api.app.services.simulation_runner import SynchronizedComparisonRunner
+from model.controller.traffic_dqn import TrafficDQN
+from model.env.intersection_env import IntersectionEnv
 from model.training import TrainingOptions, TrainingRunner
 
 
@@ -20,21 +21,29 @@ pytestmark = pytest.mark.skipif(
 
 
 def test_real_sumo_initial_placement_and_synchronized_comparison(tmp_path: Path) -> None:
-    registry = ModelRegistry()
-    model = next(item for item in registry.list_models() if item['compatible'])
+    # A fresh policy exercises the current contract independently of bundled old models.
+    model_path = tmp_path / 'current-contract.zip'
+    environment = IntersectionEnv(route_dir=tmp_path / 'routes')
+    try:
+        model = TrafficDQN('MlpPolicy', environment, buffer_size=32, device='cpu', seed=1)
+        assert model.observation_space.shape == (60,)
+        assert model.action_space.n == 8
+        model.save(model_path)
+    finally:
+        environment.close()
     lane = LanePlacementInput(left=1, straight=1, lane3_total=1, lane3_right=0)
     request = ComparisonCreate(
         test_mode='initial',
         run_mode='single',
         initial=InitialTrafficInput(N=lane, S=lane, E=lane, W=lane),
-        model_path=model['path'],
+        model_path=str(model_path),
         seed=25_001,
         duration=90,
         render_interval=15,
         speed='max',
     )
     runner = SynchronizedComparisonRunner(
-        'integration_sumo', request, Path(model['path']), tmp_path / 'comparison'
+        'integration_sumo', request, model_path, tmp_path / 'comparison'
     )
     result = runner.run()
     assert result['status'] == 'COMPLETED'

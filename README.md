@@ -1,6 +1,6 @@
 # Traffic Control Lab
 
-SUMO 기반 4방향·3차로 교차로, MinWoo의 검증된 34차원 Stable-Baselines3 DQN, Fixed-Time 기준 제어기, FastAPI 실험 서버, React 연구 대시보드를 한 저장소에서 운영하는 캡스톤 프로젝트입니다. 웹의 차량 위치와 지표는 임의 애니메이션이 아니라 TraCI가 읽은 실제 SUMO 상태입니다.
+SUMO 기반 4방향·3차로 교차로, 60차원 관측·8개 Phase를 사용하는 Stable-Baselines3 DQN, Fixed-Time 기준 제어기, FastAPI 실험 서버, React 연구 대시보드를 한 저장소에서 운영하는 캡스톤 프로젝트입니다. 웹의 차량 위치와 지표는 임의 애니메이션이 아니라 TraCI가 읽은 실제 SUMO 상태입니다.
 
 ## Architecture
 
@@ -74,7 +74,7 @@ npm run dev
 기존 CLI는 그대로 유지됩니다.
 
 ```powershell
-python -m model.test_sumo --seconds 60
+python -m model.test_sumo --seconds 60 --check-env
 python -m model.train --timesteps 1000 --episode-seconds 120 --check-env
 python -m model.evaluate --episodes 30 --seed-start 2001
 ```
@@ -83,7 +83,7 @@ python -m model.evaluate --episodes 30 --seed-start 2001
 
 ## Main capabilities
 
-- MinWoo 34차원 상태·5-step return·5~17 decision 연속 탐색 DQN
+- 이동 그룹별 waiting을 포함한 60차원 상태·8개 Phase·5-step return·5~17 decision 연속 탐색 DQN
 - Fixed Steps / Auto Convergence 학습, 다중 시나리오 validation, 교통 성능 기반 best checkpoint
 - Callback 기반 안전 Pause/Stop과 model + replay buffer 저장, checkpoint Resume
 - 12개 진입 차로별 0~5대 deterministic 초기 배치와 실제 차량 수 검증
@@ -106,7 +106,7 @@ npm run build
 
 ```powershell
 $env:RUN_SUMO_INTEGRATION = "1"
-python -m pytest api\tests\test_integration_sumo.py -q
+python -m pytest model\tests api\tests -q
 ```
 
 생성되는 runtime 파일은 `api/data/`, `api/artifacts/`, `model/sumo/generated/`에 있으며 Git에서 제외됩니다.
@@ -116,4 +116,6 @@ python -m pytest api\tests\test_integration_sumo.py -q
 기본 `model/results/dqn_intersection.zip`은
 `MinWoo/traffic-rl/results/models/dqn.zip`의 학습 seed 22, 150,000-step 모델입니다.
 모델 SHA-256과 원본 평가 결과는 [model/results/README.md](model/results/README.md)에
-기록되어 있습니다. 기존 12차원 모델은 현재 34차원 환경과 호환되지 않습니다.
+기록되어 있습니다. 이 파일은 과거 34차원/4-action 모델로 보존되어 있으며,
+현재 60차원/8-action 환경에서는 사용할 수 없습니다. 새 비교·평가에는 현재
+환경에서 새로 학습한 모델이 필요합니다. 과거 12차원 모델도 호환되지 않습니다.

@@ -10,8 +10,8 @@ const compatibleModel = {
   relative_path: 'model/results/dqn_intersection.zip',
   sha256: '0123456789abcdef',
   timesteps: 1000,
-  observation_shape: [34],
-  action_count: 4,
+  observation_shape: [60],
+  action_count: 8,
   compatible: true,
   error: null,
 }

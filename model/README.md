@@ -31,7 +31,7 @@ SUMO는 오른쪽부터 차로 번호를 부여하므로 내부 인덱스는 `2=
 먼저 TraCI 연결, 신호 전환, Queue, Waiting Time을 확인합니다.
 
 ```powershell
-python -m model.test_sumo --seconds 60
+python -m model.test_sumo --seconds 60 --check-env
 ```
 
 GUI로 보려면 다음처럼 실행합니다.
@@ -54,7 +54,7 @@ sumo-gui -c model\sumo\simulation.sumocfg --route-files model\sumo\routes.rou.xm
 python -m model.train --timesteps 1000 --episode-seconds 120 --check-env
 ```
 
-민우의 검증 설정을 사용하는 기본 학습:
+기존 DQN 학습 설정으로 새 60차원/8-action 모델 학습:
 
 ```powershell
 python -m model.train --timesteps 150000 --scenario random
@@ -105,27 +105,44 @@ model/
 
 ## State
 
-Observation은 민우 모델과 동일한 `Box(0, 1, shape=(34,))`입니다.
+Observation은 `Box(0, 1, shape=(60,), dtype=float32)`입니다. 모든 이동 그룹의 순서는
+`N_left`, `N_straight`, `S_left`, `S_straight`, `E_left`, `E_straight`, `W_left`, `W_straight`입니다.
 
-1. `N_left`, `N_straight`, `S_left`, `S_straight`, `E_left`, `E_straight`, `W_left`, `W_straight` queue 8개
-2. 전체 누적 대기시간
-3. 현재 차량 중 최대 누적 대기시간
-4. 현재 Phase one-hot 4개
-5. 현재 green/yellow/all-red 단계 경과시간 1개와 단계 one-hot 3개
-6. 전환 목표 Phase one-hot 4개
-7. Phase별 미서비스 시간 4개
-8. 정지선 50m 이내에서 움직이는 접근 차량 8개
+| 인덱스 (Python slice) | Feature | 정규화 |
+|---|---|---|
+| `0:8` | 그룹별 queue 8개 | `/10` |
+| `8:16` | 그룹별 total accumulated waiting 8개 | `/6000` |
+| `16:24` | 그룹별 max accumulated waiting 8개 | `/120` |
+| `24:32` | 현재 Phase one-hot 8개 | 0 또는 1 |
+| `32:33` | 현재 단계 경과시간 | 단계별 max green / yellow / all-red 시간으로 나눔 |
+| `33:36` | green/yellow/all-red one-hot 3개 | 0 또는 1 |
+| `36:44` | 전환 목표 Phase one-hot 8개 | green일 때 모두 0 |
+| `44:52` | Phase별 red-age 8개 | `/max_red` |
+| `52:60` | 정지선 50m 이내에서 움직이는 approaching 8개 | `/10` |
+
+정규화 값은 `[0, 1]`로 clip합니다. Waiting은 그룹의 **현재 진입 차로에 있는 모든 차량**의
+`getAccumulatedWaitingTime()`을 합산하거나 최댓값을 취합니다. 정지 여부나 정지선까지의
+거리에 제한을 두지 않습니다. 좌회전 그룹은 차로 2, 직진 그룹은 차로 0·1(우회전 공유)을
+사용하며, 빈 그룹은 0입니다. 전역 total/max waiting은 Observation에서 제외했지만
+기존 reward와 지표 계산에는 그대로 사용합니다.
 
 현재 SUMO 구현은 `SUMOTrafficStateProvider`를 사용합니다. 향후 YOLO/Tracking 결과를 같은 `TrafficSnapshot` 구조로 만들면 DQN과 환경의 나머지 부분은 유지할 수 있습니다.
 
 ## Action and signal safety
 
-`Discrete(4)`의 의미는 다음과 같습니다.
+`Discrete(8)`의 의미는 다음과 같습니다.
 
 - `0`: 남북 직진
 - `1`: 남북 좌회전
-- `2`: 동서 직진
-- `3`: 동서 좌회전
+- `2`: 북쪽 직진+좌회전
+- `3`: 남쪽 직진+좌회전
+- `4`: 동서 직진
+- `5`: 동서 좌회전
+- `6`: 동쪽 직진+좌회전
+- `7`: 서쪽 직진+좌회전
+
+직진+좌회전 Phase는 해당 한 방향만 녹색이며 나머지 세 방향은 적색입니다.
+우회전 공유 차로는 기존처럼 해당 방향 직진 신호와 함께 열립니다.
 
 DQN은 yellow/all-red를 직접 선택하지 않습니다. 다른 Phase를 선택하면 `SignalController`가 현재 green → yellow → all-red → 새 green으로 전환합니다. `Minimum Green=3s`, `Maximum Green=15s`, `Yellow=1s`, `All Red=1s`, `Max Red=60s`는 `utils/config.py`에서 수정할 수 있습니다. Maximum Green 또는 Max Red에 도달하면 가장 오래 서비스하지 않은 Phase를 우선해 starvation을 제한합니다.
 
@@ -144,13 +161,14 @@ reward = -1.0 * mean(clip(each_group_queue / 10))
 
 ## Fixed-Time Controller
 
-기본 고정 녹색시간은 `0: 10s`, `1: 4s`, `2: 10s`, `3: 4s`이며 `ProjectConfig.fixed_green_times`에서 변경합니다. Fixed-Time도 동일한 `SignalController`를 통과하므로 yellow/all-red 처리와 phase-change metric이 DQN과 일관됩니다.
+Fixed-Time은 `0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 0` 순서로 순환합니다.
+기본 고정 녹색시간은 `0·4: 10s`, 나머지는 `4s`이며 `ProjectConfig.fixed_green_times`에서 변경합니다. Fixed-Time도 동일한 `SignalController`를 통과하므로 yellow/all-red 처리와 phase-change metric이 DQN과 일관됩니다.
 
 ## Reproducibility and known limitations
 
 - Train seed와 evaluation seed를 분리할 수 있습니다. 기본 평가 seed는 `2001`부터입니다.
 - Route generator의 seed가 같으면 controller 이름이 달라도 동일한 route XML이 생성됩니다.
 - 학습은 5-step return, `[128, 128]` MLP와 5~17 decision 동안 유지되는 탐색 action을 사용합니다.
-- 웹 학습실은 실시간 시각화를 유지하기 위해 TraCI를 사용하며 MinWoo 원본과 동일한 관측·보상 계약을 따릅니다.
+- 웹 학습실은 실시간 시각화를 위해 TraCI를 사용하며 60차원/8-action 관측·행동 계약을 따릅니다. 기존 보상식과 DQN 알고리즘·학습 설정은 유지합니다.
 - Windows에서 네트워크 생성, 60초 TraCI 테스트, 단위 테스트, Gymnasium `check_env()`, DQN 학습 및 모델 재로딩을 실제 실행해 검증했습니다.
-- 기본 모델은 MinWoo의 seed 22, 150,000-step 모델입니다. 원본 6개 시나리오 × 30개 hold-out seed 평가에서 전체 평균 대기시간이 Fixed-Time보다 32.38% 낮았지만 `heavy`에서는 악화됐으므로 과포화 조건은 별도로 개선해야 합니다.
+- 보존된 기본 모델은 MinWoo의 seed 22, 150,000-step 모델이며 34차원/4-action입니다. 현재 환경과 호환되지 않으므로 새 학습이 필요하며 기존 checkpoint를 그대로 resume할 수 없습니다. 과거 모델의 성능 수치를 새 8-phase 환경의 성능으로 해석하면 안 됩니다.

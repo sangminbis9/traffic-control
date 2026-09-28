@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 from pathlib import Path
 from queue import Empty
+from types import SimpleNamespace
 import xml.etree.ElementTree as ET
 
 import pytest
@@ -17,6 +18,7 @@ from api.app.services.model_registry import ModelRegistry
 from api.app.services.report_service import ReportService
 from api.app.services.training_service import TrainingService
 import api.app.services.report_service as report_module
+import api.app.services.model_registry as registry_module
 import api.app.services.training_service as training_module
 from model.traffic.initial_placement import LanePlacement, generate_initial_route_file
 from model.env.state_provider import TrafficSnapshot
@@ -34,8 +36,8 @@ def test_api_health_and_model_contract() -> None:
         assert models[0]['sha256'] == '920fe8d6141ad7f7621ec8e28cf5957fe7e92237ed2dc9d6f35b4f3efa13b28d'
         for model in models:
             if model['compatible']:
-                assert model['observation_shape'] == [34]
-                assert model['action_count'] == 4
+                assert model['observation_shape'] == [60]
+                assert model['action_count'] == 8
 
 
 def test_continuous_input_requires_complete_rates_and_normalized_ratios() -> None:
@@ -206,6 +208,38 @@ def test_model_registry_rejects_paths_outside_registry(tmp_path: Path) -> None:
         ModelRegistry().resolve(str(invalid))
 
 
+@pytest.mark.parametrize(
+    ('observation_size', 'action_count', 'compatible'),
+    [(60, 8, True), (34, 4, False), (60, 4, False), (34, 8, False)],
+)
+def test_model_registry_requires_current_observation_and_action_contract(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    observation_size: int, action_count: int, compatible: bool,
+) -> None:
+    path = tmp_path / 'contract.zip'
+    path.write_bytes(b'model archive inspected through the loader stub')
+    monkeypatch.setattr(registry_module, 'REPOSITORY_ROOT', tmp_path)
+    monkeypatch.setattr(registry_module.TrafficDQN, 'load', lambda *_args, **_kwargs: SimpleNamespace(
+        observation_space=SimpleNamespace(shape=(observation_size,)),
+        action_space=SimpleNamespace(n=action_count), num_timesteps=100,
+    ))
+    registry = ModelRegistry()
+    registry.allowed_roots = [tmp_path]
+
+    metadata = registry.inspect(path)
+
+    assert metadata['observation_shape'] == [observation_size]
+    assert metadata['action_count'] == action_count
+    assert metadata['compatible'] is compatible
+    if compatible:
+        assert metadata['error'] is None
+        assert registry.resolve(str(path)) == path
+    else:
+        assert 'expected observation [60] and 8 actions' in metadata['error']
+        with pytest.raises(ValueError, match='Train a new model'):
+            registry.resolve(str(path))
+
+
 def test_report_export_contains_expected_artifacts(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(database, 'DATABASE_PATH', tmp_path / 'traffic_control.db')
     monkeypatch.setattr(database, 'DATA_DIR', tmp_path)
@@ -216,9 +250,10 @@ def test_report_export_contains_expected_artifacts(tmp_path: Path, monkeypatch: 
     source.mkdir()
     (source / 'raw_timeseries.csv').write_text(
         'simulation_time,fixed_vehicles_remaining,dqn_vehicles_remaining,fixed_phase,dqn_phase\n'
-        '1,4,4,0,0\n2,3,2,0,2\n', encoding='utf-8'
+        '1,4,4,0,0\n2,3,2,4,7\n', encoding='utf-8'
     )
-    model = next(item for item in ModelRegistry().list_models() if item['compatible'])
+    # Historical reports remain exportable even when their checkpoint is incompatible.
+    model = ModelRegistry().list_models()[0]
     result = {
         'model_path': model['path'],
         'fixed': {'avg_waiting_time': 10, 'max_waiting_time': 20, 'avg_queue': 4, 'throughput': 4, 'waiting_p50': 5, 'waiting_p90': 15, 'waiting_p95': 18},
@@ -238,3 +273,5 @@ def test_report_export_contains_expected_artifacts(tmp_path: Path, monkeypatch: 
     for chart in ('avg_waiting', 'max_waiting', 'avg_queue', 'throughput', 'clearance_curve', 'phase_timeline', 'waiting_distribution', 'scenario_comparison'):
         assert (output / 'charts' / f'{chart}.png').exists()
         assert (output / 'charts' / f'{chart}.svg').exists()
+    phase_svg = (output / 'charts' / 'phase_timeline.svg').read_text(encoding='utf-8')
+    assert '<!-- 7 -->' in phase_svg

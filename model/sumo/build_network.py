@@ -1,4 +1,4 @@
-"""Build and validate MinWoo's exact four-way SUMO network."""
+"""Build and validate the four-way SUMO network with eight protected phases."""
 
 from __future__ import annotations
 

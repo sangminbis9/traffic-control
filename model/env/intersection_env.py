@@ -1,4 +1,4 @@
-"""Gymnasium environment using MinWoo's validated 34-feature DQN contract."""
+"""Gymnasium environment with eight signal actions and grouped traffic features."""
 
 from __future__ import annotations
 
@@ -11,20 +11,17 @@ import numpy as np
 from gymnasium import spaces
 
 from model.controller.fixed_controller import FixedTimeController
-from model.controller.signal_controller import SignalController
+from model.controller.signal_controller import PHASE_COUNT, PHASE_NAMES, SignalController
 from model.traffic.route_generator import SCENARIOS, TrafficDemand, generate_route_file
 from model.utils.config import ProjectConfig, ensure_directories, resolve_sumo_binary
 from model.utils.metrics import EpisodeMetrics
 
 from .reward import reward_terms, switching_penalty
-from .state_provider import SUMOTrafficStateProvider, TrafficSnapshot
-
-
-PHASE_NAMES = ("NS Straight", "NS Left", "EW Straight", "EW Left")
+from .state_provider import OBSERVATION_SIZE, SUMOTrafficStateProvider, TrafficSnapshot
 
 
 class IntersectionEnv(gym.Env[np.ndarray, int]):
-    """Discrete four-action controller with MinWoo-compatible observations."""
+    """Discrete eight-action controller with normalized movement-group observations."""
 
     metadata = {"render_modes": []}
 
@@ -50,8 +47,10 @@ class IntersectionEnv(gym.Env[np.ndarray, int]):
         self.episode_seconds = episode_seconds or self.config.simulation.episode_seconds
         self.route_dir = route_dir or (self.config.sumo_dir / "generated")
         self.route_file = route_file
-        self.action_space = spaces.Discrete(4)
-        self.observation_space = spaces.Box(low=0.0, high=1.0, shape=(34,), dtype=np.float32)
+        self.action_space = spaces.Discrete(PHASE_COUNT)
+        self.observation_space = spaces.Box(
+            low=0.0, high=1.0, shape=(OBSERVATION_SIZE,), dtype=np.float32
+        )
         self._connection: Any | None = None
         self._signal_controller: SignalController | None = None
         self._fixed_controller: FixedTimeController | None = None

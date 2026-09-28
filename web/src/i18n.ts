@@ -26,8 +26,12 @@ const scenarioLabels: Record<string, string> = {
 const phaseLabels: Record<string, string> = {
   'NS Straight': '남북 직진',
   'NS Left': '남북 좌회전',
+  'N Straight+Left': '북쪽 직진+좌회전',
+  'S Straight+Left': '남쪽 직진+좌회전',
   'EW Straight': '동서 직진',
   'EW Left': '동서 좌회전',
+  'E Straight+Left': '동쪽 직진+좌회전',
+  'W Straight+Left': '서쪽 직진+좌회전',
 }
 
 const signalLabels: Record<string, string> = {

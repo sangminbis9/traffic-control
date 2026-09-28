@@ -20,6 +20,7 @@ import pandas as pd
 
 from api.app.database import ARTIFACTS_DIR, connect, get_row
 from api.app.services.model_registry import ModelRegistry
+from model.controller.signal_controller import PHASE_COUNT
 from model.utils.config import ProjectConfig
 
 
@@ -152,7 +153,8 @@ class ReportService:
         for ax, prefix, label in ((axes[0], "fixed", "Fixed-Time"), (axes[1], "dqn", "DQN")):
             ax.step(frame["simulation_time"], frame[f"{prefix}_phase"], where="post")
             ax.set_ylabel(label)
-            ax.set_yticks([0, 1, 2, 3])
+            ax.set_yticks(range(PHASE_COUNT))
+            ax.set_ylim(-0.5, PHASE_COUNT - 0.5)
         axes[1].set_xlabel("Simulation time (s)")
         fig.suptitle("Phase Timeline")
         self._save_figure(fig, output)

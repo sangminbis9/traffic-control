@@ -8,7 +8,9 @@ from pathlib import Path
 from typing import Any
 
 from api.app.database import ARTIFACTS_DIR, REPOSITORY_ROOT, initialize_database, upsert_model
+from model.controller.signal_controller import PHASE_COUNT
 from model.controller.traffic_dqn import TrafficDQN
+from model.env.state_provider import OBSERVATION_SIZE
 from model.sumo.build_network import network_fingerprint
 from model.utils.config import ProjectConfig
 
@@ -47,9 +49,14 @@ class ModelRegistry:
             observation_shape = list(model.observation_space.shape or ())
             action_count = int(getattr(model.action_space, "n", 0))
             timesteps = int(model.num_timesteps)
-            compatible = observation_shape == [34] and action_count == 4
+            compatible = observation_shape == [OBSERVATION_SIZE] and action_count == PHASE_COUNT
             if not compatible:
-                error = "Model/environment observation mismatch"
+                error = (
+                    "Model/environment contract mismatch: "
+                    f"expected observation [{OBSERVATION_SIZE}] and {PHASE_COUNT} actions, "
+                    f"got observation {observation_shape} and {action_count} actions. "
+                    "Train a new model for the current environment."
+                )
         except Exception as exc:
             error = str(exc)
         stat = path.stat()

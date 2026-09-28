@@ -1,4 +1,4 @@
-"""Safe signal state machine compatible with MinWoo's trained policy."""
+"""Safe signal state machine for eight protected movement phases."""
 
 from __future__ import annotations
 
@@ -10,12 +10,29 @@ import numpy as np
 
 # Explicit link order: N 0-3, E 4-7, S 8-11, W 12-15.
 # Each approach: right, straight lane 0, straight lane 1, left.
+# Combined straight/left phases release only one approach, including its right turn.
 GREEN_LINKS: dict[int, tuple[int, ...]] = {
     0: (0, 1, 2, 8, 9, 10),
     1: (3, 11),
-    2: (4, 5, 6, 12, 13, 14),
-    3: (7, 15),
+    2: (0, 1, 2, 3),
+    3: (8, 9, 10, 11),
+    4: (4, 5, 6, 12, 13, 14),
+    5: (7, 15),
+    6: (4, 5, 6, 7),
+    7: (12, 13, 14, 15),
 }
+PHASE_NAMES = (
+    "NS Straight",
+    "NS Left",
+    "N Straight+Left",
+    "S Straight+Left",
+    "EW Straight",
+    "EW Left",
+    "E Straight+Left",
+    "W Straight+Left",
+)
+PHASE_COUNT = len(PHASE_NAMES)
+CONTROLLER_FEATURE_COUNT = PHASE_COUNT * 3 + 4
 LINK_COUNT = 16
 
 
@@ -29,7 +46,7 @@ class ActionResult:
 
 
 class SignalController:
-    """Translate four policy actions into green/yellow/all-red transitions."""
+    """Translate eight policy actions into green/yellow/all-red transitions."""
 
     def __init__(self, connection: Any, tl_id: str, config: Any) -> None:
         self.connection = connection
@@ -39,7 +56,7 @@ class SignalController:
         self.target_phase = 0
         self.phase_elapsed = 0.0
         self._transition_stage: str | None = None
-        self.red_age = np.zeros(4, dtype=np.float64)
+        self.red_age = np.zeros(PHASE_COUNT, dtype=np.float64)
         self.phase_changes = 0
         self.forced_changes = 0
         self.last_reason = "initial"
@@ -57,11 +74,15 @@ class SignalController:
         return self._transition_stage or "green"
 
     def reset(self, initial_phase: int = 0) -> None:
+        if initial_phase not in GREEN_LINKS:
+            raise ValueError(
+                f"Initial phase must be between 0 and {PHASE_COUNT - 1}; got {initial_phase}"
+            )
         self.current_phase = int(initial_phase)
         self.target_phase = int(initial_phase)
         self.phase_elapsed = 0.0
         self._transition_stage = None
-        self.red_age = np.zeros(4, dtype=np.float64)
+        self.red_age = np.zeros(PHASE_COUNT, dtype=np.float64)
         self.phase_changes = 0
         self.forced_changes = 0
         self.last_reason = "initial"
@@ -88,7 +109,7 @@ class SignalController:
 
     def _oldest_other(self) -> int:
         return max(
-            (phase for phase in range(4) if phase != self.current_phase),
+            (phase for phase in range(PHASE_COUNT) if phase != self.current_phase),
             key=lambda phase: (self.red_age[phase], -phase),
         )
 
@@ -104,7 +125,7 @@ class SignalController:
     def apply_action(self, action: int, force: bool = False) -> ActionResult:
         requested = int(action)
         if requested not in GREEN_LINKS:
-            raise ValueError(f"Action must be one of 0, 1, 2, 3; got {action}")
+            raise ValueError(f"Action must be between 0 and {PHASE_COUNT - 1}; got {action}")
         if self.in_transition:
             return ActionResult(requested, self.current_phase, False, True)
         if not force and self.phase_elapsed + 1e-8 < self.config.min_green:
@@ -155,12 +176,13 @@ class SignalController:
                 self._switch(oldest, "max_red")
 
     def features(self) -> np.ndarray:
-        """Return MinWoo's 16 normalized controller-state features."""
+        """Return phase(8), elapsed(1), stage(3), target(8), and red age(8)."""
 
-        phase = [float(self.current_phase == value) for value in range(4)]
+        phase = [float(self.current_phase == value) for value in range(PHASE_COUNT)]
         stages = [float(self.stage == value) for value in ("green", "yellow", "all_red")]
         target = [
-            float(self.target_phase == value and self.stage != "green") for value in range(4)
+            float(self.target_phase == value and self.stage != "green")
+            for value in range(PHASE_COUNT)
         ]
         scale = {
             "green": self.config.max_green,

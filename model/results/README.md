@@ -1,7 +1,10 @@
 # Default DQN model
 
-현재 기본 모델 dqn_intersection.zip은 GitHub의
+보존된 과거 모델 dqn_intersection.zip은 GitHub의
 MinWoo/traffic-rl/results/models/dqn.zip을 그대로 사용합니다.
+
+이 파일은 34차원/4-action 모델이므로 현재 **60차원/8-action 환경과 호환되지 않습니다**.
+현재 환경에서 새로 학습한 모델로 비교·평가해야 합니다. 아래 성능 수치는 과거 계약의 결과입니다.
 
 - 학습 seed: 22
 - 학습 decisions: 150,000
@@ -25,7 +28,7 @@ heavy 시나리오에서는 평균 대기와 최대 대기가 Fixed-Time보다 �
 low에서는 처리량이 소폭 감소했습니다. 모든 교통 조건에서 우세하다는
 의미는 아닙니다.
 
-이 저장소에서는 MinWoo 모델과 동일하게 다음 계약을 사용합니다.
+이 과거 모델은 다음 계약으로 학습됐습니다.
 
 - 250m 접근로, 제한속도 11.11m/s, SUMO step 0.5초
 - 300초 episode와 240초 수요
@@ -39,4 +42,5 @@ api/artifacts/legacy/dqn_intersection_pre_minwoo.zip에 저장됩니다.
 
 이 폴더의 기존 CSV와 PNG는 교체 전 12차원 모델에서 생성된 과거 결과입니다.
 새 비교 결과는 웹 비교 연구실 또는 `python -m model.evaluate`로 다시 생성해야
-합니다.
+합니다. 먼저 현재 환경의 새 모델을 학습해야 하며, CLI 학습은 이 기본 모델 파일을
+새 60차원/8-action 모델로 교체합니다.

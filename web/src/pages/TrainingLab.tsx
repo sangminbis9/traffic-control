@@ -249,7 +249,7 @@ export function TrainingLab({ onNavigate }: { onNavigate: (page: PageKey) => voi
 
   return (
     <div className="page training-page">
-      <div className="page-heading"><div><h1>강화학습 학습실</h1><p>민우의 검증된 34차원·5-step DQN 설정으로 학습</p></div><span className="status-line"><i className={progress?.status === 'TRAINING' ? 'pulse' : ''} />{restoring ? '세션 확인 중' : statusLabel(progress?.status)}</span></div>
+      <div className="page-heading"><div><h1>강화학습 학습실</h1><p>60차원 관측·8개 신호 단계·5-step DQN 설정으로 학습</p></div><span className="status-line"><i className={progress?.status === 'TRAINING' ? 'pulse' : ''} />{restoring ? '세션 확인 중' : statusLabel(progress?.status)}</span></div>
       {error ? <div className="error-banner">{error}</div> : null}
       <div className="lab-layout">
         <aside className="panel control-panel">
