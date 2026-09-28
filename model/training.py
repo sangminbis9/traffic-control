@@ -11,10 +11,12 @@ import time
 from typing import Any, Callable
 
 import numpy as np
-from stable_baselines3 import DQN
 from stable_baselines3.common.callbacks import BaseCallback
+import torch
 
+from model.controller.traffic_dqn import TrafficDQN
 from model.env.intersection_env import IntersectionEnv
+from model.traffic.route_generator import SCENARIOS
 from model.utils.config import ProjectConfig, ensure_directories
 from model.utils.reproducibility import collect_reproducibility_metadata
 
@@ -25,10 +27,10 @@ ProgressHandler = Callable[[dict[str, Any]], None]
 @dataclass(frozen=True)
 class TrainingOptions:
     mode: str = "fixed_steps"
-    total_steps: int = 20_000
+    total_steps: int = 150_000
     maximum_steps: int = 1_000_000
-    minimum_steps: int = 100_000
-    validation_interval: int = 10_000
+    minimum_steps: int = 50_000
+    validation_interval: int = 50_000
     validation_episodes: int = 5
     no_improvement_patience: int = 8
     minimum_improvement: float = 0.05
@@ -37,8 +39,8 @@ class TrainingOptions:
     visualization_interval: int = 10
     scenario: str = "random"
     episode_seconds: int = 300
-    seed: int = 1
-    validation_seed_start: int = 10_001
+    seed: int = 22
+    validation_seed_start: int = 3_001
     max_waiting_limit: float = 120.0
     throughput_retention: float = 0.90
     waiting_improvement_target: float = 10.0
@@ -168,7 +170,7 @@ class TrainingRunner:
         self.stop_requested = threading.Event()
         self.status = "PENDING"
         self.started_at = 0.0
-        self.model: DQN | None = None
+        self.model: TrafficDQN | None = None
         self.rolling_rewards: list[float] = []
         self.training_rows: list[dict[str, Any]] = []
         self.validation_rows: list[dict[str, Any]] = []
@@ -192,14 +194,15 @@ class TrainingRunner:
         if self.progress_handler is not None:
             self.progress_handler(message)
 
-    def _create_model(self, env: IntersectionEnv) -> DQN:
+    def _create_model(self, env: IntersectionEnv) -> TrafficDQN:
+        torch.set_num_threads(self.config.dqn.torch_threads)
         if self.resume_checkpoint is not None:
-            model = DQN.load(str(self.resume_checkpoint), env=env, device="auto")
+            model = TrafficDQN.load(str(self.resume_checkpoint), env=env, device="auto")
             replay_path = self.resume_checkpoint.with_suffix(".replay.pkl")
             if replay_path.exists():
                 model.load_replay_buffer(str(replay_path))
             return model
-        return DQN(
+        return TrafficDQN(
             self.config.dqn.policy,
             env,
             learning_rate=self.config.dqn.learning_rate,
@@ -213,6 +216,9 @@ class TrainingRunner:
             gamma=self.config.dqn.gamma,
             train_freq=self.config.dqn.train_freq,
             gradient_steps=self.config.dqn.gradient_steps,
+            n_steps=self.config.dqn.n_steps,
+            exploration_hold_min=self.config.dqn.exploration_hold_min,
+            exploration_hold_max=self.config.dqn.exploration_hold_max,
             target_update_interval=self.config.dqn.target_update_interval,
             exploration_fraction=self.config.dqn.exploration_fraction,
             exploration_final_eps=self.config.dqn.exploration_final_eps,
@@ -335,28 +341,31 @@ class TrainingRunner:
 
     def _evaluate_validation_controller(self, controller_name: str) -> dict[str, float]:
         rows: list[dict[str, Any]] = []
-        for offset in range(self.options.validation_episodes):
-            env = IntersectionEnv(
-                self.config,
-                controller_name=controller_name,
-                scenario=self.options.scenario,
-                seed=self.options.validation_seed_start + offset,
-                episode_seconds=self.options.episode_seconds,
-            )
-            try:
-                observation, _ = env.reset(seed=self.options.validation_seed_start + offset)
-                terminated = truncated = False
-                while not (terminated or truncated):
-                    if controller_name.lower().startswith("fixed"):
-                        action = 0
-                    else:
-                        if self.model is None:
-                            raise RuntimeError("Training model is not initialized")
-                        action, _ = self.model.predict(observation, deterministic=True)
-                    observation, _, terminated, truncated, _ = env.step(int(action))
-                rows.append(env.episode_summary(offset))
-            finally:
-                env.close()
+        scenarios = SCENARIOS[:-1] if self.options.scenario == "random" else (self.options.scenario,)
+        for scenario in scenarios:
+            for offset in range(self.options.validation_episodes):
+                traffic_seed = self.options.validation_seed_start + offset
+                env = IntersectionEnv(
+                    self.config,
+                    controller_name=controller_name,
+                    scenario=scenario,
+                    seed=traffic_seed,
+                    episode_seconds=self.options.episode_seconds,
+                )
+                try:
+                    observation, _ = env.reset(seed=traffic_seed)
+                    terminated = truncated = False
+                    while not (terminated or truncated):
+                        if controller_name.lower().startswith("fixed"):
+                            action = 0
+                        else:
+                            if self.model is None:
+                                raise RuntimeError("Training model is not initialized")
+                            action, _ = self.model.predict(observation, deterministic=True)
+                        observation, _, terminated, truncated, _ = env.step(int(action))
+                    rows.append(env.episode_summary(len(rows)))
+                finally:
+                    env.close()
         return _mean_metrics(rows)
 
     def _validate(self, step: int) -> ValidationResult:

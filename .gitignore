@@ -25,3 +25,8 @@ pytest-cache-files-*/
 web/*.tsbuildinfo
 .playwright-cli/
 output/playwright/
+web/.playwright-cli/
+web/pytest-cache-files-*/
+.pytest_cache/
+.tmp/
+pytest-minwoo-*/

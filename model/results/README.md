@@ -1,47 +1,42 @@
-# Evaluation results
+# Default DQN model
 
-이 폴더의 CSV와 PNG는 학습에 사용하지 않은 seed로 Fixed-Time과 DQN을
-비교한 결과입니다. 모델을 채택할 때는 평균 대기시간 하나만 보지 말고 최대
-대기시간, Queue, Throughput, 신호 전환 횟수와 긴 simulation horizon을 함께
-확인해야 합니다.
+현재 기본 모델 dqn_intersection.zip은 GitHub의
+MinWoo/traffic-rl/results/models/dqn.zip을 그대로 사용합니다.
 
-## 300k-step experiment — rejected
+- 학습 seed: 22
+- 학습 decisions: 150,000
+- observation: 34차원
+- model SHA-256: 920fe8d6141ad7f7621ec8e28cf5957fe7e92237ed2dc9d6f35b4f3efa13b28d
+- DQN: 5-step return, MLP [128, 128], gamma 0.95
+- 탐색 action 유지: 5~17 decisions
+- 학습 수요: 방향별 150~1500대/시간 무작위
 
-- Training session: `48c30cca6cb74a28a8fbf69f3dd0fcc4`
-- Training: random traffic, seed 1, 300,000 steps, 120-second episodes
-- Selected checkpoint: best checkpoint at 297,171 steps
-- Evaluation seeds: 2001–2030, 30 paired runs
+원본 프로젝트의 미사용 교통 seed 4001~4030, 6개 시나리오, 학습 seed
+11·22·33 평가에서 세 모델 평균은 Fixed-Time보다 다음과 같이 개선됐습니다.
 
-### 120-second evaluation
-
-| Metric | Fixed-Time | DQN | Result |
+| Metric | Fixed-Time | DQN 평균 | 변화 |
 |---|---:|---:|---:|
-| Average waiting time | 2.683 s | 2.256 s | 15.9% better |
-| Maximum waiting time | 35.067 s | 56.400 s | 60.8% worse |
-| Average queue | 2.796 | 2.645 | 5.4% better |
-| Maximum queue | 4.500 | 3.667 | 18.5% better |
-| Throughput | 9.700 | 10.067 | 3.8% better |
-| Phase changes | 13.000 | 22.867 | 75.9% more |
+| Average waiting time | 20.006초 | 13.775초 | 31.15% 감소 |
+| Average queue | 16.464대 | 12.834대 | 22.04% 감소 |
+| Throughput | 173.983대 | 185.567대 | 6.66% 증가 |
+| Maximum waiting time | 95.322초 | 89.541초 | 6.07% 감소 |
 
-### 300-second stress evaluation
+heavy 시나리오에서는 평균 대기와 최대 대기가 Fixed-Time보다 나빴고,
+low에서는 처리량이 소폭 감소했습니다. 모든 교통 조건에서 우세하다는
+의미는 아닙니다.
 
-| Metric | Fixed-Time | DQN | Result |
-|---|---:|---:|---:|
-| Average waiting time | 6.610 s | 16.571 s | 150.7% worse |
-| Maximum waiting time | 65.433 s | 100.000 s | 52.8% worse |
-| Average queue | 5.352 | 16.710 | 212.2% worse |
-| Throughput | 81.767 | 54.167 | 33.8% worse |
-| Phase changes | 33.000 | 46.300 | 40.3% more |
+이 저장소에서는 MinWoo 모델과 동일하게 다음 계약을 사용합니다.
 
-짧은 episode의 평균값은 개선됐지만 starvation과 잦은 신호 전환이 발생했고,
-긴 horizon에서 성능이 붕괴했습니다. 따라서 이 checkpoint는 최종 모델로
-채택하거나 Git에 배포하지 않습니다. 현재 `evaluation_metrics.csv`와 PNG는
-120초 평가의 per-episode 결과와 시각화입니다.
+- 250m 접근로, 제한속도 11.11m/s, SUMO step 0.5초
+- 300초 episode와 240초 수요
+- 8개 queue + 총/최대 대기 + 16개 신호 제어 상태 + 8개 접근 차량
+- max_red=60초 공정성 제한
+- Queue/대기/최대 대기/switch 보상 가중치 1.0/0.1/0.1/0.2
 
-다음 학습은 300초 이상 episode, 더 강한 maximum-wait/switch penalty, 다양한
-traffic horizon을 사용한 validation, 30개 이상의 고정 hold-out seed를 사용해야
+기존 12차원 300,000-step 모델은 300초 평가에서 Fixed-Time보다 평균
+대기시간과 Queue가 악화되어 기본 모델에서 제외했습니다. 로컬 복구용 사본은
+api/artifacts/legacy/dqn_intersection_pre_minwoo.zip에 저장됩니다.
+
+이 폴더의 기존 CSV와 PNG는 교체 전 12차원 모델에서 생성된 과거 결과입니다.
+새 비교 결과는 웹 비교 연구실 또는 `python -m model.evaluate`로 다시 생성해야
 합니다.
-
-다음 실험부터 기본 reward 설정은 starvation과 과도한 전환을 줄이기 위해
-`max_waiting_weight=1.0`, `max_waiting_scale=90.0`,
-`switch_penalty=0.4`로 강화했습니다.

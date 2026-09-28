@@ -6,14 +6,13 @@ import argparse
 from pathlib import Path
 
 import pandas as pd
-from stable_baselines3 import DQN
-
+from model.controller.traffic_dqn import TrafficDQN
 from model.env.intersection_env import IntersectionEnv
 from model.utils.config import ProjectConfig, ensure_directories
 from model.utils.metrics import save_comparison_plots, save_metrics
 
 
-def evaluate_dqn(env: IntersectionEnv, model: DQN, episodes: int, seeds: list[int]) -> list[dict[str, object]]:
+def evaluate_dqn(env: IntersectionEnv, model: TrafficDQN, episodes: int, seeds: list[int]) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
     for episode, seed in enumerate(seeds[:episodes]):
         observation, _ = env.reset(seed=seed)
@@ -53,7 +52,7 @@ def main() -> int:
     config = ProjectConfig()
     ensure_directories(config)
     seeds = list(range(args.seed_start, args.seed_start + args.episodes))
-    dqn_model = DQN.load(str(args.model))
+    dqn_model = TrafficDQN.load(str(args.model))
 
     dqn_env = IntersectionEnv(config, controller_name="DQN", scenario=args.scenario, use_gui=args.gui, episode_seconds=args.episode_seconds)
     fixed_env = IntersectionEnv(config, controller_name="Fixed-Time", scenario=args.scenario, use_gui=args.gui, episode_seconds=args.episode_seconds)

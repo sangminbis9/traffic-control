@@ -4,25 +4,39 @@ from __future__ import annotations
 
 from typing import Any
 
+import numpy as np
+
 from .state_provider import TrafficSnapshot
 
 
-def calculate_reward(previous: TrafficSnapshot, current: TrafficSnapshot, switched: bool, config: Any) -> float:
-    """Penalize current congestion and discourage unnecessary switching.
+def reward_terms(current: TrafficSnapshot, config: Any) -> dict[str, float]:
+    """Return MinWoo's bounded queue/waiting reward components."""
 
-    Absolute normalized penalties align the learning signal with the evaluation
-    metrics. The previous snapshot remains part of the signature so alternative
-    delta-based reward experiments can be added without changing the environment.
-    """
+    queues = np.clip(
+        np.asarray(current.queue_by_group, dtype=np.float64) / max(config.queue_scale, 1e-9),
+        0.0,
+        1.0,
+    )
+    return {
+        "queue": -config.queue_weight * float(queues.mean()),
+        "waiting": -config.waiting_weight
+        * float(np.clip(current.total_waiting_time / max(config.waiting_scale, 1e-9), 0.0, 1.0)),
+        "max_waiting": -config.max_waiting_weight
+        * float(np.clip(current.max_waiting_time / max(config.max_waiting_scale, 1e-9), 0.0, 1.0)),
+    }
+
+
+def switching_penalty(changes: int, config: Any) -> float:
+    return -config.switch_penalty * int(changes)
+
+
+def calculate_reward(
+    previous: TrafficSnapshot,
+    current: TrafficSnapshot,
+    switched: bool,
+    config: Any,
+) -> float:
+    """Compatibility wrapper for one-snapshot reward calculations."""
 
     del previous
-    queue_penalty = current.total_queue / max(config.queue_scale, 1.0)
-    waiting_penalty = current.total_waiting_time / max(config.waiting_scale, 1.0)
-    max_wait_penalty = current.max_waiting_time / max(config.max_waiting_scale, 1.0)
-    switching_cost = 1.0 if switched else 0.0
-    return float(
-        -config.queue_weight * queue_penalty
-        - config.waiting_weight * waiting_penalty
-        - config.max_waiting_weight * max_wait_penalty
-        - config.switch_penalty * switching_cost
-    )
+    return float(sum(reward_terms(current, config).values()) + switching_penalty(switched, config))

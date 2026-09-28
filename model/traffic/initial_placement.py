@@ -13,8 +13,8 @@ APPROACHES = ("N", "S", "E", "W")
 DESTINATIONS = {
     "N": {"left": "E_out", "straight": "S_out", "right": "W_out"},
     "S": {"left": "W_out", "straight": "N_out", "right": "E_out"},
-    "E": {"left": "N_out", "straight": "W_out", "right": "S_out"},
-    "W": {"left": "S_out", "straight": "E_out", "right": "N_out"},
+    "E": {"left": "S_out", "straight": "W_out", "right": "N_out"},
+    "W": {"left": "N_out", "straight": "E_out", "right": "S_out"},
 }
 
 
@@ -79,10 +79,11 @@ def generate_initial_route_file(
     vehicles: list[tuple[str, str, int, float]] = []
     for approach in APPROACHES:
         placement = placements[approach]
+        # UI order is driver-left to driver-right; SUMO indices are reversed.
         lane_movements = {
-            0: ["left"] * placement.left,
+            2: ["left"] * placement.left,
             1: ["straight"] * placement.straight,
-            2: ["right"] * placement.lane3_right
+            0: ["right"] * placement.lane3_right
             + ["straight"] * (placement.lane3_total - placement.lane3_right),
         }
         for lane_index, movements in lane_movements.items():

@@ -22,6 +22,7 @@ class SignalConfig:
     max_green: float = 15.0
     yellow: float = 1.0
     all_red: float = 1.0
+    max_red: float = 60.0
 
 
 @dataclass(frozen=True)
@@ -29,38 +30,43 @@ class RewardConfig:
     """Weights for normalized reward terms."""
 
     queue_weight: float = 1.0
-    waiting_weight: float = 0.3
-    max_waiting_weight: float = 1.0
-    switch_penalty: float = 0.4
-    queue_scale: float = 40.0
-    waiting_scale: float = 120.0
-    max_waiting_scale: float = 90.0
+    waiting_weight: float = 0.1
+    max_waiting_weight: float = 0.1
+    switch_penalty: float = 0.2
+    queue_scale: float = 10.0
+    waiting_scale: float = 6_000.0
+    max_waiting_scale: float = 120.0
 
 
 @dataclass(frozen=True)
 class DQNConfig:
     """Stable-Baselines3 DQN defaults, exposed for short smoke tests."""
 
-    learning_rate: float = 1e-4
+    learning_rate: float = 3e-4
     buffer_size: int = 100_000
     learning_starts: int = 5_000
     batch_size: int = 64
-    gamma: float = 0.99
-    train_freq: int = 1
+    gamma: float = 0.95
+    train_freq: int = 4
     gradient_steps: int = 1
+    n_steps: int = 5
+    exploration_hold_min: int = 5
+    exploration_hold_max: int = 17
     target_update_interval: int = 1_000
-    exploration_fraction: float = 0.25
-    exploration_final_eps: float = 0.05
+    exploration_fraction: float = 0.20
+    exploration_final_eps: float = 0.01
     policy: str = "MlpPolicy"
-    network_architecture: Tuple[int, ...] = (64, 64)
+    network_architecture: Tuple[int, ...] = (128, 128)
+    torch_threads: int = 1
 
 
 @dataclass(frozen=True)
 class SimulationConfig:
     """Runtime settings shared by tests, training, and evaluation."""
 
-    step_length: float = 1.0
+    step_length: float = 0.5
     episode_seconds: int = 300
+    demand_seconds: int = 240
     warmup_seconds: int = 0
     use_gui: bool = False
     seed: int = 1
@@ -83,6 +89,8 @@ class ProjectConfig:
     fixed_green_times: Dict[int, float] = field(
         default_factory=lambda: {0: 10.0, 1: 4.0, 2: 10.0, 3: 4.0}
     )
+    approaching_distance: float = 50.0
+    approaching_scale: float = 10.0
 
     @property
     def network_file(self) -> Path:
@@ -90,7 +98,7 @@ class ProjectConfig:
 
     @property
     def sumo_config_file(self) -> Path:
-        return self.sumo_dir / "simulation.sumo.cfg"
+        return self.sumo_dir / "simulation.sumocfg"
 
     @property
     def default_route_file(self) -> Path:
@@ -98,7 +106,7 @@ class ProjectConfig:
 
     @property
     def tl_id(self) -> str:
-        return "center"
+        return "J"
 
 
 def ensure_directories(config: ProjectConfig | None = None) -> None:

@@ -12,9 +12,8 @@ import time
 from typing import Any, Callable
 
 import numpy as np
-from stable_baselines3 import DQN
-
 from api.app.schemas.models import ComparisonCreate
+from model.controller.traffic_dqn import TrafficDQN
 from model.env.intersection_env import IntersectionEnv
 from model.traffic.initial_placement import LanePlacement, generate_initial_route_file
 from model.traffic.route_generator import TrafficDemand, generate_route_file
@@ -94,6 +93,7 @@ class SynchronizedComparisonRunner:
             route_file,
             TrafficDemand(
                 duration=self.request.duration,
+                demand_seconds=min(self.request.duration, config.simulation.demand_seconds),
                 scenario=custom.scenario,
                 left_ratio=custom.left_ratio,
                 straight_ratio=custom.straight_ratio,
@@ -124,7 +124,7 @@ class SynchronizedComparisonRunner:
             episode_seconds=self.request.duration,
             route_file=route_file,
         )
-        model = DQN.load(str(self.model_path), device="cpu")
+        model = TrafficDQN.load(str(self.model_path), device="cpu")
         started = time.monotonic()
         try:
             fixed_observation, _ = self.fixed_env.reset(seed=self.request.seed)
@@ -215,19 +215,15 @@ class SynchronizedComparisonRunner:
             raise RuntimeError(
                 f"Initial lane placement mismatch: requested {requested_lanes}, actual {actual_lanes}"
             )
-        return provider.observation(
-            env.signal_controller.current_phase,
-            env.signal_controller.phase_elapsed,
-            env.config.signal.max_green,
-        )
+        return provider.observation(env.signal_controller, snapshot)
 
     def _requested_lane_counts(self) -> dict[str, int]:
         counts: dict[str, int] = {}
         for approach in ("N", "S", "E", "W"):
             lane = getattr(self.request.initial, approach)
-            counts[f"{approach}_in_0"] = lane.left
+            counts[f"{approach}_in_2"] = lane.left
             counts[f"{approach}_in_1"] = lane.straight
-            counts[f"{approach}_in_2"] = lane.lane3_total
+            counts[f"{approach}_in_0"] = lane.lane3_total
         return counts
 
     def _assert_synchronized(self) -> None:
@@ -250,7 +246,7 @@ class SynchronizedComparisonRunner:
             self.waiting_history[key][vehicle_id] = max(self.waiting_history[key].get(vehicle_id, 0.0), waiting)
             lane_id = env.connection.vehicle.getLaneID(vehicle_id)
             if "_in_" in lane_id and lane_id[:1] in {"N", "S", "E", "W"}:
-                movement = "left" if lane_id.endswith("_0") else "straight"
+                movement = "left" if lane_id.endswith("_2") else "straight"
                 group = f"{lane_id[0]}_{movement}"
                 histories = self.group_waiting_history[key][group]
                 histories[vehicle_id] = max(histories.get(vehicle_id, 0.0), waiting)

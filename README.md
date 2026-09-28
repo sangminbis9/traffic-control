@@ -1,6 +1,6 @@
 # Traffic Control Lab
 
-SUMO 기반 4방향·3차로 교차로, Stable-Baselines3 DQN, Fixed-Time 기준 제어기, FastAPI 실험 서버, React 연구 대시보드를 한 저장소에서 운영하는 캡스톤 프로젝트입니다. 웹의 차량 위치와 지표는 임의 애니메이션이 아니라 TraCI가 읽은 실제 SUMO 상태입니다.
+SUMO 기반 4방향·3차로 교차로, MinWoo의 검증된 34차원 Stable-Baselines3 DQN, Fixed-Time 기준 제어기, FastAPI 실험 서버, React 연구 대시보드를 한 저장소에서 운영하는 캡스톤 프로젝트입니다. 웹의 차량 위치와 지표는 임의 애니메이션이 아니라 TraCI가 읽은 실제 SUMO 상태입니다.
 
 ## Architecture
 
@@ -83,7 +83,8 @@ python -m model.evaluate --episodes 30 --seed-start 2001
 
 ## Main capabilities
 
-- Fixed Steps / Auto Convergence DQN 학습, 별도 validation seed, 교통 성능 기반 best checkpoint
+- MinWoo 34차원 상태·5-step return·5~17 decision 연속 탐색 DQN
+- Fixed Steps / Auto Convergence 학습, 다중 시나리오 validation, 교통 성능 기반 best checkpoint
 - Callback 기반 안전 Pause/Stop과 model + replay buffer 저장, checkpoint Resume
 - 12개 진입 차로별 0~5대 deterministic 초기 배치와 실제 차량 수 검증
 - 동일 route·seed·network·simulation step을 사용하는 Fixed-Time/DQN paired comparison
@@ -110,10 +111,9 @@ python -m pytest api\tests\test_integration_sumo.py -q
 
 생성되는 runtime 파일은 `api/data/`, `api/artifacts/`, `model/sumo/generated/`에 있으며 Git에서 제외됩니다.
 
-## Model artifact policy
+## Default model
 
-학습 중간 checkpoint와 replay buffer는 저장소 용량을 빠르게 증가시키므로
-Git에서 제외합니다. 미사용 seed 30회 이상의 paired 평가에서 평균 대기시간,
-Queue, Throughput과 최대 대기시간 기준을 모두 통과한 모델만 최종 artifact로
-추가합니다. 300,000-step 실험의 채택/기각 근거는
-[model/results/README.md](model/results/README.md)에 기록되어 있습니다.
+기본 `model/results/dqn_intersection.zip`은
+`MinWoo/traffic-rl/results/models/dqn.zip`의 학습 seed 22, 150,000-step 모델입니다.
+모델 SHA-256과 원본 평가 결과는 [model/results/README.md](model/results/README.md)에
+기록되어 있습니다. 기존 12차원 모델은 현재 34차원 환경과 호환되지 않습니다.

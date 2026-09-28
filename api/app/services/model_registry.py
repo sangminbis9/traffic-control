@@ -7,9 +7,9 @@ import hashlib
 from pathlib import Path
 from typing import Any
 
-from stable_baselines3 import DQN
-
 from api.app.database import ARTIFACTS_DIR, REPOSITORY_ROOT, initialize_database, upsert_model
+from model.controller.traffic_dqn import TrafficDQN
+from model.sumo.build_network import network_fingerprint
 from model.utils.config import ProjectConfig
 
 
@@ -43,11 +43,11 @@ class ModelRegistry:
         action_count: int | None = None
         timesteps = 0
         try:
-            model = DQN.load(str(path), device="cpu")
+            model = TrafficDQN.load(str(path), device="cpu")
             observation_shape = list(model.observation_space.shape or ())
             action_count = int(getattr(model.action_space, "n", 0))
             timesteps = int(model.num_timesteps)
-            compatible = observation_shape == [12] and action_count == 4
+            compatible = observation_shape == [34] and action_count == 4
             if not compatible:
                 error = "Model/environment observation mismatch"
         except Exception as exc:
@@ -64,12 +64,21 @@ class ModelRegistry:
                 break
         training_config: dict[str, Any] = {}
         config_path = path.parent / "training_config.json"
+        model_config_path = path.with_suffix(".config.json")
+        if not config_path.exists() and model_config_path.exists():
+            config_path = model_config_path
         if config_path.exists():
             try:
                 import json
                 training_config = json.loads(config_path.read_text(encoding="utf-8"))
             except (OSError, ValueError):
                 training_config = {}
+        expected_network = training_metadata.get("network_sha256")
+        if compatible and expected_network:
+            actual_network = network_fingerprint(self.config.network_file)
+            if actual_network != expected_network:
+                compatible = False
+                error = "Model/network fingerprint mismatch"
         return {
             "name": path.stem,
             "path": str(path),
@@ -91,7 +100,15 @@ class ModelRegistry:
         training_root = ARTIFACTS_DIR / "training"
         if training_root.exists():
             paths.update(training_root.rglob("*.zip"))
-        models = [self.inspect(path) for path in sorted(paths, key=lambda item: item.stat().st_mtime, reverse=True)]
+        default_model = (self.config.results_dir / "dqn_intersection.zip").resolve()
+        ordered_paths = sorted(
+            paths,
+            key=lambda item: (
+                item.resolve() != default_model,
+                -item.stat().st_mtime,
+            ),
+        )
+        models = [self.inspect(path) for path in ordered_paths]
         initialize_database()
         for metadata in models:
             upsert_model(metadata)

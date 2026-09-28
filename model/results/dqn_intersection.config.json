@@ -1,0 +1,49 @@
+{
+  "source": "MinWoo/traffic-rl/results/models/dqn.zip",
+  "scenario": "random",
+  "training_seed": 22,
+  "total_timesteps": 150000,
+  "observation_size": 34,
+  "simulation": {
+    "step_length": 0.5,
+    "episode_seconds": 300,
+    "demand_seconds": 240,
+    "decision_interval": 1.0
+  },
+  "signal": {
+    "minimum_green": 3.0,
+    "maximum_green": 15.0,
+    "yellow": 1.0,
+    "all_red": 1.0,
+    "max_red": 60.0,
+    "fixed_green": [10.0, 4.0, 10.0, 4.0]
+  },
+  "normalization": {
+    "queue_per_group": 10.0,
+    "total_waiting": 6000.0,
+    "max_waiting": 120.0,
+    "approaching_count": 10.0
+  },
+  "reward": {
+    "queue": 1.0,
+    "waiting": 0.1,
+    "max_waiting": 0.1,
+    "switching": 0.2
+  },
+  "training": {
+    "learning_rate": 0.0003,
+    "buffer_size": 100000,
+    "learning_starts": 5000,
+    "batch_size": 64,
+    "gamma": 0.95,
+    "train_freq": 4,
+    "gradient_steps": 1,
+    "n_steps": 5,
+    "exploration_hold_min": 5,
+    "exploration_hold_max": 17,
+    "target_update_interval": 1000,
+    "exploration_fraction": 0.2,
+    "exploration_final_eps": 0.01,
+    "net_arch": [128, 128]
+  }
+}

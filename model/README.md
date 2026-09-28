@@ -21,6 +21,11 @@ python -m model.traffic.route_generator --scenario uniform --seed 1
 
 `build_network.py`는 `nodes.nod.xml`, `edges.edg.xml`, `connections.con.xml`, `traffic_lights.add.xml`을 이용해 `model/sumo/intersection.net.xml`을 생성합니다. NetEdit 없이 재생성할 수 있습니다.
 
+각 진입로는 운전자 진행방향 기준으로 왼쪽부터 `좌회전 전용 · 직진 · 직진`입니다.
+SUMO는 오른쪽부터 차로 번호를 부여하므로 내부 인덱스는 `2=좌회전`,
+`1=직진`, `0=직진/우회전 공유`입니다. 우회전은 별도 신호 phase 없이
+오른쪽 직진 차로를 공유합니다.
+
 ## Run SUMO test
 
 먼저 TraCI 연결, 신호 전환, Queue, Waiting Time을 확인합니다.
@@ -38,7 +43,7 @@ python -m model.test_sumo --seconds 120 --gui
 SUMO GUI에서 차량이 나타나지 않으면 `model/sumo/generated`의 route 파일과 `model/sumo/intersection.net.xml`의 생성 여부를 먼저 확인하세요. GUI 없이 직접 설정 파일을 열려면 다음을 사용할 수 있습니다.
 
 ```powershell
-sumo-gui -c model\sumo\simulation.sumo.cfg --route-files model\sumo\routes.rou.xml
+sumo-gui -c model\sumo\simulation.sumocfg --route-files model\sumo\routes.rou.xml
 ```
 
 ## Train
@@ -49,11 +54,10 @@ sumo-gui -c model\sumo\simulation.sumo.cfg --route-files model\sumo\routes.rou.x
 python -m model.train --timesteps 1000 --episode-seconds 120 --check-env
 ```
 
-일반적인 시작점:
+민우의 검증 설정을 사용하는 기본 학습:
 
 ```powershell
-python -m model.train --timesteps 20000 --scenario random
-python -m model.train --timesteps 100000 --scenario random
+python -m model.train --timesteps 150000 --scenario random
 ```
 
 학습 모델은 `model/results/dqn_intersection.zip`에 저장됩니다. 학습 시에는 기본적으로 `sumo` headless 바이너리를 사용하며, 디버깅할 때만 `--gui`를 추가합니다.
@@ -84,7 +88,7 @@ model/
   *.nod.xml, *.edg.xml, *.con.xml, traffic_lights.add.xml  # 네트워크 원본
   build_network.py                                         # netconvert 실행
   intersection.net.xml                                     # 생성 네트워크
-  simulation.sumo.cfg
+  simulation.sumocfg
   generated/                                                # episode route 파일
   env/
   intersection_env.py                                      # Gymnasium API
@@ -101,13 +105,16 @@ model/
 
 ## State
 
-Observation은 `Box(0, 1, shape=(12,))`입니다.
+Observation은 민우 모델과 동일한 `Box(0, 1, shape=(34,))`입니다.
 
 1. `N_left`, `N_straight`, `S_left`, `S_straight`, `E_left`, `E_straight`, `W_left`, `W_straight` queue 8개
 2. 전체 누적 대기시간
 3. 현재 차량 중 최대 누적 대기시간
-4. 현재 Phase를 0~1로 정규화한 값
-5. 현재 Phase 경과시간을 `Maximum Green` 기준으로 정규화한 값
+4. 현재 Phase one-hot 4개
+5. 현재 green/yellow/all-red 단계 경과시간 1개와 단계 one-hot 3개
+6. 전환 목표 Phase one-hot 4개
+7. Phase별 미서비스 시간 4개
+8. 정지선 50m 이내에서 움직이는 접근 차량 8개
 
 현재 SUMO 구현은 `SUMOTrafficStateProvider`를 사용합니다. 향후 YOLO/Tracking 결과를 같은 `TrafficSnapshot` 구조로 만들면 DQN과 환경의 나머지 부분은 유지할 수 있습니다.
 
@@ -120,17 +127,17 @@ Observation은 `Box(0, 1, shape=(12,))`입니다.
 - `2`: 동서 직진
 - `3`: 동서 좌회전
 
-DQN은 yellow/all-red를 직접 선택하지 않습니다. 다른 Phase를 선택하면 `SignalController`가 현재 green → yellow → all-red → 새 green으로 전환합니다. `Minimum Green=3s`, `Maximum Green=15s`, `Yellow=1s`, `All Red=1s`는 `utils/config.py`에서 수정할 수 있습니다. Minimum Green 전에 들어온 변경 요청은 무시되고, Maximum Green에서 현재 Phase를 계속 선택하면 다음 Phase로 강제 전환됩니다.
+DQN은 yellow/all-red를 직접 선택하지 않습니다. 다른 Phase를 선택하면 `SignalController`가 현재 green → yellow → all-red → 새 green으로 전환합니다. `Minimum Green=3s`, `Maximum Green=15s`, `Yellow=1s`, `All Red=1s`, `Max Red=60s`는 `utils/config.py`에서 수정할 수 있습니다. Maximum Green 또는 Max Red에 도달하면 가장 오래 서비스하지 않은 Phase를 우선해 starvation을 제한합니다.
 
 ## Reward
 
 현재 보상은 **현재 step의 정규화된 절대 혼잡 비용**과 signal switching 비용에 음수를 부여합니다. README보다 `model/env/reward.py`가 source of truth입니다.
 
 ```text
-reward = -1.0 * normalized_current_queue
-       - 0.3 * normalized_total_waiting
-       - 0.5 * normalized_max_waiting
-       - 0.2 * switched
+reward = -1.0 * mean(clip(each_group_queue / 10))
+       - 0.1 * clip(total_waiting / 6000)
+       - 0.1 * clip(max_waiting / 120)
+       - 0.2 * actual_switch_count
 ```
 
 각 항목은 `utils/config.py`의 scale로 정규화합니다. 최대 대기시간 항이 starvation을 억제하고, 전환 penalty와 yellow/all-red 처리 손실이 잦은 전환을 억제합니다. 이전 snapshot은 향후 delta reward 실험을 위해 함수 signature에 남아 있지만 현재 계산에는 사용하지 않습니다.
@@ -143,6 +150,7 @@ reward = -1.0 * normalized_current_queue
 
 - Train seed와 evaluation seed를 분리할 수 있습니다. 기본 평가 seed는 `2001`부터입니다.
 - Route generator의 seed가 같으면 controller 이름이 달라도 동일한 route XML이 생성됩니다.
-- 현재 환경은 한 Python 프로세스에서 SUMO를 episode마다 재시작합니다. 장시간 학습에서는 `libsumo` 전환을 추가하면 속도를 개선할 수 있습니다.
+- 학습은 5-step return, `[128, 128]` MLP와 5~17 decision 동안 유지되는 탐색 action을 사용합니다.
+- 웹 학습실은 실시간 시각화를 유지하기 위해 TraCI를 사용하며 MinWoo 원본과 동일한 관측·보상 계약을 따릅니다.
 - Windows에서 네트워크 생성, 60초 TraCI 테스트, 단위 테스트, Gymnasium `check_env()`, DQN 학습 및 모델 재로딩을 실제 실행해 검증했습니다.
-- `model/results/evaluation_metrics.csv`는 평가 seed 2001~2030의 동일한 남북 혼잡 시나리오에서 Fixed-Time과 DQN을 비교한 결과입니다. 현재 모델은 평균 대기시간과 평균 queue에서 Fixed-Time보다 소폭 개선됐으며, 다른 교통 시나리오에 대한 추가 학습·평가는 계속 필요합니다.
+- 기본 모델은 MinWoo의 seed 22, 150,000-step 모델입니다. 원본 6개 시나리오 × 30개 hold-out seed 평가에서 전체 평균 대기시간이 Fixed-Time보다 32.38% 낮았지만 `heavy`에서는 악화됐으므로 과포화 조건은 별도로 개선해야 합니다.

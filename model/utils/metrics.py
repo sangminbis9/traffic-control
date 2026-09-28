@@ -18,28 +18,47 @@ from model.env.state_provider import TrafficSnapshot
 
 @dataclass
 class EpisodeMetrics:
-    """Collect raw per-decision values and convert them to one CSV row."""
+    """Collect MinWoo-compatible time-weighted and per-vehicle metrics."""
 
     controller: str
     seed: int
     traffic_scenario: str
-    queue_samples: list[float] = field(default_factory=list)
-    waiting_samples: list[float] = field(default_factory=list)
-    max_waiting_samples: list[float] = field(default_factory=list)
-    max_queue_samples: list[float] = field(default_factory=list)
-    waiting_per_vehicle_samples: list[float] = field(default_factory=list)
+    waits: dict[str, float] = field(default_factory=dict)
+    arrived_ids: set[str] = field(default_factory=set)
+    queue_area: float = 0.0
+    duration: float = 0.0
+    max_queue: float = 0.0
+    max_waiting: float = 0.0
+    pending: int = 0
+    max_pending: int = 0
+    collisions: int = 0
+    teleports: int = 0
     phase_changes: int = 0
     throughput: int = 0
     reward: float = 0.0
 
-    def record(self, snapshot: TrafficSnapshot, reward: float = 0.0, phase_changed: bool = False) -> None:
-        self.queue_samples.append(snapshot.total_queue)
-        self.max_queue_samples.append(max(snapshot.queue_by_group, default=0.0))
-        self.waiting_samples.append(snapshot.total_waiting_time)
-        self.max_waiting_samples.append(snapshot.max_waiting_time)
-        self.waiting_per_vehicle_samples.append(
-            snapshot.total_waiting_time / max(snapshot.vehicle_count, 1)
-        )
+    forced_changes: int = 0
+
+    def record(
+        self,
+        snapshot: TrafficSnapshot,
+        reward: float = 0.0,
+        phase_changed: bool = False,
+        dt: float = 1.0,
+    ) -> None:
+        for vehicle_id in snapshot.departed_ids:
+            self.waits.setdefault(vehicle_id, 0.0)
+        for vehicle_id, waiting in snapshot.vehicle_waiting.items():
+            self.waits[vehicle_id] = max(self.waits.get(vehicle_id, 0.0), float(waiting))
+        self.arrived_ids.update(snapshot.arrived_ids)
+        self.queue_area += snapshot.total_queue * dt
+        self.duration += dt
+        self.max_queue = max(self.max_queue, snapshot.total_queue)
+        self.max_waiting = max(self.max_waiting, snapshot.max_waiting_time)
+        self.pending = snapshot.pending
+        self.max_pending = max(self.max_pending, snapshot.pending)
+        self.collisions += snapshot.collisions
+        self.teleports += snapshot.teleports
         self.throughput += snapshot.arrived
         self.reward += float(reward)
         if phase_changed:
@@ -51,13 +70,21 @@ class EpisodeMetrics:
             "controller": self.controller,
             "seed": self.seed,
             "traffic_scenario": self.traffic_scenario,
-            "avg_waiting_time": float(np.mean(self.waiting_per_vehicle_samples)) if self.waiting_per_vehicle_samples else 0.0,
-            "max_waiting_time": float(max(self.max_waiting_samples, default=0.0)),
-            "avg_queue": float(np.mean(self.queue_samples)) if self.queue_samples else 0.0,
-            "max_queue": float(max(self.max_queue_samples, default=0.0)),
+            "avg_waiting_time": float(sum(self.waits.values()) / max(len(self.waits), 1)),
+            "max_waiting_time": float(max(self.waits.values(), default=self.max_waiting)),
+            "avg_queue": float(self.queue_area / max(self.duration, 1e-9)),
+            "max_queue": float(self.max_queue),
             "throughput": int(self.throughput),
             "phase_changes": int(self.phase_changes),
+            "forced_changes": int(self.forced_changes),
             "episode_reward": float(self.reward),
+            "departed": len(self.waits),
+            "unfinished": max(len(self.waits) - len(self.arrived_ids), 0),
+            "pending": int(self.pending),
+            "max_pending": int(self.max_pending),
+            "collisions": int(self.collisions),
+            "teleports": int(self.teleports),
+            "duration": float(self.duration),
         }
         return row
 

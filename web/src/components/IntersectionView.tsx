@@ -41,10 +41,10 @@ export function projectVehicleToDiagram(
   const [, direction, flow, laneText] = laneMatch
   const laneIndex = Math.min(2, Number(laneText))
   const centerByRoad: Record<string, number[]> = {
-    N_in: [2, 1, 0], N_out: [5, 4, 3],
-    S_in: [3, 4, 5], S_out: [0, 1, 2],
-    E_in: [2, 1, 0], E_out: [5, 4, 3],
-    W_in: [3, 4, 5], W_out: [0, 1, 2],
+    N_in: [0, 1, 2], N_out: [5, 4, 3],
+    S_in: [5, 4, 3], S_out: [0, 1, 2],
+    E_in: [0, 1, 2], E_out: [5, 4, 3],
+    W_in: [5, 4, 3], W_out: [0, 1, 2],
   }
   const laneCenter = laneCenters[centerByRoad[`${direction}_${flow}`][laneIndex]]
   if (direction === 'N' || direction === 'S') x = laneCenter

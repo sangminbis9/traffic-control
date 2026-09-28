@@ -20,17 +20,17 @@ ScenarioName = Literal[
 
 class TrainingCreate(BaseModel):
     mode: Literal["fixed_steps", "auto_convergence"] = "fixed_steps"
-    total_steps: int = Field(20_000, ge=1)
+    total_steps: int = Field(150_000, ge=1)
     maximum_steps: int = Field(1_000_000, ge=1)
-    minimum_steps: int = Field(100_000, ge=0)
-    validation_interval: int = Field(10_000, ge=1)
+    minimum_steps: int = Field(50_000, ge=0)
+    validation_interval: int = Field(50_000, ge=1)
     validation_episodes: int = Field(5, ge=1, le=100)
     no_improvement_patience: int = Field(8, ge=1)
     minimum_improvement: float = Field(0.05, ge=0)
     scenario: ScenarioName = "random"
     episode_seconds: int = Field(300, ge=10, le=86_400)
-    seed: int = 1
-    validation_seed_start: int = 10_001
+    seed: int = 22
+    validation_seed_start: int = 3_001
     learning_starts: int | None = Field(None, ge=0)
 
 

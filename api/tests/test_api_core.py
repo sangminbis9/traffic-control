@@ -29,9 +29,12 @@ def test_api_health_and_model_contract() -> None:
         assert client.get('/api/health').json() == {'status': 'ok'}
         response = client.get('/api/models')
         assert response.status_code == 200
-        for model in response.json():
+        models = response.json()
+        assert models[0]['relative_path'].replace('\\', '/') == 'model/results/dqn_intersection.zip'
+        assert models[0]['sha256'] == '920fe8d6141ad7f7621ec8e28cf5957fe7e92237ed2dc9d6f35b4f3efa13b28d'
+        for model in models:
             if model['compatible']:
-                assert model['observation_shape'] == [12]
+                assert model['observation_shape'] == [34]
                 assert model['action_count'] == 4
 
 
@@ -58,9 +61,9 @@ def test_initial_route_has_exact_lane_counts(tmp_path: Path) -> None:
         vehicle_id = vehicle.attrib['id'].split('_')
         per_lane[f'{vehicle_id[1]}_{vehicle.attrib["departLane"]}'] += 1
     for direction, placement in placements.items():
-        assert per_lane[f'{direction}_0'] == placement.left
+        assert per_lane[f'{direction}_2'] == placement.left
         assert per_lane[f'{direction}_1'] == placement.straight
-        assert per_lane[f'{direction}_2'] == placement.lane3_total
+        assert per_lane[f'{direction}_0'] == placement.lane3_total
 
 
 def test_event_hub_fanout_and_cleanup() -> None:

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Any, Protocol, Sequence
+from dataclasses import dataclass, field
+from typing import Any, Mapping, Protocol
 
 import numpy as np
 
@@ -31,31 +31,105 @@ class TrafficSnapshot:
     max_waiting_time: float
     vehicle_count: int
     arrived: int
+    approaching_by_group: tuple[float, ...] = (0.0,) * 8
+    vehicle_waiting: Mapping[str, float] = field(default_factory=dict)
+    departed_ids: tuple[str, ...] = ()
+    arrived_ids: tuple[str, ...] = ()
+    pending: int = 0
+    collisions: int = 0
+    teleports: int = 0
 
 
 class TrafficStateProvider(Protocol):
-    """Minimal interface required by the RL environment."""
-
     def snapshot(self) -> TrafficSnapshot:
         ...
 
-    def observation(self, phase: int, phase_elapsed: float, max_green: float) -> np.ndarray:
+    def observation(self, signal_controller: Any, snapshot: TrafficSnapshot | None = None) -> np.ndarray:
         ...
+
+
+def _observation(
+    snapshot: TrafficSnapshot,
+    signal_features: np.ndarray,
+    *,
+    queue_scale: float,
+    waiting_scale: float,
+    max_waiting_scale: float,
+    approaching_scale: float,
+) -> np.ndarray:
+    traffic = np.concatenate(
+        [
+            np.asarray(snapshot.queue_by_group, dtype=np.float32) / max(queue_scale, 1e-9),
+            np.asarray(
+                [
+                    snapshot.total_waiting_time / max(waiting_scale, 1e-9),
+                    snapshot.max_waiting_time / max(max_waiting_scale, 1e-9),
+                ],
+                dtype=np.float32,
+            ),
+        ]
+    )
+    approaching = (
+        np.asarray(snapshot.approaching_by_group, dtype=np.float32)
+        / max(approaching_scale, 1e-9)
+    )
+    return np.concatenate(
+        [
+            np.clip(traffic, 0.0, 1.0),
+            np.asarray(signal_features, dtype=np.float32),
+            np.clip(approaching, 0.0, 1.0),
+        ]
+    ).astype(np.float32)
 
 
 class SUMOTrafficStateProvider:
-    """Read lane queues and vehicle waiting data from a TraCI connection."""
+    """Read MinWoo-compatible queue, waiting, and approaching features from TraCI."""
 
-    def __init__(self, connection: Any, queue_scale: float = 40.0, waiting_scale: float = 120.0) -> None:
+    def __init__(
+        self,
+        connection: Any,
+        queue_scale: float = 10.0,
+        waiting_scale: float = 6_000.0,
+        max_waiting_scale: float = 120.0,
+        detection_distance: float = 50.0,
+        approaching_scale: float = 10.0,
+    ) -> None:
         self.connection = connection
         self.queue_scale = queue_scale
         self.waiting_scale = waiting_scale
+        self.max_waiting_scale = max_waiting_scale
+        self.detection_distance = detection_distance
+        self.approaching_scale = approaching_scale
 
     def snapshot(self) -> TrafficSnapshot:
         queue_values: list[float] = []
+        approaching_values: list[float] = []
+        moving_by_lane: dict[str, int] = {}
+        lane_lengths: dict[str, float] = {}
+        for approach in ("N", "S", "E", "W"):
+            for lane in range(3):
+                lane_id = f"{approach}_in_{lane}"
+                moving_by_lane[lane_id] = 0
+                lane_lengths[lane_id] = float(self.connection.lane.getLength(lane_id))
+
+        vehicle_ids = tuple(self.connection.vehicle.getIDList())
+        vehicle_waiting: dict[str, float] = {}
+        incoming_waiting: list[float] = []
+        for vehicle_id in vehicle_ids:
+            lane_id = self.connection.vehicle.getLaneID(vehicle_id)
+            waiting = float(self.connection.vehicle.getAccumulatedWaitingTime(vehicle_id))
+            vehicle_waiting[vehicle_id] = waiting
+            if lane_id not in lane_lengths:
+                continue
+            incoming_waiting.append(waiting)
+            speed = float(self.connection.vehicle.getSpeed(vehicle_id))
+            lane_position = float(self.connection.vehicle.getLanePosition(vehicle_id))
+            if speed >= 0.1 and lane_lengths[lane_id] - lane_position <= self.detection_distance:
+                moving_by_lane[lane_id] += 1
+
         for approach, group in LANE_GROUPS:
             edge_id = INCOMING_EDGES[approach]
-            lane_indices = (0,) if group == "left" else (1, 2)
+            lane_indices = (2,) if group == "left" else (0, 1)
             queue_values.append(
                 float(
                     sum(
@@ -64,58 +138,77 @@ class SUMOTrafficStateProvider:
                     )
                 )
             )
+            approaching_values.append(
+                float(sum(moving_by_lane[f"{edge_id}_{lane}"] for lane in lane_indices))
+            )
 
-        vehicle_ids = self.connection.vehicle.getIDList()
-        waiting_times = [
-            float(self.connection.vehicle.getAccumulatedWaitingTime(vehicle_id))
-            for vehicle_id in vehicle_ids
-        ]
+        departed = tuple(self.connection.simulation.getDepartedIDList())
+        arrived_ids = tuple(self.connection.simulation.getArrivedIDList())
+        pending_getter = getattr(self.connection.simulation, "getPendingVehicles", None)
+        pending = len(pending_getter()) if pending_getter is not None else 0
+        collisions_getter = getattr(
+            self.connection.simulation, "getCollidingVehiclesNumber", lambda: 0
+        )
+        teleports_getter = getattr(
+            self.connection.simulation, "getStartingTeleportNumber", lambda: 0
+        )
         return TrafficSnapshot(
             queue_by_group=tuple(queue_values),
             total_queue=float(sum(queue_values)),
-            total_waiting_time=float(sum(waiting_times)),
-            max_waiting_time=max(waiting_times, default=0.0),
+            total_waiting_time=float(sum(incoming_waiting)),
+            max_waiting_time=max(incoming_waiting, default=0.0),
             vehicle_count=len(vehicle_ids),
-            arrived=int(self.connection.simulation.getArrivedNumber()),
+            arrived=len(arrived_ids),
+            approaching_by_group=tuple(approaching_values),
+            vehicle_waiting=vehicle_waiting,
+            departed_ids=departed,
+            arrived_ids=arrived_ids,
+            pending=pending,
+            collisions=int(collisions_getter()),
+            teleports=int(teleports_getter()),
         )
 
-    def observation(self, phase: int, phase_elapsed: float, max_green: float) -> np.ndarray:
-        snapshot = self.snapshot()
-        queue = np.asarray(snapshot.queue_by_group, dtype=np.float32) / max(self.queue_scale, 1.0)
-        total_wait = min(snapshot.total_waiting_time / max(self.waiting_scale, 1.0), 1.0)
-        max_wait = min(snapshot.max_waiting_time / max(self.waiting_scale, 1.0), 1.0)
-        phase_value = float(np.clip(phase / 3.0, 0.0, 1.0))
-        elapsed_value = float(np.clip(phase_elapsed / max(max_green, 1.0), 0.0, 1.0))
-        return np.concatenate(
-            [queue, np.asarray([total_wait, max_wait, phase_value, elapsed_value], dtype=np.float32)]
-        ).astype(np.float32)
+    def observation(
+        self, signal_controller: Any, snapshot: TrafficSnapshot | None = None
+    ) -> np.ndarray:
+        return _observation(
+            snapshot or self.snapshot(),
+            signal_controller.features(),
+            queue_scale=self.queue_scale,
+            waiting_scale=self.waiting_scale,
+            max_waiting_scale=self.max_waiting_scale,
+            approaching_scale=self.approaching_scale,
+        )
 
 
 class SnapshotStateProvider:
     """Adapter useful for unit tests and future camera/vision implementations."""
 
-    def __init__(self, snapshot: TrafficSnapshot, queue_scale: float = 40.0, waiting_scale: float = 120.0) -> None:
+    def __init__(
+        self,
+        snapshot: TrafficSnapshot,
+        queue_scale: float = 10.0,
+        waiting_scale: float = 6_000.0,
+        max_waiting_scale: float = 120.0,
+        approaching_scale: float = 10.0,
+    ) -> None:
         self._snapshot = snapshot
         self.queue_scale = queue_scale
         self.waiting_scale = waiting_scale
+        self.max_waiting_scale = max_waiting_scale
+        self.approaching_scale = approaching_scale
 
     def snapshot(self) -> TrafficSnapshot:
         return self._snapshot
 
-    def observation(self, phase: int, phase_elapsed: float, max_green: float) -> np.ndarray:
-        queue = np.asarray(self._snapshot.queue_by_group, dtype=np.float32) / max(self.queue_scale, 1.0)
-        return np.concatenate(
-            [
-                queue,
-                np.asarray(
-                    [
-                        min(self._snapshot.total_waiting_time / max(self.waiting_scale, 1.0), 1.0),
-                        min(self._snapshot.max_waiting_time / max(self.waiting_scale, 1.0), 1.0),
-                        np.clip(phase / 3.0, 0.0, 1.0),
-                        np.clip(phase_elapsed / max(max_green, 1.0), 0.0, 1.0),
-                    ],
-                    dtype=np.float32,
-                ),
-            ]
-        ).astype(np.float32)
-
+    def observation(
+        self, signal_controller: Any, snapshot: TrafficSnapshot | None = None
+    ) -> np.ndarray:
+        return _observation(
+            snapshot or self._snapshot,
+            signal_controller.features(),
+            queue_scale=self.queue_scale,
+            waiting_scale=self.waiting_scale,
+            max_waiting_scale=self.max_waiting_scale,
+            approaching_scale=self.approaching_scale,
+        )

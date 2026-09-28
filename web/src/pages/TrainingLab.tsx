@@ -56,10 +56,10 @@ function progressFromSession(response: SessionResponse): TrainingProgress {
 
 export function TrainingLab({ onNavigate }: { onNavigate: (page: PageKey) => void }) {
   const [mode, setMode] = useState<'fixed_steps' | 'auto_convergence'>('fixed_steps')
-  const [steps, setSteps] = useState(20_000)
-  const [minimumSteps, setMinimumSteps] = useState(10_000)
-  const [validationInterval, setValidationInterval] = useState(5_000)
-  const [validationEpisodes, setValidationEpisodes] = useState(3)
+  const [steps, setSteps] = useState(150_000)
+  const [minimumSteps, setMinimumSteps] = useState(50_000)
+  const [validationInterval, setValidationInterval] = useState(50_000)
+  const [validationEpisodes, setValidationEpisodes] = useState(5)
   const [patience, setPatience] = useState(8)
   const [minimumImprovement, setMinimumImprovement] = useState(0.05)
   const [scenario, setScenario] = useState('random')
@@ -84,7 +84,7 @@ export function TrainingLab({ onNavigate }: { onNavigate: (page: PageKey) => voi
     const config = response.config
     if (!config) return
     if (config.mode) setMode(config.mode)
-    setSteps(config.mode === 'auto_convergence' ? config.maximum_steps ?? 20_000 : config.total_steps ?? 20_000)
+    setSteps(config.mode === 'auto_convergence' ? config.maximum_steps ?? 150_000 : config.total_steps ?? 150_000)
     if (config.minimum_steps !== undefined) setMinimumSteps(config.minimum_steps)
     if (config.validation_interval !== undefined) setValidationInterval(config.validation_interval)
     if (config.validation_episodes !== undefined) setValidationEpisodes(config.validation_episodes)
@@ -221,7 +221,7 @@ export function TrainingLab({ onNavigate }: { onNavigate: (page: PageKey) => voi
           mode, total_steps: steps, maximum_steps: steps, minimum_steps: minimumSteps,
           validation_interval: validationInterval, validation_episodes: validationEpisodes,
           no_improvement_patience: patience, minimum_improvement: minimumImprovement,
-          scenario, episode_seconds: 120,
+          scenario, episode_seconds: 300,
         }),
       })
       hydrate(response)
@@ -249,14 +249,14 @@ export function TrainingLab({ onNavigate }: { onNavigate: (page: PageKey) => voi
 
   return (
     <div className="page training-page">
-      <div className="page-heading"><div><h1>강화학습 학습실</h1><p>고정 검증 시드와 안전한 체크포인트를 사용하는 DQN 학습</p></div><span className="status-line"><i className={progress?.status === 'TRAINING' ? 'pulse' : ''} />{restoring ? '세션 확인 중' : statusLabel(progress?.status)}</span></div>
+      <div className="page-heading"><div><h1>강화학습 학습실</h1><p>민우의 검증된 34차원·5-step DQN 설정으로 학습</p></div><span className="status-line"><i className={progress?.status === 'TRAINING' ? 'pulse' : ''} />{restoring ? '세션 확인 중' : statusLabel(progress?.status)}</span></div>
       {error ? <div className="error-banner">{error}</div> : null}
       <div className="lab-layout">
         <aside className="panel control-panel">
           <h2>학습 설정</h2>
           <label>학습 모드<select value={mode} onChange={(event) => setMode(event.target.value as typeof mode)}><option value="fixed_steps">고정 스텝</option><option value="auto_convergence">자동 수렴</option></select></label>
           <label>{mode === 'fixed_steps' ? '전체 스텝' : '최대 스텝'}<input type="number" min="100" value={steps} onChange={(event) => setSteps(Number(event.target.value))} /></label>
-          {mode === 'auto_convergence' ? <><label>최소 스텝<input type="number" min="0" value={minimumSteps} onChange={(event) => setMinimumSteps(Number(event.target.value))} /></label><label>검증 간격<input type="number" min="1" value={validationInterval} onChange={(event) => setValidationInterval(Number(event.target.value))} /></label><label>검증 에피소드 수<input type="number" min="1" max="100" value={validationEpisodes} onChange={(event) => setValidationEpisodes(Number(event.target.value))} /></label><label>개선 없음 허용 횟수<input type="number" min="1" value={patience} onChange={(event) => setPatience(Number(event.target.value))} /></label><label>최소 개선값<input type="number" min="0" step="0.01" value={minimumImprovement} onChange={(event) => setMinimumImprovement(Number(event.target.value))} /></label></> : null}
+          {mode === 'auto_convergence' ? <><label>최소 스텝<input type="number" min="0" value={minimumSteps} onChange={(event) => setMinimumSteps(Number(event.target.value))} /></label><label>검증 간격<input type="number" min="1" value={validationInterval} onChange={(event) => setValidationInterval(Number(event.target.value))} /></label><label>시나리오당 검증 횟수<input type="number" min="1" max="100" value={validationEpisodes} onChange={(event) => setValidationEpisodes(Number(event.target.value))} /></label><label>개선 없음 허용 횟수<input type="number" min="1" value={patience} onChange={(event) => setPatience(Number(event.target.value))} /></label><label>최소 개선값<input type="number" min="0" step="0.01" value={minimumImprovement} onChange={(event) => setMinimumImprovement(Number(event.target.value))} /></label></> : null}
           <label>교통 시나리오<select value={scenario} onChange={(event) => setScenario(event.target.value)}><option value="random">무작위 교통량</option><option value="uniform">균등 교통량</option><option value="north_south_congested">남북 방향 혼잡</option><option value="east_west_congested">동서 방향 혼잡</option><option value="left_turn_congested">좌회전 혼잡</option><option value="heavy">전체 혼잡</option><option value="low">낮은 교통량</option></select></label>
           <div className="control-buttons"><button className="primary" onClick={start} disabled={hasActiveSession}><Play size={16} />학습 시작</button><button onClick={() => void control('pause')} disabled={!isRunning}><Pause size={16} />일시정지</button><button onClick={() => void control('resume')} disabled={progress?.status !== 'PAUSED'}><RotateCcw size={16} />재개</button><button onClick={() => void control('stop')} disabled={!isRunning}><Square size={16} />중지</button></div>
           <div className="validation-rule"><strong>무엇을 보면 되나요?</strong><p>보상보다 고정 주기 대비 평균 대기·행렬·최대 대기·통과량을 보세요. 오른쪽 판정표가 네 조건을 모두 통과하면 1차 목표 달성입니다.</p></div>

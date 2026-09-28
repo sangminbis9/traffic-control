@@ -15,7 +15,7 @@ from model.utils.config import ProjectConfig, ensure_directories
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--timesteps", type=int, default=20_000)
+    parser.add_argument("--timesteps", type=int, default=150_000)
     parser.add_argument("--learning-starts", type=int, default=None)
     parser.add_argument("--resume", type=Path, default=None)
     parser.add_argument("--seed", type=int, default=1)
@@ -23,7 +23,7 @@ def main() -> int:
     parser.add_argument("--episode-seconds", type=int, default=300)
     parser.add_argument("--check-env", action="store_true")
     parser.add_argument("--gui", action="store_true")
-    parser.add_argument("--validation-interval", type=int, default=10_000)
+    parser.add_argument("--validation-interval", type=int, default=50_000)
     parser.add_argument("--validation-episodes", type=int, default=5)
     args = parser.parse_args()
 

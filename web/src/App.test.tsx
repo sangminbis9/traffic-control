@@ -10,7 +10,7 @@ const compatibleModel = {
   relative_path: 'model/results/dqn_intersection.zip',
   sha256: '0123456789abcdef',
   timesteps: 1000,
-  observation_shape: [12],
+  observation_shape: [34],
   action_count: 4,
   compatible: true,
   error: null,
@@ -54,10 +54,10 @@ describe('Traffic Control Lab shell', () => {
 
   it('projects SUMO vehicles onto the rendered lane centers', () => {
     const bounds: [[number, number], [number, number]] = [[0, 0], [1000, 1000]]
-    const northLeft = projectVehicleToDiagram({ x: 492, y: 800, lane: 'N_in_0' }, bounds)
-    const southLeft = projectVehicleToDiagram({ x: 508, y: 200, lane: 'S_in_0' }, bounds)
-    const eastLeft = projectVehicleToDiagram({ x: 800, y: 508, lane: 'E_in_0' }, bounds)
-    const westLeft = projectVehicleToDiagram({ x: 200, y: 492, lane: 'W_in_0' }, bounds)
+    const northLeft = projectVehicleToDiagram({ x: 498.4, y: 800, lane: 'N_in_2' }, bounds)
+    const southLeft = projectVehicleToDiagram({ x: 501.6, y: 200, lane: 'S_in_2' }, bounds)
+    const eastLeft = projectVehicleToDiagram({ x: 800, y: 501.6, lane: 'E_in_2' }, bounds)
+    const westLeft = projectVehicleToDiagram({ x: 200, y: 498.4, lane: 'W_in_2' }, bounds)
 
     expect(northLeft.x).toBeCloseTo(47.333, 2)
     expect(southLeft.x).toBeCloseTo(52.667, 2)
