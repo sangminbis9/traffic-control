@@ -148,16 +148,85 @@ DQN은 yellow/all-red를 직접 선택하지 않습니다. 다른 Phase를 선�
 
 ## Reward
 
-현재 보상은 **현재 step의 정규화된 절대 혼잡 비용**과 signal switching 비용에 음수를 부여합니다. README보다 `model/env/reward.py`가 source of truth입니다.
+현재 보상은 **정규화된 절대 혼잡 비용**과 실제 신호 전환 비용에 음수를 부여합니다.
+가중치와 정규화의 기준은 `utils/config.py`의 `RewardConfig`, 계산은
+`env/reward.py`와 `env/intersection_env.py`에 정의돼 있습니다.
 
 ```text
-reward = -1.0 * mean(clip(each_group_queue / 10))
-       - 0.1 * clip(total_waiting / 6000)
-       - 0.1 * clip(max_waiting / 120)
-       - 0.2 * actual_switch_count
+tick_reward = -1.0 * mean(clip(each_group_queue / 10))
+              -0.3 * clip(total_accumulated_waiting / 6000)
+              -0.5 * clip(max_accumulated_waiting / 120)
+reward = sum(tick_reward * step_length / decision_interval)
+         -0.5 * actual_switch_count
 ```
 
-각 항목은 `utils/config.py`의 scale로 정규화합니다. 최대 대기시간 항이 starvation을 억제하고, 전환 penalty와 yellow/all-red 처리 손실이 잦은 전환을 억제합니다. 이전 snapshot은 향후 delta reward 실험을 위해 함수 signature에 남아 있지만 현재 계산에는 사용하지 않습니다.
+`clip`은 `[0, 1]` 범위로 제한합니다. `sum`은 한 의사결정 구간의 SUMO tick에
+대해 계산합니다. 현재 0.5초 tick·1초 의사결정에서는 두 tick 보상의 평균입니다.
+전환 비용은 강제 전환까지 포함한 실제 Phase 변경 횟수에 부과합니다.
+Queue는 8개 이동 그룹의 정규화된 정지 차량 수를 평균합니다.
+대기 항의 α는 **평균 대기시간이 아니라 현재 진입 차량의 accumulated waiting 합계**에
+곱하는 가중치입니다. 정지하지 않은 차량도 포함합니다. 그룹별 waiting Observation과
+달리 reward는 기존 전역 total/max waiting을 사용합니다.
+
+### Fixed baseline decision
+
+2026-10-10부터 **Queue=1.0, α=0.3, β=0.5, 전환 계수=0.5**를 고정 기준으로
+채택했습니다. 전환 계수는 DQN 할인율 `gamma=0.95`와 별개입니다.
+`RewardConfig`를 사용하는 CLI·웹/API의 새 학습과 환경이 이 설정을 공유합니다.
+보상식의 구조, 정규화, DQN 알고리즘과 신호 시간은 유지했습니다.
+
+선정 근거는 짧은 학습에서의 최고 점수뿐 아니라 **더 긴 학습과 여러 학습 seed에서
+기준 조합을 교체할 만큼 일관된 개선이 확인되는지**입니다.
+
+- 50k 정밀 탐색은 학습 seed 22, 평가 교통 seed 8001–8020을 사용했습니다.
+  `(0.3, 0.5, 0.6)`의 평균 대기는 21.603초로 기준 조합의 22.183초보다 낮았습니다.
+- 동일 평가 교통에서 150k·학습 seed 22/42/62로 검증한 결과, 기준 조합의
+  평균 대기는 **21.002초**, 전환 계수 0.6 조합은 **21.499초**였습니다.
+  0.6 조합의 평균 대기 개선 방향도 세 학습 seed에 걸쳐 유지되지 않았습니다.
+  0.6은 최대 대기·전환 횟수에서 소폭 유리했지만, 기준을 교체할 안정적인 개선은
+  확인하지 못했습니다.
+- 별도의 50k·교통 seed 2001–2030 비교에서도 0.6 조합은 19.31초,
+  기준 조합은 19.45초로 약 0.13초 차이였습니다. 이 단일 학습 seed 결과만으로
+  고정 기준을 바꾸지는 않습니다. 두 평가 교통 집합의 평균을 직접 비교하지 않습니다.
+
+이 결정은 **현재 증거에 근거한 프로젝트 기준의 채택**입니다. 전역 최적값 또는
+통계적 우월성의 입증은 아닙니다. 150k에서 `0.6 조합 − 기준 조합`의 평균 대기
+차이는 +0.497초, paired 95% CI는 `[-0.392, +1.301]`초로 0을 포함했습니다.
+학습 seed가 3개뿐이라는 한계도 있습니다.
+
+근거 자료:
+
+- [정밀 탐색·150k 다중 seed 결과](results/reward_fine_search_2026-10-09/README.md)
+- [150k 평가 원자료](results/reward_fine_search_2026-10-09/multiseed_results.csv)
+- [동일 조건의 7개 조합 비교표](results/reward_paired_comparison_2026-10-10/comparison-ko.txt)
+- [7개 조합 독립 검증](results/reward_paired_comparison_2026-10-10/independent_audit.json)
+
+이후 실험은 가중치와 정규화·클리핑을 함께 고정하고, 학습량·학습 seed·교통 구성의
+효과를 구분해 비교합니다. 성능은 같은 평가 교통의 평균/최대 대기, 대기열, 통과량,
+실제 전환 횟수로 판단합니다. 제어 목표나 입력 단위·교통 규모가 바뀌거나 특정 방향의
+장기 대기처럼 목표와 행동의 불일치가 반복될 때 보상 기준을 다시 검토합니다.
+
+### Checkpoint resume and historical evidence
+
+재개할 checkpoint는 기록된 보상 가중치 4개와 정규화 scale 3개가 현재 설정과
+일치해야 합니다. 새 checkpoint는 모델 SHA-256과 실제 보상 설정을
+`*.metadata.json`에 함께 저장합니다. 기존 `experiment_config.json` 및
+`training_metadata.json`의 보상 기록도 지원합니다. 설정이 다르거나 기록이 없으면
+학습을 중단하고 새 학습을 요구하여, 이전 보상의 Q값·replay reward를 섞지 않습니다.
+동일 보상이라도 replay buffer가 없는 모델은 학습 상태 전체를 충실히 이어가는
+체크포인트로 볼 수 없습니다. CLI의 `dqn_intersection.zip`에는 보상 메타데이터를
+함께 내보내지만 replay는 포함하지 않습니다. 저장된 replay까지 이어 학습하려면
+세션 폴더의 `final.zip`과 같은 위치의 `final.replay.pkl`을 사용합니다.
+Git에 보관한 실험 모델은 평가용 최종 모델이며,
+대용량 replay buffer와 중간 checkpoint는 로컬에만 보존했습니다.
+
+실험 코드와 결과는 기본값 변경 전 커밋 `4b52089d662a6dd5e019040b6fd9a84f51053097`에
+먼저 보관했습니다. 이 커밋의 핵심 환경·학습 코드는 원래 실험 기준 `b0530d71`과
+같습니다. 과거 결과의 설정·해시·당시 기본값을 새 기준으로 덮어쓰지 않았습니다.
+현재 코드에서 해당 실행을 `--resume`하면 보존된 핵심 코드 해시와 달라 거부되는 것이
+정상입니다. 역사적 실험의 재실행은 보관 커밋과 기록된 runtime을 기준으로 하고,
+새 실험은 별도 결과 폴더를 사용합니다. 원자료에 기록된 로컬 절대 경로는 다른 PC에서
+해당 checkout 위치에 맞게 해석해야 합니다.
 
 ## Fixed-Time Controller
 

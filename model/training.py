@@ -18,7 +18,7 @@ from model.controller.traffic_dqn import TrafficDQN
 from model.env.intersection_env import IntersectionEnv
 from model.traffic.route_generator import SCENARIOS
 from model.utils.config import ProjectConfig, ensure_directories
-from model.utils.reproducibility import collect_reproducibility_metadata
+from model.utils.reproducibility import collect_reproducibility_metadata, file_sha256
 
 
 ProgressHandler = Callable[[dict[str, Any]], None]
@@ -197,6 +197,7 @@ class TrainingRunner:
     def _create_model(self, env: IntersectionEnv) -> TrafficDQN:
         torch.set_num_threads(self.config.dqn.torch_threads)
         if self.resume_checkpoint is not None:
+            self._check_resume_reward()
             model = TrafficDQN.load(str(self.resume_checkpoint), env=env, device="auto")
             replay_path = self.resume_checkpoint.with_suffix(".replay.pkl")
             if replay_path.exists():
@@ -225,6 +226,48 @@ class TrainingRunner:
             seed=self.options.seed,
             policy_kwargs={"net_arch": list(self.config.dqn.network_architecture)},
             verbose=0,
+        )
+
+    def _check_resume_reward(self) -> None:
+        """Do not mix learned values/replay rewards from a different objective."""
+        checkpoint = self.resume_checkpoint
+        if checkpoint is None:
+            return
+        if not checkpoint.exists() and checkpoint.suffix != ".zip":
+            checkpoint = Path(f"{checkpoint}.zip")
+        sources = (
+            checkpoint.with_suffix(".metadata.json"),
+            checkpoint.parent / "experiment_config.json",
+            checkpoint.parent / "training_metadata.json",
+        )
+        for source in sources:
+            if not source.exists():
+                continue
+            try:
+                metadata = json.loads(source.read_text(encoding="utf-8"))
+                if source.name == "training_metadata.json":
+                    metadata = metadata["reproducibility"]
+                reward = metadata["reward_config"]
+                if not isinstance(reward, dict):
+                    raise TypeError("reward_config must be an object")
+            except (OSError, ValueError, KeyError, TypeError) as exc:
+                raise ValueError(
+                    f"Cannot resume: invalid reward metadata in {source}. "
+                    "Start a new training run instead."
+                ) from exc
+            expected = asdict(self.config.reward)
+            mismatches = [key for key, value in expected.items() if reward.get(key) != value]
+            if mismatches:
+                raise ValueError(
+                    f"Cannot resume: reward configuration differs in {', '.join(mismatches)} "
+                    f"({source}). Start a new training run for the current reward configuration."
+                )
+            if source == sources[0] and metadata.get("model_sha256") != file_sha256(checkpoint):
+                raise ValueError(f"Cannot resume: checkpoint hash differs from {source}.")
+            return
+        raise ValueError(
+            f"Cannot resume {checkpoint}: reward metadata is missing. "
+            "Start a new training run instead of mixing unknown replay rewards."
         )
 
     def run(self) -> dict[str, Any]:
@@ -470,6 +513,14 @@ class TrainingRunner:
         zip_path = path.with_suffix(".zip")
         replay_path = path.with_suffix(".replay.pkl")
         self.model.save_replay_buffer(str(replay_path))
+        self._write_json(
+            f"{stem}.metadata.json",
+            {
+                "timestep": step,
+                "model_sha256": file_sha256(zip_path),
+                "reward_config": asdict(self.config.reward),
+            },
+        )
         self.checkpoint_rows.append(
             {"timestep": step, "name": stem, "model_path": str(zip_path), "replay_buffer_path": str(replay_path)}
         )
@@ -487,7 +538,10 @@ class TrainingRunner:
                 **self.snapshot(),
                 "session_id": self.session_id,
                 "checkpoint": str(checkpoint),
-                "reproducibility": collect_reproducibility_metadata(checkpoint),
+                "reproducibility": {
+                    **collect_reproducibility_metadata(checkpoint),
+                    "reward_config": asdict(self.config.reward),
+                },
             },
         )
 

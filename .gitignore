@@ -4,6 +4,7 @@ __pycache__/
 model/results/*.csv
 model/results/*.png
 model/results/*.zip
+model/results/*.metadata.json
 model/results/tensorboard/
 model/results/reward_sensitivity_local/
 model/sumo/generated/*.rou.xml

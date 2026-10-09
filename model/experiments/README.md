@@ -1,5 +1,14 @@
 # Reward weight sensitivity experiment
 
+The project adopted queue/waiting/maximum-waiting/switching weights
+`1.0 / 0.3 / 0.5 / 0.5` on 2026-10-10. See the
+[fixed baseline decision](../README.md#fixed-baseline-decision) for the evidence,
+limits, future comparison protocol, and checkpoint compatibility rules.
+The experiments below retain their historical explicit candidate weights.
+Their former default-weight candidates must not be relabeled as current defaults.
+The complete fine-search and paired-comparison source/evidence snapshot is commit
+`4b52089d662a6dd5e019040b6fd9a84f51053097`, before adopting the new defaults.
+
 The four experiments keep the queue coefficient at 1.0 and change only
 the waiting, maximum waiting, and actual switching coefficients:
 

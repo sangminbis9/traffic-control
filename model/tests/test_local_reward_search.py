@@ -19,7 +19,11 @@ def test_runtime_weights_affect_real_reward_without_changing_defaults():
     terms = reward_terms(snapshot, changed)
     assert terms == pytest.approx({'queue': -.5, 'waiting': -.175, 'max_waiting': -.175})
     assert switching_penalty(1, changed) == -.60
-    assert (original.waiting_weight, original.max_waiting_weight, original.switch_penalty) == (.1, .1, .2)
+    assert (original.queue_weight, original.waiting_weight,
+            original.max_waiting_weight, original.switch_penalty) == (1., .3, .5, .5)
+    assert reward_terms(snapshot, original) == pytest.approx(
+        {'queue': -.5, 'waiting': -.15, 'max_waiting': -.25}
+    )
 
 
 def synthetic_results(folder):

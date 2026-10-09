@@ -171,10 +171,10 @@ class CoreTests(unittest.TestCase):
         reward_held = calculate_reward(snapshot, snapshot, False, config)
         reward_switched = calculate_reward(snapshot, snapshot, True, config)
 
-        self.assertAlmostEqual(config.max_waiting_weight, 0.1)
+        self.assertAlmostEqual(config.max_waiting_weight, 0.5)
         self.assertAlmostEqual(config.max_waiting_scale, 120.0)
-        self.assertAlmostEqual(reward_held, -0.0875)
-        self.assertAlmostEqual(reward_switched - reward_held, -0.2)
+        self.assertAlmostEqual(reward_held, -0.3875)
+        self.assertAlmostEqual(reward_switched - reward_held, -0.5)
 
 
 if __name__ == "__main__":

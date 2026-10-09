@@ -27,12 +27,12 @@ class SignalConfig:
 
 @dataclass(frozen=True)
 class RewardConfig:
-    """Weights for normalized reward terms."""
+    """Fixed reward baseline; selection evidence is documented in model/README.md."""
 
     queue_weight: float = 1.0
-    waiting_weight: float = 0.1
-    max_waiting_weight: float = 0.1
-    switch_penalty: float = 0.2
+    waiting_weight: float = 0.3
+    max_waiting_weight: float = 0.5
+    switch_penalty: float = 0.5
     queue_scale: float = 10.0
     waiting_scale: float = 6_000.0
     max_waiting_scale: float = 120.0

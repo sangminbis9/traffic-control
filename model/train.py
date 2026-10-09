@@ -61,6 +61,9 @@ def main() -> int:
     final_model = runner.output_dir / "final.zip"
     canonical_model = config.results_dir / "dqn_intersection.zip"
     canonical_model.write_bytes(final_model.read_bytes())
+    canonical_model.with_suffix(".metadata.json").write_bytes(
+        final_model.with_suffix(".metadata.json").read_bytes()
+    )
     print(f"Training status: {result['status']}")
     print(f"Saved DQN model to {canonical_model}")
     return 0

@@ -81,6 +81,17 @@ python -m model.evaluate --episodes 30 --seed-start 2001
 
 세부 모델 설계는 [model/README.md](model/README.md), API lifecycle과 endpoint는 [api/README.md](api/README.md), 웹 화면과 개발 명령은 [web/README.md](web/README.md)를 참고하세요.
 
+## Fixed reward baseline
+
+2026-10-10부터 새 학습의 보상 기준은 **Queue 1.0 / 누적 대기 합계 0.3 /
+최대 대기 0.5 / 실제 신호 전환 0.5**입니다. 정규화는 `/10`, `/6000`, `/120`과
+`[0, 1]` clipping을 유지합니다. 50k 탐색과 150k 다중 학습 seed 검증을 바탕으로
+선정했으며, 이후 학습에서는 이 기준을 고정합니다.
+[선정 이유·비교 수치·실험 근거·재개 조건](model/README.md#fixed-baseline-decision)을 참고하세요.
+
+기존 checkpoint 재개 시 기록된 보상 가중치와 정규화가 현재 설정과 일치해야 합니다.
+보상이 다르거나 메타데이터가 없는 모델은 새 학습으로 시작합니다.
+
 ## Main capabilities
 
 - 이동 그룹별 waiting을 포함한 60차원 상태·8개 Phase·5-step return·5~17 decision 연속 탐색 DQN
