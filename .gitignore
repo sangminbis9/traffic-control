@@ -5,6 +5,7 @@ model/results/*.csv
 model/results/*.png
 model/results/*.zip
 model/results/tensorboard/
+model/results/reward_sensitivity_local/
 model/sumo/generated/*.rou.xml
 model/sumo/intersection.net.xml
 
