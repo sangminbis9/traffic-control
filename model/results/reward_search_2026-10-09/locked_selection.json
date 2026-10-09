@@ -1,0 +1,74 @@
+{
+  "validation_winner_candidate_id": 6,
+  "shortlist_candidate_ids": [
+    6,
+    4
+  ],
+  "baseline_candidate_id": 1,
+  "holdout_candidate_ids": [
+    1,
+    4,
+    6
+  ],
+  "eligibility": {
+    "1": {
+      "collisions": 0,
+      "teleports": 0,
+      "throughput_retention": 1.0,
+      "throughput_constraint_passed": true,
+      "eligible": true
+    },
+    "2": {
+      "collisions": 0,
+      "teleports": 0,
+      "throughput_retention": 1.0145732130464955,
+      "throughput_constraint_passed": true,
+      "eligible": true
+    },
+    "3": {
+      "collisions": 0,
+      "teleports": 0,
+      "throughput_retention": 1.0,
+      "throughput_constraint_passed": true,
+      "eligible": true
+    },
+    "4": {
+      "collisions": 0,
+      "teleports": 0,
+      "throughput_retention": 1.0069396252602358,
+      "throughput_constraint_passed": true,
+      "eligible": true
+    },
+    "5": {
+      "collisions": 0,
+      "teleports": 0,
+      "throughput_retention": 0.9909784871616932,
+      "throughput_constraint_passed": true,
+      "eligible": true
+    },
+    "6": {
+      "collisions": 0,
+      "teleports": 0,
+      "throughput_retention": 1.0284524635669674,
+      "throughput_constraint_passed": true,
+      "eligible": true
+    }
+  },
+  "selection_locked_before_holdout": true,
+  "selection_rules": {
+    "reject_any_collisions_or_teleports": true,
+    "minimum_throughput_retention": 0.95,
+    "lexicographic_metric_order": [
+      "avg_waiting_time",
+      "max_waiting_time",
+      "avg_queue",
+      "phase_changes",
+      "-throughput",
+      "candidate_id"
+    ],
+    "shortlist_size": 2,
+    "baseline_always_evaluated_separately": true,
+    "holdout_reselection_permitted": false
+  },
+  "failed_trials": []
+}

@@ -1,0 +1,65 @@
+{
+  "stage": "exploratory_followup_with_independent_final_test",
+  "candidate_id_locked_before_new_test": 4,
+  "candidate_weights": [
+    0.3,
+    0.5,
+    0.5
+  ],
+  "confirmed": true,
+  "confirmation": {
+    "candidate_id": 4,
+    "confirmed": true,
+    "reason": "holdout_constraints_and_mean_waiting_passed",
+    "baseline_is_winner": false,
+    "mean_waiting_not_worse_than_baseline": true,
+    "mean_paired_waiting_difference_seconds": -0.9460576023356305,
+    "mean_waiting_change_pct": -4.970630262298547,
+    "collisions": 0,
+    "teleports": 0,
+    "throughput_retention": 1.0129165590286748,
+    "throughput_constraint_passed": true,
+    "eligible": true,
+    "statistical_significance_established": false,
+    "holdout_reselection_performed": false
+  },
+  "recommended_candidate_id": 4,
+  "recommended_weights": [
+    0.3,
+    0.5,
+    0.5
+  ],
+  "model_path": "D:\\traffic-control\\model\\results\\reward_sensitivity_local\\2026-10-09-quick\\experiment_4\\final.zip",
+  "fresh_final_test_seeds": [
+    7001,
+    7002,
+    7003,
+    7004,
+    7005,
+    7006,
+    7007,
+    7008,
+    7009,
+    7010,
+    7011,
+    7012,
+    7013,
+    7014,
+    7015,
+    7016,
+    7017,
+    7018,
+    7019,
+    7020
+  ],
+  "further_reselection_performed": false,
+  "original_recommendation_preserved": true,
+  "default_configuration_changed": false,
+  "training_seeds": [
+    22
+  ],
+  "training_steps_per_candidate": 50000,
+  "statistical_significance_established": false,
+  "global_optimum_established": false,
+  "failures": []
+}

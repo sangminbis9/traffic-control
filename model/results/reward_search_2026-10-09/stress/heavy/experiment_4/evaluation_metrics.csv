@@ -1,0 +1,3 @@
+﻿episode,controller,seed,traffic_scenario,avg_waiting_time,max_waiting_time,avg_queue,max_queue,throughput,phase_changes,forced_changes,episode_reward,departed,unfinished,pending,max_pending,collisions,teleports,duration,candidate_id
+0,experiment_4,6001,heavy,48.00702576112412,127.0,68.33166666666666,132.0,248,41,25,-299.0098833333333,427,179,0,6,0,0,300.0,4
+1,experiment_4,6002,heavy,36.4739336492891,104.5,51.306666666666665,143.0,253,42,24,-266.91839583333336,422,169,0,2,0,0,300.0,4

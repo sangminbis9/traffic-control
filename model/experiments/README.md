@@ -95,6 +95,55 @@ After aggregation, generate the Korean report and changes from 25,000 steps:
 python -m model.experiments.summarize_sensitivity_steps --current output/reward-sensitivity-50000-2026-10-04
 ```
 
+## Quick bounded search
+
+The 2026-10-09 run starts six independent current 60-input/8-action models
+from scratch, with queue weight 1.0 and `(waiting, maximum waiting, switching)`
+weights `(0.1, 0.1, 0.2)`, `(0.3, 0.3, 0.5)`, `(0.5, 0.3, 0.5)`,
+`(0.3, 0.5, 0.5)`, `(0.3, 0.3, 0.2)`, and `(0.3, 0.3, 0.8)`.
+Candidate 1 is the fresh default-weight baseline. Production defaults and
+the canonical checkpoint are not replaced.
+
+```powershell
+python -m model.experiments.quick_reward_search --output model/results/reward_sensitivity_local/2026-10-09-quick --workers 6 --timesteps 50000 --eval-episodes 8 --holdout-episodes 10
+```
+
+The output directory must not already exist; choose a new name for a rerun.
+Each candidate uses training seed 22, the original 150,000-step exploration
+schedule, random traffic, 300-second episodes, and 240 seconds of demand.
+Validation uses seeds 4001–4008. Candidates with a safety event or less than
+95% of baseline throughput are ineligible; the others are ranked by average
+waiting, maximum waiting, queue, phase changes, and then throughput.
+
+`locked_selection.json` saves the winner and top two eligible candidates
+before holdout evaluation. That shortlist plus candidate 1 and Fixed-Time
+are evaluated on paired seeds 5001–5010. Holdout checks the locked winner's
+safety, throughput retention, and average waiting against candidate 1;
+it never selects a different candidate from the test results.
+
+Outputs include `comparison.csv`, `validation_diagnostics.csv`,
+`holdout_comparison.csv`, `recommendation.json`, and `status.json`.
+Each model and evaluation folder preserves episode metrics and demand hashes;
+diagnostics include pending and unfinished vehicles. The 2026-10-09 run's
+`runtime_packages.json` records its actual Python/package versions and
+TraCI/SUMO library locations; per-candidate metadata records the SUMO version.
+
+Five focused selection/holdout tests passed, and compilation and CLI help
+were checked before starting the run. These checks do not establish training
+performance. This is a single-training-seed, random-traffic search: holdout
+confirmation is not a significance test, cross-scenario validation, or proof
+of a global optimum.
+
+### Archived 2026-10-09 results
+
+The [versioned result snapshot](../results/reward_search_2026-10-09/README.md)
+includes all six final models and evaluation evidence. The first validation
+winner (candidate 6) failed its initial holdout. An exploratory follow-up fixed
+candidate 4 before a new test on seeds 7001–7020; it reduced mean waiting by
+4.97% versus a fresh default-weight 50k model. The original failed recommendation
+is preserved separately from the final result. See the snapshot for the full
+selection history, heavy-traffic limitations, and recorded runtime versions.
+
 ## Metric definitions
 
 - Average Waiting: mean observed accumulated waiting over all vehicles that
@@ -108,8 +157,9 @@ python -m model.experiments.summarize_sensitivity_steps --current output/reward-
 - Phase Changes: actual green-phase transitions, including forced transitions.
 - Throughput: vehicles arriving at their destinations within an episode.
 
-Means and sample standard deviations describe variability over the 30 traffic
-seeds. One common training seed does not characterize variability across model
-training seeds. All three coefficients vary together, so the comparison
-evaluates weight combinations and does not isolate a single coefficient's
-effect. The switching coefficient is distinct from DQN's discount gamma 0.95.
+Means and sample standard deviations describe variability over evaluation traffic
+seeds (30 in the original sensitivity comparison). One common training seed
+does not characterize variability across model training seeds. In the original
+four-experiment comparison, all three coefficients vary together, so it compares
+combinations rather than isolating a single coefficient's effect. The switching
+coefficient is distinct from DQN's discount gamma 0.95.

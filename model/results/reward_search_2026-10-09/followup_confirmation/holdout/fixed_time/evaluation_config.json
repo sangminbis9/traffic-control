@@ -1,0 +1,42 @@
+{
+  "candidate_id": null,
+  "controller": "Fixed-Time",
+  "source_checkpoint": null,
+  "source_model_sha256": null,
+  "network_sha256": "8d9d73ad1b8262dcb7d2fedbe3f59d9091108700e262be4d2d835a0cb26afe68",
+  "reward_config": {
+    "queue_weight": 1.0,
+    "waiting_weight": 0.1,
+    "max_waiting_weight": 0.1,
+    "switch_penalty": 0.2,
+    "queue_scale": 10.0,
+    "waiting_scale": 6000.0,
+    "max_waiting_scale": 120.0
+  },
+  "seeds": [
+    7001,
+    7002,
+    7003,
+    7004,
+    7005,
+    7006,
+    7007,
+    7008,
+    7009,
+    7010,
+    7011,
+    7012,
+    7013,
+    7014,
+    7015,
+    7016,
+    7017,
+    7018,
+    7019,
+    7020
+  ],
+  "scenario": "random",
+  "episode_seconds": 300,
+  "deterministic_actions": true,
+  "used_for_candidate_selection": false
+}

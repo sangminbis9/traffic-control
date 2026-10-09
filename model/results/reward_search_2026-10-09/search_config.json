@@ -1,0 +1,77 @@
+{
+  "output": "D:\\traffic-control\\model\\results\\reward_sensitivity_local\\2026-10-09-quick",
+  "timesteps": 50000,
+  "schedule_timesteps": 150000,
+  "seed": 22,
+  "scenario": "random",
+  "episode_seconds": 300,
+  "eval_seed_start": 4001,
+  "eval_episodes": 8,
+  "cache": true,
+  "verify_cache": false,
+  "candidate_weights": {
+    "1": [
+      0.1,
+      0.1,
+      0.2
+    ],
+    "2": [
+      0.3,
+      0.3,
+      0.5
+    ],
+    "3": [
+      0.5,
+      0.3,
+      0.5
+    ],
+    "4": [
+      0.3,
+      0.5,
+      0.5
+    ],
+    "5": [
+      0.3,
+      0.3,
+      0.2
+    ],
+    "6": [
+      0.3,
+      0.3,
+      0.8
+    ]
+  },
+  "baseline_candidate_id": 1,
+  "workers": 6,
+  "validation_seeds": [
+    4001,
+    4002,
+    4003,
+    4004,
+    4005,
+    4006,
+    4007,
+    4008
+  ],
+  "holdout_seeds": [
+    5001,
+    5002,
+    5003,
+    5004,
+    5005,
+    5006,
+    5007,
+    5008,
+    5009,
+    5010
+  ],
+  "queue_weight": 1.0,
+  "fresh_training_per_candidate": true,
+  "source_sha256": "d23be790da80811ea643d838257a385c5099ca1483afaa0208bd098d93b4fb72",
+  "selection_metric": "validation average waiting with safety and throughput constraints",
+  "holdout_confirmation_rule": "locked winner has no safety event, >=95% baseline throughput, and mean waiting <= baseline",
+  "holdout_used_for_reselection": false,
+  "training_seed_count": 1,
+  "global_optimum_established": false,
+  "statistical_significance_established": false
+}

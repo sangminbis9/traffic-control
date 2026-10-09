@@ -1,0 +1,47 @@
+{
+  "stage": "exploratory_followup_with_independent_final_test",
+  "selection_evidence": "Original validation and original holdout 5001-5010 informed fixed candidate 4; they are no longer final-test evidence for this new stage.",
+  "candidate_id_locked_before_new_test": 4,
+  "baseline_candidate_id": 1,
+  "weights": [
+    0.3,
+    0.5,
+    0.5
+  ],
+  "queue_weight": 1.0,
+  "fresh_final_test_seeds": [
+    7001,
+    7002,
+    7003,
+    7004,
+    7005,
+    7006,
+    7007,
+    7008,
+    7009,
+    7010,
+    7011,
+    7012,
+    7013,
+    7014,
+    7015,
+    7016,
+    7017,
+    7018,
+    7019,
+    7020
+  ],
+  "scenario": "random",
+  "episode_seconds": 300,
+  "further_reselection_permitted": false,
+  "training_seeds": [
+    22
+  ],
+  "training_steps_per_candidate": 50000,
+  "exploration_schedule_steps": 150000,
+  "original_recommendation_preserved": true,
+  "original_recommendation_sha256": "66e9e3c1b24507c83323136eccc5b7949ed2c13528009ee839832c674d72f59c",
+  "source_sha256": "b7de10ca94fbd5b3f599d8d69cd3134b40dd39d854128033e23195fca9399abe",
+  "statistical_significance_established": false,
+  "global_optimum_established": false
+}

@@ -1,0 +1,17 @@
+{
+  "candidate": 4,
+  "diagnostic_only": true,
+  "scenarios": [
+    "uniform",
+    "north_south_congested",
+    "east_west_congested",
+    "left_turn_congested",
+    "heavy",
+    "low"
+  ],
+  "seeds": [
+    6001,
+    6002
+  ],
+  "used_for_candidate_selection": false
+}

@@ -1,0 +1,169 @@
+{
+  "stage": "exploratory_followup_with_independent_final_test",
+  "candidate_id_locked_before_new_test": 4,
+  "candidate_weights": [
+    0.3,
+    0.5,
+    0.5
+  ],
+  "confirmed": true,
+  "confirmation": {
+    "candidate_id": 4,
+    "confirmed": true,
+    "reason": "holdout_constraints_and_mean_waiting_passed",
+    "baseline_is_winner": false,
+    "mean_waiting_not_worse_than_baseline": true,
+    "mean_paired_waiting_difference_seconds": -0.9460576023356305,
+    "mean_waiting_change_pct": -4.970630262298547,
+    "collisions": 0,
+    "teleports": 0,
+    "throughput_retention": 1.0129165590286748,
+    "throughput_constraint_passed": true,
+    "eligible": true,
+    "statistical_significance_established": false,
+    "holdout_reselection_performed": false
+  },
+  "recommended_candidate_id": 4,
+  "recommended_weights": [
+    0.3,
+    0.5,
+    0.5
+  ],
+  "model_path": "D:\\traffic-control\\model\\results\\reward_sensitivity_local\\2026-10-09-quick\\experiment_4\\final.zip",
+  "fresh_final_test_seeds": [
+    7001,
+    7002,
+    7003,
+    7004,
+    7005,
+    7006,
+    7007,
+    7008,
+    7009,
+    7010,
+    7011,
+    7012,
+    7013,
+    7014,
+    7015,
+    7016,
+    7017,
+    7018,
+    7019,
+    7020
+  ],
+  "further_reselection_performed": false,
+  "original_recommendation_preserved": true,
+  "default_configuration_changed": false,
+  "training_seeds": [
+    22
+  ],
+  "training_steps_per_candidate": 50000,
+  "statistical_significance_established": false,
+  "global_optimum_established": false,
+  "failures": [],
+  "reward_config": {
+    "queue_weight": 1.0,
+    "waiting_weight": 0.3,
+    "max_waiting_weight": 0.5,
+    "switch_penalty": 0.5,
+    "queue_scale": 10.0,
+    "waiting_scale": 6000.0,
+    "max_waiting_scale": 120.0
+  },
+  "model_sha256": "41ee1b4d0db029ba31f6364d3479d3c890bddf9f8c1aa1011f2543292f6007d0",
+  "final_test_changes_pct": {
+    "default_reward": {
+      "avg_waiting_time": -4.970630262298547,
+      "max_waiting_time": -8.859566446748346,
+      "avg_queue": -5.465445275513369,
+      "throughput": 1.2916559028674834,
+      "phase_changes": -1.2318029115341522,
+      "unfinished": -8.103727714748787,
+      "pending": null
+    },
+    "fixed_time": {
+      "avg_waiting_time": -20.549624574069224,
+      "max_waiting_time": -17.608633910820792,
+      "avg_queue": -18.247008091477312,
+      "throughput": 2.0827909398594135,
+      "phase_changes": 10.250000000000004,
+      "unfinished": -12.36476043276662,
+      "pending": null
+    }
+  },
+  "final_test_paired_waiting": {
+    "better": 12,
+    "tied": 0,
+    "worse": 8,
+    "differences_seconds": [
+      -3.6731601731601735,
+      2.6151960784313726,
+      -3.18362831858407,
+      -1.3568548387096762,
+      -2.9054621848739473,
+      0.34285714285714164,
+      1.3929889298892988,
+      -1.9277777777777771,
+      -0.6530612244897949,
+      -1.5534979423868336,
+      0.8574144486691999,
+      -2.628712871287128,
+      1.9469696969696972,
+      1.9661458333333321,
+      -3.954347826086959,
+      1.2024539877300615,
+      1.7309322033898304,
+      -3.1739999999999995,
+      -2.605392156862745,
+      -3.36021505376344
+    ],
+    "mean_difference_seconds": -0.9460576023356305
+  },
+  "stress_diagnostics": [
+    {
+      "scenario": "east_west_congested",
+      "waiting_vs_default_pct": -5.771994728931329,
+      "waiting_vs_fixed_pct": -34.501441411678194,
+      "throughput_vs_default_pct": 3.4574468085106336,
+      "throughput_vs_fixed_pct": 10.198300283286121
+    },
+    {
+      "scenario": "heavy",
+      "waiting_vs_default_pct": 1.561311415124944,
+      "waiting_vs_fixed_pct": 17.255689327953295,
+      "throughput_vs_default_pct": -2.9069767441860517,
+      "throughput_vs_fixed_pct": -11.795774647887324
+    },
+    {
+      "scenario": "left_turn_congested",
+      "waiting_vs_default_pct": -20.498167620870554,
+      "waiting_vs_fixed_pct": -24.370580008309005,
+      "throughput_vs_default_pct": 0.3039513677811634,
+      "throughput_vs_fixed_pct": -1.19760479041916
+    },
+    {
+      "scenario": "low",
+      "waiting_vs_default_pct": 0.6147540983606703,
+      "waiting_vs_fixed_pct": -13.708260105448144,
+      "throughput_vs_default_pct": 2.6315789473684292,
+      "throughput_vs_fixed_pct": 0.0
+    },
+    {
+      "scenario": "north_south_congested",
+      "waiting_vs_default_pct": -3.117690191514433,
+      "waiting_vs_fixed_pct": -31.77609997419325,
+      "throughput_vs_default_pct": -3.6745406824146953,
+      "throughput_vs_fixed_pct": -0.8108108108108136
+    },
+    {
+      "scenario": "uniform",
+      "waiting_vs_default_pct": 1.5466009156869465,
+      "waiting_vs_fixed_pct": 4.777845834238925,
+      "throughput_vs_default_pct": -0.330033003300334,
+      "throughput_vs_fixed_pct": -1.6286644951140072
+    }
+  ],
+  "scope": "six candidate weights, 50000 training steps, one training seed; exploratory followup with 20 new paired random traffic seeds; six fixed scenarios with two seeds each as diagnostics",
+  "source_recommendation": "D:\\traffic-control\\model\\results\\reward_sensitivity_local\\2026-10-09-quick\\followup_confirmation\\recommendation.json"
+}

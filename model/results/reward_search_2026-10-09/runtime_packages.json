@@ -1,0 +1,12 @@
+{
+  "python": "3.14.3",
+  "packages": {
+    "torch": "2.12.0",
+    "numpy": "2.4.6",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.3.0",
+    "matplotlib": "3.10.8"
+  },
+  "traci_source": "C:\\Program Files (x86)\\Eclipse\\Sumo\\tools\\traci\\__init__.py",
+  "sumolib_source": "C:\\Program Files (x86)\\Eclipse\\Sumo\\tools\\sumolib\\__init__.py"
+}

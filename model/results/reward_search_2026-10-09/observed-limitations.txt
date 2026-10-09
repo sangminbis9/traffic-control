@@ -1,0 +1,1 @@
+Training emitted SUMO emergency braking and red-light emergency-stop warnings. Existing environment fails a trial on collisions/teleports; emergency braking counts are not captured by its episode metrics. Preserve the existing common signal timing for this controlled comparison and do not claim comprehensive safety from zero collisions/teleports.

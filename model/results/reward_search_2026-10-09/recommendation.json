@@ -1,0 +1,61 @@
+{
+  "validation_winner_candidate_id": 6,
+  "validation_winner_weights": [
+    0.3,
+    0.3,
+    0.8
+  ],
+  "holdout_confirmation": {
+    "candidate_id": 6,
+    "confirmed": false,
+    "reason": "holdout_constraints_or_mean_waiting_failed",
+    "baseline_is_winner": false,
+    "mean_waiting_not_worse_than_baseline": false,
+    "mean_paired_waiting_difference_seconds": 0.2861463132271451,
+    "mean_waiting_change_pct": 1.5762019024843532,
+    "collisions": 0,
+    "teleports": 0,
+    "throughput_retention": 1.0137067938021453,
+    "throughput_constraint_passed": true,
+    "eligible": true,
+    "statistical_significance_established": false,
+    "holdout_reselection_performed": false
+  },
+  "recommended_candidate_id": null,
+  "recommended_weights": null,
+  "default_configuration_changed": false,
+  "model_path": "D:\\traffic-control\\model\\results\\reward_sensitivity_local\\2026-10-09-quick\\experiment_6\\final.zip",
+  "training_steps_per_candidate": 50000,
+  "exploration_schedule_steps": 150000,
+  "learning_started": true,
+  "training_seeds": [
+    22
+  ],
+  "validation_seeds": [
+    4001,
+    4002,
+    4003,
+    4004,
+    4005,
+    4006,
+    4007,
+    4008
+  ],
+  "holdout_seeds": [
+    5001,
+    5002,
+    5003,
+    5004,
+    5005,
+    5006,
+    5007,
+    5008,
+    5009,
+    5010
+  ],
+  "scenario": "random",
+  "global_optimum_established": false,
+  "statistical_significance_established": false,
+  "scope": "single-training-seed bounded candidate search and random-traffic holdout",
+  "failed_trials": []
+}

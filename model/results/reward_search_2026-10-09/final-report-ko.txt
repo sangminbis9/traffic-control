@@ -1,0 +1,49 @@
+보상 파라미터 탐색 최종 보고서 — 2026-10-09
+
+현재 탐색 범위의 추천 후보: 4
+queue_weight=1.0, waiting_weight=0.3, max_waiting_weight=0.5, switch_penalty=0.5
+정규화 queue_scale=10, waiting_scale=6000, max_waiting_scale=120; DQN 할인율 gamma=0.95 유지.
+추천은 전역 최적값의 증명이 아니며, 이 학습량과 평가 범위에서 유망한 설정이다.
+
+최종 미사용 교통 평가: seed 7001~7020, random 교통 20회, 회차 300초/수요 240초.
+후보 4를 이 평가 전에 고정했다. 새 모델 학습 없이 저장된 50,000-step 모델을 평가했다.
+후보 | 평균대기(s) | 회차최대대기 평균(s) | 최악대기(s) | 평균대기열 | 처리량 | 미완료 | 진입대기 | 전환수
+기본 보상 | 19.033 | 79.575 | 140.000 | 14.874 | 193.550 | 30.850 | 0.000 | 44.650
+추천 후보 4 | 18.087 | 72.525 | 105.500 | 14.061 | 196.050 | 28.350 | 0.000 | 44.100
+고정 신호 | 22.765 | 88.025 | 114.000 | 17.199 | 192.050 | 32.350 | 0.000 | 40.000
+default_reward 대비 평균 대기 -4.97%, 회차최대대기 평균 -8.86%, 처리량 +1.29%
+fixed_time 대비 평균 대기 -20.55%, 회차최대대기 평균 -17.61%, 처리량 +2.08%
+기본 보상 대비 대기 개선/동률/악화: 12/0/8회.
+충돌/텔레포트 합계: 후보4 0/0, 기본값 0/0.
+
+실험 설계 및 탐색 경과:
+6개 보상 조합을 새로 학습했다. 동일 구조 60입력/8행동, 학습 seed22, 후보별50,000 step, 총300,000 step.
+학습 탐색률 일정150,000 step을 보존했다. queue가중치/정규화/신호시간/학습 하이퍼파라미터는 동일하다.
+seed4001~4008의 첫 검증에서는 후보6(0.3,0.3,0.8)이1위였다. seed5001~5010의 독립 검증에서는 기본값보다 평균대기가1.58%나빠져 탈락했다.
+첫 독립 검증에서 후보4가 유망해 새 탐색 단계의 후보로 고정했다. 따라서5001~5010은 후보4의 최종 성능 증거가 아니라 선택에 사용된 자료다.
+이후 전혀 쓰지 않은7001~7020에서 후보4를 한번 확인했다. 이 결과를 본 추가 후보 변경은 하지 않았다.
+원래 후보6의 실패 기록과 recommendation.json은 보존했다. 최종 기록은final_recommendation.json이다.
+
+고정 교통 상황별 추가 진단 — 각 2회, 후보 선택에는 사용하지 않음:
+시나리오 | 평균대기 변화 vs기본(%) | 처리량 변화 vs기본(%) | 평균대기 변화 vs고정신호(%) | 처리량 변화 vs고정신호(%)
+east_west_congested | -5.77 | +3.46 | -34.50 | +10.20
+heavy | +1.56 | -2.91 | +17.26 | -11.80
+left_turn_congested | -20.50 | +0.30 | -24.37 | -1.20
+low | +0.61 | +2.63 | -13.71 | +0.00
+north_south_congested | -3.12 | -3.67 | -31.78 | -0.81
+uniform | +1.55 | -0.33 | +4.78 | -1.63
+
+해석 한계:
+한 개 학습 seed와 제한된 후보/학습량이다. 통계적 유의성, 여러 학습 seed에서의 재현성,150,000-step 학습 후 우열을 입증하지 않았다.
+보상 기본값 비교는 동일50,000-step 신규 학습 모델 기준이며, 과거 완전 학습 체크포인트 대비 비교가 아니다.
+평균대기는 실제 진입 차량 기준으로 미완료 차량을 포함하지만 진입 전 pending차량은 제외한다. 회차최대대기 평균과 전체최악대기는 서로 다른 지표다.
+고정 시나리오별2회 결과는 경향을 보는 추가 진단이며 충분한 강건성 검증은 아니다.
+학습/평가에서 적색신호 급제동 경고가 관찰됐다. 충돌/텔레포트0을 모든 안전성의 증거로 해석하면 안 된다.
+기존 기본 모델 및 기본 보상설정은 변경하지 않았다. 추천 설정과 모델을 별도 저장했다.
+
+자료 위치:
+D:\traffic-control\model\results\reward_sensitivity_local\2026-10-09-quick\recommended_reward_config.json
+D:\traffic-control\model\results\reward_sensitivity_local\2026-10-09-quick\experiment_4\final.zip
+D:\traffic-control\model\results\reward_sensitivity_local\2026-10-09-quick\followup_confirmation\comparison.csv
+D:\traffic-control\model\results\reward_sensitivity_local\2026-10-09-quick\stress_candidate4\comparison.csv
+D:\traffic-control\model\results\reward_sensitivity_local\2026-10-09-quick\runtime_packages.json

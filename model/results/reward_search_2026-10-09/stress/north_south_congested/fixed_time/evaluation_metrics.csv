@@ -1,0 +1,3 @@
+﻿episode,controller,seed,traffic_scenario,avg_waiting_time,max_waiting_time,avg_queue,max_queue,throughput,phase_changes,forced_changes,episode_reward,departed,unfinished,pending,max_pending,collisions,teleports,duration,candidate_id
+0,fixed_time,6001,north_south_congested,28.072687224669604,85.0,21.243333333333332,67.0,185,40,0,-79.13259583333338,227,42,0,2,0,0,300.0,
+1,fixed_time,6002,north_south_congested,20.973170731707317,90.0,14.331666666666667,42.0,185,40,0,-72.50917916666668,205,20,0,2,0,0,300.0,

@@ -1,0 +1,14 @@
+{
+  "status": "COMPLETED",
+  "elapsed_seconds": 1158.6820776000386,
+  "completed_candidate_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "holdout_confirmed": false,
+  "failures": []
+}

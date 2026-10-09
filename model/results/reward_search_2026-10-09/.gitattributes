@@ -1,0 +1,2 @@
+# Preserve the exact historical bytes used by the recorded provenance hashes.
+* -text whitespace=trailing-space,space-before-tab,cr-at-eol

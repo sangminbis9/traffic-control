@@ -1,0 +1,32 @@
+{
+  "candidate_id": 6,
+  "controller": "DQN",
+  "source_checkpoint": "D:\\traffic-control\\model\\results\\reward_sensitivity_local\\2026-10-09-quick\\experiment_6\\final.zip",
+  "source_model_sha256": "d79d6c12a7803f0658773299d4fe0ec44c28da23dd8a96970108a0cd9beb55ce",
+  "network_sha256": "8d9d73ad1b8262dcb7d2fedbe3f59d9091108700e262be4d2d835a0cb26afe68",
+  "reward_config": {
+    "queue_weight": 1.0,
+    "waiting_weight": 0.3,
+    "max_waiting_weight": 0.3,
+    "switch_penalty": 0.8,
+    "queue_scale": 10.0,
+    "waiting_scale": 6000.0,
+    "max_waiting_scale": 120.0
+  },
+  "seeds": [
+    5001,
+    5002,
+    5003,
+    5004,
+    5005,
+    5006,
+    5007,
+    5008,
+    5009,
+    5010
+  ],
+  "scenario": "random",
+  "episode_seconds": 300,
+  "deterministic_actions": true,
+  "used_for_candidate_selection": false
+}
