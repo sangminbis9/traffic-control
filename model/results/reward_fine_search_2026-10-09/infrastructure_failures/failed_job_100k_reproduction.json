@@ -1,0 +1,45 @@
+{
+  "name": "checkpoint_100000.zip",
+  "all_equal": true,
+  "observation_action_contract": "True",
+  "source_sha256": "a39daf8cbc402d079f2f11476b362e0d98d13fba101170b51950f1597affd6be",
+  "verification_sha256": "70972af3d123209b52d5b3d103dbf70f1387e76364a529da8b1ae84646e18d87",
+  "source_steps": 100000,
+  "verification_steps": 100000,
+  "source_updates": 23749,
+  "verification_updates": 23749,
+  "components": {
+    "q_net": {
+      "all_equal": true,
+      "tensor_count": 6,
+      "tensor_elements": 25352,
+      "leaf_count": 0,
+      "mismatch_count": 0,
+      "mismatches": []
+    },
+    "q_net_target": {
+      "all_equal": true,
+      "tensor_count": 6,
+      "tensor_elements": 25352,
+      "leaf_count": 0,
+      "mismatch_count": 0,
+      "mismatches": []
+    },
+    "optimizer": {
+      "all_equal": true,
+      "tensor_count": 18,
+      "tensor_elements": 50710,
+      "leaf_count": 18,
+      "mismatch_count": 0,
+      "mismatches": []
+    },
+    "training_state": {
+      "all_equal": true,
+      "tensor_count": 0,
+      "tensor_elements": 0,
+      "leaf_count": 12,
+      "mismatch_count": 0,
+      "mismatches": []
+    }
+  }
+}

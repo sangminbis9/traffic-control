@@ -1,0 +1,686 @@
+{
+  "locked_at": "2026-10-09T14:03:28.059339+00:00",
+  "incumbent_id": 14,
+  "ranked_candidate_ids": [
+    15,
+    13,
+    11,
+    14,
+    1,
+    5,
+    3,
+    18,
+    6,
+    9,
+    27,
+    7,
+    25,
+    16,
+    22,
+    19
+  ],
+  "shortlist_candidate_ids": [
+    11,
+    13,
+    14,
+    15
+  ],
+  "candidate_weights": {
+    "1": [
+      0.2,
+      0.4,
+      0.4
+    ],
+    "2": [
+      0.2,
+      0.4,
+      0.5
+    ],
+    "3": [
+      0.2,
+      0.4,
+      0.6
+    ],
+    "4": [
+      0.2,
+      0.5,
+      0.4
+    ],
+    "5": [
+      0.2,
+      0.5,
+      0.5
+    ],
+    "6": [
+      0.2,
+      0.5,
+      0.6
+    ],
+    "7": [
+      0.2,
+      0.6,
+      0.4
+    ],
+    "8": [
+      0.2,
+      0.6,
+      0.5
+    ],
+    "9": [
+      0.2,
+      0.6,
+      0.6
+    ],
+    "10": [
+      0.3,
+      0.4,
+      0.4
+    ],
+    "11": [
+      0.3,
+      0.4,
+      0.5
+    ],
+    "12": [
+      0.3,
+      0.4,
+      0.6
+    ],
+    "13": [
+      0.3,
+      0.5,
+      0.4
+    ],
+    "14": [
+      0.3,
+      0.5,
+      0.5
+    ],
+    "15": [
+      0.3,
+      0.5,
+      0.6
+    ],
+    "16": [
+      0.3,
+      0.6,
+      0.4
+    ],
+    "17": [
+      0.3,
+      0.6,
+      0.5
+    ],
+    "18": [
+      0.3,
+      0.6,
+      0.6
+    ],
+    "19": [
+      0.4,
+      0.4,
+      0.4
+    ],
+    "20": [
+      0.4,
+      0.4,
+      0.5
+    ],
+    "21": [
+      0.4,
+      0.4,
+      0.6
+    ],
+    "22": [
+      0.4,
+      0.5,
+      0.4
+    ],
+    "23": [
+      0.4,
+      0.5,
+      0.5
+    ],
+    "24": [
+      0.4,
+      0.5,
+      0.6
+    ],
+    "25": [
+      0.4,
+      0.6,
+      0.4
+    ],
+    "26": [
+      0.4,
+      0.6,
+      0.5
+    ],
+    "27": [
+      0.4,
+      0.6,
+      0.6
+    ],
+    "28": [
+      0.3,
+      0.5,
+      0.7
+    ],
+    "29": [
+      0.3,
+      0.5,
+      0.3
+    ],
+    "30": [
+      0.3,
+      0.3,
+      0.5
+    ]
+  },
+  "boundary_unresolved": false,
+  "validation_seeds": [
+    8001,
+    8002,
+    8003,
+    8004,
+    8005,
+    8006,
+    8007,
+    8008,
+    8009,
+    8010,
+    8011,
+    8012,
+    8013,
+    8014,
+    8015,
+    8016,
+    8017,
+    8018,
+    8019,
+    8020
+  ],
+  "holdout_opened": false,
+  "fine_model_results": [
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 5,
+        "weights": [
+          0.2,
+          0.5,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_5"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_5\\attempt_001\\experiment_5",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 2,
+        "weights": [
+          0.2,
+          0.4,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_2"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_2\\attempt_001\\experiment_2",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 3,
+        "weights": [
+          0.2,
+          0.4,
+          0.6
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_3"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_3\\attempt_001\\experiment_3",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 1,
+        "weights": [
+          0.2,
+          0.4,
+          0.4
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_1"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_1\\attempt_001\\experiment_1",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 6,
+        "weights": [
+          0.2,
+          0.5,
+          0.6
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_6"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_6\\attempt_001\\experiment_6",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 4,
+        "weights": [
+          0.2,
+          0.5,
+          0.4
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_4"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_4\\attempt_001\\experiment_4",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 7,
+        "weights": [
+          0.2,
+          0.6,
+          0.4
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_7"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_7\\attempt_001\\experiment_7",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 9,
+        "weights": [
+          0.2,
+          0.6,
+          0.6
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_9"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_9\\attempt_001\\experiment_9",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 8,
+        "weights": [
+          0.2,
+          0.6,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_8"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_8\\attempt_001\\experiment_8",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 10,
+        "weights": [
+          0.3,
+          0.4,
+          0.4
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_10"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_10\\attempt_001\\experiment_10",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 11,
+        "weights": [
+          0.3,
+          0.4,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_11"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_11\\attempt_001\\experiment_11",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 12,
+        "weights": [
+          0.3,
+          0.4,
+          0.6
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_12"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_12\\attempt_001\\experiment_12",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 13,
+        "weights": [
+          0.3,
+          0.5,
+          0.4
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_13"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_13\\attempt_001\\experiment_13",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 14,
+        "weights": [
+          0.3,
+          0.5,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_14"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_14\\attempt_001\\experiment_14",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 15,
+        "weights": [
+          0.3,
+          0.5,
+          0.6
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_15"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_15\\attempt_001\\experiment_15",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 16,
+        "weights": [
+          0.3,
+          0.6,
+          0.4
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_16"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_16\\attempt_001\\experiment_16",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 17,
+        "weights": [
+          0.3,
+          0.6,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_17"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_17\\attempt_001\\experiment_17",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 18,
+        "weights": [
+          0.3,
+          0.6,
+          0.6
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_18"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_18\\attempt_001\\experiment_18",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 19,
+        "weights": [
+          0.4,
+          0.4,
+          0.4
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_19"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_19\\attempt_001\\experiment_19",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 21,
+        "weights": [
+          0.4,
+          0.4,
+          0.6
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_21"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_21\\attempt_001\\experiment_21",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 20,
+        "weights": [
+          0.4,
+          0.4,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_20"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_20\\attempt_001\\experiment_20",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 22,
+        "weights": [
+          0.4,
+          0.5,
+          0.4
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_22"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_22\\attempt_001\\experiment_22",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 23,
+        "weights": [
+          0.4,
+          0.5,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_23"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_23\\attempt_001\\experiment_23",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 24,
+        "weights": [
+          0.4,
+          0.5,
+          0.6
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_24"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_24\\attempt_001\\experiment_24",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 25,
+        "weights": [
+          0.4,
+          0.6,
+          0.4
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_25"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_25\\attempt_001\\experiment_25",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 26,
+        "weights": [
+          0.4,
+          0.6,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_26"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_26\\attempt_001\\experiment_26",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 27,
+        "weights": [
+          0.4,
+          0.6,
+          0.6
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_27"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_27\\attempt_001\\experiment_27",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 29,
+        "weights": [
+          0.3,
+          0.5,
+          0.3
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_29"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_29\\attempt_001\\experiment_29",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 30,
+        "weights": [
+          0.3,
+          0.3,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_30"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_30\\attempt_001\\experiment_30",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "fine",
+        "candidate_id": 28,
+        "weights": [
+          0.3,
+          0.5,
+          0.7
+        ],
+        "training_seed": 22,
+        "training_steps": 50000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_28"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_28\\attempt_001\\experiment_28",
+      "reused_completed_run": false
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "check_env": true,
+  "cache_equivalence_checked": true,
+  "all_eight_actions_requested": true,
+  "episode": {
+    "episode": 0,
+    "controller": "Fine-Preflight",
+    "seed": 11001,
+    "traffic_scenario": "random",
+    "avg_waiting_time": 40.695744680851064,
+    "max_waiting_time": 96.0,
+    "avg_queue": 31.878333333333334,
+    "max_queue": 82.0,
+    "throughput": 147,
+    "phase_changes": 50,
+    "forced_changes": 26,
+    "episode_reward": -121.46409999999996,
+    "departed": 235,
+    "unfinished": 88,
+    "pending": 0,
+    "max_pending": 2,
+    "collisions": 0,
+    "teleports": 0,
+    "duration": 300.0
+  },
+  "updated_at": "2026-10-09T15:42:45.965609+00:00"
+}

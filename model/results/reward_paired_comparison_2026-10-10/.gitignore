@@ -1,0 +1,7 @@
+# Preserve final models and demand hash manifests; retain bulky working files locally.
+**/final.replay.pkl
+**/sumo/generated/
+**/latest.zip
+**/checkpoint_*.zip
+**/.matplotlib/
+**/__pycache__/

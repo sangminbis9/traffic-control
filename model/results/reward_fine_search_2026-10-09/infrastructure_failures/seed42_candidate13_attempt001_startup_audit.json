@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-09T14:22:14.7592736Z",
+  "classification": "SUMO/TraCI startup infrastructure failure; port allocation race plausible but not proven",
+  "repository_core_modified": false,
+  "protocol_modified": false,
+  "worker_modified": false,
+  "failed_attempt": "runs/multiseed/seed_42/candidate_13/attempt_001",
+  "exact_failure_phase": "Environment automatic reset, traci.start -> init -> getVersion; before successful reset/snapshot of the next episode",
+  "observed_last_training_progress": {
+    "status": "TRAINING",
+    "timesteps": "123000",
+    "total_timesteps": "150000",
+    "elapsed_seconds": "798.409299400002",
+    "steps_per_second": "154.0563218545093"
+  },
+  "successful_reset_manifest_count": 411,
+  "last_successful_reset_manifest": {
+    "episode": 410,
+    "seed": 14,
+    "scenario": "random",
+    "route_sha256": "cbe62216d1815eea9cd86c25fdf6172eb493921de80ceac679791aebdcd5b351"
+  },
+  "next_requested_route_seed": 175,
+  "failed_attempt_job": {
+    "stage": "multiseed",
+    "candidate_id": 13,
+    "weights": [
+      0.3,
+      0.5,
+      0.4
+    ],
+    "training_seed": 42,
+    "training_steps": 150000,
+    "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_13"
+  },
+  "failed_attempt_progress": {
+    "status": "FAILED",
+    "error": "RuntimeError('Failed to start SUMO with command: C:\\\\Users\\\\권민우\\\\traffic-control\\\\.venv\\\\Lib\\\\site-packages\\\\sumo\\\\bin\\\\sumo.exe -c C:\\\\Users\\\\권민우\\\\traffic-control\\\\model\\\\results\\\\reward_fine_search_2026-10-09\\\\runs\\\\multiseed\\\\seed_42\\\\candidate_13\\\\attempt_001\\\\experiment_13\\\\sumo\\\\simulation.sumocfg --net-file C:\\\\Users\\\\권민우\\\\traffic-control\\\\model\\\\results\\\\reward_fine_search_2026-10-09\\\\runs\\\\multiseed\\\\seed_42\\\\candidate_13\\\\attempt_001\\\\experiment_13\\\\sumo\\\\intersection.net.xml --route-files C:\\\\Users\\\\권민우\\\\traffic-control\\\\model\\\\results\\\\reward_fine_search_2026-10-09\\\\runs\\\\multiseed\\\\seed_42\\\\candidate_13\\\\attempt_001\\\\experiment_13\\\\sumo\\\\generated\\\\routes_sensitivity-dqn_175_random.rou.xml --seed 175 --step-length 0.5 --end 300 --waiting-time-memory 301 --no-step-log true --duration-log.disable true --time-to-teleport -1 --collision.action warn --collision.check-junctions true')",
+    "elapsed_seconds": 801.5856537
+  },
+  "failed_attempt_experiment_config": {
+    "timestamp_utc": "2026-10-09T23:04:27.782832+09:00",
+    "git_commit_sha": "b0530d711eb9b5ec291b99284794e6fac8e1dba2",
+    "python_version": "3.14.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "sumo_version": "Eclipse SUMO sumo 1.27.1",
+    "sumo_binary": "C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\sumo\\bin\\sumo.exe",
+    "model_path": null,
+    "model_sha256": null,
+    "signal_config": {
+      "decision_interval": 1.0,
+      "min_green": 3.0,
+      "max_green": 15.0,
+      "yellow": 1.0,
+      "all_red": 1.0,
+      "max_red": 60.0
+    },
+    "fixed_green_times": {
+      "0": 10.0,
+      "1": 4.0,
+      "2": 4.0,
+      "3": 4.0,
+      "4": 10.0,
+      "5": 4.0,
+      "6": 4.0,
+      "7": 4.0
+    },
+    "reward_config": {
+      "queue_weight": 1.0,
+      "waiting_weight": 0.3,
+      "max_waiting_weight": 0.5,
+      "switch_penalty": 0.4,
+      "queue_scale": 10.0,
+      "waiting_scale": 6000.0,
+      "max_waiting_scale": 120.0
+    },
+    "dqn_config": {
+      "learning_rate": 0.0003,
+      "buffer_size": 100000,
+      "learning_starts": 5000,
+      "batch_size": 64,
+      "gamma": 0.95,
+      "train_freq": 4,
+      "gradient_steps": 1,
+      "n_steps": 5,
+      "exploration_hold_min": 5,
+      "exploration_hold_max": 17,
+      "target_update_interval": 1000,
+      "exploration_fraction": 0.2,
+      "exploration_final_eps": 0.01,
+      "policy": "MlpPolicy",
+      "network_architecture": [
+        128,
+        128
+      ],
+      "torch_threads": 1
+    },
+    "simulation_config": {
+      "step_length": 0.5,
+      "episode_seconds": 300,
+      "demand_seconds": 240,
+      "warmup_seconds": 0,
+      "use_gui": false,
+      "seed": 1,
+      "scenario": "random",
+      "route_depart_interval": 1,
+      "extra_sumo_args": []
+    },
+    "experiment": 13,
+    "training_options": {
+      "mode": "fixed_steps",
+      "total_steps": 150000,
+      "maximum_steps": 1000000,
+      "minimum_steps": 50000,
+      "validation_interval": 50000,
+      "validation_episodes": 5,
+      "no_improvement_patience": 8,
+      "minimum_improvement": 0.05,
+      "checkpoint_interval": 10000,
+      "progress_interval": 250,
+      "visualization_interval": 10,
+      "scenario": "random",
+      "episode_seconds": 300,
+      "seed": 42,
+      "validation_seed_start": 3001,
+      "max_waiting_limit": 120.0,
+      "throughput_retention": 0.9,
+      "waiting_improvement_target": 10.0,
+      "queue_improvement_target": 5.0,
+      "fixed_win_throughput_retention": 0.95,
+      "learning_starts": null,
+      "resume_additional_steps": false,
+      "use_gui": false
+    },
+    "network_sha256": "8d9d73ad1b8262dcb7d2fedbe3f59d9091108700e262be4d2d835a0cb26afe68",
+    "evaluation_seed_start": 8001,
+    "evaluation_episodes": 20,
+    "checkpoint_selection": "final fixed-step checkpoint",
+    "deterministic_algorithms": true,
+    "traci_subscriptions": true,
+    "cache_equivalence_check": false,
+    "experiment_source_sha256": "3647a3022b190e057e41f28f86feaef4d7bc08b7b731a05e90c8909aa4371411",
+    "subscription_source_sha256": "d3b13ec54f5295a993a1af580e09d4e80a97b362279c69c3a37abc119b4fa9ea",
+    "learning_schedule_steps": 150000,
+    "reproduced_from_scratch": true,
+    "prefix_verification_source": null
+  },
+  "preserved_attempt_file_sha256": {
+    "experiment_13/training_routes.json": "f4aaa7df733718f45a3082feacc887cbe9f8dedb20263b9b1d9cf809dae3fcdf",
+    "experiment_13/progress.json": "5271b8620250c53d4433f3ecfac171128c6b8779be1b8cd7eb8fd7821f2bfadf",
+    "experiment_13/experiment_config.json": "3d22fe6ad9d4b246b3dfe9f65af4cad8e1c37e2bfa69299dd2d75def628a6a63",
+    "job.json": "6df46555a04c125b6b7ab11a7798f49179ade898700d6884d695085841e0e594",
+    "experiment_13/training_progress.csv": "7328d4e5189d2ff232298590749149dcc5cfee91a547c62bc0fbcb212c3bf638"
+  },
+  "evidence": {
+    "excerpt": "Traceback (most recent call last):\r\n  File \"C:\\Users\\권민우\\traffic-control\\model\\env\\intersection_env.py\", line 114, in _start_sumo\r\n    traci.start(command, label=label)\r\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\traci\\main.py\", line 147, in start\r\n    result = init(sumoPort, numRetries, \"localhost\", label, sumoProcess, doSwitch, traceFile, traceGetters)\r\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\traci\\main.py\", line 119, in init\r\n    return con.getVersion()\r\n           ~~~~~~~~~~~~~~^^\r\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\traci\\connection.py\", line 383, in getVersion\r\n    result = self._sendCmd(command, None, None)\r\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\traci\\connection.py\", line 232, in _sendCmd\r\n    return self._sendExact()\r\n           ~~~~~~~~~~~~~~~^^\r\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\traci\\connection.py\", line 139, in _sendExact\r\n    prefix = result.read(\"!BBB\")\r\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\traci\\storage.py\", line 38, in read\r\n    return struct.unpack(format, self._content[oldPos:self._pos])\r\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nstruct.error: unpack requires a buffer of 3 bytes\r\n\r\nThe above exception was the direct cause of the following exception:\r\n\r\nTraceback (most recent call last):\r\n  File \"C:\\Users\\권민우\\traffic-control\\model\\experiments\\reward_sensitivity.py\", line 210, in worker\r\n    model.learn(total_timesteps=settings.get('schedule_timesteps') or settings['timesteps'],\r\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n                callback=Progress(folder, settings['timesteps'], settings.get('verify_prefix')),\r\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n                progress_bar=False)\r\n                ^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\stable_baselines3\\dqn\\dqn.py\", line 272, in learn\r\n    return super().learn(\r\n           ~~~~~~~~~~~~~^\r\n        total_timesteps=total_timesteps,\r\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n    ...<4 lines>...\r\n        progress_bar=progress_bar,\r\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n    )\r\n    ^\r\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\stable_baselines3\\common\\off_policy_algorithm.py\", line 335, in learn\r\n    rollout = self.collect_rollouts(\r\n        self.env,\r\n    ...<5 lines>...\r\n        log_interval=log_interval,\r\n    )\r\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\stable_baselines3\\common\\off_policy_algorithm.py\", line 568, in collect_rollouts\r\n    new_obs, rewards, dones, infos = env.step(actions)\r\n                                     ~~~~~~~~^^^^^^^^^\r\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\stable_baselines3\\common\\vec_env\\base_vec_env.py\", line 222, in step\r\n    return self.step_wait()\r\n           ~~~~~~~~~~~~~~^^\r\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\stable_baselines3\\common\\vec_env\\dummy_vec_env.py\", line 71, in step_wait\r\n    obs, self.reset_infos[env_idx] = self.envs[env_idx].reset()\r\n                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^\r\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\stable_baselines3\\common\\monitor.py\", line 85, in reset\r\n    return self.env.reset(**kwargs)\r\n           ~~~~~~~~~~~~~~^^^^^^^^^^\r\n  File \"C:\\Users\\권민우\\traffic-control\\model\\experiments\\reward_sensitivity.py\", line 75, in reset\r\n    observation, info = super().reset(**kwargs)\r\n                        ~~~~~~~~~~~~~^^^^^^^^^^\r\n  File \"C:\\Users\\권민우\\traffic-control\\model\\env\\intersection_env.py\", line 153, in reset\r\n    self._start_sumo(self._last_route_file, self._episode_seed)\r\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\권민우\\traffic-control\\model\\env\\intersection_env.py\", line 118, in _start_sumo\r\n    raise RuntimeError(f\"Failed to start SUMO with command: {' '.join(command)}\") from exc\r\nRuntimeError: Failed to start SUMO with command: C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\sumo\\bin\\sumo.exe -c C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_13\\attempt_001\\experiment_13\\sumo\\simulation.sumocfg --net-file C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_13\\attempt_001\\experiment_13\\sumo\\intersection.net.xml --route-files C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_13\\attempt_001\\experiment_13\\sumo\\generated\\routes_sensitivity-dqn_175_random.rou.xml --seed 175 --step-length 0.5 --end 300 --waiting-time-memory 301 --no-step-log true --duration-log.disable true --time-to-teleport -1 --collision.action warn --collision.check-junctions true\r\n{\"failed\": \"multiseed\", \"candidate\": 13, \"error\": \"RuntimeError('Failed to start SUMO with command: C:\\\\\\\\Users\\\\\\\\\\uad8c\\ubbfc\\uc6b0\\\\\\\\traffic-control\\\\\\\\.venv\\\\\\\\Lib\\\\\\\\site-packages\\\\\\\\sumo\\\\\\\\bin\\\\\\\\sumo.exe -c C:\\\\\\\\Users\\\\\\\\\\uad8c\\ubbfc\\uc6b0\\\\\\\\traffic-control\\\\\\\\model\\\\\\\\results\\\\\\\\reward_fine_search_2026-10-09\\\\\\\\runs\\\\\\\\multiseed\\\\\\\\seed_42\\\\\\\\candidate_13\\\\\\\\attempt_001\\\\\\\\experiment_13\\\\\\\\sumo\\\\\\\\simulation.sumocfg --net-file C:\\\\\\\\Users\\\\\\\\\\uad8c\\ubbfc\\uc6b0\\\\\\\\traffic-control\\\\\\\\model\\\\\\\\results\\\\\\\\reward_fine_search_2026-10-09\\\\\\\\runs\\\\\\\\multiseed\\\\\\\\seed_42\\\\\\\\candidate_13\\\\\\\\attempt_001\\\\\\\\experiment_13\\\\\\\\sumo\\\\\\\\intersection.net.xml --route-files C:\\\\\\\\Users\\\\\\\\\\uad8c\\ubbfc\\uc6b0\\\\\\\\traffic-control\\\\\\\\model\\\\\\\\results\\\\\\\\reward_fine_search_2026-10-09\\\\\\\\runs\\\\\\\\multiseed\\\\\\\\seed_42\\\\\\\\candidate_13\\\\\\\\attempt_001\\\\\\\\experiment_13\\\\\\\\sumo\\\\\\\\generated\\\\\\\\routes_sensitivity-dqn_175_random.rou.xml --seed 175 --step-length 0.5 --end 300 --waiting-time-memory 301 --no-step-log true --duration-log.disable true --time-to-teleport -1 --collision.action warn --collision.check-junctions true')\"}\r\nError: tcpip::Socket::accept() Unable to create listening socket: Address already in use\r\nQuitting (on error).",
+    "log": ".tmp/fine_search_multiseed.log",
+    "original_line_range": "185-255",
+    "code_locations": [
+      {
+        "path": "model/env/intersection_env.py",
+        "fact": "No explicit port; traci.start called at line 114. All exceptions clear env._connection and are wrapped.",
+        "lines": "77-118"
+      },
+      {
+        "path": ".venv/Lib/site-packages/sumolib/miscutils.py",
+        "fact": "getFreeSocketPort binds an ephemeral IPv4 socket with SO_REUSEADDR, obtains port, closes socket, returns port; reservation is released before SUMO bind.",
+        "lines": "241-249"
+      },
+      {
+        "path": ".venv/Lib/site-packages/traci/main.py",
+        "fact": "Port selection precedes Popen and init; automatic retry catches TraCIException only, not struct.error.",
+        "lines": "138-158"
+      },
+      {
+        "path": ".venv/Lib/site-packages/traci/connection.py",
+        "fact": "getVersion response parsing needs a 3-byte command prefix; malformed/short packet raises struct.error.",
+        "lines": "105-144"
+      },
+      {
+        "path": ".venv/Lib/site-packages/traci/connection.py",
+        "fact": "Connection is registered before getVersion succeeds; its process field is the locally launched process, not authenticated peer identity.",
+        "lines": "72-100"
+      },
+      {
+        "path": "model/experiments/fine_reward_search.py",
+        "fact": "A completed job is reused only when summary/job identity/steps/model SHA pass; incomplete attempts cause a new fresh attempt.",
+        "lines": "212-238"
+      }
+    ],
+    "note": "Shared parallel stderr is interleaved. Adjacent address-in-use line is not PID/port tagged, so exact worker association is not conclusively established."
+  },
+  "inference": {
+    "no_evidence_of_reward_or_learning_failure": true,
+    "note": "The traceback is in SUMO startup during reset, not reward calculation or a neural-network update. It does not establish why the received packet was short.",
+    "certainty": "Plausible, not proven; selected port, failed SUMO PID, and peer identity were not logged.",
+    "likely_explanation": "Unreserved ephemeral port selection and concurrent SUMO launches create a port-reuse/launch race consistent with the adjacent address-in-use message and failed initial handshake.",
+    "other_affected_worker_identity": null
+  },
+  "sibling_status_snapshot": [
+    {
+      "evaluation_completed": null,
+      "timesteps": null,
+      "path": "runs/multiseed/seed_22/candidate_11/attempt_001/experiment_11/progress.json",
+      "status": "COMPLETED"
+    },
+    {
+      "evaluation_completed": null,
+      "timesteps": null,
+      "path": "runs/multiseed/seed_22/candidate_13/attempt_001/experiment_13/progress.json",
+      "status": "COMPLETED"
+    },
+    {
+      "evaluation_completed": null,
+      "timesteps": null,
+      "path": "runs/multiseed/seed_22/candidate_14/attempt_001/experiment_14/progress.json",
+      "status": "COMPLETED"
+    },
+    {
+      "evaluation_completed": null,
+      "timesteps": null,
+      "path": "runs/multiseed/seed_22/candidate_15/attempt_001/experiment_15/progress.json",
+      "status": "COMPLETED"
+    },
+    {
+      "evaluation_completed": null,
+      "timesteps": null,
+      "path": "runs/multiseed/seed_42/candidate_11/attempt_001/experiment_11/progress.json",
+      "status": "COMPLETED"
+    },
+    {
+      "evaluation_completed": null,
+      "timesteps": null,
+      "path": "runs/multiseed/seed_42/candidate_13/attempt_001/experiment_13/progress.json",
+      "status": "FAILED"
+    },
+    {
+      "evaluation_completed": null,
+      "timesteps": 39000,
+      "path": "runs/multiseed/seed_42/candidate_14/attempt_001/experiment_14/progress.json",
+      "status": "TRAINING"
+    },
+    {
+      "evaluation_completed": null,
+      "timesteps": 8000,
+      "path": "runs/multiseed/seed_42/candidate_15/attempt_001/experiment_15/progress.json",
+      "status": "TRAINING"
+    },
+    {
+      "evaluation_completed": null,
+      "timesteps": 9000,
+      "path": "runs/multiseed/seed_62/candidate_11/attempt_001/experiment_11/progress.json",
+      "status": "TRAINING"
+    },
+    {
+      "evaluation_completed": null,
+      "timesteps": 8000,
+      "path": "runs/multiseed/seed_62/candidate_13/attempt_001/experiment_13/progress.json",
+      "status": "TRAINING"
+    },
+    {
+      "evaluation_completed": null,
+      "timesteps": 8000,
+      "path": "runs/multiseed/seed_62/candidate_14/attempt_001/experiment_14/progress.json",
+      "status": "TRAINING"
+    },
+    {
+      "evaluation_completed": null,
+      "timesteps": 7000,
+      "path": "runs/multiseed/seed_62/candidate_15/attempt_001/experiment_15/progress.json",
+      "status": "TRAINING"
+    }
+  ],
+  "recovery_plan": {
+    "preserve": "Keep failed attempt_001, its partial checkpoints, job/config/progress, and this failure record; do not use partial checkpoint as final or resume its incomplete learning state.",
+    "method": "Run unchanged stage --resume with --workers 1; audited completed jobs are reused; failed candidate13/seed42 restarts fresh from step0 in attempt_002 with original seed, weights, 150000 steps, and 150000-step schedule.",
+    "no_performance_based_retry": true,
+    "status": "Planned by root, not executed by this audit",
+    "after": "Let the current master finish its remaining jobs"
+  },
+  "downstream_checks": [
+    "Verify immutable core/source/protocol and runtime package versions against the locked experiment configuration.",
+    "For every completed/retried job verify exact job identity, completed_training_steps=150000, final.zip SHA against metadata, and 60D/8-action contract.",
+    "Verify complete per-training-seed training route sequence and SHA equality across candidates; compare retried seed42 candidate13 with its same-seed peers.",
+    "Verify exactly validation seeds8001..8020, one finite complete row per seed, no collisions/teleports, and equal evaluation route SHA across all compared runs.",
+    "Seal model SHA, training/evaluation demand hashes, and evaluation CSV hashes in the existing evidence and selection locks; do not change shortlist/selection rules based on this failure.",
+    "Retain failure/retry provenance in the final report and distinguish infrastructure failure from policy performance."
+  ],
+  "limitations": [
+    "Requested-route manifests certify generated input files, not the SUMO process actually serving each TCP connection; there is no per-reset peer PID/port/served-route attestation.",
+    "Successful completion and checksum/pairing checks do not conclusively certify every other training trajectory was unaffected by this startup incident. There is currently no direct evidence of contamination of another completed run.",
+    "A fresh isolated repetition with the same frozen runtime and comparison of resulting model tensors/checkpoint evidence would provide stronger reproducibility evidence; replaying evaluation alone cannot certify the training trajectory. No extra repeated training was launched by this audit.",
+    "Workers=1 on retry reduces simultaneous launches within this experiment, but does not prove the machine has no unrelated process using a candidate port."
+  ]
+}

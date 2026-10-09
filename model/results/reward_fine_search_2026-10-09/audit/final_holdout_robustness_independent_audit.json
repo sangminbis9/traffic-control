@@ -1,0 +1,327 @@
+{
+  "audited_at_utc": "2026-10-09T15:22:03.187903+00:00",
+  "status": "PASS",
+  "checks_performed": 4153,
+  "discrepancies": [],
+  "final_evaluation_episodes": 270,
+  "stage_evidence": {
+    "holdout": {
+      "rows": 90,
+      "policies": 3,
+      "traffic_seeds_per_scenario": 30,
+      "scenarios": [
+        "random"
+      ],
+      "unique_demands": 30,
+      "absolute_not_comparative_evaluation": true,
+      "analysis_reproduced_exactly": true
+    },
+    "robustness": {
+      "rows": 180,
+      "policies": 3,
+      "traffic_seeds_per_scenario": 10,
+      "scenarios": [
+        "uniform",
+        "north_south_congested",
+        "east_west_congested",
+        "left_turn_congested",
+        "heavy",
+        "low"
+      ],
+      "unique_demands": 60,
+      "absolute_not_comparative_evaluation": true,
+      "analysis_reproduced_exactly": true
+    }
+  },
+  "actual_route_xml_hash_and_vehicle_accounting_checks": 270,
+  "safety_totals": {
+    "collisions": 0,
+    "teleports": 0
+  },
+  "absolute_random_and_heavy_metrics": [
+    {
+      "scenario": "random",
+      "split": "holdout",
+      "episodes": 90,
+      "metrics": {
+        "avg_waiting_time": {
+          "mean": 16.09793346128851,
+          "ci95": [
+            14.145206558462021,
+            18.215028853994177
+          ]
+        },
+        "max_waiting_time": {
+          "mean": 59.77777777777778,
+          "ci95": [
+            53.927638888888886,
+            65.91708333333334
+          ]
+        },
+        "avg_queue": {
+          "mean": 12.150666666666671,
+          "ci95": [
+            9.8142837962963,
+            14.724788425925926
+          ]
+        },
+        "phase_changes": {
+          "mean": 41.87777777777778,
+          "ci95": [
+            40.98888888888889,
+            42.811388888888885
+          ]
+        },
+        "throughput": {
+          "mean": 186.74444444444444,
+          "ci95": [
+            175.27638888888887,
+            197.77805555555554
+          ]
+        },
+        "unfinished": {
+          "mean": 24.18888888888889,
+          "ci95": [
+            17.455277777777777,
+            31.433333333333334
+          ]
+        },
+        "pending": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "max_pending": {
+          "mean": 1.7555555555555555,
+          "ci95": [
+            1.488888888888889,
+            2.066666666666667
+          ]
+        },
+        "forced_changes": {
+          "mean": 18.1,
+          "ci95": [
+            17.266666666666666,
+            18.955555555555556
+          ]
+        },
+        "max_queue": {
+          "mean": 31.044444444444444,
+          "ci95": [
+            26.01027777777778,
+            36.40083333333332
+          ]
+        }
+      }
+    },
+    {
+      "scenario": "heavy",
+      "split": "robustness",
+      "episodes": 30,
+      "metrics": {
+        "avg_waiting_time": {
+          "mean": 43.33996458413355,
+          "ci95": [
+            41.08840752722628,
+            45.78726344018736
+          ]
+        },
+        "max_waiting_time": {
+          "mean": 127.65,
+          "ci95": [
+            117.6825,
+            141.5
+          ]
+        },
+        "avg_queue": {
+          "mean": 61.69283333333335,
+          "ci95": [
+            57.21984166666667,
+            66.67241388888888
+          ]
+        },
+        "phase_changes": {
+          "mean": 39.733333333333334,
+          "ci95": [
+            38.7325,
+            40.7
+          ]
+        },
+        "throughput": {
+          "mean": 250.9,
+          "ci95": [
+            245.6,
+            255.7675
+          ]
+        },
+        "unfinished": {
+          "mean": 175.03333333333333,
+          "ci95": [
+            163.7,
+            186.4
+          ]
+        },
+        "pending": {
+          "mean": 1.2666666666666666,
+          "ci95": [
+            0.0,
+            3.933333333333333
+          ]
+        },
+        "max_pending": {
+          "mean": 4.966666666666667,
+          "ci95": [
+            2.966666666666667,
+            8.366666666666667
+          ]
+        },
+        "forced_changes": {
+          "mean": 23.3,
+          "ci95": [
+            22.0,
+            24.7
+          ]
+        },
+        "max_queue": {
+          "mean": 130.43333333333334,
+          "ci95": [
+            121.23333333333333,
+            139.86666666666667
+          ]
+        }
+      }
+    }
+  ],
+  "selected_and_recommended_candidate_id": 14,
+  "recommended_weights": [
+    0.3,
+    0.5,
+    0.5
+  ],
+  "new_candidate_improvement_confirmed": false,
+  "selection_lock_unchanged_since_pre_holdout_audit": true,
+  "all_final_evaluations_bind_locked_selection": true,
+  "self_comparison_interpretation": "All changes and paired difference CIs are zero because candidate14 is compared with itself. These values demonstrate neither superiority nor equivalence to an alternative; report absolute means and crossed-bootstrap CIs.",
+  "integrity_report_verified": {
+    "status": "PASS",
+    "independent_retraining_models": 5,
+    "saved_checkpoint_pairs": 35,
+    "checkpoint_sha256_rechecked": true,
+    "tensor_comparisons_not_reexecuted_in_this_audit": true,
+    "comparison_model_count": 42,
+    "successful_model_count_including_integrity": 47,
+    "failed_attempt_count": 1,
+    "replicas_excluded_from_selection_sample_size": true
+  },
+  "limitations": [
+    "Only three independent training seeds; 95% crossed-bootstrap CIs remain approximate.",
+    "Only the retained incumbent is evaluated on final holdout/robustness; no alternative superiority result exists.",
+    "Average waiting includes departed unfinished vehicles but excludes pending vehicles; heavy backlog must be disclosed.",
+    "Collision/teleport zero does not rule out emergency braking or establish all real-world safety properties.",
+    "No global optimum or generalization outside the simulated network and tested demand range is established."
+  ],
+  "input_artifact_sha256": {
+    "search_config.json": "9838386fd60f28bad7b107d460e4303ee1558987c774486344cfe9475412808e",
+    "protocol_code_lock.json": "c30b4f0899642617e57ac73491cac1efa7ea97912d5ea5a979d2f2446dc902cb",
+    "selection_lock.json": "9a4140b71f8e6e9f6cdaa816ac083efe5f3b27bd19d17e3b095930e0a867695c",
+    "final_recommendation.json": "3f0f0e3e8defa3288302ae3cf58378bdf7282be7ace93b0e396a28cba7e11af1",
+    "final_holdout_results.csv": "5f25fa04c1fc5f1a8741e914403a40cccd3c3620d51955db2389ed4163b09fc8",
+    "final_holdout_analysis.json": "24dd02a19fbd6d7d3d2942387297875c4f9837aed6db5e475e3e52cb029e91a2",
+    "final_holdout_summary.csv": "fbce5c2911566515c6eca17ffd1ab55460379a06cc472c9061523148b431452c",
+    "robustness_results.csv": "3649f7629ef18046da595a02bbf7625270008159ae599cd31669de1201b4a546",
+    "robustness_analysis.json": "307642627e57aa1ba942ec2d9276350804685085a20eb170d1300c756fbf42eb",
+    "robustness_summary.csv": "4e5f52fbe747e62f120a7dbb052d45caac800d6476ba75dd1649bc2acc519a1e",
+    "audit/retraining_integrity/audit_plan.json": "4a223f70f74bbab902dc297ad3fa84ddb3cf9e648af9f76ff64b2f8c7731b74b",
+    "audit/retraining_integrity/audit_result.json": "fa32ea39fe3e5dba5d5fed63c75394683e9d771fedeb8786b95b6fb75fa6c11a"
+  },
+  "evaluation_artifact_sha256": {
+    "evaluations\\holdout\\random\\seed_22\\candidate_14\\evaluation_config.json": "a588d218f905b5b8aec6c9774335d7d4be9aed687f6f78db966660129be4a1c7",
+    "evaluations\\holdout\\random\\seed_22\\candidate_14\\evaluation_routes.json": "59ea0ff5cfc969a436da5e55261023fd4454f7ae39e669eb9e858edfd12a60af",
+    "evaluations\\holdout\\random\\seed_22\\candidate_14\\evaluation_metrics.csv": "3e85b49ef26fd4f9814f85f9cf05ca735263e257aa0b7f0867191bbb1fad7e7b",
+    "evaluations\\holdout\\random\\seed_22\\candidate_14\\results.json": "7cdc9e37c1f43376b3dd184ba54159a0290a56c79ca941b21bb3092ecb012600",
+    "evaluations\\holdout\\random\\seed_42\\candidate_14\\evaluation_config.json": "45ff3b77f261a67bceb0e2f795dadea44b118378b70c5ae8b07e23c8eef688c9",
+    "evaluations\\holdout\\random\\seed_42\\candidate_14\\evaluation_routes.json": "59ea0ff5cfc969a436da5e55261023fd4454f7ae39e669eb9e858edfd12a60af",
+    "evaluations\\holdout\\random\\seed_42\\candidate_14\\evaluation_metrics.csv": "06dbf0841025ed473e154f67ad39cacfec04fa9704f28a883b78e0a69b4a31a2",
+    "evaluations\\holdout\\random\\seed_42\\candidate_14\\results.json": "34d9d3e2308490dbb2d7ceb04b57a64e03f1cc410915b838bd9f0d6bcb2c391d",
+    "evaluations\\holdout\\random\\seed_62\\candidate_14\\evaluation_config.json": "16283689c023a39d7725945fc49780285987572d3d2d5da5cc18442724ec70b9",
+    "evaluations\\holdout\\random\\seed_62\\candidate_14\\evaluation_routes.json": "59ea0ff5cfc969a436da5e55261023fd4454f7ae39e669eb9e858edfd12a60af",
+    "evaluations\\holdout\\random\\seed_62\\candidate_14\\evaluation_metrics.csv": "1095b5dcf4180116c74a23738744f93d16ccd367eee06b0305c8358e904332d4",
+    "evaluations\\holdout\\random\\seed_62\\candidate_14\\results.json": "494882734e276bd24f103dd9ea023e495fdc735d45d62a075277838a642abcdd",
+    "evaluations\\robustness\\uniform\\seed_22\\candidate_14\\evaluation_config.json": "23bceef90a0be89761c7e79832ef6395b98fdd00a405050a7da70615d49b56e4",
+    "evaluations\\robustness\\uniform\\seed_22\\candidate_14\\evaluation_routes.json": "114e5231f6ccf14e8577d28bd91e2f3da2d32d90cbf3e8b8e095ea788aca832f",
+    "evaluations\\robustness\\uniform\\seed_22\\candidate_14\\evaluation_metrics.csv": "0dcc760946d374e036cc5036c54a484ada2ade36ba285e1626b12df8403eedb3",
+    "evaluations\\robustness\\uniform\\seed_22\\candidate_14\\results.json": "746b075e4fea2bcef6432160df24a5c1bf2d84f8a9cb8af97d1c04ba48a03c49",
+    "evaluations\\robustness\\north_south_congested\\seed_22\\candidate_14\\evaluation_config.json": "f59593eb26f41e4d6138908adc944aca5e30307b20dae221a92cdf5924d644a1",
+    "evaluations\\robustness\\north_south_congested\\seed_22\\candidate_14\\evaluation_routes.json": "d630775c26c40eb230a6fe6d5d00edbc2ef568d4b31b73b3df37df8dc40d5d0a",
+    "evaluations\\robustness\\north_south_congested\\seed_22\\candidate_14\\evaluation_metrics.csv": "50e661e066a4edb526463dbf12c667e4ed54e87fa52a13a10657dc8a097dcb08",
+    "evaluations\\robustness\\north_south_congested\\seed_22\\candidate_14\\results.json": "de158b98ca2923c117618348f738c5cbace8b4a1d96fa105bd93534ee79497d7",
+    "evaluations\\robustness\\east_west_congested\\seed_22\\candidate_14\\evaluation_config.json": "bac0007c27d872d7a13bd2d8533907f1de0255bd982de894e9b719e3c85fefb5",
+    "evaluations\\robustness\\east_west_congested\\seed_22\\candidate_14\\evaluation_routes.json": "be6da2e4d8b7ebba9db659710e137a4b21869cd58332bd762f939bcbb87226e1",
+    "evaluations\\robustness\\east_west_congested\\seed_22\\candidate_14\\evaluation_metrics.csv": "67729ab0b5d23c1c939e6f2e91339af739c5fa6fa176b739f7a89b012c78a470",
+    "evaluations\\robustness\\east_west_congested\\seed_22\\candidate_14\\results.json": "cde4ab46bd31d2a257cb4a63ca69972fe4a3d63085b3137202a5e5b1e9d5e2ec",
+    "evaluations\\robustness\\left_turn_congested\\seed_22\\candidate_14\\evaluation_config.json": "6ffb0ca6988b547caf205a14d6440d29b99fca94f70c7a8560cd2109a0d2c17c",
+    "evaluations\\robustness\\left_turn_congested\\seed_22\\candidate_14\\evaluation_routes.json": "b048b2978b7efc249eade6cd55a0c891c8354788b1a2ffef0b7066bd155aec00",
+    "evaluations\\robustness\\left_turn_congested\\seed_22\\candidate_14\\evaluation_metrics.csv": "e9ef8c9100596a0cd403a4f30c0ae68866e098ff3f3506e2ae10d72b954dcc13",
+    "evaluations\\robustness\\left_turn_congested\\seed_22\\candidate_14\\results.json": "645c904e28aaf189732fe2f1f9aaf4c5d8653565e142935c64d903c09c8e4ed8",
+    "evaluations\\robustness\\heavy\\seed_22\\candidate_14\\evaluation_config.json": "58849a4da6b61b0706cf6b545b3349c1c9178d8b15b4ce2a1ac2a467e21b5cbc",
+    "evaluations\\robustness\\heavy\\seed_22\\candidate_14\\evaluation_routes.json": "f8ff33781c1d59271f64dc4c1cf9efd293dda0c86b3ad86b683d666c6fe387d5",
+    "evaluations\\robustness\\heavy\\seed_22\\candidate_14\\evaluation_metrics.csv": "4d65025abef8fd6c4b8049b1d9f5a62d8469bbbbe325eaa2571eba359d524c37",
+    "evaluations\\robustness\\heavy\\seed_22\\candidate_14\\results.json": "03343acc923026720e397e97d4f56f1695d6222a6700e0585ac6486465bdf86b",
+    "evaluations\\robustness\\low\\seed_22\\candidate_14\\evaluation_config.json": "bdd513031502ecc2be3465b0e5b30adae110b1638733f206856616c65a647530",
+    "evaluations\\robustness\\low\\seed_22\\candidate_14\\evaluation_routes.json": "f61a2ff31bca2ca058132fac996a4b2e3222c815c915702a08bb1bc5e5c319a5",
+    "evaluations\\robustness\\low\\seed_22\\candidate_14\\evaluation_metrics.csv": "e1a21c72bee584d701e89572feeb00baa69cc6c8586cb166f5c12308ae973304",
+    "evaluations\\robustness\\low\\seed_22\\candidate_14\\results.json": "2ac599cee1d46a7294df5483fccf71ade72078dec85207fdbf3f88754407db19",
+    "evaluations\\robustness\\uniform\\seed_42\\candidate_14\\evaluation_config.json": "37ab65204b56dea9099e082c296c4d9dcd3f8340a75bf665b19477dc89791ad3",
+    "evaluations\\robustness\\uniform\\seed_42\\candidate_14\\evaluation_routes.json": "114e5231f6ccf14e8577d28bd91e2f3da2d32d90cbf3e8b8e095ea788aca832f",
+    "evaluations\\robustness\\uniform\\seed_42\\candidate_14\\evaluation_metrics.csv": "64ba85e44eff3910f0e5bbafa49db7ad02a0ee58c60720a0f08886c5bd063ba4",
+    "evaluations\\robustness\\uniform\\seed_42\\candidate_14\\results.json": "5ae00ec53c7f6b9af019044a88883c9932d3ca6fe73db70c4bf5f1a0208fc62e",
+    "evaluations\\robustness\\north_south_congested\\seed_42\\candidate_14\\evaluation_config.json": "5e64b0d16a9bdbc86873a8b0b49bfea4c46b1352de5a5de7d8c08fc12ac487a7",
+    "evaluations\\robustness\\north_south_congested\\seed_42\\candidate_14\\evaluation_routes.json": "d630775c26c40eb230a6fe6d5d00edbc2ef568d4b31b73b3df37df8dc40d5d0a",
+    "evaluations\\robustness\\north_south_congested\\seed_42\\candidate_14\\evaluation_metrics.csv": "d5c7be1d5034da9091ff7a0be1e5bf18f28eb43a0ee5db3b6f7a37df8d3f0ebc",
+    "evaluations\\robustness\\north_south_congested\\seed_42\\candidate_14\\results.json": "314907cda9a2af176f1edf8caa5c7ff03fd62fa8c94249d36de4529b9960feff",
+    "evaluations\\robustness\\east_west_congested\\seed_42\\candidate_14\\evaluation_config.json": "8603a040b040fb1cf4c0f47b354e4597b4e5c8ace11244214cba6061b21337ed",
+    "evaluations\\robustness\\east_west_congested\\seed_42\\candidate_14\\evaluation_routes.json": "be6da2e4d8b7ebba9db659710e137a4b21869cd58332bd762f939bcbb87226e1",
+    "evaluations\\robustness\\east_west_congested\\seed_42\\candidate_14\\evaluation_metrics.csv": "25e343a3a5f6ffac83d437460f6b783fad675449327c8dd8f01314ecc63f4968",
+    "evaluations\\robustness\\east_west_congested\\seed_42\\candidate_14\\results.json": "a9ac1037932f6fe2b5686cd7a3f77c1741269bdff0ffb14122e4e62eec9d8091",
+    "evaluations\\robustness\\left_turn_congested\\seed_42\\candidate_14\\evaluation_config.json": "c53aefd5c35ea8824d542204f80a81970bf1452e5ba01440507a0d3fee6b2e78",
+    "evaluations\\robustness\\left_turn_congested\\seed_42\\candidate_14\\evaluation_routes.json": "b048b2978b7efc249eade6cd55a0c891c8354788b1a2ffef0b7066bd155aec00",
+    "evaluations\\robustness\\left_turn_congested\\seed_42\\candidate_14\\evaluation_metrics.csv": "f462ff78a2bce9eef47d9ca0294848293cf882c61b834db9e065742b79c7f230",
+    "evaluations\\robustness\\left_turn_congested\\seed_42\\candidate_14\\results.json": "aa5c04a81972b957df19884ca5e165b8493900afb33ebbe8fdbffd66b05ed821",
+    "evaluations\\robustness\\heavy\\seed_42\\candidate_14\\evaluation_config.json": "069612ce8cfaf6ed1192e5111eae66b856d1c0d4017d4a2d30002e35abdb30c0",
+    "evaluations\\robustness\\heavy\\seed_42\\candidate_14\\evaluation_routes.json": "f8ff33781c1d59271f64dc4c1cf9efd293dda0c86b3ad86b683d666c6fe387d5",
+    "evaluations\\robustness\\heavy\\seed_42\\candidate_14\\evaluation_metrics.csv": "1653bfb8594310a250717c372ca95d1fae28aa39ba86405b980df12ffc565782",
+    "evaluations\\robustness\\heavy\\seed_42\\candidate_14\\results.json": "c5537c6ccc18747e12cc5be2a3703d1a0550edb1b77eafa603817814593684a7",
+    "evaluations\\robustness\\low\\seed_42\\candidate_14\\evaluation_config.json": "51009cd6a23b2d282272ef54e525dff120c802ef538b9bde6f98e53edcc560c8",
+    "evaluations\\robustness\\low\\seed_42\\candidate_14\\evaluation_routes.json": "f61a2ff31bca2ca058132fac996a4b2e3222c815c915702a08bb1bc5e5c319a5",
+    "evaluations\\robustness\\low\\seed_42\\candidate_14\\evaluation_metrics.csv": "1891f878454db0b860258dda1008700a9121b496bdc09baee2bb03656939ed62",
+    "evaluations\\robustness\\low\\seed_42\\candidate_14\\results.json": "fdeac5a49b48aedc7e2e86bcac27a4eeaf502fd666132d1cf1a9006a8ad9bd11",
+    "evaluations\\robustness\\uniform\\seed_62\\candidate_14\\evaluation_config.json": "5303a95ec5283f071e353ed66d8ec74a9e0922265391c2f68be581aa9e27e158",
+    "evaluations\\robustness\\uniform\\seed_62\\candidate_14\\evaluation_routes.json": "114e5231f6ccf14e8577d28bd91e2f3da2d32d90cbf3e8b8e095ea788aca832f",
+    "evaluations\\robustness\\uniform\\seed_62\\candidate_14\\evaluation_metrics.csv": "ed644d79a6387118abcaeee81a921698b721059e55f6d64f366613ab6649abd9",
+    "evaluations\\robustness\\uniform\\seed_62\\candidate_14\\results.json": "aa2b76523810da8e72471fa879779a037e46fae9a95c3f29e2feebd0eb1d4623",
+    "evaluations\\robustness\\north_south_congested\\seed_62\\candidate_14\\evaluation_config.json": "ce9549bbc745f379b9f496065971ab0642bf1f39d9c935842dac838e3eef30d5",
+    "evaluations\\robustness\\north_south_congested\\seed_62\\candidate_14\\evaluation_routes.json": "d630775c26c40eb230a6fe6d5d00edbc2ef568d4b31b73b3df37df8dc40d5d0a",
+    "evaluations\\robustness\\north_south_congested\\seed_62\\candidate_14\\evaluation_metrics.csv": "a5413ca683b27f8c02997df612b91a2a778557fbc09e9eae5122caace2688bed",
+    "evaluations\\robustness\\north_south_congested\\seed_62\\candidate_14\\results.json": "b00a3a3e7a1304b7bc9d52af79d195343bfd02bb9586ee89b7dce09c0c2b67af",
+    "evaluations\\robustness\\east_west_congested\\seed_62\\candidate_14\\evaluation_config.json": "786d5066af7c3758f3d168ac84e715e2137963421d053f881f65aa872889300f",
+    "evaluations\\robustness\\east_west_congested\\seed_62\\candidate_14\\evaluation_routes.json": "be6da2e4d8b7ebba9db659710e137a4b21869cd58332bd762f939bcbb87226e1",
+    "evaluations\\robustness\\east_west_congested\\seed_62\\candidate_14\\evaluation_metrics.csv": "94c7ef369c2a26777a74c61a192437eed98a1f1d1429480f864da0b0748cfca2",
+    "evaluations\\robustness\\east_west_congested\\seed_62\\candidate_14\\results.json": "e0067a45de4002b2eb87ccc0869a8ebd2b81b8c3f3541b4a75c8cc3330adff06",
+    "evaluations\\robustness\\left_turn_congested\\seed_62\\candidate_14\\evaluation_config.json": "4cc98c50946f4ecb32143e1331fcaafce73890409ad5c69e5740485d157fea29",
+    "evaluations\\robustness\\left_turn_congested\\seed_62\\candidate_14\\evaluation_routes.json": "b048b2978b7efc249eade6cd55a0c891c8354788b1a2ffef0b7066bd155aec00",
+    "evaluations\\robustness\\left_turn_congested\\seed_62\\candidate_14\\evaluation_metrics.csv": "80ca2461a4a89a8f00e4884af5ffb6c929b0d769c773c031e7d1f83e1262063d",
+    "evaluations\\robustness\\left_turn_congested\\seed_62\\candidate_14\\results.json": "190a9cf01a89067aa96979d9b10e687751c21d0b5d70f2cb65c96253815c074f",
+    "evaluations\\robustness\\heavy\\seed_62\\candidate_14\\evaluation_config.json": "60cca5225a6bd637be9eb7774f1c1a8a6ed545c11cd0965901e17e0a9969883c",
+    "evaluations\\robustness\\heavy\\seed_62\\candidate_14\\evaluation_routes.json": "f8ff33781c1d59271f64dc4c1cf9efd293dda0c86b3ad86b683d666c6fe387d5",
+    "evaluations\\robustness\\heavy\\seed_62\\candidate_14\\evaluation_metrics.csv": "075a7695a5b3612ce386dca724643dd3a90c6466aac2339dd1db8b1b8dd9c696",
+    "evaluations\\robustness\\heavy\\seed_62\\candidate_14\\results.json": "9ab99dc303130fda825ab4a17a9fa009557ba3fd0071caa2125aefc8bdd30362",
+    "evaluations\\robustness\\low\\seed_62\\candidate_14\\evaluation_config.json": "01a7b6a97264aaeb40b25dfde525274e263f518a67e923ee2b857a2f80818336",
+    "evaluations\\robustness\\low\\seed_62\\candidate_14\\evaluation_routes.json": "f61a2ff31bca2ca058132fac996a4b2e3222c815c915702a08bb1bc5e5c319a5",
+    "evaluations\\robustness\\low\\seed_62\\candidate_14\\evaluation_metrics.csv": "b4748058834d0e3fb373d2fa86fcdfd29222a201fc8611eb98f5dc8f8aae11c1",
+    "evaluations\\robustness\\low\\seed_62\\candidate_14\\results.json": "acdc24720307bdef0d66125c85a802c7a7b0b0ef682765fadb79aeb28c1d4fc7"
+  },
+  "models_loaded_for_inference": 0,
+  "source_or_lock_or_report_files_modified": false
+}

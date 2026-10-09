@@ -1,0 +1,280 @@
+{
+  "audited_at_utc": "2026-10-09T14:57:29.418830+00:00",
+  "status": "PASS",
+  "checks_performed": 689,
+  "discrepancies": [],
+  "completed_runs": 12,
+  "paired_episode_count": 240,
+  "candidate_ids": [
+    11,
+    13,
+    14,
+    15
+  ],
+  "training_seeds": [
+    22,
+    42,
+    62
+  ],
+  "training_steps": 150000,
+  "evaluation_seeds": [
+    8001,
+    8020
+  ],
+  "selected_candidate_id": 14,
+  "eligible_ranked_candidate_ids": [
+    14,
+    15
+  ],
+  "eligible_stable_candidate_ids": [
+    14
+  ],
+  "pareto_candidate_ids": [
+    14,
+    15
+  ],
+  "findings": [
+    {
+      "candidate_id": 11,
+      "means": {
+        "avg_waiting_time": 22.188468603555958,
+        "max_waiting_time": 79.59166666666667,
+        "avg_queue": 19.674444444444443,
+        "phase_changes": 41.38333333333333,
+        "throughput": 199.18333333333334
+      },
+      "eligible": false,
+      "stable": false,
+      "per_training_seed_waiting_difference": [
+        0.61587242939774,
+        0.8025344193328756,
+        2.1401701842525114
+      ],
+      "mean_waiting_difference": 1.1861923443277103,
+      "mean_waiting_change_pct": 5.647922776020544,
+      "paired_waiting_difference_ci95": [
+        0.04883412156298503,
+        2.367758278194996
+      ],
+      "paired_waiting_change_pct_ci95": [
+        0.23157837246214,
+        11.668040958591423
+      ],
+      "waiting_win_tie_loss": [
+        17,
+        0,
+        43
+      ]
+    },
+    {
+      "candidate_id": 13,
+      "means": {
+        "avg_waiting_time": 21.427636369539997,
+        "max_waiting_time": 78.3,
+        "avg_queue": 19.089583333333334,
+        "phase_changes": 42.0,
+        "throughput": 201.46666666666667
+      },
+      "eligible": false,
+      "stable": false,
+      "per_training_seed_waiting_difference": [
+        2.053816172319671,
+        -1.5497763176438895,
+        0.7720404762594697
+      ],
+      "mean_waiting_difference": 0.4253601103117516,
+      "mean_waiting_change_pct": 2.02530480535337,
+      "paired_waiting_difference_ci95": [
+        -1.499208440026561,
+        2.3359775184091456
+      ],
+      "paired_waiting_change_pct_ci95": [
+        -6.839833050603184,
+        11.338624172117077
+      ],
+      "waiting_win_tie_loss": [
+        23,
+        0,
+        37
+      ]
+    },
+    {
+      "candidate_id": 14,
+      "means": {
+        "avg_waiting_time": 21.002276259228246,
+        "max_waiting_time": 75.025,
+        "avg_queue": 18.7005,
+        "phase_changes": 41.46666666666667,
+        "throughput": 202.83333333333334
+      },
+      "eligible": true,
+      "stable": true,
+      "per_training_seed_waiting_difference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_waiting_difference": 0.0,
+      "mean_waiting_change_pct": 0.0,
+      "paired_waiting_difference_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_waiting_change_pct_ci95": [
+        0.0,
+        0.0
+      ],
+      "waiting_win_tie_loss": [
+        0,
+        60,
+        0
+      ]
+    },
+    {
+      "candidate_id": 15,
+      "means": {
+        "avg_waiting_time": 21.499351618058483,
+        "max_waiting_time": 74.75,
+        "avg_queue": 19.038027777777778,
+        "phase_changes": 41.05,
+        "throughput": 202.6
+      },
+      "eligible": true,
+      "stable": false,
+      "per_training_seed_waiting_difference": [
+        0.619072009398451,
+        0.9393008264734029,
+        -0.06714675938114567
+      ],
+      "mean_waiting_difference": 0.4970753588302369,
+      "mean_waiting_change_pct": 2.3667689763476445,
+      "paired_waiting_difference_ci95": [
+        -0.3923464230502765,
+        1.300954793315643
+      ],
+      "paired_waiting_change_pct_ci95": [
+        -1.7828947653329463,
+        6.466535596959125
+      ],
+      "waiting_win_tie_loss": [
+        23,
+        0,
+        37
+      ]
+    }
+  ],
+  "selection_locked_at_utc": "2026-10-09T14:53:21.913638+00:00",
+  "no_holdout_or_robustness_artifacts_at_audit": true,
+  "predeclared_criteria_independently_recomputed": true,
+  "frozen_analysis_recomputed_exactly_including_5000_crossed_bootstrap_replicates": true,
+  "checkpoint_fingerprints_verified": 12,
+  "run_coverage": [
+    {
+      "candidate_id": 11,
+      "training_seed": 22,
+      "folder": "runs\\multiseed\\seed_22\\candidate_11\\attempt_001\\experiment_11",
+      "model_sha256": "14ffd8a1ff5e8aa323a01fac9fe1b13a4bd33d0db69b07a7cd2c227ddbe1e62e",
+      "reused_completed_run": true
+    },
+    {
+      "candidate_id": 11,
+      "training_seed": 42,
+      "folder": "runs\\multiseed\\seed_42\\candidate_11\\attempt_001\\experiment_11",
+      "model_sha256": "4426122d73c9f9e689a67c44882544cc8eac1da175884919663ce8b95fc92aa8",
+      "reused_completed_run": true
+    },
+    {
+      "candidate_id": 11,
+      "training_seed": 62,
+      "folder": "runs\\multiseed\\seed_62\\candidate_11\\attempt_001\\experiment_11",
+      "model_sha256": "c7cadc14a3157d9d2b081fe403b89fa26d21f3e494e97f7a033981d4b89897bc",
+      "reused_completed_run": true
+    },
+    {
+      "candidate_id": 13,
+      "training_seed": 22,
+      "folder": "runs\\multiseed\\seed_22\\candidate_13\\attempt_001\\experiment_13",
+      "model_sha256": "265182e7e21fe446cb60acd650815631b652a039113422fa2c1946e65d40d440",
+      "reused_completed_run": true
+    },
+    {
+      "candidate_id": 13,
+      "training_seed": 42,
+      "folder": "runs\\multiseed\\seed_42\\candidate_13\\attempt_002\\experiment_13",
+      "model_sha256": "749bd5d4b63647395fd2c843f88d173c9c43395c14233d721d91f73463db9f34",
+      "reused_completed_run": false
+    },
+    {
+      "candidate_id": 13,
+      "training_seed": 62,
+      "folder": "runs\\multiseed\\seed_62\\candidate_13\\attempt_001\\experiment_13",
+      "model_sha256": "0cee00efbc5cd3212e1879091b783b258a0f08ba6beaf2c76b7513dc6e4f3f06",
+      "reused_completed_run": true
+    },
+    {
+      "candidate_id": 14,
+      "training_seed": 22,
+      "folder": "runs\\multiseed\\seed_22\\candidate_14\\attempt_001\\experiment_14",
+      "model_sha256": "2f65ab9aa88fc33637bf649d34006990d8eb7a815e73a3da3c02eec248d756c7",
+      "reused_completed_run": true
+    },
+    {
+      "candidate_id": 14,
+      "training_seed": 42,
+      "folder": "runs\\multiseed\\seed_42\\candidate_14\\attempt_001\\experiment_14",
+      "model_sha256": "5bf26cfe0d81e1ff2981ce959f2989c08258690978ff863420f6ff24dc722b97",
+      "reused_completed_run": true
+    },
+    {
+      "candidate_id": 14,
+      "training_seed": 62,
+      "folder": "runs\\multiseed\\seed_62\\candidate_14\\attempt_001\\experiment_14",
+      "model_sha256": "7f176416495945a4eb1d4b32c9178b2315b2abdd289d79b93c93e5f0d7819d99",
+      "reused_completed_run": true
+    },
+    {
+      "candidate_id": 15,
+      "training_seed": 22,
+      "folder": "runs\\multiseed\\seed_22\\candidate_15\\attempt_001\\experiment_15",
+      "model_sha256": "dfc90bd19cf0a66204b8dc0981df08250c80ba067fc16ccb248023c4f2ab5a11",
+      "reused_completed_run": true
+    },
+    {
+      "candidate_id": 15,
+      "training_seed": 42,
+      "folder": "runs\\multiseed\\seed_42\\candidate_15\\attempt_001\\experiment_15",
+      "model_sha256": "a015770371d4dfd4c0c4593654b98252b58f3d94e24ef427009d313734cd3e1f",
+      "reused_completed_run": true
+    },
+    {
+      "candidate_id": 15,
+      "training_seed": 62,
+      "folder": "runs\\multiseed\\seed_62\\candidate_15\\attempt_001\\experiment_15",
+      "model_sha256": "963913e3fd5d30adda124ed8ecd79c2d1699593507fe5a7071294c17125ad6f4",
+      "reused_completed_run": true
+    }
+  ],
+  "artifact_sha256": {
+    "search_config.json": "9838386fd60f28bad7b107d460e4303ee1558987c774486344cfe9475412808e",
+    "protocol_code_lock.json": "c30b4f0899642617e57ac73491cac1efa7ea97912d5ea5a979d2f2446dc902cb",
+    "selection_lock.json": "9a4140b71f8e6e9f6cdaa816ac083efe5f3b27bd19d17e3b095930e0a867695c",
+    "multiseed_results.csv": "82e6514a9e5db7504bfbe86096269db1a3de1023c2ef514bf65feb5a8e90af87",
+    "multiseed_summary.csv": "2183ef45d4b300f56bef0344aef31fe220a5a129de3149e1ff65b0bdb9ab6cd7",
+    "multiseed_analysis.json": "83ba39bc3f1613ddde0dbd1191e3f1fcac7e7acaa482407ca4e497ad340765bc",
+    "multiseed_model_registry.json": "0506154d27f403960dff70c282e77bc13da436a20d2b592cd773d2210c6bb162",
+    "shortlist_lock.json": "22fa9329d81592208beead9d7e182dcfc729164745ddeaa5801cd282dbf3161d",
+    "shortlist_evidence_lock.json": "857a0ee87db7e4e74a703980cec7edb2ee8bb47f91632fbdf55fbb3b91d01f6d"
+  },
+  "safety_totals": {
+    "collisions": 0,
+    "teleports": 0
+  },
+  "limitations": [
+    "Three training seeds give only approximate crossed-bootstrap intervals.",
+    "Validation is selection data, not independent final confirmation.",
+    "Tensor/optimizer equality from isolated integrity retraining remains a separate pending audit.",
+    "Retaining incumbent follows empirical rules; it does not prove global optimality or significant superiority to C15."
+  ],
+  "model_inference_runs": 0,
+  "source_or_lock_files_modified": false
+}

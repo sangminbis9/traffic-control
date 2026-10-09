@@ -1,0 +1,147 @@
+{
+  "audited_at_utc": "2026-10-09T14:10:00.972996+00:00",
+  "scope": "Completed fine stage only; no multiseed model inference or training interruption",
+  "status": "PASS",
+  "checks_performed": 4534,
+  "discrepancies": [],
+  "row_count": 600,
+  "candidate_count": 30,
+  "training_seed": 22,
+  "training_steps": 50000,
+  "evaluation_seeds": [
+    8001,
+    8020
+  ],
+  "source_episode_count_per_candidate": 20,
+  "paired_training_manifest_episodes": 167,
+  "paired_evaluation_manifest_episodes": 20,
+  "checkpoint_hashes_verified": 30,
+  "checkpoint_json_contract": "60 observations, 8 actions, 50000 actual steps, 150000 schedule; no model deserialization",
+  "shortlist_candidate_ids": [
+    11,
+    13,
+    14,
+    15
+  ],
+  "eligible_ranked_candidate_ids": [
+    15,
+    13,
+    11,
+    14,
+    1,
+    5,
+    3,
+    18,
+    6,
+    9,
+    27,
+    7,
+    25,
+    16,
+    22,
+    19
+  ],
+  "pareto_candidate_ids": [
+    2,
+    12,
+    15,
+    21,
+    28
+  ],
+  "boundary_rounds": [
+    {
+      "candidate_ids": [
+        28,
+        29,
+        30
+      ],
+      "points": [
+        [
+          0.3,
+          0.5,
+          0.7
+        ],
+        [
+          0.3,
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.5
+        ]
+      ],
+      "based_on_ranking": [
+        15,
+        13,
+        11
+      ]
+    }
+  ],
+  "boundary_unresolved": false,
+  "boundary_results": [
+    {
+      "candidate_id": "28",
+      "alpha": 0.3,
+      "beta": 0.5,
+      "switch_gamma": 0.7,
+      "avg_waiting_time": 22.879462232029955,
+      "max_waiting_time": 83.1,
+      "throughput": 198.8,
+      "eligible": false,
+      "max_waiting_constraint_passed": false
+    },
+    {
+      "candidate_id": "29",
+      "alpha": 0.3,
+      "beta": 0.5,
+      "switch_gamma": 0.3,
+      "avg_waiting_time": 23.411041713857877,
+      "max_waiting_time": 90.225,
+      "throughput": 197.2,
+      "eligible": false,
+      "max_waiting_constraint_passed": false
+    },
+    {
+      "candidate_id": "30",
+      "alpha": 0.3,
+      "beta": 0.3,
+      "switch_gamma": 0.5,
+      "avg_waiting_time": 23.036969638747212,
+      "max_waiting_time": 83.475,
+      "throughput": 200.3,
+      "eligible": false,
+      "max_waiting_constraint_passed": false
+    }
+  ],
+  "artifact_sha256": {
+    "fine_search_results.csv": "e9dc0eb5855ecb7f073c9fd280c069e4eb344313e240df2b16e266cb4d5a804d",
+    "fine_search_summary.csv": "389766b7a833eab27abdf01052556b0428f727dc600453e5fc7cb8171f29f95b",
+    "fine_search_analysis.json": "0f24884aad3c300f57227dd7c50ea328e5630d27521ddda2324db60488932239",
+    "pareto_front.csv": "3eaeeb2faf9223fb7b576d660d1fdc4fbb868cd84a7cc1ccb56cef67156b139f",
+    "fine_model_registry.json": "9ca894293d6bcbd1fd18ddbc9331836764852ffaf030f025b20ea7f51cc916d4",
+    "shortlist_lock.json": "22fa9329d81592208beead9d7e182dcfc729164745ddeaa5801cd282dbf3161d",
+    "shortlist_evidence_lock.json": "857a0ee87db7e4e74a703980cec7edb2ee8bb47f91632fbdf55fbb3b91d01f6d",
+    "boundary_state.json": "b95f3656e637d07d3287c79d7cf58e0ee9510a94db7411c09f7d5508e7b96c06",
+    "protocol_code_lock.json": "c30b4f0899642617e57ac73491cac1efa7ea97912d5ea5a979d2f2446dc902cb",
+    "search_config.json": "9838386fd60f28bad7b107d460e4303ee1558987c774486344cfe9475412808e"
+  },
+  "frozen_protocol_sources_verified": {
+    "model/experiments/fine_reward_search.py": "04a56eb82b6567ac0004d80d2fbfb0e2d1f27da48e174c69644e362de1370949",
+    "model/experiments/fine_search_analysis.py": "d35319df2999effb6eb3a3f429ca5ed7e034cebdabe2f038bbbaf3cb59c6a1ac"
+  },
+  "lock_fingerprints": {
+    "protocol_code_lock": "65d1f3ea40eeb337595c85df2d1daa631881dea1200f4a668b59c836dd96f3ca",
+    "shortlist_evidence_lock": "6451f2ef7ad7d53bbe55567a13c7f1044f061d2428944f4c9b130e1fc9292479",
+    "note": "Fingerprints cover different identity payloads; equality between these two digests is not expected."
+  },
+  "limitations": [
+    "Only training seed 22 has completed fine evaluation; CIs condition on this learned policy.",
+    "Validation is used for adaptive candidate selection, not independent final confirmation.",
+    "Boundary false means the prespecified top-three outward rule was exhausted, not all local neighbors or expanded grid points were evaluated.",
+    "Collision/teleport zero does not certify absence of other safety phenomena."
+  ],
+  "input_files_modified_by_audit": false,
+  "models_loaded_for_inference": 0
+}

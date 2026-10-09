@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "recorded_at_utc": "2026-10-09T14:58:54.275739+00:00",
+  "checkpoint_steps": 25000,
+  "checked_models": 5,
+  "all_equal": true,
+  "scope": "Early saved-checkpoint equality only. The running full 150k auditor remains decisive.",
+  "final_integrity_audit_complete": false,
+  "audit_plan_sha256": "4a223f70f74bbab902dc297ad3fa84ddb3cf9e648af9f76ff64b2f8c7731b74b",
+  "audit_script_sha256": "a9cd72ec39ceae85503f48c269f978b7ec33f8da80167854363f34b789224fa4",
+  "comparisons": [
+    {
+      "candidate_id": 11,
+      "training_seed": 22,
+      "source_checkpoint": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_11\\attempt_001\\experiment_11\\checkpoint_25000.zip",
+      "verification_checkpoint": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\audit\\retraining_integrity\\runs\\seed_22\\candidate_11\\attempt_001\\experiment_11\\checkpoint_25000.zip",
+      "name": "checkpoint_25000.zip",
+      "all_equal": true,
+      "observation_action_contract": "True",
+      "source_sha256": "a19799a10fb48bbb8f2c7497204acc0b21a0493652a0b019af3461e81244ee07",
+      "verification_sha256": "1726984a9dfdfc59d98c896ed41c1c53bc5b569d290123011653304a46d5d20f",
+      "source_steps": 25000,
+      "verification_steps": 25000,
+      "source_updates": 4999,
+      "verification_updates": 4999,
+      "components": {
+        "q_net": {
+          "all_equal": true,
+          "tensor_count": 6,
+          "tensor_elements": 25352,
+          "leaf_count": 0,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "q_net_target": {
+          "all_equal": true,
+          "tensor_count": 6,
+          "tensor_elements": 25352,
+          "leaf_count": 0,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "optimizer": {
+          "all_equal": true,
+          "tensor_count": 18,
+          "tensor_elements": 50710,
+          "leaf_count": 18,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "training_state": {
+          "all_equal": true,
+          "tensor_count": 0,
+          "tensor_elements": 0,
+          "leaf_count": 12,
+          "mismatch_count": 0,
+          "mismatches": []
+        }
+      }
+    },
+    {
+      "candidate_id": 13,
+      "training_seed": 22,
+      "source_checkpoint": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_13\\attempt_001\\experiment_13\\checkpoint_25000.zip",
+      "verification_checkpoint": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\audit\\retraining_integrity\\runs\\seed_22\\candidate_13\\attempt_001\\experiment_13\\checkpoint_25000.zip",
+      "name": "checkpoint_25000.zip",
+      "all_equal": true,
+      "observation_action_contract": "True",
+      "source_sha256": "8640d073938dd2bce10bddb50394ec18e43b6e7ffe436d36325f44fd46a26052",
+      "verification_sha256": "d6e60743ff07ab8b1becd991b8ec9d12ee70a72903fb38e84592e234c462643b",
+      "source_steps": 25000,
+      "verification_steps": 25000,
+      "source_updates": 4999,
+      "verification_updates": 4999,
+      "components": {
+        "q_net": {
+          "all_equal": true,
+          "tensor_count": 6,
+          "tensor_elements": 25352,
+          "leaf_count": 0,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "q_net_target": {
+          "all_equal": true,
+          "tensor_count": 6,
+          "tensor_elements": 25352,
+          "leaf_count": 0,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "optimizer": {
+          "all_equal": true,
+          "tensor_count": 18,
+          "tensor_elements": 50710,
+          "leaf_count": 18,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "training_state": {
+          "all_equal": true,
+          "tensor_count": 0,
+          "tensor_elements": 0,
+          "leaf_count": 12,
+          "mismatch_count": 0,
+          "mismatches": []
+        }
+      }
+    },
+    {
+      "candidate_id": 14,
+      "training_seed": 22,
+      "source_checkpoint": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_14\\attempt_001\\experiment_14\\checkpoint_25000.zip",
+      "verification_checkpoint": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\audit\\retraining_integrity\\runs\\seed_22\\candidate_14\\attempt_001\\experiment_14\\checkpoint_25000.zip",
+      "name": "checkpoint_25000.zip",
+      "all_equal": true,
+      "observation_action_contract": "True",
+      "source_sha256": "19496ff1e12cbe506f346052daefba26611cf7c632b89925771d0eebd62bb817",
+      "verification_sha256": "88b6e89af8fc386386529e5dbb24c5798f5372afad35c8835c4ca78f929917b5",
+      "source_steps": 25000,
+      "verification_steps": 25000,
+      "source_updates": 4999,
+      "verification_updates": 4999,
+      "components": {
+        "q_net": {
+          "all_equal": true,
+          "tensor_count": 6,
+          "tensor_elements": 25352,
+          "leaf_count": 0,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "q_net_target": {
+          "all_equal": true,
+          "tensor_count": 6,
+          "tensor_elements": 25352,
+          "leaf_count": 0,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "optimizer": {
+          "all_equal": true,
+          "tensor_count": 18,
+          "tensor_elements": 50710,
+          "leaf_count": 18,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "training_state": {
+          "all_equal": true,
+          "tensor_count": 0,
+          "tensor_elements": 0,
+          "leaf_count": 12,
+          "mismatch_count": 0,
+          "mismatches": []
+        }
+      }
+    },
+    {
+      "candidate_id": 15,
+      "training_seed": 22,
+      "source_checkpoint": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_15\\attempt_001\\experiment_15\\checkpoint_25000.zip",
+      "verification_checkpoint": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\audit\\retraining_integrity\\runs\\seed_22\\candidate_15\\attempt_001\\experiment_15\\checkpoint_25000.zip",
+      "name": "checkpoint_25000.zip",
+      "all_equal": true,
+      "observation_action_contract": "True",
+      "source_sha256": "5df3fecf9dfeb8f5235d3882841862e136f9c91915214ab29d888440fa252a5f",
+      "verification_sha256": "ff7625d70cc4c4d56ed7e592df5d757906b13960faa27b4ea11c50a3546512a2",
+      "source_steps": 25000,
+      "verification_steps": 25000,
+      "source_updates": 4999,
+      "verification_updates": 4999,
+      "components": {
+        "q_net": {
+          "all_equal": true,
+          "tensor_count": 6,
+          "tensor_elements": 25352,
+          "leaf_count": 0,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "q_net_target": {
+          "all_equal": true,
+          "tensor_count": 6,
+          "tensor_elements": 25352,
+          "leaf_count": 0,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "optimizer": {
+          "all_equal": true,
+          "tensor_count": 18,
+          "tensor_elements": 50710,
+          "leaf_count": 18,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "training_state": {
+          "all_equal": true,
+          "tensor_count": 0,
+          "tensor_elements": 0,
+          "leaf_count": 12,
+          "mismatch_count": 0,
+          "mismatches": []
+        }
+      }
+    },
+    {
+      "candidate_id": 11,
+      "training_seed": 42,
+      "source_checkpoint": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_11\\attempt_001\\experiment_11\\checkpoint_25000.zip",
+      "verification_checkpoint": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\audit\\retraining_integrity\\runs\\seed_42\\candidate_11\\attempt_001\\experiment_11\\checkpoint_25000.zip",
+      "name": "checkpoint_25000.zip",
+      "all_equal": true,
+      "observation_action_contract": "True",
+      "source_sha256": "ef708c48041f1069504f8e8316764493b33a4b562ee2d1be0243e36352be6e3c",
+      "verification_sha256": "facf16eb83b3bcc9ff6418b435ffb12f397e86e24747ed5f9bc01bb7a2a0c274",
+      "source_steps": 25000,
+      "verification_steps": 25000,
+      "source_updates": 4999,
+      "verification_updates": 4999,
+      "components": {
+        "q_net": {
+          "all_equal": true,
+          "tensor_count": 6,
+          "tensor_elements": 25352,
+          "leaf_count": 0,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "q_net_target": {
+          "all_equal": true,
+          "tensor_count": 6,
+          "tensor_elements": 25352,
+          "leaf_count": 0,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "optimizer": {
+          "all_equal": true,
+          "tensor_count": 18,
+          "tensor_elements": 50710,
+          "leaf_count": 18,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "training_state": {
+          "all_equal": true,
+          "tensor_count": 0,
+          "tensor_elements": 0,
+          "leaf_count": 12,
+          "mismatch_count": 0,
+          "mismatches": []
+        }
+      }
+    }
+  ]
+}

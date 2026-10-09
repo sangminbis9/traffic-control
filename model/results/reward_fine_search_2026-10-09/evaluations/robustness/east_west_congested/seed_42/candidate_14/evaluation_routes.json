@@ -1,0 +1,62 @@
+[
+  {
+    "episode": 0,
+    "seed": 10001,
+    "scenario": "east_west_congested",
+    "route_sha256": "7014ab4e475772715a3e7f6fb839be120bcf4d1dc468ec8d967aa57badcce396"
+  },
+  {
+    "episode": 1,
+    "seed": 10002,
+    "scenario": "east_west_congested",
+    "route_sha256": "4f97087664eb21e69b1d61ef40e41dfc3f11972bd69e1b5e095d20b6264e91c0"
+  },
+  {
+    "episode": 2,
+    "seed": 10003,
+    "scenario": "east_west_congested",
+    "route_sha256": "d82d795e55fee28331c83ba6fd81c86cb2e0a98cbecc12a856208db55e8a8a99"
+  },
+  {
+    "episode": 3,
+    "seed": 10004,
+    "scenario": "east_west_congested",
+    "route_sha256": "f423a6bfbd55156b8a59bfbd892ae732364f03bb40ae4f27020c8faa9a97b8d8"
+  },
+  {
+    "episode": 4,
+    "seed": 10005,
+    "scenario": "east_west_congested",
+    "route_sha256": "a604bfd40c6a464e1f4b6462aa7ffc73a2ec5a29937c039c641d3fc39378f15f"
+  },
+  {
+    "episode": 5,
+    "seed": 10006,
+    "scenario": "east_west_congested",
+    "route_sha256": "a81dc7176cbbc13a10bd5c24219daa61e385d6f586066716005c1f4d45cf1b27"
+  },
+  {
+    "episode": 6,
+    "seed": 10007,
+    "scenario": "east_west_congested",
+    "route_sha256": "909d1f7c41790cd2192adf1a0fc2bb55e5aacf50a14f56e5b0dcb15cf5fedea5"
+  },
+  {
+    "episode": 7,
+    "seed": 10008,
+    "scenario": "east_west_congested",
+    "route_sha256": "70c5c9184090e54156484a226cb9090397e5a3813116a921e071e84658ae93cb"
+  },
+  {
+    "episode": 8,
+    "seed": 10009,
+    "scenario": "east_west_congested",
+    "route_sha256": "b4aa553575c58736e884a282b713ebbac0a8bf63e27d6a87f06fc3e198d3ec94"
+  },
+  {
+    "episode": 9,
+    "seed": 10010,
+    "scenario": "east_west_congested",
+    "route_sha256": "775765634a237d75295b9e364938926e699edb07ee8ff4b3b3000ac5334b840a"
+  }
+]

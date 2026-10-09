@@ -1,0 +1,2 @@
+# Keep the historical bytes referenced by provenance SHA-256 values.
+* -text whitespace=trailing-space,space-before-tab,cr-at-eol

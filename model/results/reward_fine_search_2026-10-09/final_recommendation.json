@@ -1,0 +1,417 @@
+{
+  "completed_at": "2026-10-09T15:18:12.859333+00:00",
+  "incumbent_id": 14,
+  "incumbent_weights": [
+    0.3,
+    0.5,
+    0.5
+  ],
+  "selected_candidate_id": 14,
+  "selected_weights": [
+    0.3,
+    0.5,
+    0.5
+  ],
+  "recommended_candidate_id": 14,
+  "recommended_weights": [
+    0.3,
+    0.5,
+    0.5
+  ],
+  "confirmed": false,
+  "failed_checks": [],
+  "reason": "incumbent_retained_no_stable_confirmed_improvement",
+  "changes_vs_incumbent_pct": {
+    "random": {
+      "avg_waiting_time": 0.0,
+      "max_waiting_time": 0.0,
+      "avg_queue": 0.0,
+      "phase_changes": 0.0,
+      "throughput": 0.0
+    },
+    "uniform": {
+      "avg_waiting_time": 0.0,
+      "max_waiting_time": 0.0,
+      "avg_queue": 0.0,
+      "phase_changes": 0.0,
+      "throughput": 0.0
+    },
+    "north_south_congested": {
+      "avg_waiting_time": 0.0,
+      "max_waiting_time": 0.0,
+      "avg_queue": 0.0,
+      "phase_changes": 0.0,
+      "throughput": 0.0
+    },
+    "east_west_congested": {
+      "avg_waiting_time": 0.0,
+      "max_waiting_time": 0.0,
+      "avg_queue": 0.0,
+      "phase_changes": 0.0,
+      "throughput": 0.0
+    },
+    "left_turn_congested": {
+      "avg_waiting_time": 0.0,
+      "max_waiting_time": 0.0,
+      "avg_queue": 0.0,
+      "phase_changes": 0.0,
+      "throughput": 0.0
+    },
+    "heavy": {
+      "avg_waiting_time": 0.0,
+      "max_waiting_time": 0.0,
+      "avg_queue": 0.0,
+      "phase_changes": 0.0,
+      "throughput": 0.0
+    },
+    "low": {
+      "avg_waiting_time": 0.0,
+      "max_waiting_time": 0.0,
+      "avg_queue": 0.0,
+      "phase_changes": 0.0,
+      "throughput": 0.0
+    }
+  },
+  "total_trained_models": 42,
+  "fine_model_count": 30,
+  "multiseed_model_count": 12,
+  "training_seeds": [
+    22,
+    42,
+    62
+  ],
+  "validation_seeds": [
+    8001,
+    8002,
+    8003,
+    8004,
+    8005,
+    8006,
+    8007,
+    8008,
+    8009,
+    8010,
+    8011,
+    8012,
+    8013,
+    8014,
+    8015,
+    8016,
+    8017,
+    8018,
+    8019,
+    8020
+  ],
+  "holdout_seeds": [
+    9001,
+    9002,
+    9003,
+    9004,
+    9005,
+    9006,
+    9007,
+    9008,
+    9009,
+    9010,
+    9011,
+    9012,
+    9013,
+    9014,
+    9015,
+    9016,
+    9017,
+    9018,
+    9019,
+    9020,
+    9021,
+    9022,
+    9023,
+    9024,
+    9025,
+    9026,
+    9027,
+    9028,
+    9029,
+    9030
+  ],
+  "robustness_seeds": [
+    10001,
+    10002,
+    10003,
+    10004,
+    10005,
+    10006,
+    10007,
+    10008,
+    10009,
+    10010
+  ],
+  "training_steps_by_stage": {
+    "fine": 50000,
+    "multiseed": 150000
+  },
+  "global_optimum_established": false,
+  "holdout_reselection_performed": false,
+  "default_configuration_changed": false,
+  "prior_results_preserved": true,
+  "boundary": {
+    "candidate_weights": {
+      "1": [
+        0.2,
+        0.4,
+        0.4
+      ],
+      "2": [
+        0.2,
+        0.4,
+        0.5
+      ],
+      "3": [
+        0.2,
+        0.4,
+        0.6
+      ],
+      "4": [
+        0.2,
+        0.5,
+        0.4
+      ],
+      "5": [
+        0.2,
+        0.5,
+        0.5
+      ],
+      "6": [
+        0.2,
+        0.5,
+        0.6
+      ],
+      "7": [
+        0.2,
+        0.6,
+        0.4
+      ],
+      "8": [
+        0.2,
+        0.6,
+        0.5
+      ],
+      "9": [
+        0.2,
+        0.6,
+        0.6
+      ],
+      "10": [
+        0.3,
+        0.4,
+        0.4
+      ],
+      "11": [
+        0.3,
+        0.4,
+        0.5
+      ],
+      "12": [
+        0.3,
+        0.4,
+        0.6
+      ],
+      "13": [
+        0.3,
+        0.5,
+        0.4
+      ],
+      "14": [
+        0.3,
+        0.5,
+        0.5
+      ],
+      "15": [
+        0.3,
+        0.5,
+        0.6
+      ],
+      "16": [
+        0.3,
+        0.6,
+        0.4
+      ],
+      "17": [
+        0.3,
+        0.6,
+        0.5
+      ],
+      "18": [
+        0.3,
+        0.6,
+        0.6
+      ],
+      "19": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "20": [
+        0.4,
+        0.4,
+        0.5
+      ],
+      "21": [
+        0.4,
+        0.4,
+        0.6
+      ],
+      "22": [
+        0.4,
+        0.5,
+        0.4
+      ],
+      "23": [
+        0.4,
+        0.5,
+        0.5
+      ],
+      "24": [
+        0.4,
+        0.5,
+        0.6
+      ],
+      "25": [
+        0.4,
+        0.6,
+        0.4
+      ],
+      "26": [
+        0.4,
+        0.6,
+        0.5
+      ],
+      "27": [
+        0.4,
+        0.6,
+        0.6
+      ],
+      "28": [
+        0.3,
+        0.5,
+        0.7
+      ],
+      "29": [
+        0.3,
+        0.5,
+        0.3
+      ],
+      "30": [
+        0.3,
+        0.3,
+        0.5
+      ]
+    },
+    "rounds": [
+      {
+        "candidate_ids": [
+          28,
+          29,
+          30
+        ],
+        "points": [
+          [
+            0.3,
+            0.5,
+            0.7
+          ],
+          [
+            0.3,
+            0.5,
+            0.3
+          ],
+          [
+            0.3,
+            0.3,
+            0.5
+          ]
+        ],
+        "based_on_ranking": [
+          15,
+          13,
+          11
+        ]
+      }
+    ],
+    "axes": [
+      [
+        0.2,
+        0.3,
+        0.4
+      ],
+      [
+        0.3,
+        0.4,
+        0.5,
+        0.6
+      ],
+      [
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7
+      ]
+    ],
+    "boundary_unresolved": false,
+    "pending_outward_points": []
+  },
+  "statistical_significance_established": false,
+  "statistical_note": "Read paired bootstrap intervals; only three training seeds, no global optimality claim.",
+  "scope": "실험한 탐색 범위와 학습 조건 내에서의 비교; 전역 최적값을 주장하지 않음",
+  "model_results": [
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 14,
+        "weights": [
+          0.3,
+          0.5,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_14"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_14\\attempt_001\\experiment_14",
+      "reused_completed_run": true
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 14,
+        "weights": [
+          0.3,
+          0.5,
+          0.5
+        ],
+        "training_seed": 42,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_14"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_14\\attempt_001\\experiment_14",
+      "reused_completed_run": true
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 14,
+        "weights": [
+          0.3,
+          0.5,
+          0.5
+        ],
+        "training_seed": 62,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_14"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_14\\attempt_001\\experiment_14",
+      "reused_completed_run": true
+    }
+  ]
+}

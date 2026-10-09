@@ -1,0 +1,339 @@
+{
+  "audited_at_utc": "2026-10-09T14:41:27.065808+00:00",
+  "status": "PASS",
+  "scope": "Eleven completed original multiseed runs only; isolated seed42 candidate13 retry excluded",
+  "checks_performed": 1344,
+  "discrepancies": [],
+  "completed_runs": 11,
+  "expected_completed_pair_keys": [
+    [
+      22,
+      11
+    ],
+    [
+      22,
+      13
+    ],
+    [
+      22,
+      14
+    ],
+    [
+      22,
+      15
+    ],
+    [
+      42,
+      11
+    ],
+    [
+      42,
+      14
+    ],
+    [
+      42,
+      15
+    ],
+    [
+      62,
+      11
+    ],
+    [
+      62,
+      13
+    ],
+    [
+      62,
+      14
+    ],
+    [
+      62,
+      15
+    ]
+  ],
+  "excluded_incomplete_or_failed_attempts": [
+    {
+      "folder": "runs\\multiseed\\seed_42\\candidate_13\\attempt_001\\experiment_13",
+      "status": "FAILED",
+      "timesteps": null
+    },
+    {
+      "folder": "runs\\multiseed\\seed_42\\candidate_13\\attempt_002\\experiment_13",
+      "status": "TRAINING",
+      "timesteps": 26000
+    }
+  ],
+  "totals": {
+    "collisions": 0,
+    "teleports": 0,
+    "evaluation_episodes": 220
+  },
+  "same_training_seed_demand_verified": true,
+  "evaluation_demand_identical_across_all_completed_runs": true,
+  "training_manifest_entries_by_seed": {
+    "22": 501,
+    "42": 501,
+    "62": 501
+  },
+  "training_manifest_interpretation": "501 reset records include the auto-reset after the 500th 300-step episode; not 501 full training episodes.",
+  "raw_checkpoint_metadata_verified": {
+    "num_timesteps": 150000,
+    "schedule_timesteps": 150000,
+    "observation_shape": [
+      60
+    ],
+    "action_count": 8,
+    "n_steps": 5,
+    "gamma": 0.95,
+    "learning_starts": 5000,
+    "updates": 36249
+  },
+  "frozen_source_sha256": {
+    "model/experiments/fine_reward_search.py": "04a56eb82b6567ac0004d80d2fbfb0e2d1f27da48e174c69644e362de1370949",
+    "model/experiments/fine_search_analysis.py": "d35319df2999effb6eb3a3f429ca5ed7e034cebdabe2f038bbbaf3cb59c6a1ac"
+  },
+  "records": [
+    {
+      "candidate_id": 11,
+      "training_seed": 22,
+      "folder": "runs\\multiseed\\seed_22\\candidate_11\\attempt_001\\experiment_11",
+      "training_steps": 150000,
+      "training_manifest_entries": 501,
+      "evaluation_episodes": 20,
+      "checkpoint_count_including_final": 7,
+      "safety": {
+        "collisions": 0,
+        "teleports": 0
+      },
+      "artifact_sha256": {
+        "final.zip": "14ffd8a1ff5e8aa323a01fac9fe1b13a4bd33d0db69b07a7cd2c227ddbe1e62e",
+        "experiment_config.json": "a64251d27a61f24f786bfbb1603ce0fb588735265e86cacced18ab04847c3774",
+        "training_routes.json": "412d30f095d4c4d99f0b193f63ad8b98c8cb8cc2bad5e0cd8d47d968242b7f7a",
+        "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+        "evaluation_metrics.csv": "331a91de92a4ec4a05309fa869660d85e1c84ed92af1d870165809bf6edd5b3d",
+        "summary.json": "af8c252c75d039b01b443ac7cda69c1f128832870ee639b9d23274d0546cc296"
+      }
+    },
+    {
+      "candidate_id": 13,
+      "training_seed": 22,
+      "folder": "runs\\multiseed\\seed_22\\candidate_13\\attempt_001\\experiment_13",
+      "training_steps": 150000,
+      "training_manifest_entries": 501,
+      "evaluation_episodes": 20,
+      "checkpoint_count_including_final": 7,
+      "safety": {
+        "collisions": 0,
+        "teleports": 0
+      },
+      "artifact_sha256": {
+        "final.zip": "265182e7e21fe446cb60acd650815631b652a039113422fa2c1946e65d40d440",
+        "experiment_config.json": "e261c6f784a7d63350ff326f5513c92aeff1a5efcbb5b16a2bd7eabb72afc007",
+        "training_routes.json": "412d30f095d4c4d99f0b193f63ad8b98c8cb8cc2bad5e0cd8d47d968242b7f7a",
+        "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+        "evaluation_metrics.csv": "2883c0541df36cfda63f4bef9967e0fd962ba61a241be1cf273c31db29820933",
+        "summary.json": "3ff928ee5de1b2ca4ff75c43d7ff48cb405f0b85f3a729b95cb8afd0efd70da6"
+      }
+    },
+    {
+      "candidate_id": 14,
+      "training_seed": 22,
+      "folder": "runs\\multiseed\\seed_22\\candidate_14\\attempt_001\\experiment_14",
+      "training_steps": 150000,
+      "training_manifest_entries": 501,
+      "evaluation_episodes": 20,
+      "checkpoint_count_including_final": 7,
+      "safety": {
+        "collisions": 0,
+        "teleports": 0
+      },
+      "artifact_sha256": {
+        "final.zip": "2f65ab9aa88fc33637bf649d34006990d8eb7a815e73a3da3c02eec248d756c7",
+        "experiment_config.json": "edbe4e5e3097f6ed69f599ca5f7f89d3840ea3aa84463a71f91588a0a772366b",
+        "training_routes.json": "412d30f095d4c4d99f0b193f63ad8b98c8cb8cc2bad5e0cd8d47d968242b7f7a",
+        "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+        "evaluation_metrics.csv": "a7280c3b48580e6fb0f83b0616f549b228882cc738b199b848007ae2fce5e42b",
+        "summary.json": "ab32719f2a6616731df89be29388a14dd2ad2e626a8817e641209cf679475c5b"
+      }
+    },
+    {
+      "candidate_id": 15,
+      "training_seed": 22,
+      "folder": "runs\\multiseed\\seed_22\\candidate_15\\attempt_001\\experiment_15",
+      "training_steps": 150000,
+      "training_manifest_entries": 501,
+      "evaluation_episodes": 20,
+      "checkpoint_count_including_final": 7,
+      "safety": {
+        "collisions": 0,
+        "teleports": 0
+      },
+      "artifact_sha256": {
+        "final.zip": "dfc90bd19cf0a66204b8dc0981df08250c80ba067fc16ccb248023c4f2ab5a11",
+        "experiment_config.json": "f65683a1a44c69c9adb60dfd1ec055acf48cad03c9c0e8289fa03e3088875c08",
+        "training_routes.json": "412d30f095d4c4d99f0b193f63ad8b98c8cb8cc2bad5e0cd8d47d968242b7f7a",
+        "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+        "evaluation_metrics.csv": "0d034f07e9aaa300e2100bd234e2e4118d2e271af80e5bf49204c359473758b9",
+        "summary.json": "78d0b416bfea2d82d9258a919581981ba9ac053be7ce6c3e44269a9d30e26385"
+      }
+    },
+    {
+      "candidate_id": 11,
+      "training_seed": 42,
+      "folder": "runs\\multiseed\\seed_42\\candidate_11\\attempt_001\\experiment_11",
+      "training_steps": 150000,
+      "training_manifest_entries": 501,
+      "evaluation_episodes": 20,
+      "checkpoint_count_including_final": 7,
+      "safety": {
+        "collisions": 0,
+        "teleports": 0
+      },
+      "artifact_sha256": {
+        "final.zip": "4426122d73c9f9e689a67c44882544cc8eac1da175884919663ce8b95fc92aa8",
+        "experiment_config.json": "b48078632df11e676906b44bad8307015306fdf3f53f967ccd9c90e028bf0ba0",
+        "training_routes.json": "2798f2eee9e1708303be5677376f048290fe754f18a953232a6c46ddb31eac4d",
+        "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+        "evaluation_metrics.csv": "907db95845b86e13d4d9e8a6cac32b653935acc24cf66d9e83fe98e5982cdc7f",
+        "summary.json": "8dffd842e7fb8ab7bc416c1f0fffb8ee916a920b0b1a623d2e86e4c93640c525"
+      }
+    },
+    {
+      "candidate_id": 14,
+      "training_seed": 42,
+      "folder": "runs\\multiseed\\seed_42\\candidate_14\\attempt_001\\experiment_14",
+      "training_steps": 150000,
+      "training_manifest_entries": 501,
+      "evaluation_episodes": 20,
+      "checkpoint_count_including_final": 7,
+      "safety": {
+        "collisions": 0,
+        "teleports": 0
+      },
+      "artifact_sha256": {
+        "final.zip": "5bf26cfe0d81e1ff2981ce959f2989c08258690978ff863420f6ff24dc722b97",
+        "experiment_config.json": "171ed024908b20e3fccb57643e4a6f94de6abc8664892537faf9345c3f93caef",
+        "training_routes.json": "2798f2eee9e1708303be5677376f048290fe754f18a953232a6c46ddb31eac4d",
+        "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+        "evaluation_metrics.csv": "4c74fdd5c4772f970f8326e01e5a9637b7461077867c89ddad8975f032d540e9",
+        "summary.json": "88ae5bb83b41b453118805e02a32728cb2ff0fc16bb8276c08ccc54c936b0a12"
+      }
+    },
+    {
+      "candidate_id": 15,
+      "training_seed": 42,
+      "folder": "runs\\multiseed\\seed_42\\candidate_15\\attempt_001\\experiment_15",
+      "training_steps": 150000,
+      "training_manifest_entries": 501,
+      "evaluation_episodes": 20,
+      "checkpoint_count_including_final": 7,
+      "safety": {
+        "collisions": 0,
+        "teleports": 0
+      },
+      "artifact_sha256": {
+        "final.zip": "a015770371d4dfd4c0c4593654b98252b58f3d94e24ef427009d313734cd3e1f",
+        "experiment_config.json": "2bc76f10108b5132c5afcb6aa005951d7a9beabd5b958819e6efe381b101b243",
+        "training_routes.json": "2798f2eee9e1708303be5677376f048290fe754f18a953232a6c46ddb31eac4d",
+        "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+        "evaluation_metrics.csv": "99a73475f39b2673507fa5e81b0449781c9c9a863ed699fadfb94641d57579af",
+        "summary.json": "266390c0384dd65f011dc32f88c224c54cc88cd061ef92191eff2b6f0ed29939"
+      }
+    },
+    {
+      "candidate_id": 11,
+      "training_seed": 62,
+      "folder": "runs\\multiseed\\seed_62\\candidate_11\\attempt_001\\experiment_11",
+      "training_steps": 150000,
+      "training_manifest_entries": 501,
+      "evaluation_episodes": 20,
+      "checkpoint_count_including_final": 7,
+      "safety": {
+        "collisions": 0,
+        "teleports": 0
+      },
+      "artifact_sha256": {
+        "final.zip": "c7cadc14a3157d9d2b081fe403b89fa26d21f3e494e97f7a033981d4b89897bc",
+        "experiment_config.json": "c34a8f46b1d63b0de077470403a82fe4af8bd4e5455750dba7e104c384bd7720",
+        "training_routes.json": "1fa64ab425e8b172abb49a25d48a4e75a003f828da3bfa2e57268b3c3a88fb30",
+        "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+        "evaluation_metrics.csv": "912c03a480a09c441e51a8d4d01b85cc2315242ea940fdf9c3656187fb24e8b3",
+        "summary.json": "64449a6a04e170a579f8eb218027055a6f796f99069a61b880b5f374dfd37f05"
+      }
+    },
+    {
+      "candidate_id": 13,
+      "training_seed": 62,
+      "folder": "runs\\multiseed\\seed_62\\candidate_13\\attempt_001\\experiment_13",
+      "training_steps": 150000,
+      "training_manifest_entries": 501,
+      "evaluation_episodes": 20,
+      "checkpoint_count_including_final": 7,
+      "safety": {
+        "collisions": 0,
+        "teleports": 0
+      },
+      "artifact_sha256": {
+        "final.zip": "0cee00efbc5cd3212e1879091b783b258a0f08ba6beaf2c76b7513dc6e4f3f06",
+        "experiment_config.json": "dbaee5ab82bc2e7610ffc430d14e5f2771e1118a3ad0d6fee37c96c9a44a5ce8",
+        "training_routes.json": "1fa64ab425e8b172abb49a25d48a4e75a003f828da3bfa2e57268b3c3a88fb30",
+        "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+        "evaluation_metrics.csv": "4461c63eadf76e93e52620465e5172e0304a8251c4cfaba6fe694d057efd3076",
+        "summary.json": "dc30c9d216e3f78559f82b4870def45052a826a43d3292c994d43915d7f551ea"
+      }
+    },
+    {
+      "candidate_id": 14,
+      "training_seed": 62,
+      "folder": "runs\\multiseed\\seed_62\\candidate_14\\attempt_001\\experiment_14",
+      "training_steps": 150000,
+      "training_manifest_entries": 501,
+      "evaluation_episodes": 20,
+      "checkpoint_count_including_final": 7,
+      "safety": {
+        "collisions": 0,
+        "teleports": 0
+      },
+      "artifact_sha256": {
+        "final.zip": "7f176416495945a4eb1d4b32c9178b2315b2abdd289d79b93c93e5f0d7819d99",
+        "experiment_config.json": "341abe2117982b4b50287f879a1bc7771e258ce0f535ab2c7354ef56ec62059d",
+        "training_routes.json": "1fa64ab425e8b172abb49a25d48a4e75a003f828da3bfa2e57268b3c3a88fb30",
+        "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+        "evaluation_metrics.csv": "aa859a2f93b6a034838d77c9ca7971c27099cdec61aae6e4892c2c239ce5861b",
+        "summary.json": "f6046a70acb3ebb17a9ae5dd0c6078fecd096d68413ef1e84bfe7066c432497b"
+      }
+    },
+    {
+      "candidate_id": 15,
+      "training_seed": 62,
+      "folder": "runs\\multiseed\\seed_62\\candidate_15\\attempt_001\\experiment_15",
+      "training_steps": 150000,
+      "training_manifest_entries": 501,
+      "evaluation_episodes": 20,
+      "checkpoint_count_including_final": 7,
+      "safety": {
+        "collisions": 0,
+        "teleports": 0
+      },
+      "artifact_sha256": {
+        "final.zip": "963913e3fd5d30adda124ed8ecd79c2d1699593507fe5a7071294c17125ad6f4",
+        "experiment_config.json": "dc94ed7df76b1951b6210323b259f46676157627c4b4fd077a5329bba311ea6f",
+        "training_routes.json": "1fa64ab425e8b172abb49a25d48a4e75a003f828da3bfa2e57268b3c3a88fb30",
+        "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+        "evaluation_metrics.csv": "5e460c763ece49f2092592f3d2115004a1f65258db2fec6f955f6ec5b9733964",
+        "summary.json": "e6f7c6a8cb61787b92b72c6d4ee20866955d45791c88205ade5e1ad317b9938d"
+      }
+    }
+  ],
+  "live_resume_job_ledger_snapshot": {
+    "completed_count": 5,
+    "failure_count": 0,
+    "note": "The active resume rebuilds its operational ledger while reusing runs; completed source folders determine this audit coverage."
+  },
+  "ranks_computed": false,
+  "selection_performed": false,
+  "models_loaded_for_inference": 0,
+  "tensor_or_optimizer_equivalence_tested": false,
+  "planned_isolated_integrity_reruns_not_evaluated": true,
+  "input_artifacts_modified": false
+}

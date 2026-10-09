@@ -1,0 +1,12 @@
+{
+  "source": "User-provided table in this conversation; raw experiment artifacts unavailable",
+  "provenance_verified": false,
+  "used_in_current_comparison_aggregation": false,
+  "rows": [
+    {"experiment": 1, "alpha": 0.05, "beta": 0.05, "switch_gamma": 0.1, "avg_waiting_time": [22.50, 8.53], "max_waiting_time": [90.62, 29.53], "avg_queue": [18.14, 10.94], "phase_changes": [46.07, 1.68], "throughput": [184.37, 18.51]},
+    {"experiment": 2, "alpha": 0.1, "beta": 0.1, "switch_gamma": 0.2, "avg_waiting_time": [21.73, 7.01], "max_waiting_time": [85.50, 23.00], "avg_queue": [17.28, 9.05], "phase_changes": [46.00, 2.45], "throughput": [186.40, 24.88]},
+    {"experiment": 3, "alpha": 0.2, "beta": 0.2, "switch_gamma": 0.3, "avg_waiting_time": [20.71, 6.81], "max_waiting_time": [82.95, 23.98], "avg_queue": [16.54, 8.87], "phase_changes": [43.77, 1.94], "throughput": [191.20, 24.43]},
+    {"experiment": 4, "alpha": 0.3, "beta": 0.3, "switch_gamma": 0.5, "avg_waiting_time": [19.87, 7.11], "max_waiting_time": [69.35, 18.14], "avg_queue": [15.97, 9.17], "phase_changes": [41.47, 1.74], "throughput": [194.10, 24.52]}
+  ],
+  "metric_pair_meaning": "[reported mean, reported standard deviation]"
+}

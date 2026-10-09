@@ -1,0 +1,220 @@
+{
+  "created_at": "2026-10-09T15:42:30.801496+00:00",
+  "candidates": {
+    "1": [
+      0.05,
+      0.05,
+      0.1
+    ],
+    "2": [
+      0.1,
+      0.1,
+      0.2
+    ],
+    "3": [
+      0.2,
+      0.2,
+      0.3
+    ],
+    "4": [
+      0.3,
+      0.3,
+      0.5
+    ],
+    "5": [
+      0.3,
+      0.5,
+      0.4
+    ],
+    "6": [
+      0.3,
+      0.5,
+      0.5
+    ],
+    "7": [
+      0.3,
+      0.5,
+      0.6
+    ]
+  },
+  "queue_weight": 1.0,
+  "training_steps": 50000,
+  "schedule_timesteps": 150000,
+  "training_seed": 22,
+  "evaluation_seeds": [
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "scenario": "random",
+  "episode_seconds": 300,
+  "demand_seconds": 240,
+  "deterministic_evaluation": true,
+  "aggregation": "evaluation episode mean and sample SD (ddof=1)",
+  "historical_numeric_rows_reused": false,
+  "historical_raw_artifacts_recovered": false,
+  "purpose": "uniform replacement comparison; not a reproduction claim or new holdout",
+  "reused_models": {
+    "4": {
+      "source_candidate_id": 30,
+      "source_folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_30\\attempt_001\\experiment_30",
+      "model_sha256": "0fe5605cf7f13d2eabee7df8cb744f28e55b96d1a3959dd33fbfa38842b159a7",
+      "model_state": {
+        "num_timesteps": 50000,
+        "n_updates": 11249,
+        "exploration_rate": 0.01,
+        "learning_schedule_steps": 150000,
+        "training_seed": 22,
+        "n_steps": 5,
+        "observation_shape": [
+          60
+        ],
+        "action_count": 8
+      }
+    },
+    "5": {
+      "source_candidate_id": 13,
+      "source_folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_13\\attempt_001\\experiment_13",
+      "model_sha256": "8322b6a63aacedd9c31943f23413115c3c7d931545994b15ff789d8a5794b87d",
+      "model_state": {
+        "num_timesteps": 50000,
+        "n_updates": 11249,
+        "exploration_rate": 0.01,
+        "learning_schedule_steps": 150000,
+        "training_seed": 22,
+        "n_steps": 5,
+        "observation_shape": [
+          60
+        ],
+        "action_count": 8
+      }
+    },
+    "6": {
+      "source_candidate_id": 14,
+      "source_folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_14\\attempt_001\\experiment_14",
+      "model_sha256": "e19f453ea4cbbffb5f5c2e20b4c6416901acfcf3bb999e018f84e09cf579e006",
+      "model_state": {
+        "num_timesteps": 50000,
+        "n_updates": 11249,
+        "exploration_rate": 0.01,
+        "learning_schedule_steps": 150000,
+        "training_seed": 22,
+        "n_steps": 5,
+        "observation_shape": [
+          60
+        ],
+        "action_count": 8
+      }
+    },
+    "7": {
+      "source_candidate_id": 15,
+      "source_folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_15\\attempt_001\\experiment_15",
+      "model_sha256": "7f3ecaaf9dd251de8cdb2d38a87ad328e52b19641cc5aa39ef7299fea50153ad",
+      "model_state": {
+        "num_timesteps": 50000,
+        "n_updates": 11249,
+        "exploration_rate": 0.01,
+        "learning_schedule_steps": 150000,
+        "training_seed": 22,
+        "n_steps": 5,
+        "observation_shape": [
+          60
+        ],
+        "action_count": 8
+      }
+    }
+  },
+  "fresh_training_candidates": [
+    1,
+    2,
+    3
+  ],
+  "source_search": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09",
+  "runtime": {
+    "python": "3.14.0",
+    "numpy": "2.4.4",
+    "torch": "2.11.0",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.3.0",
+    "eclipse-sumo": "1.27.1"
+  },
+  "core_sha256": {
+    "model/utils/config.py": "69c3e9a352ade61c5fff978456404f963a8db3bf98ff6677d7010921c9766f02",
+    "model/env/reward.py": "36b64f982460166615c89a5b13c7f9ec2e458127ce388da3dbcdcc2e0493df1b",
+    "model/env/intersection_env.py": "b3e7063108aaaa1b8ef925b76ee2292d2922091e0a54f6aeb6ad5013a0f09892",
+    "model/env/state_provider.py": "144c541b74b6442c099fa7a2a5206571afe96622bdd077bb4ba7f55cf6f38301",
+    "model/controller/signal_controller.py": "a27d421fba0800ae6bdb05883e8614c8957e5ffe72d2c7ab10b4e65194134f5e",
+    "model/controller/traffic_dqn.py": "3ea3f44f1d2e8bf465ff0fcbea9f6c2d2998792a19b979e143abc64b75f12245",
+    "model/training.py": "ad9760391e860334bb6711aea9d5923d8cbc460cb1a5ec92db39f2436d711208",
+    "model/traffic/route_generator.py": "dde6753f27a9f60156b815e620f655fc0a89717978aff59fe36afa168489e62d",
+    "model/utils/metrics.py": "5fa30345786562837a6dd65e69c7079595deaca64701b07537977a3fd36fb693",
+    "model/experiments/reward_sensitivity.py": "3647a3022b190e057e41f28f86feaef4d7bc08b7b731a05e90c8909aa4371411",
+    "model/experiments/subscription_connection.py": "d3b13ec54f5295a993a1af580e09d4e80a97b362279c69c3a37abc119b4fa9ea",
+    "model/sumo/intersection.net.xml": "8d9d73ad1b8262dcb7d2fedbe3f59d9091108700e262be4d2d835a0cb26afe68"
+  },
+  "sumo_config_sha256": "bf897161a3ea80481859267f1975a5e86d7fbf446b1aad81cbde6c477a353e48",
+  "script_sha256": "1eb3fbdffc020769c987a365995371b165116f25ed99a63dc4ad68a36f9c0372",
+  "preserved_source_sha256": {
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_30\\attempt_001\\experiment_30\\final.zip": "0fe5605cf7f13d2eabee7df8cb744f28e55b96d1a3959dd33fbfa38842b159a7",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_30\\attempt_001\\experiment_30\\experiment_config.json": "8b6a402df3ecccfeaa2976859ac53168f812f909aeae41554dcbdadbdad59937",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_30\\attempt_001\\experiment_30\\training_routes.json": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_30\\attempt_001\\experiment_30\\summary.json": "982c7a9b361e51b561b2d6089fdfaffae9ad8140f68d95ac8fa20198e40793dc",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_30\\attempt_001\\experiment_30\\evaluation_metrics.csv": "cc5c586b75ac3b125968b2d5de62cd0f2fcebeb1f5400ed16bc59fa3b29e059c",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_30\\attempt_001\\experiment_30\\evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_30\\attempt_001\\experiment_30\\sumo\\intersection.net.xml": "8d9d73ad1b8262dcb7d2fedbe3f59d9091108700e262be4d2d835a0cb26afe68",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_30\\attempt_001\\experiment_30\\sumo\\simulation.sumocfg": "bf897161a3ea80481859267f1975a5e86d7fbf446b1aad81cbde6c477a353e48",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_13\\attempt_001\\experiment_13\\final.zip": "8322b6a63aacedd9c31943f23413115c3c7d931545994b15ff789d8a5794b87d",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_13\\attempt_001\\experiment_13\\experiment_config.json": "b2483b3663a8e08a5ac9f0dd9a87ea206eaf67b07b52a0ac04535ebf1d0bf193",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_13\\attempt_001\\experiment_13\\training_routes.json": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_13\\attempt_001\\experiment_13\\summary.json": "edbbae56d07a92535f7739c4b5d59a4e35be3f170d385fcb73b9d52ff3f5101f",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_13\\attempt_001\\experiment_13\\evaluation_metrics.csv": "c38a12322c9f842a71acc0dc942e8c92afaea84dea7b359b0525f4b6fb1beb8a",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_13\\attempt_001\\experiment_13\\evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_13\\attempt_001\\experiment_13\\sumo\\intersection.net.xml": "8d9d73ad1b8262dcb7d2fedbe3f59d9091108700e262be4d2d835a0cb26afe68",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_13\\attempt_001\\experiment_13\\sumo\\simulation.sumocfg": "bf897161a3ea80481859267f1975a5e86d7fbf446b1aad81cbde6c477a353e48",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_14\\attempt_001\\experiment_14\\final.zip": "e19f453ea4cbbffb5f5c2e20b4c6416901acfcf3bb999e018f84e09cf579e006",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_14\\attempt_001\\experiment_14\\experiment_config.json": "e165f6cb9c8742d823f868d3095a1af0d0c46ee8e19ddf0059d1f808e71160a3",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_14\\attempt_001\\experiment_14\\training_routes.json": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_14\\attempt_001\\experiment_14\\summary.json": "f0807935db98cab24a1b00783756414aca83b762b63aba35050ede965c0d2aea",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_14\\attempt_001\\experiment_14\\evaluation_metrics.csv": "b116df6a08042447c7f4d6a913550707ff996353e76b84475e626212024191de",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_14\\attempt_001\\experiment_14\\evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_14\\attempt_001\\experiment_14\\sumo\\intersection.net.xml": "8d9d73ad1b8262dcb7d2fedbe3f59d9091108700e262be4d2d835a0cb26afe68",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_14\\attempt_001\\experiment_14\\sumo\\simulation.sumocfg": "bf897161a3ea80481859267f1975a5e86d7fbf446b1aad81cbde6c477a353e48",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_15\\attempt_001\\experiment_15\\final.zip": "7f3ecaaf9dd251de8cdb2d38a87ad328e52b19641cc5aa39ef7299fea50153ad",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_15\\attempt_001\\experiment_15\\experiment_config.json": "8ec254f809f94980612a74b7072ed927a832960656d49e314d626b2157745dbf",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_15\\attempt_001\\experiment_15\\training_routes.json": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_15\\attempt_001\\experiment_15\\summary.json": "1e882aba4e16c5c917fd49934e575db83852c263eb6074795d7bbeba3f2537c6",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_15\\attempt_001\\experiment_15\\evaluation_metrics.csv": "311df22a252e64d80bea65760cd13ee196e601fd0a52b22cb9bddcdefa449750",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_15\\attempt_001\\experiment_15\\evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_15\\attempt_001\\experiment_15\\sumo\\intersection.net.xml": "8d9d73ad1b8262dcb7d2fedbe3f59d9091108700e262be4d2d835a0cb26afe68",
+    "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_15\\attempt_001\\experiment_15\\sumo\\simulation.sumocfg": "bf897161a3ea80481859267f1975a5e86d7fbf446b1aad81cbde6c477a353e48"
+  },
+  "source_search_config_sha256": "9838386fd60f28bad7b107d460e4303ee1558987c774486344cfe9475412808e",
+  "source_preflight_sha256": "625c3f5aa82b8b0a526dc976aac567969d917c7ae321d30666d760751a3b8965"
+}

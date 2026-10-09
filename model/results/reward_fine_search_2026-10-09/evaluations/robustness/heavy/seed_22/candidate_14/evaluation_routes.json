@@ -1,0 +1,62 @@
+[
+  {
+    "episode": 0,
+    "seed": 10001,
+    "scenario": "heavy",
+    "route_sha256": "b9ba7a28d2f6ad6ae127642a9619ba97941e9964c4008f4462b4c3c95cd2f1f3"
+  },
+  {
+    "episode": 1,
+    "seed": 10002,
+    "scenario": "heavy",
+    "route_sha256": "8b67f85c066b9d53aa23b129d57919b5c8065ae9a03065af9c4182aa1412d03b"
+  },
+  {
+    "episode": 2,
+    "seed": 10003,
+    "scenario": "heavy",
+    "route_sha256": "3e78aa6a4ee4a4a9362626b66e063fdf5d0f68735f4234c95008a618a912c557"
+  },
+  {
+    "episode": 3,
+    "seed": 10004,
+    "scenario": "heavy",
+    "route_sha256": "c5b1eacd1bdb31d37d6172bdb00dc8f652e40094071464b06e1e60ef649db1e7"
+  },
+  {
+    "episode": 4,
+    "seed": 10005,
+    "scenario": "heavy",
+    "route_sha256": "505d20941a99d9099f694a719c0dfa4290d3f574864d8b8d4a91b8203764025e"
+  },
+  {
+    "episode": 5,
+    "seed": 10006,
+    "scenario": "heavy",
+    "route_sha256": "13b4ed6e04308efb520c09636f3d385a80d2115301ca7dbcdf4515415ba6393d"
+  },
+  {
+    "episode": 6,
+    "seed": 10007,
+    "scenario": "heavy",
+    "route_sha256": "2b1ec7dd42e7b44b78f5065fa1c3cc933af3dc0daf415c2c39f211277768b890"
+  },
+  {
+    "episode": 7,
+    "seed": 10008,
+    "scenario": "heavy",
+    "route_sha256": "9d27cbf7d7528fd22303a2f8b481317b168d9f562e3bf72ed229957b01b0ee9d"
+  },
+  {
+    "episode": 8,
+    "seed": 10009,
+    "scenario": "heavy",
+    "route_sha256": "b690d9fbb2cb46d712c236f8305bcfa3eb41ee59b31cd0693f92ab8fe5ed8c10"
+  },
+  {
+    "episode": 9,
+    "seed": 10010,
+    "scenario": "heavy",
+    "route_sha256": "9f2c2382a28f6af2e130ed1b58e055e95d66d684db408417d0f5f52ccae84e4c"
+  }
+]

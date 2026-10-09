@@ -1,0 +1,426 @@
+{
+  "model_fingerprints": [
+    {
+      "candidate_id": 1,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.2,
+        0.4,
+        0.4
+      ],
+      "model_sha256": "81f5c3385623aca442be385e53c5108eeec396031cf05c81f8ffe68f0d4ebcd4",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "996625b0ecee21be16befcd09123faa9ffbb056ea05752b34e0dc11a3005c4b7"
+    },
+    {
+      "candidate_id": 2,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.2,
+        0.4,
+        0.5
+      ],
+      "model_sha256": "5d6e2d97b852fe7b9fe44bf0c5bfe2f15bd8a9aa8a6dfef6127efbf33773f93c",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "b2ae6d06c44d2ad9fd5ec96bc77a41fd4ade0ad74f3d1cb845e54052f17b3e4c"
+    },
+    {
+      "candidate_id": 3,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.2,
+        0.4,
+        0.6
+      ],
+      "model_sha256": "4ef330e880a900cd1e43435a9d5c0c38ddcadca53116a00cb44174d40419facb",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "6bcda559fff6ed1b457381e7ba90fb4b566dd10e171d9a1db8513d0b6bce61e4"
+    },
+    {
+      "candidate_id": 4,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.2,
+        0.5,
+        0.4
+      ],
+      "model_sha256": "839b4022b2105f30ba579af2921aa2b141099f418f954cb23cfc82bbef7505fb",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "cadc793abc2bfdcccc1d75f4bcf0e557a932bc4e9d9a198378eb77d08bc05ed4"
+    },
+    {
+      "candidate_id": 5,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.2,
+        0.5,
+        0.5
+      ],
+      "model_sha256": "680f2ad7bbd7a50e4c9bf10299e73c984685de6cd19464ea6f797b08792c75be",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "3fc679179cb7acbac4cef43e5f2c1b3d0c107b0496629e1ba8ba1c45fbdafa99"
+    },
+    {
+      "candidate_id": 6,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.2,
+        0.5,
+        0.6
+      ],
+      "model_sha256": "d56d2b771fb83848f5a756772f859fc0168806a16dc28562aa8813e5562d505d",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "0cacf94ee1f59ea43d8dc49e0227d8d245eb0da9c185242a87b08ef10b1e6935"
+    },
+    {
+      "candidate_id": 7,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.2,
+        0.6,
+        0.4
+      ],
+      "model_sha256": "0996937ad7b650a5e36a389271d66499809e8abb6184cf28da625000a5637d4d",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "e7bd0e50a76f7c6be5ae45d7912096b48ea9b2289e0161052e04a4f626a83b7e"
+    },
+    {
+      "candidate_id": 8,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.2,
+        0.6,
+        0.5
+      ],
+      "model_sha256": "c00153a7dd9d80b525544634c3b691eb8b089e4c99fc38f28b5de755e752d2ae",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "e0d49137d8795648a60e161782b10ebcdfc01f2bfef0951975991cc167f657ae"
+    },
+    {
+      "candidate_id": 9,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.2,
+        0.6,
+        0.6
+      ],
+      "model_sha256": "7da46488162f41d2dc2b94a792a25fb335217b5a149f6f521e59201ace79e60f",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "739e2a11e356a4dd6ee0cedfd17c3d6a9b0331e27a23b52b007ab04686f654b8"
+    },
+    {
+      "candidate_id": 10,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.3,
+        0.4,
+        0.4
+      ],
+      "model_sha256": "f54cd6cb3ab57ad80fafc0d6c3a7ae4400d201e6a305aef2f01ee2d3974fa09a",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "f993dd69a965293166a793d2341b87bf60b5814fdc5cbe5c750041f079907f37"
+    },
+    {
+      "candidate_id": 11,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.3,
+        0.4,
+        0.5
+      ],
+      "model_sha256": "7bbec322b7cddcc3bc3b837a88ec2276146693fb122973bc26bc75099e03570f",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "8de937ade980aa9e1414f725d1d72b507d3db48621f3b6423fd715941dfe6858"
+    },
+    {
+      "candidate_id": 12,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.3,
+        0.4,
+        0.6
+      ],
+      "model_sha256": "18ef76d81103ad23ccd4f06b9b793d40529def2bfcc5d7ff088071c5362e22f5",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "ba31d624c36f92fe2bf8db02b3afd28e8cde93ce5c41c089296dbe5c9f67cc52"
+    },
+    {
+      "candidate_id": 13,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.3,
+        0.5,
+        0.4
+      ],
+      "model_sha256": "8322b6a63aacedd9c31943f23413115c3c7d931545994b15ff789d8a5794b87d",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "c38a12322c9f842a71acc0dc942e8c92afaea84dea7b359b0525f4b6fb1beb8a"
+    },
+    {
+      "candidate_id": 14,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.3,
+        0.5,
+        0.5
+      ],
+      "model_sha256": "e19f453ea4cbbffb5f5c2e20b4c6416901acfcf3bb999e018f84e09cf579e006",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "b116df6a08042447c7f4d6a913550707ff996353e76b84475e626212024191de"
+    },
+    {
+      "candidate_id": 15,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.3,
+        0.5,
+        0.6
+      ],
+      "model_sha256": "7f3ecaaf9dd251de8cdb2d38a87ad328e52b19641cc5aa39ef7299fea50153ad",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "311df22a252e64d80bea65760cd13ee196e601fd0a52b22cb9bddcdefa449750"
+    },
+    {
+      "candidate_id": 16,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.3,
+        0.6,
+        0.4
+      ],
+      "model_sha256": "0c8ce51ad0e7e9278397516a9f62da3392b27deea7e1d4f3a9e1b85d2f749581",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "f2e916e79edbd826835e020cc18ace3be017cfbee60ff81998e5799e27518634"
+    },
+    {
+      "candidate_id": 17,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.3,
+        0.6,
+        0.5
+      ],
+      "model_sha256": "2ef47b362a8ed47b18276e5d83da7c71b43646dd54732bf4dd332fef8fe8d4db",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "eddbf6f4abca8688c57e8347392ecc2fc368b564ae466cc1f36ce0a0c47ca54c"
+    },
+    {
+      "candidate_id": 18,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.3,
+        0.6,
+        0.6
+      ],
+      "model_sha256": "0b2c0c10c2ce8ac25c9ce4aecc31e5e73d2313c46a4ea04612e2ece25bde6053",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "c651c52c6dee2365c47b2b432bf5b8f74176c632d395c70a5b4873dc3bf144b9"
+    },
+    {
+      "candidate_id": 19,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "model_sha256": "e6d209dec44bc68207ba6bf70c1eb78f38f56bcc1e64b2c7f86f629ffdc79fcf",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "9962ce07c787126287c928f79c8637b4d8b72c3c300d2d2f0a7b81e1a7af453a"
+    },
+    {
+      "candidate_id": 20,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.4,
+        0.4,
+        0.5
+      ],
+      "model_sha256": "0db1b2a3a5e5c7a17b04729ad5283b505196ee4d15861dc045689b9dd6fcce2d",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "c5e4eb079c2965a80a22d48e0f7849873d05eacb65fbccd4db242ca80b37e6c0"
+    },
+    {
+      "candidate_id": 21,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.4,
+        0.4,
+        0.6
+      ],
+      "model_sha256": "af79005fc80a96b49f5035b36a576f39d668828744050405349fb729370818f6",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "04cbea6c4040aa8fc82ef64187d66f88e23b2d056da1ba7c01144a21ed39943e"
+    },
+    {
+      "candidate_id": 22,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.4,
+        0.5,
+        0.4
+      ],
+      "model_sha256": "779a3721d1572b72b272224001bfb3f0321c616c263da9c2e6db158d62f443e3",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "59d139ae4fdecb6abec616b7e50c6db85f72c161fb3c09744ce1c0b885de4cd2"
+    },
+    {
+      "candidate_id": 23,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.4,
+        0.5,
+        0.5
+      ],
+      "model_sha256": "bedeac2b1026ce012768753dcaab784f4f00f1f79b3a359fba5ee307a5a1c221",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "8a3d770fd1592cc0c9e558e1986d4a3c9bb83b154c66cdc8c9551f0af3f6c5cc"
+    },
+    {
+      "candidate_id": 24,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.4,
+        0.5,
+        0.6
+      ],
+      "model_sha256": "4c05070b9ff7ae5dfc8008e3f8656f43a7566f18b782142df9c5c427a7355f70",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "72e894a9c7483dca59ce74c8f32b66792de6a9de07dc461ec5c196762c0150c8"
+    },
+    {
+      "candidate_id": 25,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.4,
+        0.6,
+        0.4
+      ],
+      "model_sha256": "e0024bdcf6745e671e741ca0e6e2f9f6007da18488fed3aaad16a4ec4eb5089a",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "17dffaa589eaa17fdc42102fcd501337fbed26a98247a8cb83b1541190b9b056"
+    },
+    {
+      "candidate_id": 26,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.4,
+        0.6,
+        0.5
+      ],
+      "model_sha256": "c9d8c75fcabe8ede727079644042ccd09e10df8c74088890cc01dcdadda268f7",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "1d408b7a0b66dbf5fdcda346517e1bf0b1e07f9b989051ed341e27bcd7aa9f2e"
+    },
+    {
+      "candidate_id": 27,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.4,
+        0.6,
+        0.6
+      ],
+      "model_sha256": "097b1b0417cc38a6b984c0395686877cea5dbfb4297e3653b735433446096d88",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "a927d6786300bb7ac189d5c5f38d4c740484bd3551dafea28f9f110034c4cbb0"
+    },
+    {
+      "candidate_id": 28,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.3,
+        0.5,
+        0.7
+      ],
+      "model_sha256": "30f1dfb93dd7e3f529a71ad4594159a4a80c98092f118065909228ade7733955",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "45c79402251ded5c95612f1c1333bbbe88b626aa758e9d510b37696855ebe4b5"
+    },
+    {
+      "candidate_id": 29,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.3,
+        0.5,
+        0.3
+      ],
+      "model_sha256": "448a42acfa2f4811050030bef007308558a393065d47516fa3868f0771668cba",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "3e0b217087a6cb404fa8d1f902463f36e4a0e86f7001825b833c1366cbb29baa"
+    },
+    {
+      "candidate_id": 30,
+      "training_seed": 22,
+      "training_steps": 50000,
+      "weights": [
+        0.3,
+        0.3,
+        0.5
+      ],
+      "model_sha256": "0fe5605cf7f13d2eabee7df8cb744f28e55b96d1a3959dd33fbfa38842b159a7",
+      "training_demand_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "cc5c586b75ac3b125968b2d5de62cd0f2fcebeb1f5400ed16bc59fa3b29e059c"
+    }
+  ],
+  "shortlist_sha256": "22fa9329d81592208beead9d7e182dcfc729164745ddeaa5801cd282dbf3161d",
+  "protocol_fingerprint": "6451f2ef7ad7d53bbe55567a13c7f1044f061d2428944f4c9b130e1fc9292479"
+}

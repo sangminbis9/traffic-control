@@ -1,0 +1,6 @@
+{
+  "checked_completed_models": 12,
+  "paired_training_and_validation_demand": true,
+  "fifty_k_samples_and_original_150k_schedule": true,
+  "discount_batch_updates_matched": true
+}

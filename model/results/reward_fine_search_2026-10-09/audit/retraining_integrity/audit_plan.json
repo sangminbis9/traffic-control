@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "planned_at_utc": "2026-10-09T14:28:57.451654+00:00",
+  "rationale": "Technical investigation of candidate13/training_seed42/attempt001 failing during SUMO startup with a malformed getVersion response and adjacent Address already in use. The five explicit jobs below were active peers at that event. They are repeated independently of observed candidate rankings. Replicas are integrity evidence only, not additional training-seed samples or substitute selection models.",
+  "planned_workers": 5,
+  "identity": {
+    "audit_script_sha256": "a9cd72ec39ceae85503f48c269f978b7ec33f8da80167854363f34b789224fa4",
+    "search_config_sha256": "9838386fd60f28bad7b107d460e4303ee1558987c774486344cfe9475412808e",
+    "frozen_protocol_sha256": "c30b4f0899642617e57ac73491cac1efa7ea97912d5ea5a979d2f2446dc902cb",
+    "runtime": {
+      "python": "3.14.0",
+      "numpy": "2.4.4",
+      "torch": "2.11.0",
+      "stable-baselines3": "2.9.0",
+      "gymnasium": "1.3.0",
+      "eclipse-sumo": "1.27.1"
+    },
+    "sources": [
+      {
+        "candidate_id": 11,
+        "training_seed": 22,
+        "job": {
+          "stage": "multiseed",
+          "candidate_id": 11,
+          "weights": [
+            0.3,
+            0.4,
+            0.5
+          ],
+          "training_seed": 22,
+          "training_steps": 150000,
+          "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_11"
+        },
+        "source_folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_11\\attempt_001\\experiment_11",
+        "source_sha256": {
+          "job.json": "e44a4ce9df5f5b327038dc2e1e7abcf064c1a3597ff4b38c6c74e539f7ba4b50",
+          "experiment_config.json": "a64251d27a61f24f786bfbb1603ce0fb588735265e86cacced18ab04847c3774",
+          "final.zip": "14ffd8a1ff5e8aa323a01fac9fe1b13a4bd33d0db69b07a7cd2c227ddbe1e62e",
+          "training_routes.json": "412d30f095d4c4d99f0b193f63ad8b98c8cb8cc2bad5e0cd8d47d968242b7f7a",
+          "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+          "evaluation_metrics.csv": "331a91de92a4ec4a05309fa869660d85e1c84ed92af1d870165809bf6edd5b3d",
+          "checkpoint_25000.zip": "a19799a10fb48bbb8f2c7497204acc0b21a0493652a0b019af3461e81244ee07",
+          "checkpoint_50000.zip": "9e317bb8d0ddf869e04f4049388778d5cd5fc531abd577d4ba526dc0a1191f51",
+          "checkpoint_75000.zip": "225629f1e64056a17e54ae2b9b51d27854f30cb781a5c0a3a1be13858a9dbd78",
+          "checkpoint_100000.zip": "12c3696a4432cdb0a464052326f98b8b2edfb291325e2bc895cfc621fa4e36c9",
+          "checkpoint_125000.zip": "41c2a60ede0b27c6ba8aabea8c3e1d62bc5e65d1f9062a6d9733c063d530feff",
+          "checkpoint_150000.zip": "14ffd8a1ff5e8aa323a01fac9fe1b13a4bd33d0db69b07a7cd2c227ddbe1e62e"
+        }
+      },
+      {
+        "candidate_id": 13,
+        "training_seed": 22,
+        "job": {
+          "stage": "multiseed",
+          "candidate_id": 13,
+          "weights": [
+            0.3,
+            0.5,
+            0.4
+          ],
+          "training_seed": 22,
+          "training_steps": 150000,
+          "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_13"
+        },
+        "source_folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_13\\attempt_001\\experiment_13",
+        "source_sha256": {
+          "job.json": "27ac1ba11c5f31b269ab091d4a8332b23bb626cc75113b956e737c7f25aba987",
+          "experiment_config.json": "e261c6f784a7d63350ff326f5513c92aeff1a5efcbb5b16a2bd7eabb72afc007",
+          "final.zip": "265182e7e21fe446cb60acd650815631b652a039113422fa2c1946e65d40d440",
+          "training_routes.json": "412d30f095d4c4d99f0b193f63ad8b98c8cb8cc2bad5e0cd8d47d968242b7f7a",
+          "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+          "evaluation_metrics.csv": "2883c0541df36cfda63f4bef9967e0fd962ba61a241be1cf273c31db29820933",
+          "checkpoint_25000.zip": "8640d073938dd2bce10bddb50394ec18e43b6e7ffe436d36325f44fd46a26052",
+          "checkpoint_50000.zip": "3e73f89541450903b18396d652e62983cf48d4b381022dee6d7ef28014e68db7",
+          "checkpoint_75000.zip": "9a6d55a654ca79b4f1995cad01ca77e37f539eadcc1df80acdc197902a3a5cac",
+          "checkpoint_100000.zip": "feb426ad4edc6f6d205eb3df7f5a8ededb8424855a0e890e2a7f177b2ab7bbf7",
+          "checkpoint_125000.zip": "d2a60d8815dbdf27a1ada54741a2a48601bb226c9429d2bd1b9eb4058ff88c23",
+          "checkpoint_150000.zip": "265182e7e21fe446cb60acd650815631b652a039113422fa2c1946e65d40d440"
+        }
+      },
+      {
+        "candidate_id": 14,
+        "training_seed": 22,
+        "job": {
+          "stage": "multiseed",
+          "candidate_id": 14,
+          "weights": [
+            0.3,
+            0.5,
+            0.5
+          ],
+          "training_seed": 22,
+          "training_steps": 150000,
+          "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_14"
+        },
+        "source_folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_14\\attempt_001\\experiment_14",
+        "source_sha256": {
+          "job.json": "6574e00ba144d212b75bc4ae2179a7fa4fde3195afb0c93a107ccf07963c0bb8",
+          "experiment_config.json": "edbe4e5e3097f6ed69f599ca5f7f89d3840ea3aa84463a71f91588a0a772366b",
+          "final.zip": "2f65ab9aa88fc33637bf649d34006990d8eb7a815e73a3da3c02eec248d756c7",
+          "training_routes.json": "412d30f095d4c4d99f0b193f63ad8b98c8cb8cc2bad5e0cd8d47d968242b7f7a",
+          "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+          "evaluation_metrics.csv": "a7280c3b48580e6fb0f83b0616f549b228882cc738b199b848007ae2fce5e42b",
+          "checkpoint_25000.zip": "19496ff1e12cbe506f346052daefba26611cf7c632b89925771d0eebd62bb817",
+          "checkpoint_50000.zip": "8a734253b3608174b926267cb688bd4cd9f91715f17cb65510811d82dcc70b5d",
+          "checkpoint_75000.zip": "211ed9987ba58ef3b0bcd90a3e1b1b9720e17c2d2c7609c306f88d070bd5e5f0",
+          "checkpoint_100000.zip": "332db6e573ae4e6146f8728595d2e92fce37bc0a4672973c1e017bbb11375130",
+          "checkpoint_125000.zip": "e6d25a5997cc68b206c46a89bbeaadca12c3daf915bdacbd14c2e3e7626df03c",
+          "checkpoint_150000.zip": "2f65ab9aa88fc33637bf649d34006990d8eb7a815e73a3da3c02eec248d756c7"
+        }
+      },
+      {
+        "candidate_id": 15,
+        "training_seed": 22,
+        "job": {
+          "stage": "multiseed",
+          "candidate_id": 15,
+          "weights": [
+            0.3,
+            0.5,
+            0.6
+          ],
+          "training_seed": 22,
+          "training_steps": 150000,
+          "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_15"
+        },
+        "source_folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_15\\attempt_001\\experiment_15",
+        "source_sha256": {
+          "job.json": "20b0aaadc1a49e7d5fe3a897f2f16c0c41722f244bdace0bc82708e674fb99d4",
+          "experiment_config.json": "f65683a1a44c69c9adb60dfd1ec055acf48cad03c9c0e8289fa03e3088875c08",
+          "final.zip": "dfc90bd19cf0a66204b8dc0981df08250c80ba067fc16ccb248023c4f2ab5a11",
+          "training_routes.json": "412d30f095d4c4d99f0b193f63ad8b98c8cb8cc2bad5e0cd8d47d968242b7f7a",
+          "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+          "evaluation_metrics.csv": "0d034f07e9aaa300e2100bd234e2e4118d2e271af80e5bf49204c359473758b9",
+          "checkpoint_25000.zip": "5df3fecf9dfeb8f5235d3882841862e136f9c91915214ab29d888440fa252a5f",
+          "checkpoint_50000.zip": "a88590d6d9fa449ca5603428773e4186ad8d435971d4b16bf9fc8389c9564fd5",
+          "checkpoint_75000.zip": "51f8982d2bc54b45f84c7bcd45f752e4232fa0094ea004c30a6b71c5a9174517",
+          "checkpoint_100000.zip": "21aade01c8331a541bfa8a05c40c54ddd8cf5424b0b26edf3adaf2706d698b56",
+          "checkpoint_125000.zip": "2431a3276f984b18615f004ebcaf1dffffdd40b62bbb20fa725e5897fa583ea5",
+          "checkpoint_150000.zip": "dfc90bd19cf0a66204b8dc0981df08250c80ba067fc16ccb248023c4f2ab5a11"
+        }
+      },
+      {
+        "candidate_id": 11,
+        "training_seed": 42,
+        "job": {
+          "stage": "multiseed",
+          "candidate_id": 11,
+          "weights": [
+            0.3,
+            0.4,
+            0.5
+          ],
+          "training_seed": 42,
+          "training_steps": 150000,
+          "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_11"
+        },
+        "source_folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_11\\attempt_001\\experiment_11",
+        "source_sha256": {
+          "job.json": "66b701a4f07a1fe558cf8e013947f31b2e74754900f6b666cedf48c8640a7ce5",
+          "experiment_config.json": "b48078632df11e676906b44bad8307015306fdf3f53f967ccd9c90e028bf0ba0",
+          "final.zip": "4426122d73c9f9e689a67c44882544cc8eac1da175884919663ce8b95fc92aa8",
+          "training_routes.json": "2798f2eee9e1708303be5677376f048290fe754f18a953232a6c46ddb31eac4d",
+          "evaluation_routes.json": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+          "evaluation_metrics.csv": "907db95845b86e13d4d9e8a6cac32b653935acc24cf66d9e83fe98e5982cdc7f",
+          "checkpoint_25000.zip": "ef708c48041f1069504f8e8316764493b33a4b562ee2d1be0243e36352be6e3c",
+          "checkpoint_50000.zip": "1c1a680f5e781de130da55834afdb52ba4d24ed7c951c78726d4f87e8aa35412",
+          "checkpoint_75000.zip": "3604b79e9bd143606384eaf5bc21f98ce6fc650bba280f810a389f3bd07a9ee6",
+          "checkpoint_100000.zip": "62a21aa924795d61d7bc93f19103b885fa1295ac572f9d71067c18661235b44c",
+          "checkpoint_125000.zip": "a2c7218bee1d3488a2f317c835a9e58252e5b1ce93662d13ce7e7ad8d53274f4",
+          "checkpoint_150000.zip": "4426122d73c9f9e689a67c44882544cc8eac1da175884919663ce8b95fc92aa8"
+        }
+      }
+    ],
+    "expected_comparison_models": 42,
+    "expected_integrity_models": 5,
+    "comparison_checkpoint_names": [
+      "checkpoint_25000.zip",
+      "checkpoint_50000.zip",
+      "checkpoint_75000.zip",
+      "checkpoint_100000.zip",
+      "checkpoint_125000.zip",
+      "checkpoint_150000.zip",
+      "final.zip"
+    ],
+    "selection_sample_size_increased": false
+  },
+  "retry_policy": "Reuse only audited completed replicas; interrupted replicas restart fresh in a new attempt.",
+  "mismatch_policy": "Report FAIL; preserve both models and all evidence; never replace an original or reselect.",
+  "training_progress_comparison": "Compare status, timesteps and total_timesteps; wall time and steps/second are excluded.",
+  "notes": [
+    "This new audit script is outside the frozen selection protocol and does not modify it.",
+    "Five jobs were specified from the startup incident, not selected by performance.",
+    "Exact tensor equality is checked at all saved 25k checkpoints and final checkpoint.",
+    "ZIP byte hashes are recorded but may differ due to serialization metadata; tensor/state equality is decisive.",
+    "Matching saved states is strong reproducibility evidence, not a recording of every unsaved simulator tick."
+  ],
+  "protocol_fingerprint": "ee1a96d354f2dcd9e3fd0d12deef6369c5f03743605c32fad60936703011586f"
+}

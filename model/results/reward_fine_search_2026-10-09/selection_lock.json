@@ -1,0 +1,577 @@
+{
+  "locked_at": "2026-10-09T14:53:21.913638+00:00",
+  "selected_candidate_id": 14,
+  "incumbent_id": 14,
+  "selected_weights": [
+    0.3,
+    0.5,
+    0.5
+  ],
+  "ranked_candidate_ids": [
+    14,
+    15
+  ],
+  "eligible_stable_candidate_ids": [
+    14
+  ],
+  "per_training_seed_waiting_differences": {
+    "14": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "15": [
+      0.619072009398451,
+      0.9393008264733993,
+      -0.06714675938114567
+    ]
+  },
+  "training_seeds": [
+    22,
+    42,
+    62
+  ],
+  "training_steps": 150000,
+  "validation_seeds": [
+    8001,
+    8002,
+    8003,
+    8004,
+    8005,
+    8006,
+    8007,
+    8008,
+    8009,
+    8010,
+    8011,
+    8012,
+    8013,
+    8014,
+    8015,
+    8016,
+    8017,
+    8018,
+    8019,
+    8020
+  ],
+  "locked_before_holdout": true,
+  "locked_before_robustness": true,
+  "holdout_reselection_permitted": false,
+  "candidate_weights": {
+    "1": [
+      0.2,
+      0.4,
+      0.4
+    ],
+    "2": [
+      0.2,
+      0.4,
+      0.5
+    ],
+    "3": [
+      0.2,
+      0.4,
+      0.6
+    ],
+    "4": [
+      0.2,
+      0.5,
+      0.4
+    ],
+    "5": [
+      0.2,
+      0.5,
+      0.5
+    ],
+    "6": [
+      0.2,
+      0.5,
+      0.6
+    ],
+    "7": [
+      0.2,
+      0.6,
+      0.4
+    ],
+    "8": [
+      0.2,
+      0.6,
+      0.5
+    ],
+    "9": [
+      0.2,
+      0.6,
+      0.6
+    ],
+    "10": [
+      0.3,
+      0.4,
+      0.4
+    ],
+    "11": [
+      0.3,
+      0.4,
+      0.5
+    ],
+    "12": [
+      0.3,
+      0.4,
+      0.6
+    ],
+    "13": [
+      0.3,
+      0.5,
+      0.4
+    ],
+    "14": [
+      0.3,
+      0.5,
+      0.5
+    ],
+    "15": [
+      0.3,
+      0.5,
+      0.6
+    ],
+    "16": [
+      0.3,
+      0.6,
+      0.4
+    ],
+    "17": [
+      0.3,
+      0.6,
+      0.5
+    ],
+    "18": [
+      0.3,
+      0.6,
+      0.6
+    ],
+    "19": [
+      0.4,
+      0.4,
+      0.4
+    ],
+    "20": [
+      0.4,
+      0.4,
+      0.5
+    ],
+    "21": [
+      0.4,
+      0.4,
+      0.6
+    ],
+    "22": [
+      0.4,
+      0.5,
+      0.4
+    ],
+    "23": [
+      0.4,
+      0.5,
+      0.5
+    ],
+    "24": [
+      0.4,
+      0.5,
+      0.6
+    ],
+    "25": [
+      0.4,
+      0.6,
+      0.4
+    ],
+    "26": [
+      0.4,
+      0.6,
+      0.5
+    ],
+    "27": [
+      0.4,
+      0.6,
+      0.6
+    ],
+    "28": [
+      0.3,
+      0.5,
+      0.7
+    ],
+    "29": [
+      0.3,
+      0.5,
+      0.3
+    ],
+    "30": [
+      0.3,
+      0.3,
+      0.5
+    ]
+  },
+  "model_results": [
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 11,
+        "weights": [
+          0.3,
+          0.4,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_11"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_11\\attempt_001\\experiment_11",
+      "reused_completed_run": true
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 13,
+        "weights": [
+          0.3,
+          0.5,
+          0.4
+        ],
+        "training_seed": 22,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_13"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_13\\attempt_001\\experiment_13",
+      "reused_completed_run": true
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 14,
+        "weights": [
+          0.3,
+          0.5,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_14"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_14\\attempt_001\\experiment_14",
+      "reused_completed_run": true
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 15,
+        "weights": [
+          0.3,
+          0.5,
+          0.6
+        ],
+        "training_seed": 22,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_15"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_15\\attempt_001\\experiment_15",
+      "reused_completed_run": true
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 11,
+        "weights": [
+          0.3,
+          0.4,
+          0.5
+        ],
+        "training_seed": 42,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_11"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_11\\attempt_001\\experiment_11",
+      "reused_completed_run": true
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 13,
+        "weights": [
+          0.3,
+          0.5,
+          0.4
+        ],
+        "training_seed": 42,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_13"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_13\\attempt_002\\experiment_13",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 14,
+        "weights": [
+          0.3,
+          0.5,
+          0.5
+        ],
+        "training_seed": 42,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_14"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_14\\attempt_001\\experiment_14",
+      "reused_completed_run": true
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 15,
+        "weights": [
+          0.3,
+          0.5,
+          0.6
+        ],
+        "training_seed": 42,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_15"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_15\\attempt_001\\experiment_15",
+      "reused_completed_run": true
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 11,
+        "weights": [
+          0.3,
+          0.4,
+          0.5
+        ],
+        "training_seed": 62,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_11"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_11\\attempt_001\\experiment_11",
+      "reused_completed_run": true
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 13,
+        "weights": [
+          0.3,
+          0.5,
+          0.4
+        ],
+        "training_seed": 62,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_13"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_13\\attempt_001\\experiment_13",
+      "reused_completed_run": true
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 14,
+        "weights": [
+          0.3,
+          0.5,
+          0.5
+        ],
+        "training_seed": 62,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_14"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_14\\attempt_001\\experiment_14",
+      "reused_completed_run": true
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 15,
+        "weights": [
+          0.3,
+          0.5,
+          0.6
+        ],
+        "training_seed": 62,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_15"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_15\\attempt_001\\experiment_15",
+      "reused_completed_run": true
+    }
+  ],
+  "model_fingerprints": [
+    {
+      "candidate_id": 11,
+      "training_seed": 22,
+      "training_steps": 150000,
+      "weights": [
+        0.3,
+        0.4,
+        0.5
+      ],
+      "model_sha256": "14ffd8a1ff5e8aa323a01fac9fe1b13a4bd33d0db69b07a7cd2c227ddbe1e62e",
+      "training_demand_sha256": "412d30f095d4c4d99f0b193f63ad8b98c8cb8cc2bad5e0cd8d47d968242b7f7a",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "331a91de92a4ec4a05309fa869660d85e1c84ed92af1d870165809bf6edd5b3d"
+    },
+    {
+      "candidate_id": 11,
+      "training_seed": 42,
+      "training_steps": 150000,
+      "weights": [
+        0.3,
+        0.4,
+        0.5
+      ],
+      "model_sha256": "4426122d73c9f9e689a67c44882544cc8eac1da175884919663ce8b95fc92aa8",
+      "training_demand_sha256": "2798f2eee9e1708303be5677376f048290fe754f18a953232a6c46ddb31eac4d",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "907db95845b86e13d4d9e8a6cac32b653935acc24cf66d9e83fe98e5982cdc7f"
+    },
+    {
+      "candidate_id": 11,
+      "training_seed": 62,
+      "training_steps": 150000,
+      "weights": [
+        0.3,
+        0.4,
+        0.5
+      ],
+      "model_sha256": "c7cadc14a3157d9d2b081fe403b89fa26d21f3e494e97f7a033981d4b89897bc",
+      "training_demand_sha256": "1fa64ab425e8b172abb49a25d48a4e75a003f828da3bfa2e57268b3c3a88fb30",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "912c03a480a09c441e51a8d4d01b85cc2315242ea940fdf9c3656187fb24e8b3"
+    },
+    {
+      "candidate_id": 13,
+      "training_seed": 22,
+      "training_steps": 150000,
+      "weights": [
+        0.3,
+        0.5,
+        0.4
+      ],
+      "model_sha256": "265182e7e21fe446cb60acd650815631b652a039113422fa2c1946e65d40d440",
+      "training_demand_sha256": "412d30f095d4c4d99f0b193f63ad8b98c8cb8cc2bad5e0cd8d47d968242b7f7a",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "2883c0541df36cfda63f4bef9967e0fd962ba61a241be1cf273c31db29820933"
+    },
+    {
+      "candidate_id": 13,
+      "training_seed": 42,
+      "training_steps": 150000,
+      "weights": [
+        0.3,
+        0.5,
+        0.4
+      ],
+      "model_sha256": "749bd5d4b63647395fd2c843f88d173c9c43395c14233d721d91f73463db9f34",
+      "training_demand_sha256": "2798f2eee9e1708303be5677376f048290fe754f18a953232a6c46ddb31eac4d",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "96abac0dc48b184bedba8b308bdc064ad1248963558625b3163f7ea19e8aeff0"
+    },
+    {
+      "candidate_id": 13,
+      "training_seed": 62,
+      "training_steps": 150000,
+      "weights": [
+        0.3,
+        0.5,
+        0.4
+      ],
+      "model_sha256": "0cee00efbc5cd3212e1879091b783b258a0f08ba6beaf2c76b7513dc6e4f3f06",
+      "training_demand_sha256": "1fa64ab425e8b172abb49a25d48a4e75a003f828da3bfa2e57268b3c3a88fb30",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "4461c63eadf76e93e52620465e5172e0304a8251c4cfaba6fe694d057efd3076"
+    },
+    {
+      "candidate_id": 14,
+      "training_seed": 22,
+      "training_steps": 150000,
+      "weights": [
+        0.3,
+        0.5,
+        0.5
+      ],
+      "model_sha256": "2f65ab9aa88fc33637bf649d34006990d8eb7a815e73a3da3c02eec248d756c7",
+      "training_demand_sha256": "412d30f095d4c4d99f0b193f63ad8b98c8cb8cc2bad5e0cd8d47d968242b7f7a",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "a7280c3b48580e6fb0f83b0616f549b228882cc738b199b848007ae2fce5e42b"
+    },
+    {
+      "candidate_id": 14,
+      "training_seed": 42,
+      "training_steps": 150000,
+      "weights": [
+        0.3,
+        0.5,
+        0.5
+      ],
+      "model_sha256": "5bf26cfe0d81e1ff2981ce959f2989c08258690978ff863420f6ff24dc722b97",
+      "training_demand_sha256": "2798f2eee9e1708303be5677376f048290fe754f18a953232a6c46ddb31eac4d",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "4c74fdd5c4772f970f8326e01e5a9637b7461077867c89ddad8975f032d540e9"
+    },
+    {
+      "candidate_id": 14,
+      "training_seed": 62,
+      "training_steps": 150000,
+      "weights": [
+        0.3,
+        0.5,
+        0.5
+      ],
+      "model_sha256": "7f176416495945a4eb1d4b32c9178b2315b2abdd289d79b93c93e5f0d7819d99",
+      "training_demand_sha256": "1fa64ab425e8b172abb49a25d48a4e75a003f828da3bfa2e57268b3c3a88fb30",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "aa859a2f93b6a034838d77c9ca7971c27099cdec61aae6e4892c2c239ce5861b"
+    },
+    {
+      "candidate_id": 15,
+      "training_seed": 22,
+      "training_steps": 150000,
+      "weights": [
+        0.3,
+        0.5,
+        0.6
+      ],
+      "model_sha256": "dfc90bd19cf0a66204b8dc0981df08250c80ba067fc16ccb248023c4f2ab5a11",
+      "training_demand_sha256": "412d30f095d4c4d99f0b193f63ad8b98c8cb8cc2bad5e0cd8d47d968242b7f7a",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "0d034f07e9aaa300e2100bd234e2e4118d2e271af80e5bf49204c359473758b9"
+    },
+    {
+      "candidate_id": 15,
+      "training_seed": 42,
+      "training_steps": 150000,
+      "weights": [
+        0.3,
+        0.5,
+        0.6
+      ],
+      "model_sha256": "a015770371d4dfd4c0c4593654b98252b58f3d94e24ef427009d313734cd3e1f",
+      "training_demand_sha256": "2798f2eee9e1708303be5677376f048290fe754f18a953232a6c46ddb31eac4d",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "99a73475f39b2673507fa5e81b0449781c9c9a863ed699fadfb94641d57579af"
+    },
+    {
+      "candidate_id": 15,
+      "training_seed": 62,
+      "training_steps": 150000,
+      "weights": [
+        0.3,
+        0.5,
+        0.6
+      ],
+      "model_sha256": "963913e3fd5d30adda124ed8ecd79c2d1699593507fe5a7071294c17125ad6f4",
+      "training_demand_sha256": "1fa64ab425e8b172abb49a25d48a4e75a003f828da3bfa2e57268b3c3a88fb30",
+      "evaluation_demand_sha256": "0c5850cae7a8b04e5d4fa5ad863081a1e516cbbc30b32e76d04ea30aaa1c4473",
+      "evaluation_metrics_sha256": "5e460c763ece49f2092592f3d2115004a1f65258db2fec6f955f6ec5b9733964"
+    }
+  ],
+  "protocol_fingerprint": "26059df8e5a0f134c73523e6ce1c32a70225d828305aa9af336732d390100563"
+}

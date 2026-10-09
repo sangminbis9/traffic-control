@@ -1,0 +1,545 @@
+{
+  "created_at": "2026-10-09T13:24:01.934559+00:00",
+  "incumbent_id": 14,
+  "incumbent_weights": [
+    0.3,
+    0.5,
+    0.5
+  ],
+  "candidate_weights": {
+    "1": [
+      0.2,
+      0.4,
+      0.4
+    ],
+    "2": [
+      0.2,
+      0.4,
+      0.5
+    ],
+    "3": [
+      0.2,
+      0.4,
+      0.6
+    ],
+    "4": [
+      0.2,
+      0.5,
+      0.4
+    ],
+    "5": [
+      0.2,
+      0.5,
+      0.5
+    ],
+    "6": [
+      0.2,
+      0.5,
+      0.6
+    ],
+    "7": [
+      0.2,
+      0.6,
+      0.4
+    ],
+    "8": [
+      0.2,
+      0.6,
+      0.5
+    ],
+    "9": [
+      0.2,
+      0.6,
+      0.6
+    ],
+    "10": [
+      0.3,
+      0.4,
+      0.4
+    ],
+    "11": [
+      0.3,
+      0.4,
+      0.5
+    ],
+    "12": [
+      0.3,
+      0.4,
+      0.6
+    ],
+    "13": [
+      0.3,
+      0.5,
+      0.4
+    ],
+    "14": [
+      0.3,
+      0.5,
+      0.5
+    ],
+    "15": [
+      0.3,
+      0.5,
+      0.6
+    ],
+    "16": [
+      0.3,
+      0.6,
+      0.4
+    ],
+    "17": [
+      0.3,
+      0.6,
+      0.5
+    ],
+    "18": [
+      0.3,
+      0.6,
+      0.6
+    ],
+    "19": [
+      0.4,
+      0.4,
+      0.4
+    ],
+    "20": [
+      0.4,
+      0.4,
+      0.5
+    ],
+    "21": [
+      0.4,
+      0.4,
+      0.6
+    ],
+    "22": [
+      0.4,
+      0.5,
+      0.4
+    ],
+    "23": [
+      0.4,
+      0.5,
+      0.5
+    ],
+    "24": [
+      0.4,
+      0.5,
+      0.6
+    ],
+    "25": [
+      0.4,
+      0.6,
+      0.4
+    ],
+    "26": [
+      0.4,
+      0.6,
+      0.5
+    ],
+    "27": [
+      0.4,
+      0.6,
+      0.6
+    ]
+  },
+  "grid_axes": [
+    [
+      0.2,
+      0.3,
+      0.4
+    ],
+    [
+      0.4,
+      0.5,
+      0.6
+    ],
+    [
+      0.4,
+      0.5,
+      0.6
+    ]
+  ],
+  "fine_training_steps": 50000,
+  "fine_training_seed": 22,
+  "multiseed_training_steps": 150000,
+  "training_seeds": [
+    22,
+    42,
+    62
+  ],
+  "schedule_timesteps": 150000,
+  "validation_seeds": [
+    8001,
+    8002,
+    8003,
+    8004,
+    8005,
+    8006,
+    8007,
+    8008,
+    8009,
+    8010,
+    8011,
+    8012,
+    8013,
+    8014,
+    8015,
+    8016,
+    8017,
+    8018,
+    8019,
+    8020
+  ],
+  "holdout_seeds": [
+    9001,
+    9002,
+    9003,
+    9004,
+    9005,
+    9006,
+    9007,
+    9008,
+    9009,
+    9010,
+    9011,
+    9012,
+    9013,
+    9014,
+    9015,
+    9016,
+    9017,
+    9018,
+    9019,
+    9020,
+    9021,
+    9022,
+    9023,
+    9024,
+    9025,
+    9026,
+    9027,
+    9028,
+    9029,
+    9030
+  ],
+  "robustness_seeds": [
+    10001,
+    10002,
+    10003,
+    10004,
+    10005,
+    10006,
+    10007,
+    10008,
+    10009,
+    10010
+  ],
+  "robustness_scenarios": [
+    "uniform",
+    "north_south_congested",
+    "east_west_congested",
+    "left_turn_congested",
+    "heavy",
+    "low"
+  ],
+  "previously_used_seeds_excluded": [
+    "4001-4008",
+    "5001-5010",
+    "6001-6002",
+    "7001-7020"
+  ],
+  "episode_seconds": 300,
+  "demand_seconds": 240,
+  "queue_weight": 1.0,
+  "workers": 6,
+  "core_sha256": {
+    "model/utils/config.py": "69c3e9a352ade61c5fff978456404f963a8db3bf98ff6677d7010921c9766f02",
+    "model/env/reward.py": "36b64f982460166615c89a5b13c7f9ec2e458127ce388da3dbcdcc2e0493df1b",
+    "model/env/intersection_env.py": "b3e7063108aaaa1b8ef925b76ee2292d2922091e0a54f6aeb6ad5013a0f09892",
+    "model/env/state_provider.py": "144c541b74b6442c099fa7a2a5206571afe96622bdd077bb4ba7f55cf6f38301",
+    "model/controller/signal_controller.py": "a27d421fba0800ae6bdb05883e8614c8957e5ffe72d2c7ab10b4e65194134f5e",
+    "model/controller/traffic_dqn.py": "3ea3f44f1d2e8bf465ff0fcbea9f6c2d2998792a19b979e143abc64b75f12245",
+    "model/training.py": "ad9760391e860334bb6711aea9d5923d8cbc460cb1a5ec92db39f2436d711208",
+    "model/traffic/route_generator.py": "dde6753f27a9f60156b815e620f655fc0a89717978aff59fe36afa168489e62d",
+    "model/utils/metrics.py": "5fa30345786562837a6dd65e69c7079595deaca64701b07537977a3fd36fb693",
+    "model/experiments/reward_sensitivity.py": "3647a3022b190e057e41f28f86feaef4d7bc08b7b731a05e90c8909aa4371411",
+    "model/experiments/subscription_connection.py": "d3b13ec54f5295a993a1af580e09d4e80a97b362279c69c3a37abc119b4fa9ea",
+    "model/sumo/intersection.net.xml": "8d9d73ad1b8262dcb7d2fedbe3f59d9091108700e262be4d2d835a0cb26afe68"
+  },
+  "project_config": {
+    "project_root": "C:\\Users\\권민우\\traffic-control\\model",
+    "sumo_dir": "C:\\Users\\권민우\\traffic-control\\model\\sumo",
+    "results_dir": "C:\\Users\\권민우\\traffic-control\\model\\results",
+    "signal": {
+      "decision_interval": 1.0,
+      "min_green": 3.0,
+      "max_green": 15.0,
+      "yellow": 1.0,
+      "all_red": 1.0,
+      "max_red": 60.0
+    },
+    "reward": {
+      "queue_weight": 1.0,
+      "waiting_weight": 0.1,
+      "max_waiting_weight": 0.1,
+      "switch_penalty": 0.2,
+      "queue_scale": 10.0,
+      "waiting_scale": 6000.0,
+      "max_waiting_scale": 120.0
+    },
+    "dqn": {
+      "learning_rate": 0.0003,
+      "buffer_size": 100000,
+      "learning_starts": 5000,
+      "batch_size": 64,
+      "gamma": 0.95,
+      "train_freq": 4,
+      "gradient_steps": 1,
+      "n_steps": 5,
+      "exploration_hold_min": 5,
+      "exploration_hold_max": 17,
+      "target_update_interval": 1000,
+      "exploration_fraction": 0.2,
+      "exploration_final_eps": 0.01,
+      "policy": "MlpPolicy",
+      "network_architecture": [
+        128,
+        128
+      ],
+      "torch_threads": 1
+    },
+    "simulation": {
+      "step_length": 0.5,
+      "episode_seconds": 300,
+      "demand_seconds": 240,
+      "warmup_seconds": 0,
+      "use_gui": false,
+      "seed": 1,
+      "scenario": "random",
+      "route_depart_interval": 1,
+      "extra_sumo_args": []
+    },
+    "fixed_green_times": {
+      "0": 10.0,
+      "1": 4.0,
+      "2": 4.0,
+      "3": 4.0,
+      "4": 10.0,
+      "5": 4.0,
+      "6": 4.0,
+      "7": 4.0
+    },
+    "approaching_distance": 50.0,
+    "approaching_scale": 10.0
+  },
+  "fresh_training_per_candidate_and_seed": true,
+  "observation_shape": [
+    60
+  ],
+  "action_count": 8,
+  "selection_rules": {
+    "baseline": "fresh incumbent trained at the same steps and training seed",
+    "safety_events_allowed": 0,
+    "minimum_throughput_retention": 0.95,
+    "maximum_waiting_mean_must_not_increase": true,
+    "lexicographic_order": [
+      "avg_waiting_time",
+      "max_waiting_time",
+      "avg_queue",
+      "phase_changes",
+      "-throughput",
+      "candidate_id"
+    ],
+    "shortlist": "top three eligible candidates plus incumbent, deduplicated",
+    "multiseed_direction": "mean waiting must not worsen for any training seed",
+    "holdout_reselection_permitted": false,
+    "robustness_used_for_selection": false,
+    "robustness_maximum_waiting_increase_pct": 0.0,
+    "robustness_mean_waiting_increase_limit_pct": 5.0,
+    "robustness_failed_confirmation": "retain incumbent; never promote runner-up"
+  },
+  "boundary_protocol": {
+    "step": 0.1,
+    "leaders": 3,
+    "max_rounds": 2,
+    "method": "extend outward one axis at a time at each top-three boundary point",
+    "unresolved_boundary": "report limited search; do not claim a local or global optimum"
+  },
+  "bootstrap_samples": 5000,
+  "bootstrap_seed": 1729,
+  "git_commit": "b0530d711eb9b5ec291b99284794e6fac8e1dba2",
+  "runtime": {
+    "python": "3.14.0",
+    "numpy": "2.4.4",
+    "torch": "2.11.0",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.3.0",
+    "eclipse-sumo": "1.27.1"
+  },
+  "prior_results_preserved": "model/results/reward_search_2026-10-09",
+  "prior_models_not_used_as_comparison_baselines": true,
+  "execution_notes": [
+    "The unchanged existing Progress callback stops at the requested sample count.",
+    "Its terminal callback interrupts the last rollout before its final update; the same convention is used for every model.",
+    "Checkpoint resume skips only completed audited runs. Interrupted training restarts fresh in a new attempt folder.",
+    "Holdout and robustness are confirmation-only after a validation selection lock."
+  ],
+  "prior_results_sha256": {
+    "model\\results\\reward_search_2026-10-09\\.gitattributes": "6d56bbf0bba2c0892321487fcc969cfbf0d372219c5a9d3e3b3f92591bdb5a69",
+    "model\\results\\reward_search_2026-10-09\\analysis_sources\\confirm_reward_followup.py": "b7de10ca94fbd5b3f599d8d69cd3134b40dd39d854128033e23195fca9399abe",
+    "model\\results\\reward_search_2026-10-09\\analysis_sources\\finalize_reward_search.py": "fedeaac5f58d330787de900ae4f6d90ae4233c71cba952ade2348652e4148abe",
+    "model\\results\\reward_search_2026-10-09\\analysis_sources\\stress_candidate4.py": "7fa99da7e2ec51b5607159a1e655d2be482d5d3728004fb7a92341eb66685d8b",
+    "model\\results\\reward_search_2026-10-09\\analysis_sources\\stress_reward_finalists.py": "dfb1a5fdfb602b9c7238fe012119a1b17f47f4def65ff93fcbd6323b8dc773fb",
+    "model\\results\\reward_search_2026-10-09\\analysis_sources\\summarize_quick_reward_search.py": "5e31556b3cefef2d97ce5363f323178c424a96f2e23687af1a3a4867b7a398bd",
+    "model\\results\\reward_search_2026-10-09\\comparison.csv": "8070afd975e91f27ddbd626d63ff0b9512e9ca1b492402dab96ff6a2b8192f76",
+    "model\\results\\reward_search_2026-10-09\\comparison.json": "c3691b5cea5e35ee3099f9cd74b95c5652443fd8fac9c1387dfdf4f6c92183f6",
+    "model\\results\\reward_search_2026-10-09\\experiment_1\\evaluation_metrics.csv": "6be02208b5093c009ab2020ab50c58f19e6b524bf25baece176257672eec86a0",
+    "model\\results\\reward_search_2026-10-09\\experiment_1\\evaluation_routes.json": "5b55146138d5f32b64c0c56aaa9ab4b5cce1295b0c41bf54943e3b721e39056d",
+    "model\\results\\reward_search_2026-10-09\\experiment_1\\experiment_config.json": "1aec14cb224949477c95c58038b7b24048e6ab865243b70e816c4e92d3c34f1f",
+    "model\\results\\reward_search_2026-10-09\\experiment_1\\final.zip": "3236889310f9063ef5b361e92d243b21cc96aee95ac9e8a6c7ce6f5ec712b628",
+    "model\\results\\reward_search_2026-10-09\\experiment_1\\summary.json": "230e22dfb5334f4e8709a87c696ec4222da8bfba50550077819edeb9e659cbf5",
+    "model\\results\\reward_search_2026-10-09\\experiment_1\\training_progress.csv": "f6c96fba0371c36736e29418e14f0afa1315f3683e8f75c61474f6a404cd17e9",
+    "model\\results\\reward_search_2026-10-09\\experiment_1\\training_routes.json": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+    "model\\results\\reward_search_2026-10-09\\experiment_2\\evaluation_metrics.csv": "94978bf18754aff8f9d99280393d31b112fbcaa39000e1262fdf7922954fc688",
+    "model\\results\\reward_search_2026-10-09\\experiment_2\\evaluation_routes.json": "5b55146138d5f32b64c0c56aaa9ab4b5cce1295b0c41bf54943e3b721e39056d",
+    "model\\results\\reward_search_2026-10-09\\experiment_2\\experiment_config.json": "d4ab9fe357eb940e3f7d765d245aafda962a77e3a3417536481372ae62919eb1",
+    "model\\results\\reward_search_2026-10-09\\experiment_2\\final.zip": "c668ddc379768847439c5bf864b73ea59689293b6d287841b10898bd740084c8",
+    "model\\results\\reward_search_2026-10-09\\experiment_2\\summary.json": "4eb36a92a8a8b20a4e76439417419d3ad92d1da27f60a152e6c7d954b07c4dd6",
+    "model\\results\\reward_search_2026-10-09\\experiment_2\\training_progress.csv": "847e81bddbe35d3b2e9cd931b701dfc4116e6c3e8926a0406d8da21663f981e0",
+    "model\\results\\reward_search_2026-10-09\\experiment_2\\training_routes.json": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+    "model\\results\\reward_search_2026-10-09\\experiment_3\\evaluation_metrics.csv": "143aeece771bd42a6d7efa3b3bb7c03fe420e1f87b3e11db339080f33c060a1b",
+    "model\\results\\reward_search_2026-10-09\\experiment_3\\evaluation_routes.json": "5b55146138d5f32b64c0c56aaa9ab4b5cce1295b0c41bf54943e3b721e39056d",
+    "model\\results\\reward_search_2026-10-09\\experiment_3\\experiment_config.json": "dd9517eaecf3ac1381e8dce29e6b9701d36fdaaf7dd6df6f695f6abd325ba43b",
+    "model\\results\\reward_search_2026-10-09\\experiment_3\\final.zip": "b36872f119187898ec1d19767ac6ab6b3ea0197e1d89d1aed149b9e935377caf",
+    "model\\results\\reward_search_2026-10-09\\experiment_3\\summary.json": "38a8b3e4b0959dd8e51370cf68094f7dc16aab1ea4e1e23385068b98ad778d43",
+    "model\\results\\reward_search_2026-10-09\\experiment_3\\training_progress.csv": "fc1759562856aad9d3988dce8b6efdf49d6a7c687bf417d8dfe31fe96e9c663a",
+    "model\\results\\reward_search_2026-10-09\\experiment_3\\training_routes.json": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+    "model\\results\\reward_search_2026-10-09\\experiment_4\\evaluation_metrics.csv": "ba8ee91c640fe44a135ffe74068dd4dc9a86ca975b8b8ca43316c9a741b4a596",
+    "model\\results\\reward_search_2026-10-09\\experiment_4\\evaluation_routes.json": "5b55146138d5f32b64c0c56aaa9ab4b5cce1295b0c41bf54943e3b721e39056d",
+    "model\\results\\reward_search_2026-10-09\\experiment_4\\experiment_config.json": "13c157d2d61e43cbfb169155d29a5f50bc1a8570f87d9fe1de54fb1cdfa6721b",
+    "model\\results\\reward_search_2026-10-09\\experiment_4\\final.zip": "41ee1b4d0db029ba31f6364d3479d3c890bddf9f8c1aa1011f2543292f6007d0",
+    "model\\results\\reward_search_2026-10-09\\experiment_4\\summary.json": "bbcc2b8d83cdb00d8b8e224914ba8f2154046b1d7de192ef4dca46be391b39c3",
+    "model\\results\\reward_search_2026-10-09\\experiment_4\\training_progress.csv": "75da344ca616b3f4bcecfc2ba8c541a128a804e8dc862d84568741f5cbf6083e",
+    "model\\results\\reward_search_2026-10-09\\experiment_4\\training_routes.json": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+    "model\\results\\reward_search_2026-10-09\\experiment_5\\evaluation_metrics.csv": "f9f042c8f38e8f774ffae7dcb1a49c9906d656a4a1f71d0cdceee4613144794a",
+    "model\\results\\reward_search_2026-10-09\\experiment_5\\evaluation_routes.json": "5b55146138d5f32b64c0c56aaa9ab4b5cce1295b0c41bf54943e3b721e39056d",
+    "model\\results\\reward_search_2026-10-09\\experiment_5\\experiment_config.json": "b66a0bdd05a8a75186a225a92c60f90582e6e6411de3fdefab7bec83eb754a6a",
+    "model\\results\\reward_search_2026-10-09\\experiment_5\\final.zip": "73df0d81d27884647b1a9375c49ce4585fddfe1a215d0966b65200ce1b78e078",
+    "model\\results\\reward_search_2026-10-09\\experiment_5\\summary.json": "1efafae384d2e8646927084230769a6bc7db9cecb75bd6cb0ac6168e1d63a72d",
+    "model\\results\\reward_search_2026-10-09\\experiment_5\\training_progress.csv": "675cb848a6fea71ec5d176b21e13abd396b1c020713287008003992643e318f4",
+    "model\\results\\reward_search_2026-10-09\\experiment_5\\training_routes.json": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+    "model\\results\\reward_search_2026-10-09\\experiment_6\\evaluation_metrics.csv": "4d86f7f7e16c23c1d3af5f0bab58675c3a084c7e89572c7ae957488bfbdac254",
+    "model\\results\\reward_search_2026-10-09\\experiment_6\\evaluation_routes.json": "5b55146138d5f32b64c0c56aaa9ab4b5cce1295b0c41bf54943e3b721e39056d",
+    "model\\results\\reward_search_2026-10-09\\experiment_6\\experiment_config.json": "0902ffa860a57203aa9744c6661a6bc9f0c67e5d8401aa13b67e764ab7814225",
+    "model\\results\\reward_search_2026-10-09\\experiment_6\\final.zip": "d79d6c12a7803f0658773299d4fe0ec44c28da23dd8a96970108a0cd9beb55ce",
+    "model\\results\\reward_search_2026-10-09\\experiment_6\\summary.json": "823ec9d210c1a080716f30649eb5cfb8fde7be0f46123e4879d7056683065d78",
+    "model\\results\\reward_search_2026-10-09\\experiment_6\\training_progress.csv": "4232b6a0069b02181fd7712b4642c17caf556e8e9d63b41be9b5bd83e68b0160",
+    "model\\results\\reward_search_2026-10-09\\experiment_6\\training_routes.json": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+    "model\\results\\reward_search_2026-10-09\\final-report-ko.txt": "7e1686916c0f0cdedcac6a1aa44338104b4e31d3e81de41fb551eb07c1577422",
+    "model\\results\\reward_search_2026-10-09\\final_comparison.png": "97844a4e0df206e02d49d71de024e0c3a28ff2ec925dcd380ed1321b141e39f4",
+    "model\\results\\reward_search_2026-10-09\\final_recommendation.json": "d40e40817d881f87721a7eeb813b79f9e1a894f462384ac4398602231d402cfa",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\comparison.csv": "d49dc73477383f5da1e3969e6e88215b9e7da50edfcb5e7e1e566e93a9c4c3f3",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\comparison.json": "90d408287e577a6bd40be03653124f5ccb7be1b6d393fb298c4e00f6209289a9",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\followup_config.json": "8a5a5d4f1eb4a3d968d811b02aa4df7ebaa519bd1c21a27fc2b01214720dd32e",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_1\\evaluation_config.json": "88573c160ecfd64d6dadc6c0b4562fe3a52b2b0c50aa77d3cfa0ba33dc1db2b0",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_1\\evaluation_metrics.csv": "d72c6ec5a9d82a0a0de969351a94a51b466c0adb212fd5abcc4c7e9576c94bc9",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_1\\evaluation_routes.json": "008cd2e946034a7dbe7bc6f37b45297234aa7d08fe2c00bb76c16751ad7b4216",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_1\\summary.json": "bc9842cce1e8bb92a08d80204874eb3513f083533a9d0e0ea0900b9568775662",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_4\\evaluation_config.json": "4a27d934ce782aaa96e77de52c16b229cd2a412eb54eab9af716522dfbd8d484",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_4\\evaluation_metrics.csv": "bf3ceb68188200a6044c26af1d531d9abfac68993e7511b19541a23ad44cbb2d",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_4\\evaluation_routes.json": "008cd2e946034a7dbe7bc6f37b45297234aa7d08fe2c00bb76c16751ad7b4216",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_4\\summary.json": "d72b121e3018d285022cf27c721bd54e024cedc3c8b2fdd54df91fdb8a62a3cb",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\fixed_time\\evaluation_config.json": "84828126c084e8df2220054d40e3b0f5a36ed3e9a82d1e5870cfce484a1fc48e",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\fixed_time\\evaluation_metrics.csv": "d8b736f9847b634c731b467cb46dc8758cd02640b519bbba9e3036dcc0dd1c65",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\fixed_time\\evaluation_routes.json": "008cd2e946034a7dbe7bc6f37b45297234aa7d08fe2c00bb76c16751ad7b4216",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\fixed_time\\summary.json": "39a61bb188cc9e6dbc9ee2d7c4403e61b2e314cabbf01170e0ed8c9fbddf5ce9",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\recommendation.json": "cb305ec6c5744573e118ee445625f33de744868521fddc8e5c4e7afbe7914742",
+    "model\\results\\reward_search_2026-10-09\\followup_confirmation\\status.json": "5c7435a67300cb01131a676747012a9816e8864cfc88ed6e15982c6bf0d0d6d3",
+    "model\\results\\reward_search_2026-10-09\\holdout\\experiment_1\\evaluation_config.json": "a4fd7ebe4425741a2d7a0ca54588904b01e02e4acccc487d82c61773fa54221c",
+    "model\\results\\reward_search_2026-10-09\\holdout\\experiment_1\\evaluation_metrics.csv": "d74b518c7a74402dee0435c9e938d4bf2de975777f0dd4192b542e6655734d7d",
+    "model\\results\\reward_search_2026-10-09\\holdout\\experiment_1\\evaluation_routes.json": "efb711c0ce2d7e7e81050116f55c9fb5045567bb36700cb0ca6ccfcfc336c2f5",
+    "model\\results\\reward_search_2026-10-09\\holdout\\experiment_1\\summary.json": "edbc3a833f3ab1370d9ca335a9f156378b6bb9eb89b0b45ba02cf381fd7e299f",
+    "model\\results\\reward_search_2026-10-09\\holdout\\experiment_4\\evaluation_config.json": "48cb0e492d2487f9b7c3a177b47413347843034cf3d93221aba4a3b075a193d3",
+    "model\\results\\reward_search_2026-10-09\\holdout\\experiment_4\\evaluation_metrics.csv": "e0a2f4378432000c9daca7d80c22f56220ea0fdb06109e383b70e6de78081001",
+    "model\\results\\reward_search_2026-10-09\\holdout\\experiment_4\\evaluation_routes.json": "efb711c0ce2d7e7e81050116f55c9fb5045567bb36700cb0ca6ccfcfc336c2f5",
+    "model\\results\\reward_search_2026-10-09\\holdout\\experiment_4\\summary.json": "d5856694405732a59d0f67340a6baf5539ad634a2858093975f1972273b1201c",
+    "model\\results\\reward_search_2026-10-09\\holdout\\experiment_6\\evaluation_config.json": "b40326374e13a507942ee205be8093a52f5236791d773e26f6e1890be85cd128",
+    "model\\results\\reward_search_2026-10-09\\holdout\\experiment_6\\evaluation_metrics.csv": "be2b860458c96abe1dafaec433c8560e53f81fbfde83f7b8a8dd1c11a47d6ea6",
+    "model\\results\\reward_search_2026-10-09\\holdout\\experiment_6\\evaluation_routes.json": "efb711c0ce2d7e7e81050116f55c9fb5045567bb36700cb0ca6ccfcfc336c2f5",
+    "model\\results\\reward_search_2026-10-09\\holdout\\experiment_6\\summary.json": "22041209d7446cee1437c089f72409282518be14aacb2c1f3a4c0b096dfe84b0",
+    "model\\results\\reward_search_2026-10-09\\holdout\\fixed_time\\evaluation_config.json": "896f44c425a261971c0cd71b0ad6608f877cd061310d8f19f31cef69f0130e8c",
+    "model\\results\\reward_search_2026-10-09\\holdout\\fixed_time\\evaluation_metrics.csv": "c6175565b154038e1572ee813c56a0c2055dbfdc1d98c7335403ab14db734438",
+    "model\\results\\reward_search_2026-10-09\\holdout\\fixed_time\\evaluation_routes.json": "efb711c0ce2d7e7e81050116f55c9fb5045567bb36700cb0ca6ccfcfc336c2f5",
+    "model\\results\\reward_search_2026-10-09\\holdout\\fixed_time\\summary.json": "3d2d497ed88d1fafcb6ca35cafa92bc3ab4753c5c12f1a4c76a5b1cef34c589c",
+    "model\\results\\reward_search_2026-10-09\\holdout_comparison.csv": "4f8558f67a55fdedc7d6805f8e9ff308a0c0957a2230e85139128fa6bbcd0853",
+    "model\\results\\reward_search_2026-10-09\\holdout_comparison.json": "6b934d6a524e54fe3b58d45d0419aad6bad01fa761aa02fed89e2cd482d484a1",
+    "model\\results\\reward_search_2026-10-09\\locked_selection.json": "615fdbcc194966e9869da58d07d2c6b811a6f55c0621bd557c2cd0308f779351",
+    "model\\results\\reward_search_2026-10-09\\observed-limitations.txt": "32a5136cf56b0eec31b8c8307e650fd55f66caa683478156477a77522952fbf6",
+    "model\\results\\reward_search_2026-10-09\\README.md": "e113151539d60fe2e662a40e432ed27af1eb492d4bc170f9cc6a37243dd01fbe",
+    "model\\results\\reward_search_2026-10-09\\recommendation.json": "66e9e3c1b24507c83323136eccc5b7949ed2c13528009ee839832c674d72f59c",
+    "model\\results\\reward_search_2026-10-09\\recommended_reward_config.json": "164c750393bc6b3318b64db4bf2d0e9440c9451e6c0c86216f4044199339bed1",
+    "model\\results\\reward_search_2026-10-09\\runtime_packages.json": "0bf090ac3d2f20a1b1be1c53f5c8ad52da47aad1289bf72f1cd347bfe33b7baa",
+    "model\\results\\reward_search_2026-10-09\\search_config.json": "356bb3ef6fbbd3156f78d08a628f601ac6709acd9d1777c6b684bb18e11a8cf4",
+    "model\\results\\reward_search_2026-10-09\\status.json": "c81ef23bd4be028eeadab56a568b7b06faf2a5f53ed1e5eb0fa52d044de6404f",
+    "model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\experiment_1\\evaluation_config.json": "078251757131f5b5af8cbe7d0d9de77293d1aa95d8e214df99596ac1c47c07ef",
+    "model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\experiment_1\\evaluation_metrics.csv": "8d66a950978207047abc7ca9e1edae22b46bcc4e133be0d493511ec96c987c19",
+    "model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\experiment_1\\evaluation_routes.json": "51c4682a0633485a948282835400da393396bd1650def75bb85b7fc757dd480c",
+    "model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\experiment_4\\evaluation_config.json": "4a69591787befa6eca86333e4cba1fcfa7614e80333094c5ac95e7eb8c8249d4",
+    "model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\experiment_4\\evaluation_metrics.csv": "977d784708a154b2d1f54f9bbf0e6bb2da9290049decc08e10f6ec06c95198d6",
+    "model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\experiment_4\\evaluation_routes.json": "51c4682a0633485a948282835400da393396bd1650def75bb85b7fc757dd480c",
+    "model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\fixed_time\\evaluation_config.json": "80828082b4506418272770ce5dc76170d3ab16faa5aab8f492a3ac9a9cd18ebb",
+    "model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\fixed_time\\evaluation_metrics.csv": "0db58601cdc20e159c79bd29c7a89d97e6c01b27ffc71ecf0901380f7410bf1e",
+    "model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\fixed_time\\evaluation_routes.json": "51c4682a0633485a948282835400da393396bd1650def75bb85b7fc757dd480c",
+    "model\\results\\reward_search_2026-10-09\\stress\\heavy\\experiment_1\\evaluation_config.json": "e63b1c0f353d7e0ea8bf369a344075341473effbf31cea6213a9e58a06436c35",
+    "model\\results\\reward_search_2026-10-09\\stress\\heavy\\experiment_1\\evaluation_metrics.csv": "12002b942cdba801011509f0655a66410875c4857367a29c3887ac22bc47da97",
+    "model\\results\\reward_search_2026-10-09\\stress\\heavy\\experiment_1\\evaluation_routes.json": "dc7009858204a6746fb62df97ea86ece9e01a72068777ef051bf315951b2a3ea",
+    "model\\results\\reward_search_2026-10-09\\stress\\heavy\\experiment_4\\evaluation_config.json": "aee73bedea5877068632fd5b2415088cdf00bbde01a22d876bbb5fd8b173def0",
+    "model\\results\\reward_search_2026-10-09\\stress\\heavy\\experiment_4\\evaluation_metrics.csv": "5a77b6051f2050b08c0e1d7b52c9b5d263f6f3ad431e6b4b6dc59eba0d104252",
+    "model\\results\\reward_search_2026-10-09\\stress\\heavy\\experiment_4\\evaluation_routes.json": "dc7009858204a6746fb62df97ea86ece9e01a72068777ef051bf315951b2a3ea",
+    "model\\results\\reward_search_2026-10-09\\stress\\heavy\\fixed_time\\evaluation_config.json": "74f66353480ccaa7a16fd7832fc4e8c5e29910122e6d34f727baa81951e229ab",
+    "model\\results\\reward_search_2026-10-09\\stress\\heavy\\fixed_time\\evaluation_metrics.csv": "eb37664cdf2dde366f8f070e7cb1c77762c564e68394c04f57545023584b0073",
+    "model\\results\\reward_search_2026-10-09\\stress\\heavy\\fixed_time\\evaluation_routes.json": "dc7009858204a6746fb62df97ea86ece9e01a72068777ef051bf315951b2a3ea",
+    "model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\experiment_1\\evaluation_config.json": "da1d9fec79cea289b530381a94327f71c3761acdc085aa84b59ebaa8935a665d",
+    "model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\experiment_1\\evaluation_metrics.csv": "191bf1c8dac56b17cc9fe03987d6d6947ab0288348bca186f167ffd74ee2ebcd",
+    "model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\experiment_1\\evaluation_routes.json": "228314c4b8452913bfdd8653e1bfa63168947331c663968718a074d8f36e2984",
+    "model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\experiment_4\\evaluation_config.json": "875d34fd471a493d7da5fc0af615af1b77c84e5118827eac89d78486afb504ab",
+    "model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\experiment_4\\evaluation_metrics.csv": "62b0b7521ff9833044cf87f24d954261e024e94dccc9db8cf0f342f4f91ac657",
+    "model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\experiment_4\\evaluation_routes.json": "228314c4b8452913bfdd8653e1bfa63168947331c663968718a074d8f36e2984",
+    "model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\fixed_time\\evaluation_config.json": "43ee3d29fea0c99a8427af7b7fa9ebb512234dfa0c01a1420ee5b3b1ade9a63d",
+    "model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\fixed_time\\evaluation_metrics.csv": "3c1f980e900b1176aeb5dc1372453804e4cb65fa40d18fe747a3742809fb5f1b",
+    "model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\fixed_time\\evaluation_routes.json": "228314c4b8452913bfdd8653e1bfa63168947331c663968718a074d8f36e2984",
+    "model\\results\\reward_search_2026-10-09\\stress\\low\\experiment_1\\evaluation_config.json": "7bd3cae44ca1f3536aa6f854483275fc4f08741bed0306cfe2aa29b654bfd517",
+    "model\\results\\reward_search_2026-10-09\\stress\\low\\experiment_1\\evaluation_metrics.csv": "4eb4b39bbea88ab427806ed934a422d2fea11b0957b683c9c29d3b26b439000b",
+    "model\\results\\reward_search_2026-10-09\\stress\\low\\experiment_1\\evaluation_routes.json": "2a4dbf63edddc4521aac12d16b344a1139ddb2cf919071a9dbf7f8c3a167816d",
+    "model\\results\\reward_search_2026-10-09\\stress\\low\\experiment_4\\evaluation_config.json": "27822a2443285f47376a556502db17a8b3d76f7fee1eabad47218534f77af5b8",
+    "model\\results\\reward_search_2026-10-09\\stress\\low\\experiment_4\\evaluation_metrics.csv": "ab2fc62bb6954d8d42be1709264a164093793892e9489d142dd804282eb91082",
+    "model\\results\\reward_search_2026-10-09\\stress\\low\\experiment_4\\evaluation_routes.json": "2a4dbf63edddc4521aac12d16b344a1139ddb2cf919071a9dbf7f8c3a167816d",
+    "model\\results\\reward_search_2026-10-09\\stress\\low\\fixed_time\\evaluation_config.json": "fd6b6b7effbc7963f1f010b67742d184dd0f6860e717bbb74d040aa88275d7ce",
+    "model\\results\\reward_search_2026-10-09\\stress\\low\\fixed_time\\evaluation_metrics.csv": "6535ec675c2740c6ab024be87202fdd87d84a8aa203f8c9f8f9af1623db9ec66",
+    "model\\results\\reward_search_2026-10-09\\stress\\low\\fixed_time\\evaluation_routes.json": "2a4dbf63edddc4521aac12d16b344a1139ddb2cf919071a9dbf7f8c3a167816d",
+    "model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\experiment_1\\evaluation_config.json": "9aff47218675d98930479355aa79e7057533f52c8b7ddd468f7e11d1cd040fdf",
+    "model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\experiment_1\\evaluation_metrics.csv": "53671f6771910208d2e06446b6c94f78b0c5e53bc66d97eeeef18b3e6526e75a",
+    "model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\experiment_1\\evaluation_routes.json": "445ad1e6326ff87e668ee9aee5cbe17d22bf75cf66fa43feda90a0bb62768c97",
+    "model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\experiment_4\\evaluation_config.json": "2c0e6d6d3c17fdf586a521cda431a7596ddd42ed51019caeab03467de5dff668",
+    "model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\experiment_4\\evaluation_metrics.csv": "bbfadca6c31df28e15c0d3be2e6692f71ca63e1991608bc1986bb55b2eca2b0a",
+    "model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\experiment_4\\evaluation_routes.json": "445ad1e6326ff87e668ee9aee5cbe17d22bf75cf66fa43feda90a0bb62768c97",
+    "model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\fixed_time\\evaluation_config.json": "f9386fafe21082abbba547324986f363aff09e925b50a33846aa127a404d3cd9",
+    "model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\fixed_time\\evaluation_metrics.csv": "6fb399cf9e6ed07c1743bac3349505c8e2811c9ddedca530afcbcd450dfe74cc",
+    "model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\fixed_time\\evaluation_routes.json": "445ad1e6326ff87e668ee9aee5cbe17d22bf75cf66fa43feda90a0bb62768c97",
+    "model\\results\\reward_search_2026-10-09\\stress\\uniform\\experiment_1\\evaluation_config.json": "57fdcd5fbab32b9de811f13d3be7edb1560fb49fd4852522b2611309af4e1e72",
+    "model\\results\\reward_search_2026-10-09\\stress\\uniform\\experiment_1\\evaluation_metrics.csv": "6f6f5e5c163a195d42ced9e3efc1ff5f90b950b913e0c54990d8b357052d9b7e",
+    "model\\results\\reward_search_2026-10-09\\stress\\uniform\\experiment_1\\evaluation_routes.json": "1a8f6d9675d58e772df858eb0d0fd82527d41e6ef26b9b64e04e077f8b5c5946",
+    "model\\results\\reward_search_2026-10-09\\stress\\uniform\\experiment_4\\evaluation_config.json": "68a2e441971ed05ca04d2b9ee110a8deea670011cc1108df64dfaa4571be42e9",
+    "model\\results\\reward_search_2026-10-09\\stress\\uniform\\experiment_4\\evaluation_metrics.csv": "0f4b70cdfcdccb303c0a02c9a47babc3d2b2242bd455957fb64759bb51767704",
+    "model\\results\\reward_search_2026-10-09\\stress\\uniform\\experiment_4\\evaluation_routes.json": "1a8f6d9675d58e772df858eb0d0fd82527d41e6ef26b9b64e04e077f8b5c5946",
+    "model\\results\\reward_search_2026-10-09\\stress\\uniform\\fixed_time\\evaluation_config.json": "447f539194eeb335f7b599a4b0208fe206ed05fb2545d1b9509d2fc62b9f1559",
+    "model\\results\\reward_search_2026-10-09\\stress\\uniform\\fixed_time\\evaluation_metrics.csv": "5e23f62b9a994cb966a0ad5cb174696e35a2050c3d9098990fd9bc8aa3eb260d",
+    "model\\results\\reward_search_2026-10-09\\stress\\uniform\\fixed_time\\evaluation_routes.json": "1a8f6d9675d58e772df858eb0d0fd82527d41e6ef26b9b64e04e077f8b5c5946",
+    "model\\results\\reward_search_2026-10-09\\stress_candidate4\\comparison.csv": "08f327d6823430e7954f4173dafa2e61a8840bc55f8b0fce369a519eaae824be",
+    "model\\results\\reward_search_2026-10-09\\stress_candidate4\\comparison.json": "01fc08dc47b559f17624ba8f17897533ed776e3525a296eb3a33a54b38b3678c",
+    "model\\results\\reward_search_2026-10-09\\stress_candidate4\\config.json": "3686d01bdb6dfdbd4d99633435f639a0e6239913620621be9722b61608bd2337",
+    "model\\results\\reward_search_2026-10-09\\stress_candidate4\\status.json": "68b2884f47d106a2fb88dbf13fa2f60736aeaa72f96d5c96582d5570a029696e",
+    "model\\results\\reward_search_2026-10-09\\validation_diagnostics.csv": "57e0d11023a7c53c0345b3e275a6469ecc877ff27774d45b2a4d8afd3817d6a4"
+  }
+}

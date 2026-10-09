@@ -1,0 +1,23 @@
+{
+  "status": "COMPLETED",
+  "experiment": 18,
+  "alpha": 0.3,
+  "beta": 0.6,
+  "switch_gamma": 0.6,
+  "training_steps": 50000,
+  "training_seed": 22,
+  "scenario": "random",
+  "evaluation_episodes": 20,
+  "avg_waiting_time": 22.957932983472908,
+  "avg_waiting_time_std": 7.207615810695329,
+  "max_waiting_time": 80.675,
+  "max_waiting_time_std": 19.222571025804672,
+  "avg_queue": 20.264166666666668,
+  "avg_queue_std": 10.376983816536239,
+  "phase_changes": 43.45,
+  "phase_changes_std": 1.5381123085406379,
+  "throughput": 199.5,
+  "throughput_std": 29.202559368730174,
+  "maximum_waiting_worst_episode": 130.0,
+  "elapsed_seconds": 381.3107763000007
+}

@@ -1,0 +1,198 @@
+{
+  "completed": [
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 11,
+        "weights": [
+          0.3,
+          0.4,
+          0.5
+        ],
+        "training_seed": 42,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_11"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_11\\attempt_001\\experiment_11",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 11,
+        "weights": [
+          0.3,
+          0.4,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_11"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_11\\attempt_001\\experiment_11",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 14,
+        "weights": [
+          0.3,
+          0.5,
+          0.5
+        ],
+        "training_seed": 22,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_14"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_14\\attempt_001\\experiment_14",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 15,
+        "weights": [
+          0.3,
+          0.5,
+          0.6
+        ],
+        "training_seed": 22,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_15"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_15\\attempt_001\\experiment_15",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 13,
+        "weights": [
+          0.3,
+          0.5,
+          0.4
+        ],
+        "training_seed": 22,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_13"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_13\\attempt_001\\experiment_13",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 14,
+        "weights": [
+          0.3,
+          0.5,
+          0.5
+        ],
+        "training_seed": 42,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_14"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_14\\attempt_001\\experiment_14",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 15,
+        "weights": [
+          0.3,
+          0.5,
+          0.6
+        ],
+        "training_seed": 42,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_15"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_15\\attempt_001\\experiment_15",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 11,
+        "weights": [
+          0.3,
+          0.4,
+          0.5
+        ],
+        "training_seed": 62,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_11"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_11\\attempt_001\\experiment_11",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 13,
+        "weights": [
+          0.3,
+          0.5,
+          0.4
+        ],
+        "training_seed": 62,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_13"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_13\\attempt_001\\experiment_13",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 14,
+        "weights": [
+          0.3,
+          0.5,
+          0.5
+        ],
+        "training_seed": 62,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_14"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_14\\attempt_001\\experiment_14",
+      "reused_completed_run": false
+    },
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 15,
+        "weights": [
+          0.3,
+          0.5,
+          0.6
+        ],
+        "training_seed": 62,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_15"
+      },
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_15\\attempt_001\\experiment_15",
+      "reused_completed_run": false
+    }
+  ],
+  "failures": [
+    {
+      "job": {
+        "stage": "multiseed",
+        "candidate_id": 13,
+        "weights": [
+          0.3,
+          0.5,
+          0.4
+        ],
+        "training_seed": 42,
+        "training_steps": 150000,
+        "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_13"
+      },
+      "error": "RuntimeError('Failed to start SUMO with command: C:\\\\Users\\\\권민우\\\\traffic-control\\\\.venv\\\\Lib\\\\site-packages\\\\sumo\\\\bin\\\\sumo.exe -c C:\\\\Users\\\\권민우\\\\traffic-control\\\\model\\\\results\\\\reward_fine_search_2026-10-09\\\\runs\\\\multiseed\\\\seed_42\\\\candidate_13\\\\attempt_001\\\\experiment_13\\\\sumo\\\\simulation.sumocfg --net-file C:\\\\Users\\\\권민우\\\\traffic-control\\\\model\\\\results\\\\reward_fine_search_2026-10-09\\\\runs\\\\multiseed\\\\seed_42\\\\candidate_13\\\\attempt_001\\\\experiment_13\\\\sumo\\\\intersection.net.xml --route-files C:\\\\Users\\\\권민우\\\\traffic-control\\\\model\\\\results\\\\reward_fine_search_2026-10-09\\\\runs\\\\multiseed\\\\seed_42\\\\candidate_13\\\\attempt_001\\\\experiment_13\\\\sumo\\\\generated\\\\routes_sensitivity-dqn_175_random.rou.xml --seed 175 --step-length 0.5 --end 300 --waiting-time-memory 301 --no-step-log true --duration-log.disable true --time-to-teleport -1 --collision.action warn --collision.check-junctions true')",
+      "traceback": "concurrent.futures.process._RemoteTraceback: \n\"\"\"\nTraceback (most recent call last):\n  File \"C:\\Users\\권민우\\traffic-control\\model\\env\\intersection_env.py\", line 114, in _start_sumo\n    traci.start(command, label=label)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\traci\\main.py\", line 147, in start\n    result = init(sumoPort, numRetries, \"localhost\", label, sumoProcess, doSwitch, traceFile, traceGetters)\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\traci\\main.py\", line 119, in init\n    return con.getVersion()\n           ~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\traci\\connection.py\", line 383, in getVersion\n    result = self._sendCmd(command, None, None)\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\traci\\connection.py\", line 232, in _sendCmd\n    return self._sendExact()\n           ~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\traci\\connection.py\", line 139, in _sendExact\n    prefix = result.read(\"!BBB\")\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\traci\\storage.py\", line 38, in read\n    return struct.unpack(format, self._content[oldPos:self._pos])\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nstruct.error: unpack requires a buffer of 3 bytes\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\권민우\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\concurrent\\futures\\process.py\", line 254, in _process_worker\n    r = call_item.fn(*call_item.args, **call_item.kwargs)\n  File \"C:\\Users\\권민우\\traffic-control\\model\\experiments\\fine_reward_search.py\", line 238, in run_training_job\n    worker(candidate, settings)\n    ~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\권민우\\traffic-control\\model\\experiments\\reward_sensitivity.py\", line 210, in worker\n    model.learn(total_timesteps=settings.get('schedule_timesteps') or settings['timesteps'],\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                callback=Progress(folder, settings['timesteps'], settings.get('verify_prefix')),\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                progress_bar=False)\n                ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\stable_baselines3\\dqn\\dqn.py\", line 272, in learn\n    return super().learn(\n           ~~~~~~~~~~~~~^\n        total_timesteps=total_timesteps,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n        progress_bar=progress_bar,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\stable_baselines3\\common\\off_policy_algorithm.py\", line 335, in learn\n    rollout = self.collect_rollouts(\n        self.env,\n    ...<5 lines>...\n        log_interval=log_interval,\n    )\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\stable_baselines3\\common\\off_policy_algorithm.py\", line 568, in collect_rollouts\n    new_obs, rewards, dones, infos = env.step(actions)\n                                     ~~~~~~~~^^^^^^^^^\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\stable_baselines3\\common\\vec_env\\base_vec_env.py\", line 222, in step\n    return self.step_wait()\n           ~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\stable_baselines3\\common\\vec_env\\dummy_vec_env.py\", line 71, in step_wait\n    obs, self.reset_infos[env_idx] = self.envs[env_idx].reset()\n                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\stable_baselines3\\common\\monitor.py\", line 85, in reset\n    return self.env.reset(**kwargs)\n           ~~~~~~~~~~~~~~^^^^^^^^^^\n  File \"C:\\Users\\권민우\\traffic-control\\model\\experiments\\reward_sensitivity.py\", line 75, in reset\n    observation, info = super().reset(**kwargs)\n                        ~~~~~~~~~~~~~^^^^^^^^^^\n  File \"C:\\Users\\권민우\\traffic-control\\model\\env\\intersection_env.py\", line 153, in reset\n    self._start_sumo(self._last_route_file, self._episode_seed)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\권민우\\traffic-control\\model\\env\\intersection_env.py\", line 118, in _start_sumo\n    raise RuntimeError(f\"Failed to start SUMO with command: {' '.join(command)}\") from exc\nRuntimeError: Failed to start SUMO with command: C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\sumo\\bin\\sumo.exe -c C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_13\\attempt_001\\experiment_13\\sumo\\simulation.sumocfg --net-file C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_13\\attempt_001\\experiment_13\\sumo\\intersection.net.xml --route-files C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_13\\attempt_001\\experiment_13\\sumo\\generated\\routes_sensitivity-dqn_175_random.rou.xml --seed 175 --step-length 0.5 --end 300 --waiting-time-memory 301 --no-step-log true --duration-log.disable true --time-to-teleport -1 --collision.action warn --collision.check-junctions true\n\"\"\"\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\권민우\\traffic-control\\model\\experiments\\fine_reward_search.py\", line 257, in run_jobs\n    result = future.result()\n  File \"C:\\Users\\권민우\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\concurrent\\futures\\_base.py\", line 443, in result\n    return self.__get_result()\n           ~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\권민우\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\concurrent\\futures\\_base.py\", line 395, in __get_result\n    raise self._exception\nRuntimeError: Failed to start SUMO with command: C:\\Users\\권민우\\traffic-control\\.venv\\Lib\\site-packages\\sumo\\bin\\sumo.exe -c C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_13\\attempt_001\\experiment_13\\sumo\\simulation.sumocfg --net-file C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_13\\attempt_001\\experiment_13\\sumo\\intersection.net.xml --route-files C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_13\\attempt_001\\experiment_13\\sumo\\generated\\routes_sensitivity-dqn_175_random.rou.xml --seed 175 --step-length 0.5 --end 300 --waiting-time-memory 301 --no-step-log true --duration-log.disable true --time-to-teleport -1 --collision.action warn --collision.check-junctions true\n"
+    }
+  ]
+}

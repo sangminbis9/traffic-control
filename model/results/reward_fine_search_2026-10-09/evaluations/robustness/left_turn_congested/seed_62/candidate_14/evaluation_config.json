@@ -1,0 +1,27 @@
+{
+  "candidate_id": 14,
+  "training_seed": 62,
+  "weights": [
+    0.3,
+    0.5,
+    0.5
+  ],
+  "source": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_14\\attempt_001\\experiment_14",
+  "scenario": "left_turn_congested",
+  "model_sha256": "7f176416495945a4eb1d4b32c9178b2315b2abdd289d79b93c93e5f0d7819d99",
+  "seeds": [
+    10001,
+    10002,
+    10003,
+    10004,
+    10005,
+    10006,
+    10007,
+    10008,
+    10009,
+    10010
+  ],
+  "split": "robustness",
+  "locked_selection_sha256": "9a4140b71f8e6e9f6cdaa816ac083efe5f3b27bd19d17e3b095930e0a867695c",
+  "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\evaluations\\robustness\\left_turn_congested\\seed_62\\candidate_14"
+}

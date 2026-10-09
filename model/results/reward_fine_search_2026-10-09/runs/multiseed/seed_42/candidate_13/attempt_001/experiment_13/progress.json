@@ -1,0 +1,5 @@
+{
+  "status": "FAILED",
+  "error": "RuntimeError('Failed to start SUMO with command: C:\\\\Users\\\\권민우\\\\traffic-control\\\\.venv\\\\Lib\\\\site-packages\\\\sumo\\\\bin\\\\sumo.exe -c C:\\\\Users\\\\권민우\\\\traffic-control\\\\model\\\\results\\\\reward_fine_search_2026-10-09\\\\runs\\\\multiseed\\\\seed_42\\\\candidate_13\\\\attempt_001\\\\experiment_13\\\\sumo\\\\simulation.sumocfg --net-file C:\\\\Users\\\\권민우\\\\traffic-control\\\\model\\\\results\\\\reward_fine_search_2026-10-09\\\\runs\\\\multiseed\\\\seed_42\\\\candidate_13\\\\attempt_001\\\\experiment_13\\\\sumo\\\\intersection.net.xml --route-files C:\\\\Users\\\\권민우\\\\traffic-control\\\\model\\\\results\\\\reward_fine_search_2026-10-09\\\\runs\\\\multiseed\\\\seed_42\\\\candidate_13\\\\attempt_001\\\\experiment_13\\\\sumo\\\\generated\\\\routes_sensitivity-dqn_175_random.rou.xml --seed 175 --step-length 0.5 --end 300 --waiting-time-memory 301 --no-step-log true --duration-log.disable true --time-to-teleport -1 --collision.action warn --collision.check-junctions true')",
+  "elapsed_seconds": 801.5856537
+}

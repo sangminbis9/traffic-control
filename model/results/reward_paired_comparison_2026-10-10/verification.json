@@ -1,0 +1,163 @@
+{
+  "verified_at": "2026-10-09T15:52:12.620172+00:00",
+  "status": "PASS",
+  "evaluation_rows": 210,
+  "paired_training_routes": true,
+  "paired_evaluation_routes": true,
+  "matched_training_state": {
+    "num_timesteps": 50000,
+    "n_updates": 11249,
+    "exploration_rate": 0.01,
+    "learning_schedule_steps": 150000,
+    "training_seed": 22,
+    "n_steps": 5,
+    "observation_shape": [
+      60
+    ],
+    "action_count": 8
+  },
+  "source_models_preserved": true,
+  "runtime_core_unchanged": true,
+  "records": [
+    {
+      "experiment": 1,
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_paired_comparison_2026-10-10\\training\\candidate_1\\attempt_001\\experiment_1",
+      "model_state": {
+        "num_timesteps": 50000,
+        "n_updates": 11249,
+        "exploration_rate": 0.01,
+        "learning_schedule_steps": 150000,
+        "training_seed": 22,
+        "n_steps": 5,
+        "observation_shape": [
+          60
+        ],
+        "action_count": 8
+      },
+      "model_sha256": "5d0c163faca055b8592ccbe6c61504f5c477af949924d796c2c634533a2b6019",
+      "training_routes_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_routes_sha256": "d4bce1d625050a2c5323c72647a6834517a14842ee70b1cc0e93a0dc1d6aca3a",
+      "evaluation_metrics_sha256": "3043df284d2f80c7afca5193cfcfceac3df6af4f678b14853a368f5cadafba49"
+    },
+    {
+      "experiment": 2,
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_paired_comparison_2026-10-10\\training\\candidate_2\\attempt_001\\experiment_2",
+      "model_state": {
+        "num_timesteps": 50000,
+        "n_updates": 11249,
+        "exploration_rate": 0.01,
+        "learning_schedule_steps": 150000,
+        "training_seed": 22,
+        "n_steps": 5,
+        "observation_shape": [
+          60
+        ],
+        "action_count": 8
+      },
+      "model_sha256": "f69559bc63199b90f44c3831de4108bfffca75ee75f89d1e086b7a18bc4a1ee6",
+      "training_routes_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_routes_sha256": "d4bce1d625050a2c5323c72647a6834517a14842ee70b1cc0e93a0dc1d6aca3a",
+      "evaluation_metrics_sha256": "8867f22088b0e42263f52ec357fe50aeb20e9227d8d655176d901000ac15dcb9"
+    },
+    {
+      "experiment": 3,
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_paired_comparison_2026-10-10\\training\\candidate_3\\attempt_001\\experiment_3",
+      "model_state": {
+        "num_timesteps": 50000,
+        "n_updates": 11249,
+        "exploration_rate": 0.01,
+        "learning_schedule_steps": 150000,
+        "training_seed": 22,
+        "n_steps": 5,
+        "observation_shape": [
+          60
+        ],
+        "action_count": 8
+      },
+      "model_sha256": "836142f37751957f19dc3b76a4774e6708784efa81b66e1d9d33b48e86fd31c5",
+      "training_routes_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_routes_sha256": "d4bce1d625050a2c5323c72647a6834517a14842ee70b1cc0e93a0dc1d6aca3a",
+      "evaluation_metrics_sha256": "09cf068f5f4f30769b9c958f60902971ca893138d581e0bd244267e34c3844fb"
+    },
+    {
+      "experiment": 4,
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_paired_comparison_2026-10-10\\evaluations\\candidate_4",
+      "model_state": {
+        "num_timesteps": 50000,
+        "n_updates": 11249,
+        "exploration_rate": 0.01,
+        "learning_schedule_steps": 150000,
+        "training_seed": 22,
+        "n_steps": 5,
+        "observation_shape": [
+          60
+        ],
+        "action_count": 8
+      },
+      "model_sha256": "0fe5605cf7f13d2eabee7df8cb744f28e55b96d1a3959dd33fbfa38842b159a7",
+      "training_routes_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_routes_sha256": "d4bce1d625050a2c5323c72647a6834517a14842ee70b1cc0e93a0dc1d6aca3a",
+      "evaluation_metrics_sha256": "97525388d3d889ee7fc5ec749cfce79678ae82a73509fdd02b5f6fb0bd2e5385"
+    },
+    {
+      "experiment": 5,
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_paired_comparison_2026-10-10\\evaluations\\candidate_5",
+      "model_state": {
+        "num_timesteps": 50000,
+        "n_updates": 11249,
+        "exploration_rate": 0.01,
+        "learning_schedule_steps": 150000,
+        "training_seed": 22,
+        "n_steps": 5,
+        "observation_shape": [
+          60
+        ],
+        "action_count": 8
+      },
+      "model_sha256": "8322b6a63aacedd9c31943f23413115c3c7d931545994b15ff789d8a5794b87d",
+      "training_routes_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_routes_sha256": "d4bce1d625050a2c5323c72647a6834517a14842ee70b1cc0e93a0dc1d6aca3a",
+      "evaluation_metrics_sha256": "cdaceafbbbadd28abb8c261652715edbeebaccd30343526d8d9fc4e162a92c7e"
+    },
+    {
+      "experiment": 6,
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_paired_comparison_2026-10-10\\evaluations\\candidate_6",
+      "model_state": {
+        "num_timesteps": 50000,
+        "n_updates": 11249,
+        "exploration_rate": 0.01,
+        "learning_schedule_steps": 150000,
+        "training_seed": 22,
+        "n_steps": 5,
+        "observation_shape": [
+          60
+        ],
+        "action_count": 8
+      },
+      "model_sha256": "e19f453ea4cbbffb5f5c2e20b4c6416901acfcf3bb999e018f84e09cf579e006",
+      "training_routes_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_routes_sha256": "d4bce1d625050a2c5323c72647a6834517a14842ee70b1cc0e93a0dc1d6aca3a",
+      "evaluation_metrics_sha256": "2fb3db7d60f308d202e4e2ee9afead7e55f614fad7205f28854d14352ed594ee"
+    },
+    {
+      "experiment": 7,
+      "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_paired_comparison_2026-10-10\\evaluations\\candidate_7",
+      "model_state": {
+        "num_timesteps": 50000,
+        "n_updates": 11249,
+        "exploration_rate": 0.01,
+        "learning_schedule_steps": 150000,
+        "training_seed": 22,
+        "n_steps": 5,
+        "observation_shape": [
+          60
+        ],
+        "action_count": 8
+      },
+      "model_sha256": "7f3ecaaf9dd251de8cdb2d38a87ad328e52b19641cc5aa39ef7299fea50153ad",
+      "training_routes_sha256": "5862f17761a76f37a8f71b5a107bc8a9a2645d6ad4228fd5f60853b32bcb47a1",
+      "evaluation_routes_sha256": "d4bce1d625050a2c5323c72647a6834517a14842ee70b1cc0e93a0dc1d6aca3a",
+      "evaluation_metrics_sha256": "7737884a5581180f796d6876540261cf47b53fe24917a0aa65717951dd5dd22e"
+    }
+  ]
+}

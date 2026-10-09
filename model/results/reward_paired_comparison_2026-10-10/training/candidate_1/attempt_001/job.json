@@ -1,0 +1,17 @@
+{
+  "output": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_paired_comparison_2026-10-10\\training\\candidate_1\\attempt_001",
+  "timesteps": 50000,
+  "schedule_timesteps": 150000,
+  "seed": 22,
+  "scenario": "random",
+  "episode_seconds": 300,
+  "weights": [
+    0.05,
+    0.05,
+    0.1
+  ],
+  "eval_seed_start": 2001,
+  "eval_episodes": 30,
+  "cache": true,
+  "verify_cache": false
+}

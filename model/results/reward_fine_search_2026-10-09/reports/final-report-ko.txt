@@ -1,0 +1,212 @@
+Incumbent 중심 보상 가중치 정밀 탐색 — 실제 완료 결과 보고서
+
+새 개선 후보 없음: 검증 단계에서 incumbent C14 자체를 유지하기로 고정했습니다.
+Incumbent C14: (0.3, 0.5, 0.5)
+미사용 평가 전 고정된 후보 C14: (0.3, 0.5, 0.5)
+최종 추천 ID: 14
+판정 사유: incumbent_retained_no_stable_confirmed_improvement
+실패 조건: []
+confirmed는 새로운 후보의 평균 개선과 사전 고정한 성능·안전 조건을 모두 충족했는지를 뜻하며, 통계적 유의성 선언과 다릅니다.
+가중치 순서는 (waiting, maximum waiting, switching)입니다.
+Queue 가중치 1.0, 정규화 queue/10·total_waiting/6000·max_waiting/120, 60입력/8행동과 기존 DQN 학습 방식을 유지했습니다.
+학습은 random 교통·300초 회차·240초 수요이며, 50k도 원래 150k 탐색률 일정을 사용합니다.
+추천은 이 탐색 범위와 학습량에 한정하며, 전역 최적값이나 임의 교통 상황에서의 우월성을 뜻하지 않습니다.
+원래 보상 기본값, 원래 모델 및 보존된 baseline 결과는 이 보고서가 변경하지 않습니다.
+
+실제 사용한 보상 계산식:
+c(x) = min(max(x, 0), 1), q_i,h = 0.5초 tick h의 이동 그룹 i 정지 차량 수(8개 그룹).
+W_h와 M_h는 현재 모든 진입 차로 차량의 accumulated_waiting 합계와 최대값입니다. 움직이는 차량도 포함합니다.
+r_h = -(1/8) * sum_i c(q_i,h / 10) - alpha * c(W_h / 6000) - beta * c(M_h / 120).
+1초 결정 구간의 reward = sum_h (0.5 / 1.0) * r_h - switch_gamma * 실제 phase_changes 증가량.
+즉 정상적인 1초 구간에서는 두 tick의 교통 벌점을 평균하고 실제 신호 전환 횟수만큼 전환 벌점을 차감합니다.
+alpha는 waiting, beta는 max_waiting, switch_gamma는 전환 벌점 계수입니다. DQN 할인율 gamma=0.95와는 별개입니다.
+관측값은 그룹별 대기를 사용하지만 보상의 W_h와 M_h는 기존 전역 진입 차량 집계를 유지합니다.
+구현 근거: model/env/reward.py의 reward_terms·switching_penalty와 model/env/intersection_env.py의 step.
+
+1. 단계별 실제 자료
+
+fine_model_count: 30
+multiseed_model_count: 12
+total_trained_models: 42
+fine: 후보 30개, 학습량 [50000], 학습 seed [22], 평가 교통 seed 20개, 실제 평가 행 600개.
+  시나리오 ['random']; 근거 fine_search_results.csv
+multiseed: 후보 4개, 학습량 [150000], 학습 seed [22, 42, 62], 평가 교통 seed 20개, 실제 평가 행 240개.
+  시나리오 ['random']; 근거 multiseed_results.csv
+holdout: 후보 1개, 학습량 [150000], 학습 seed [22, 42, 62], 평가 교통 seed 30개, 실제 평가 행 90개.
+  시나리오 ['random']; 근거 final_holdout_results.csv
+robustness: 후보 1개, 학습량 [150000], 학습 seed [22, 42, 62], 평가 교통 seed 10개, 실제 평가 행 180개.
+  시나리오 ['east_west_congested', 'heavy', 'left_turn_congested', 'low', 'north_south_congested', 'uniform']; 근거 robustness_results.csv
+
+실행 복구 및 추가 재학습 무결성 감사:
+감사 원본: audit/retraining_integrity/audit_result.json
+감사 기록 상태: PASS; all_equal=True
+독립 재학습 무결성 감사 통과: 명시한 5개 모델의 재현 비교가 모두 일치했습니다.
+성과 비교에 사용한 완료 모델: 42개; 감사 계획의 비교 모델 수: 42개.
+추가 재학습 및 검증 평가를 완료한 감사 모델: 5개.
+성공적으로 완료한 학습 모델의 총 연산 수: 비교 42개 + 독립 재학습 검증 5개 = 47개.
+실패 후 폐기한 미완료 시도: 1건 (본 실험 1건, 감사 0건). 이는 성공 모델 수에 포함하지 않으며 추가 연산은 발생했습니다.
+감사 모델은 원본 모델을 대체하지 않으며 후보 선택·성능 집계·신뢰구간의 표본에 추가하지 않았습니다.
+동일 seed로 반복한 재현 검증을 새 학습 seed 또는 추가 독립 통계 표본으로 세지 않습니다.
+비교 범위: Q/Q-target 네트워크, optimizer와 학습 상태, 중간 checkpoint, 학습·평가 수요, 평가 원시 지표와 행, 학습 진행 step.
+감사 사유: "Technical investigation of candidate13/training_seed42/attempt001 failing during SUMO startup with a malformed getVersion response and adjacent Address already in use. The five explicit jobs below were active peers at that event. They are repeated independently of observed candidate rankings. Replicas are integrity evidence only, not additional training-seed samples or substitute selection models."
+복구 및 감사 참고사항: ["This new audit script is outside the frozen selection protocol and does not modify it.", "Five jobs were specified from the startup incident, not selected by performance.", "Exact tensor equality is checked at all saved 25k checkpoints and final checkpoint.", "ZIP byte hashes are recorded but may differ due to serialization metadata; tensor/state equality is decisive.", "Matching saved states is strong reproducibility evidence, not a recording of every unsaved simulator tick."]
+  감사 C11/seed 22: 전체 일치=True, checkpoint 7/7 일치.
+    상태 일치: q_net 7/7, q_net_target 7/7, optimizer 7/7, training_state 7/7.
+    수요 일치(학습/평가)=True/True; 평가 일치(원시 지표/행)=True/True; 학습 step 일치=True.
+  감사 C13/seed 22: 전체 일치=True, checkpoint 7/7 일치.
+    상태 일치: q_net 7/7, q_net_target 7/7, optimizer 7/7, training_state 7/7.
+    수요 일치(학습/평가)=True/True; 평가 일치(원시 지표/행)=True/True; 학습 step 일치=True.
+  감사 C14/seed 22: 전체 일치=True, checkpoint 7/7 일치.
+    상태 일치: q_net 7/7, q_net_target 7/7, optimizer 7/7, training_state 7/7.
+    수요 일치(학습/평가)=True/True; 평가 일치(원시 지표/행)=True/True; 학습 step 일치=True.
+  감사 C15/seed 22: 전체 일치=True, checkpoint 7/7 일치.
+    상태 일치: q_net 7/7, q_net_target 7/7, optimizer 7/7, training_state 7/7.
+    수요 일치(학습/평가)=True/True; 평가 일치(원시 지표/행)=True/True; 학습 step 일치=True.
+  감사 C11/seed 42: 전체 일치=True, checkpoint 7/7 일치.
+    상태 일치: q_net 7/7, q_net_target 7/7, optimizer 7/7, training_state 7/7.
+    수요 일치(학습/평가)=True/True; 평가 일치(원시 지표/행)=True/True; 학습 step 일치=True.
+개별 checkpoint 이름, 텐서별 대조와 파일 해시는 감사 원본 JSON에 보존했습니다.
+
+실제로 평가한 전체 교통 seed:
+validation: [8001, 8002, 8003, 8004, 8005, 8006, 8007, 8008, 8009, 8010, 8011, 8012, 8013, 8014, 8015, 8016, 8017, 8018, 8019, 8020]
+holdout: [9001, 9002, 9003, 9004, 9005, 9006, 9007, 9008, 9009, 9010, 9011, 9012, 9013, 9014, 9015, 9016, 9017, 9018, 9019, 9020, 9021, 9022, 9023, 9024, 9025, 9026, 9027, 9028, 9029, 9030]
+robustness: [10001, 10002, 10003, 10004, 10005, 10006, 10007, 10008, 10009, 10010]
+
+50k 후보 비교(검증 평균 대기순; 순위만으로 채택하지 않음):
+후보 | (waiting, max_waiting, switching) | 평균 대기 | 최대 대기 평균 | 평균 대기열 | 전환수 | 처리량 | 제약 통과
+C15 | (0.3, 0.5, 0.6) | 21.603 | 74.800 | 19.143 | 41.500 | 201.900 | True
+C12 | (0.3, 0.4, 0.6) | 21.853 | 87.650 | 19.283 | 42.050 | 202.250 | False
+C13 | (0.3, 0.5, 0.4) | 21.938 | 80.850 | 19.508 | 44.550 | 201.150 | True
+C20 | (0.4, 0.4, 0.5) | 21.981 | 81.975 | 19.397 | 43.600 | 200.050 | False
+C11 | (0.3, 0.4, 0.5) | 21.996 | 80.500 | 19.491 | 42.150 | 200.550 | True
+C14 | (0.3, 0.5, 0.5) | 22.183 | 81.700 | 19.555 | 43.400 | 200.750 | True
+C1 | (0.2, 0.4, 0.4) | 22.197 | 77.750 | 19.722 | 44.750 | 197.900 | True
+C4 | (0.2, 0.5, 0.4) | 22.241 | 84.625 | 19.611 | 44.350 | 199.950 | False
+C24 | (0.4, 0.5, 0.6) | 22.279 | 83.425 | 19.759 | 42.250 | 198.750 | False
+C5 | (0.2, 0.5, 0.5) | 22.323 | 80.600 | 19.797 | 42.600 | 200.900 | True
+C10 | (0.3, 0.4, 0.4) | 22.395 | 88.225 | 19.887 | 43.550 | 197.950 | False
+C2 | (0.2, 0.4, 0.5) | 22.494 | 90.475 | 20.053 | 41.350 | 200.150 | False
+C3 | (0.2, 0.4, 0.6) | 22.700 | 81.525 | 20.055 | 41.650 | 199.150 | True
+C21 | (0.4, 0.4, 0.6) | 22.728 | 83.925 | 20.150 | 41.000 | 202.800 | False
+C28 | (0.3, 0.5, 0.7) | 22.879 | 83.100 | 20.216 | 40.800 | 198.800 | False
+C18 | (0.3, 0.6, 0.6) | 22.958 | 80.675 | 20.264 | 43.450 | 199.500 | True
+C30 | (0.3, 0.3, 0.5) | 23.037 | 83.475 | 20.396 | 42.700 | 200.300 | False
+C6 | (0.2, 0.5, 0.6) | 23.141 | 81.375 | 20.594 | 42.100 | 197.550 | True
+C9 | (0.2, 0.6, 0.6) | 23.153 | 79.700 | 20.567 | 41.750 | 198.850 | True
+C27 | (0.4, 0.6, 0.6) | 23.177 | 78.875 | 20.459 | 42.750 | 198.200 | True
+C7 | (0.2, 0.6, 0.4) | 23.331 | 80.450 | 20.757 | 43.700 | 196.850 | True
+C29 | (0.3, 0.5, 0.3) | 23.411 | 90.225 | 20.661 | 45.050 | 197.200 | False
+C23 | (0.4, 0.5, 0.5) | 23.531 | 83.325 | 20.899 | 43.550 | 196.300 | False
+C17 | (0.3, 0.6, 0.5) | 23.611 | 82.825 | 21.030 | 42.950 | 199.200 | False
+C25 | (0.4, 0.6, 0.4) | 23.641 | 81.650 | 20.926 | 45.000 | 195.850 | True
+C16 | (0.3, 0.6, 0.4) | 23.685 | 78.225 | 21.127 | 44.100 | 194.000 | True
+C22 | (0.4, 0.5, 0.4) | 23.813 | 77.650 | 21.177 | 44.900 | 193.150 | True
+C19 | (0.4, 0.4, 0.4) | 23.844 | 81.400 | 21.180 | 43.100 | 195.550 | True
+C26 | (0.4, 0.6, 0.5) | 24.606 | 83.325 | 21.755 | 45.400 | 192.350 | False
+C8 | (0.2, 0.6, 0.5) | 24.753 | 85.625 | 21.828 | 43.100 | 196.200 | False
+
+150k 검증: 평균 ± 학습 seed별 평균의 표본 표준편차:
+후보 | 가중치 | 평균 대기 | 최대 대기 평균 | 평균 대기열 | 전환수 | 처리량
+C11 | (0.3, 0.4, 0.5) | 22.188 ± 0.809 | 79.592 ± 10.003 | 19.674 ± 0.734 | 41.383 ± 0.115 | 199.183 ± 1.792
+C13 | (0.3, 0.5, 0.4) | 21.428 ± 1.419 | 78.300 ± 5.825 | 19.090 ± 1.341 | 42.000 ± 0.312 | 201.467 ± 4.295
+C14 | (0.3, 0.5, 0.5) | 21.002 ± 0.426 | 75.025 ± 4.354 | 18.700 ± 0.372 | 41.467 ± 0.881 | 202.833 ± 1.732
+C15 | (0.3, 0.5, 0.6) | 21.499 ± 0.861 | 74.750 ± 5.884 | 19.038 ± 0.770 | 41.050 ± 0.492 | 202.600 ± 1.744
+
+Pareto 후보(검증의 다섯 지표 기준; 최종 채택 기준과 구분):
+fine: [{"training_steps": 50000, "scenario": "random", "split": "validation", "candidate_ids": ["2", "12", "15", "21", "28"], "eligible_candidate_ids": ["15"]}]
+multiseed: [{"training_steps": 150000, "scenario": "random", "split": "validation", "candidate_ids": ["14", "15"], "eligible_candidate_ids": ["14", "15"]}]
+
+경계 확장 및 선택 고정 기록:
+{"candidate_weights": {"1": [0.2, 0.4, 0.4], "2": [0.2, 0.4, 0.5], "3": [0.2, 0.4, 0.6], "4": [0.2, 0.5, 0.4], "5": [0.2, 0.5, 0.5], "6": [0.2, 0.5, 0.6], "7": [0.2, 0.6, 0.4], "8": [0.2, 0.6, 0.5], "9": [0.2, 0.6, 0.6], "10": [0.3, 0.4, 0.4], "11": [0.3, 0.4, 0.5], "12": [0.3, 0.4, 0.6], "13": [0.3, 0.5, 0.4], "14": [0.3, 0.5, 0.5], "15": [0.3, 0.5, 0.6], "16": [0.3, 0.6, 0.4], "17": [0.3, 0.6, 0.5], "18": [0.3, 0.6, 0.6], "19": [0.4, 0.4, 0.4], "20": [0.4, 0.4, 0.5], "21": [0.4, 0.4, 0.6], "22": [0.4, 0.5, 0.4], "23": [0.4, 0.5, 0.5], "24": [0.4, 0.5, 0.6], "25": [0.4, 0.6, 0.4], "26": [0.4, 0.6, 0.5], "27": [0.4, 0.6, 0.6], "28": [0.3, 0.5, 0.7], "29": [0.3, 0.5, 0.3], "30": [0.3, 0.3, 0.5]}, "rounds": [{"candidate_ids": [28, 29, 30], "points": [[0.3, 0.5, 0.7], [0.3, 0.5, 0.3], [0.3, 0.3, 0.5]], "based_on_ranking": [15, 13, 11]}], "axes": [[0.2, 0.3, 0.4], [0.3, 0.4, 0.5, 0.6], [0.3, 0.4, 0.5, 0.6, 0.7]], "boundary_unresolved": false, "pending_outward_points": []}
+경계에서 여전히 개선되는 경우 탐색 범위가 제한적이며 국소 최적값으로 단정하지 않습니다.
+
+2. 최종 미사용 random 평가 — 평균과 95% bootstrap 신뢰구간
+
+지표 | Incumbent | 사전 고정 후보
+평균 누적 대기시간(초) | 16.098 [95% CI 14.145, 18.215] | 16.098 [95% CI 14.145, 18.215]
+회차 최대 대기시간의 평균(초) | 59.778 [95% CI 53.928, 65.917] | 59.778 [95% CI 53.928, 65.917]
+평균 총 대기열(대) | 12.151 [95% CI 9.814, 14.725] | 12.151 [95% CI 9.814, 14.725]
+실제 신호 전환(회/회차) | 41.878 [95% CI 40.989, 42.811] | 41.878 [95% CI 40.989, 42.811]
+처리량(대/회차) | 186.744 [95% CI 175.276, 197.778] | 186.744 [95% CI 175.276, 197.778]
+최종 평가에는 incumbent만 있습니다. 아래 후보−incumbent 차이는 동일 후보의 자기 비교이므로 0이며, 새로운 후보의 개선을 시험한 결과가 아닙니다.
+
+같은 학습 seed와 교통 seed끼리 짝지은 후보−incumbent 차이:
+평균 누적 대기시간(초): +0.000 [95% CI +0.000, +0.000]; 평균 비율 변화 +0.000 [95% CI +0.000, +0.000]%
+회차 최대 대기시간의 평균(초): +0.000 [95% CI +0.000, +0.000]; 평균 비율 변화 +0.000 [95% CI +0.000, +0.000]%
+평균 총 대기열(대): +0.000 [95% CI +0.000, +0.000]; 평균 비율 변화 +0.000 [95% CI +0.000, +0.000]%
+실제 신호 전환(회/회차): +0.000 [95% CI +0.000, +0.000]; 평균 비율 변화 +0.000 [95% CI +0.000, +0.000]%
+처리량(대/회차): +0.000 [95% CI +0.000, +0.000]; 평균 비율 변화 +0.000 [95% CI +0.000, +0.000]%
+
+학습 seed별 최종 holdout 평균 대기 차이(후보−incumbent):
+학습 seed 22: +0.000초; 악화 없음=True
+학습 seed 42: +0.000초; 악화 없음=True
+학습 seed 62: +0.000초; 악화 없음=True
+교통 에피소드 단위 평균 대기 개선/동률/악화: 0/90/0 (독립 재학습 횟수가 아님)
+
+3. 시나리오별 확인 — random holdout과 섞어 평균내지 않음
+
+그림 7과 아래 표는 incumbent의 시나리오별 절대 평균 및 95% CI입니다. 새 후보를 선택하지 않았으므로 후보 간 개선이나 비교 우월성을 보여주는 자료가 아닙니다.
+시나리오 | 평균 대기(초) | 회차 최대 대기 평균(초) | 처리량(대/회차)
+random | 16.098 [95% CI 14.145, 18.215] | 59.778 [95% CI 53.928, 65.917] | 186.744 [95% CI 175.276, 197.778]
+uniform | 9.854 [95% CI 9.239, 10.578] | 42.650 [95% CI 40.267, 44.867] | 155.200 [95% CI 149.666, 160.467]
+low | 9.375 [95% CI 8.472, 10.285] | 36.817 [95% CI 33.466, 40.350] | 38.200 [95% CI 34.933, 41.533]
+north_south_congested | 14.055 [95% CI 12.575, 15.426] | 62.133 [95% CI 56.616, 67.401] | 199.600 [95% CI 192.433, 206.667]
+east_west_congested | 13.933 [95% CI 12.711, 15.345] | 60.000 [95% CI 53.966, 66.451] | 200.233 [95% CI 193.833, 206.000]
+left_turn_congested | 19.306 [95% CI 17.754, 20.779] | 69.167 [95% CI 60.349, 78.700] | 160.800 [95% CI 155.233, 165.900]
+heavy | 43.340 [95% CI 41.088, 45.787] | 127.650 [95% CI 117.683, 141.500] | 250.900 [95% CI 245.600, 255.768]
+
+4. 제외·진단 자료
+
+holdout/random/C14: {"collisions_total": 0, "teleports_total": 0, "unfinished": 24.18888888888889, "pending": 0.0, "max_pending": 1.7555555555555555, "maximum_waiting_worst_episode": 111.5, "unfinished_mean_ci95": "24.189 [95% CI 17.455, 31.433]", "unfinished_worst_episode": 98.0, "pending_mean_ci95": "0.000 [95% CI 0.000, 0.000]", "pending_worst_episode": 0.0, "max_pending_mean_ci95": "1.756 [95% CI 1.489, 2.067]", "max_pending_worst_episode": 4.0}
+robustness/east_west_congested/C14: {"collisions_total": 0, "teleports_total": 0, "unfinished": 16.166666666666668, "pending": 0.0, "max_pending": 1.6333333333333333, "maximum_waiting_worst_episode": 86.0, "unfinished_mean_ci95": "16.167 [95% CI 13.133, 19.601]", "unfinished_worst_episode": 27.0, "pending_mean_ci95": "0.000 [95% CI 0.000, 0.000]", "pending_worst_episode": 0.0, "max_pending_mean_ci95": "1.633 [95% CI 1.300, 1.967]", "max_pending_worst_episode": 3.0}
+robustness/heavy/C14: {"collisions_total": 0, "teleports_total": 0, "unfinished": 175.03333333333333, "pending": 1.2666666666666666, "max_pending": 4.966666666666667, "maximum_waiting_worst_episode": 177.5, "unfinished_mean_ci95": "175.033 [95% CI 163.700, 186.400]", "unfinished_worst_episode": 205.0, "pending_mean_ci95": "1.267 [95% CI 0.000, 3.933]", "pending_worst_episode": 16.0, "max_pending_mean_ci95": "4.967 [95% CI 2.967, 8.367]", "max_pending_worst_episode": 25.0}
+robustness/left_turn_congested/C14: {"collisions_total": 0, "teleports_total": 0, "unfinished": 38.2, "pending": 2.6, "max_pending": 8.1, "maximum_waiting_worst_episode": 100.0, "unfinished_mean_ci95": "38.200 [95% CI 33.800, 42.833]", "unfinished_worst_episode": 53.0, "pending_mean_ci95": "2.600 [95% CI 0.000, 5.900]", "pending_worst_episode": 19.0, "max_pending_mean_ci95": "8.100 [95% CI 3.800, 13.267]", "max_pending_worst_episode": 27.0}
+robustness/low/C14: {"collisions_total": 0, "teleports_total": 0, "unfinished": 0.9, "pending": 0.0, "max_pending": 0.2, "maximum_waiting_worst_episode": 50.5, "unfinished_mean_ci95": "0.900 [95% CI 0.400, 1.433]", "unfinished_worst_episode": 3.0, "pending_mean_ci95": "0.000 [95% CI 0.000, 0.000]", "pending_worst_episode": 0.0, "max_pending_mean_ci95": "0.200 [95% CI 0.000, 0.500]", "max_pending_worst_episode": 1.0}
+robustness/north_south_congested/C14: {"collisions_total": 0, "teleports_total": 0, "unfinished": 17.8, "pending": 0.0, "max_pending": 1.8666666666666667, "maximum_waiting_worst_episode": 81.0, "unfinished_mean_ci95": "17.800 [95% CI 13.100, 22.367]", "unfinished_worst_episode": 30.0, "pending_mean_ci95": "0.000 [95% CI 0.000, 0.000]", "pending_worst_episode": 0.0, "max_pending_mean_ci95": "1.867 [95% CI 1.500, 2.200]", "max_pending_worst_episode": 3.0}
+robustness/uniform/C14: {"collisions_total": 0, "teleports_total": 0, "unfinished": 4.9, "pending": 0.0, "max_pending": 1.1, "maximum_waiting_worst_episode": 53.0, "unfinished_mean_ci95": "4.900 [95% CI 3.800, 6.067]", "unfinished_worst_episode": 11.0, "pending_mean_ci95": "0.000 [95% CI 0.000, 0.000]", "pending_worst_episode": 0.0, "max_pending_mean_ci95": "1.100 [95% CI 1.000, 1.300]", "max_pending_worst_episode": 2.0}
+
+5. 선택 고정과 통계 해석
+
+검증 제약: 충돌·텔레포트 0, incumbent 처리량 95% 이상, 회차 최대 대기의 평균 비증가.
+통과 후보를 평균 대기 → 최대 대기 평균 → 평균 대기열 → 실제 전환수 → 처리량 순으로 비교합니다.
+150k 검증과 최종 random 확인에서는 세 학습 seed 중 어느 하나에서도 평균 대기 방향이 악화되지 않는지 봅니다.
+최종 random에서는 평균 대기가 개선되어야 하며, 각 강건성 시나리오의 평균 대기는 5% 악화 상한도 확인합니다.
+shortlist_lock.json은 50k 검증 뒤 150k 대상 후보를 고정하고, selection_lock.json은 최종 시험 전에 후보를 고정합니다.
+최종 holdout과 강건성 자료를 보고 다른 후보로 바꿔 선택하지 않습니다. 실패 시 incumbent를 유지합니다.
+시험자료의 선택 목록이 비어 있는지와 최종 추천이 selection lock의 후보 또는 incumbent인지 검사했습니다.
+경험적 채택 조건을 통과하더라도 CI가 0을 포함할 수 있습니다. 이 경우 조건 통과와 통계적 개선 미확정을 구분합니다.
+그림 1~5와 7의 오차막대는 분석 모듈에서 산출한 95% bootstrap 신뢰구간입니다.
+단일 학습 seed인 50k 단계의 구간은 교통 seed 변동만 반영하며 학습 재현성을 검증하지 않습니다.
+150k 단계는 학습 seed와 교통 seed를 각각 재표집하는 two-way cluster bootstrap을 사용합니다.
+동일 모델의 여러 교통 에피소드를 서로 독립적인 재학습 결과로 세지 않습니다.
+학습 seed 3개만으로 얻은 구간은 제한적이며, 더 넓은 학습 무작위성의 충분한 검증은 아닙니다.
+그림 6의 오차막대는 학습 seed별 평균의 표본 표준편차입니다. 신뢰구간과 구분해야 합니다.
+대기 차이의 CI 전체가 0 미만이면 해당 사전 고정 비교에서 개선 방향의 근거가 됩니다. 0을 포함하면 개선을 확정하지 않습니다.
+개별 평균의 오차막대 중첩 여부로 paired 차이의 유의성을 판단하지 않습니다.
+검증 후보 및 여러 시나리오의 구간은 다중비교 보정되지 않았으므로 전 후보·전 상황의 유의한 우월성을 주장하지 않습니다.
+가중치별 그림은 나머지 두 가중치를 incumbent 값으로 고정한 조건부 절편입니다. 모든 조합을 평균낸 독립 효과가 아닙니다.
+평균 대기는 300초 cutoff까지 실제 진입한 departed 차량 전부의 관측 누적 대기 평균입니다. 미완료 차량은 포함하고 진입 전 pending 차량은 제외합니다.
+평균 대기열은 8개 진입 이동 그룹의 정지 차량 수를 합한 값의 시간 평균입니다.
+회차 최대 대기의 평균과 전체 최악 회차의 최대 대기는 서로 다른 지표입니다. pending·미완료·처리량을 함께 해석해야 합니다.
+충돌·텔레포트가 0이어도 급제동 등 모든 안전성이 검증된 것은 아닙니다. SUMO emergency braking/stop 경고는 이 두 지표에 포함되지 않으므로 개별 실행 로그도 확인해야 합니다.
+계수별 reward 합계는 서로 다른 목적함수이므로 계수 선택의 공통 성능 척도로 비교하지 않습니다.
+
+분석 모듈의 실제 inference 설정:
+fine: {"ci_method": "two_way_crossed_cluster_percentile_bootstrap", "confidence_level": 0.95, "bootstrap_samples": 5000, "bootstrap_seed": 1729, "resampling_units": ["training_seed", "evaluation_seed"], "candidate_incumbent_resampling_is_paired": true, "assumptions": ["Complete balanced crossed seed design; equal weighting of both seed axes.", "Training seeds are exchangeable independent runs; traffic seeds are exchangeable draws.", "The two seed axes are independent; shared-policy and shared-traffic dependence is preserved.", "Scenarios and training budgets are fixed conditions, analyzed separately.", "A singleton axis is conditioned on; two singleton axes yield no sampling CI.", "Very few training seeds limit precision; product bootstrap may be conservative for interactions."], "episode_std_is_descriptive_not_standard_error": true, "sample_std_ddof": 1, "singleton_std_zero_is_display_convention_not_estimated_variation": true, "diagnostic_metrics": ["unfinished", "pending", "max_pending", "forced_changes", "max_queue"], "win_tie_loss_unit": "matched training_seed x evaluation_seed cell; counts are dependent", "tie_absolute_tolerance": 1e-09, "aggregate_percent_change": "100 * (candidate_mean - incumbent_mean) / incumbent_mean", "zero_reference_percent_change": null, "multiplicity_adjustment": null, "statistical_significance_established": false, "holdout_reselection_permitted": false}
+multiseed: {"ci_method": "two_way_crossed_cluster_percentile_bootstrap", "confidence_level": 0.95, "bootstrap_samples": 5000, "bootstrap_seed": 1729, "resampling_units": ["training_seed", "evaluation_seed"], "candidate_incumbent_resampling_is_paired": true, "assumptions": ["Complete balanced crossed seed design; equal weighting of both seed axes.", "Training seeds are exchangeable independent runs; traffic seeds are exchangeable draws.", "The two seed axes are independent; shared-policy and shared-traffic dependence is preserved.", "Scenarios and training budgets are fixed conditions, analyzed separately.", "A singleton axis is conditioned on; two singleton axes yield no sampling CI.", "Very few training seeds limit precision; product bootstrap may be conservative for interactions."], "episode_std_is_descriptive_not_standard_error": true, "sample_std_ddof": 1, "singleton_std_zero_is_display_convention_not_estimated_variation": true, "diagnostic_metrics": ["unfinished", "pending", "max_pending", "forced_changes", "max_queue"], "win_tie_loss_unit": "matched training_seed x evaluation_seed cell; counts are dependent", "tie_absolute_tolerance": 1e-09, "aggregate_percent_change": "100 * (candidate_mean - incumbent_mean) / incumbent_mean", "zero_reference_percent_change": null, "multiplicity_adjustment": null, "statistical_significance_established": false, "holdout_reselection_permitted": false}
+holdout: {"ci_method": "two_way_crossed_cluster_percentile_bootstrap", "confidence_level": 0.95, "bootstrap_samples": 5000, "bootstrap_seed": 1729, "resampling_units": ["training_seed", "evaluation_seed"], "candidate_incumbent_resampling_is_paired": true, "assumptions": ["Complete balanced crossed seed design; equal weighting of both seed axes.", "Training seeds are exchangeable independent runs; traffic seeds are exchangeable draws.", "The two seed axes are independent; shared-policy and shared-traffic dependence is preserved.", "Scenarios and training budgets are fixed conditions, analyzed separately.", "A singleton axis is conditioned on; two singleton axes yield no sampling CI.", "Very few training seeds limit precision; product bootstrap may be conservative for interactions."], "episode_std_is_descriptive_not_standard_error": true, "sample_std_ddof": 1, "singleton_std_zero_is_display_convention_not_estimated_variation": true, "diagnostic_metrics": ["unfinished", "pending", "max_pending", "forced_changes", "max_queue"], "win_tie_loss_unit": "matched training_seed x evaluation_seed cell; counts are dependent", "tie_absolute_tolerance": 1e-09, "aggregate_percent_change": "100 * (candidate_mean - incumbent_mean) / incumbent_mean", "zero_reference_percent_change": null, "multiplicity_adjustment": null, "statistical_significance_established": false, "holdout_reselection_permitted": false}
+robustness: {"ci_method": "two_way_crossed_cluster_percentile_bootstrap", "confidence_level": 0.95, "bootstrap_samples": 5000, "bootstrap_seed": 1729, "resampling_units": ["training_seed", "evaluation_seed"], "candidate_incumbent_resampling_is_paired": true, "assumptions": ["Complete balanced crossed seed design; equal weighting of both seed axes.", "Training seeds are exchangeable independent runs; traffic seeds are exchangeable draws.", "The two seed axes are independent; shared-policy and shared-traffic dependence is preserved.", "Scenarios and training budgets are fixed conditions, analyzed separately.", "A singleton axis is conditioned on; two singleton axes yield no sampling CI.", "Very few training seeds limit precision; product bootstrap may be conservative for interactions."], "episode_std_is_descriptive_not_standard_error": true, "sample_std_ddof": 1, "singleton_std_zero_is_display_convention_not_estimated_variation": true, "diagnostic_metrics": ["unfinished", "pending", "max_pending", "forced_changes", "max_queue"], "win_tie_loss_unit": "matched training_seed x evaluation_seed cell; counts are dependent", "tie_absolute_tolerance": 1e-09, "aggregate_percent_change": "100 * (candidate_mean - incumbent_mean) / incumbent_mean", "zero_reference_percent_change": null, "multiplicity_adjustment": null, "statistical_significance_established": false, "holdout_reselection_permitted": false}
+
+6. 재현 명령과 원본
+
+python -m model.experiments.fine_search_report --input "C:\Users\권민우\traffic-control\model\results\reward_fine_search_2026-10-09"
+학습 실행 및 단계별 재현 명령: model/experiments/FINE_SEARCH.md의 실행 절.
+실행 조건과 seed 목록: search_config.json
+후보 고정 기록: shortlist_lock.json, selection_lock.json
+채택 판단의 원본: final_recommendation.json
+수치 원본: *_results.csv 및 *_analysis.json
+학습량·가중치·runtime·수요·모델 해시는 각 실행 폴더와 runner의 재현 기록을 참조하십시오.
+기존 baseline 폴더의 파일별 SHA-256은 search_config.json의 prior_results_sha256에 저장되며 runner가 완료 전 보존 여부를 검증합니다.
+최종 추천에 연결된 모델 기록:
+[{"job": {"stage": "multiseed", "candidate_id": 14, "weights": [0.3, 0.5, 0.5], "training_seed": 22, "training_steps": 150000, "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_14"}, "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_22\\candidate_14\\attempt_001\\experiment_14", "reused_completed_run": true}, {"job": {"stage": "multiseed", "candidate_id": 14, "weights": [0.3, 0.5, 0.5], "training_seed": 42, "training_steps": 150000, "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_14"}, "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_42\\candidate_14\\attempt_001\\experiment_14", "reused_completed_run": true}, {"job": {"stage": "multiseed", "candidate_id": 14, "weights": [0.3, 0.5, 0.5], "training_seed": 62, "training_steps": 150000, "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_14"}, "folder": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\multiseed\\seed_62\\candidate_14\\attempt_001\\experiment_14", "reused_completed_run": true}]
+이 보고서는 저장된 결과를 읽어 생성했으며, 후보 재선정·모델 재학습·기본 설정 변경을 수행하지 않았습니다.

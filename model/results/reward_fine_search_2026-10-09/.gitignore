@@ -1,0 +1,8 @@
+# Reproducibility is carried by final checkpoints and demand hash manifests.
+# Keep bulky working files locally without including them in future commits.
+**/final.replay.pkl
+**/sumo/generated/
+**/latest.zip
+**/checkpoint_*.zip
+**/.matplotlib/
+**/__pycache__/

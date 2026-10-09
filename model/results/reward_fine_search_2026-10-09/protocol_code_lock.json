@@ -1,0 +1,8 @@
+{
+  "source_sha256": {
+    "model/experiments/fine_reward_search.py": "04a56eb82b6567ac0004d80d2fbfb0e2d1f27da48e174c69644e362de1370949",
+    "model/experiments/fine_search_analysis.py": "d35319df2999effb6eb3a3f429ca5ed7e034cebdabe2f038bbbaf3cb59c6a1ac"
+  },
+  "rules_sha256": "9838386fd60f28bad7b107d460e4303ee1558987c774486344cfe9475412808e",
+  "protocol_fingerprint": "65d1f3ea40eeb337595c85df2d1daa631881dea1200f4a668b59c836dd96f3ca"
+}

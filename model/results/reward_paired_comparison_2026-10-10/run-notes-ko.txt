@@ -1,0 +1,41 @@
+실행 결과 및 검증 기록
+
+이전 표의 원본 모델·설정·평가 파일을 현재 접근 가능한 저장소와 관련 실험 위치에서 확보하지 못했습니다.
+기존 네 조합과 미리 선택한 세 조합을 현재 환경의 동일 조건으로 비교했습니다.
+기존 표의 20개 평균±표준편차 쌍은 모두 이번 결과와 소수점 둘째 자리까지 일치하지 않습니다.
+따라서 comparison-ko.txt는 기존 숫자에 세 행만 붙인 표가 아닌, 새롭게 작성한 일곱 행의 비교표입니다.
+원래 제시된 수치는 historical_table_user_provided.json에 별도로 보존했으며 집계에는 사용하지 않았습니다.
+
+공통 조건
+- Queue 가중치 1, Observation 60차원, Action 8개.
+- 학습 seed 22, 50,000 step, 원래 150,000-step 탐색률 일정과 기존 worker의 종료 방식 유지.
+- random 교통, 에피소드 300초, 수요 생성 240초, deterministic 평가.
+- 일곱 조합 모두 평가 seed 2001–2030의 같은 30회 수요 사용.
+- Python 3.14.0, NumPy 2.4.4, Torch 2.11.0, Stable-Baselines3 2.9.0, Gymnasium 1.3.0, SUMO 1.27.1.
+- 1–3은 새 학습. 4–7은 동일 조건이 확인된 fine-search의 후보 30·13·14·15 모델 재사용.
+- 평균±표본 표준편차(ddof=1)는 평가 교통 30회 간 변동이며 독립 학습 seed 간 변동이 아님.
+
+결과 해석
+7번은 이번 표에서 평균 대기, 최대 대기 평균, 실제 전환 횟수가 가장 낮았습니다.
+5번은 평균 대기열이 가장 낮고 통과 차량 수가 가장 많았습니다.
+단일 학습 seed 및 50k 단계의 비교로, 통계적 우월성이나 모든 학습 seed에 걸친 우수성을 확정하지 않습니다.
+이전 150k 다중 학습 seed 실험의 incumbent 유지 결론을 대체하지 않으며 기본 보상 가중치를 변경하지 않았습니다.
+
+검증
+- check_env, 60차원/8행동, 캐시/직접 TraCI 상태 동등성, 300초 SUMO smoke 통과.
+- 기존 및 신규 테스트 112 passed, 별도 활성화가 필요한 SUMO 통합 테스트 5 skipped.
+- 샌드박스 안의 첫 전체 pytest 실행은 진행이 멈춰 해당 실행만 정리했습니다.
+  동일 테스트를 정상 로컬 실행 환경에서 새 임시 디렉터리로 실행했고 위 결과를 얻었습니다.
+- 독립 원자료 감사 7,272개 검사 PASS: 210회, 7개 서로 다른 모델, 동일 학습 수요 167회,
+  평가 수요 30회, 코드/runtime/SUMO 파일 및 모델 해시, 원본 파일 32개 보존 확인.
+- 모든 평가에서 collisions=0, teleports=0. SUMO 급제동/긴급 정지 경고는 execution.log에 기록돼 있습니다.
+  두 이벤트 지표가 0이라는 사실이 모든 안전성을 입증하는 것은 아닙니다.
+
+실행 명령 (저장소 루트)
+.\.venv\Scripts\python.exe -u -m model.experiments.paired_reward_comparison --output model/results/reward_paired_comparison_2026-10-10 --workers 3
+.\.venv\Scripts\python.exe -m pytest model/tests api/tests -q --basetemp .tmp/pytest-paired-unrestricted-20261010
+
+동일 output의 완료 실행을 다시 실행하면 검증된 학습/평가를 재사용합니다.
+완전히 새 실험을 하려면 새로운 output 경로를 지정합니다.
+프로토콜과 재사용 모델 출처는 comparison_config.json, 상세 검증은 verification.json 및 independent_audit.json,
+원자료는 evaluation_metrics.csv, 테스트 로그는 pytest.log, 원래 표의 보관본은 historical_table_user_provided.json에 있습니다.

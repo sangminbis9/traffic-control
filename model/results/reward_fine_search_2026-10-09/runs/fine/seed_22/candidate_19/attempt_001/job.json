@@ -1,0 +1,12 @@
+{
+  "stage": "fine",
+  "candidate_id": 19,
+  "weights": [
+    0.4,
+    0.4,
+    0.4
+  ],
+  "training_seed": 22,
+  "training_steps": 50000,
+  "parent": "C:\\Users\\권민우\\traffic-control\\model\\results\\reward_fine_search_2026-10-09\\runs\\fine\\seed_22\\candidate_19"
+}

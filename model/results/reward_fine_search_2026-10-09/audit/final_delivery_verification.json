@@ -1,0 +1,905 @@
+{
+  "verified_at_utc": "2026-10-09T15:24:14.324892+00:00",
+  "status": "PASS",
+  "git_commit": "b0530d711eb9b5ec291b99284794e6fac8e1dba2",
+  "comparison_models": 42,
+  "additional_integrity_training_runs": 5,
+  "completed_training_runs_including_integrity": 47,
+  "discarded_partial_attempts": 1,
+  "comparison_evaluation_rows": {
+    "fine_search": 600,
+    "multiseed": 240,
+    "final_holdout": 90,
+    "robustness": 180
+  },
+  "total_comparison_evaluations": 1110,
+  "pytest": {
+    "passed": 92,
+    "skipped_opt_in_sumo_tests": 5
+  },
+  "preflight": {
+    "passed": true,
+    "check_env": true,
+    "cache_equivalence_checked": true,
+    "all_eight_actions_requested": true,
+    "episode": {
+      "episode": 0,
+      "controller": "Fine-Preflight",
+      "seed": 11001,
+      "traffic_scenario": "random",
+      "avg_waiting_time": 40.695744680851064,
+      "max_waiting_time": 96.0,
+      "avg_queue": 31.878333333333334,
+      "max_queue": 82.0,
+      "throughput": 147,
+      "phase_changes": 50,
+      "forced_changes": 26,
+      "episode_reward": -121.46409999999996,
+      "departed": 235,
+      "unfinished": 88,
+      "pending": 0,
+      "max_pending": 2,
+      "collisions": 0,
+      "teleports": 0,
+      "duration": 300.0
+    },
+    "updated_at": "2026-10-09T13:25:06.002216+00:00"
+  },
+  "report_copy_sha256": "0ac8dc6154a91f2973e934d3dfcffed10c48ce184a638315a7f4378f623f7a93",
+  "report_artifact_sha256": {
+    "reports\\01_final_five_metrics.pdf": "b162c48950bb4124d4d9b28cc774a54594c91a60a8f338731b6543dff3ef431c",
+    "reports\\01_final_five_metrics.png": "cefa529845c92459ddacc56ead45d9caaea5a216ac252335edb6762032890e83",
+    "reports\\02_fine_search_waiting.pdf": "d9c91c5c3fa9c66437f5846bac4d9ec7fb49cb353b272fafbb4fa6530379992c",
+    "reports\\02_fine_search_waiting.png": "2be0ba12d8986c5447c76c704ea64799a11f759fbf67fdce3885f13797b41e2e",
+    "reports\\03_max_waiting_weight.pdf": "5c35d2ef5dbc2df2f74e82117dc869959439baf68cb0c551c546964fa5b610e4",
+    "reports\\03_max_waiting_weight.png": "207a55839a33bc1580fcbc0542edc738d739823f2b5bb041da5fa630c49f3422",
+    "reports\\04_switch_weight.pdf": "628bb17b1ff46396c092d4dfdfd55a614cd5d6400383d66313b1fd3f1b67af98",
+    "reports\\04_switch_weight.png": "249172d919786585a9f8ffab654650ce04e0178793b2d2945a376d1bf47d60ba",
+    "reports\\05_waiting_weight.pdf": "9d6f35dce8e975b6afa01d935dc81c78b1b4716899fc66e5cc37b305dbedc35b",
+    "reports\\05_waiting_weight.png": "bd8b6d22e88550813933b044359af5b771dca11b4f6536db469c05357d20ab0b",
+    "reports\\06_training_seed_distribution.pdf": "ade44f08edde4c4351e4ec7b7d8c33eda255eda4ff8197e00c8e5f722e3b4333",
+    "reports\\06_training_seed_distribution.png": "d6cc0cd6a16d330c2cf3bf7c7f3bb0f378fe804e163c03a119e8870d721c246a",
+    "reports\\07_scenario_robustness.pdf": "77c840549389b624c42a77583c2826616d64558e859ddf660434d03ea885e86c",
+    "reports\\07_scenario_robustness.png": "6f8f91688ebefe9c4672bff7de926675f0752ae25418dca9ea9968c47f78e4cb",
+    "reports\\final-report-ko.txt": "0ac8dc6154a91f2973e934d3dfcffed10c48ce184a638315a7f4378f623f7a93",
+    "reports\\report_manifest.json": "6d43f4247288d7bcfd93a3a666179ce319a0d8f8d5492465ed3807944502c61c"
+  },
+  "checks": [
+    {
+      "check": "core_sha256:model/utils/config.py",
+      "passed": true
+    },
+    {
+      "check": "core_sha256:model/env/reward.py",
+      "passed": true
+    },
+    {
+      "check": "core_sha256:model/env/intersection_env.py",
+      "passed": true
+    },
+    {
+      "check": "core_sha256:model/env/state_provider.py",
+      "passed": true
+    },
+    {
+      "check": "core_sha256:model/controller/signal_controller.py",
+      "passed": true
+    },
+    {
+      "check": "core_sha256:model/controller/traffic_dqn.py",
+      "passed": true
+    },
+    {
+      "check": "core_sha256:model/training.py",
+      "passed": true
+    },
+    {
+      "check": "core_sha256:model/traffic/route_generator.py",
+      "passed": true
+    },
+    {
+      "check": "core_sha256:model/utils/metrics.py",
+      "passed": true
+    },
+    {
+      "check": "core_sha256:model/experiments/reward_sensitivity.py",
+      "passed": true
+    },
+    {
+      "check": "core_sha256:model/experiments/subscription_connection.py",
+      "passed": true
+    },
+    {
+      "check": "core_sha256:model/sumo/intersection.net.xml",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\.gitattributes",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\analysis_sources\\confirm_reward_followup.py",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\analysis_sources\\finalize_reward_search.py",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\analysis_sources\\stress_candidate4.py",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\analysis_sources\\stress_reward_finalists.py",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\analysis_sources\\summarize_quick_reward_search.py",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\comparison.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_1\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_1\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_1\\experiment_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_1\\final.zip",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_1\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_1\\training_progress.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_1\\training_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_2\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_2\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_2\\experiment_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_2\\final.zip",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_2\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_2\\training_progress.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_2\\training_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_3\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_3\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_3\\experiment_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_3\\final.zip",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_3\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_3\\training_progress.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_3\\training_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_4\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_4\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_4\\experiment_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_4\\final.zip",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_4\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_4\\training_progress.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_4\\training_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_5\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_5\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_5\\experiment_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_5\\final.zip",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_5\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_5\\training_progress.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_5\\training_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_6\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_6\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_6\\experiment_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_6\\final.zip",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_6\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_6\\training_progress.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\experiment_6\\training_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\final-report-ko.txt",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\final_comparison.png",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\final_recommendation.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\comparison.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\followup_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_1\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_1\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_1\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_1\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_4\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_4\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_4\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\experiment_4\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\fixed_time\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\fixed_time\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\fixed_time\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\holdout\\fixed_time\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\recommendation.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\followup_confirmation\\status.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\experiment_1\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\experiment_1\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\experiment_1\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\experiment_1\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\experiment_4\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\experiment_4\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\experiment_4\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\experiment_4\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\experiment_6\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\experiment_6\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\experiment_6\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\experiment_6\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\fixed_time\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\fixed_time\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\fixed_time\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout\\fixed_time\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout_comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\holdout_comparison.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\locked_selection.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\observed-limitations.txt",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\README.md",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\recommendation.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\recommended_reward_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\runtime_packages.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\search_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\status.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\experiment_1\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\experiment_1\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\experiment_1\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\experiment_4\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\experiment_4\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\experiment_4\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\fixed_time\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\fixed_time\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\east_west_congested\\fixed_time\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\heavy\\experiment_1\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\heavy\\experiment_1\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\heavy\\experiment_1\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\heavy\\experiment_4\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\heavy\\experiment_4\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\heavy\\experiment_4\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\heavy\\fixed_time\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\heavy\\fixed_time\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\heavy\\fixed_time\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\experiment_1\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\experiment_1\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\experiment_1\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\experiment_4\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\experiment_4\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\experiment_4\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\fixed_time\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\fixed_time\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\left_turn_congested\\fixed_time\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\low\\experiment_1\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\low\\experiment_1\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\low\\experiment_1\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\low\\experiment_4\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\low\\experiment_4\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\low\\experiment_4\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\low\\fixed_time\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\low\\fixed_time\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\low\\fixed_time\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\experiment_1\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\experiment_1\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\experiment_1\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\experiment_4\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\experiment_4\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\experiment_4\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\fixed_time\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\fixed_time\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\north_south_congested\\fixed_time\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\uniform\\experiment_1\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\uniform\\experiment_1\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\uniform\\experiment_1\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\uniform\\experiment_4\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\uniform\\experiment_4\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\uniform\\experiment_4\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\uniform\\fixed_time\\evaluation_config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\uniform\\fixed_time\\evaluation_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress\\uniform\\fixed_time\\evaluation_routes.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress_candidate4\\comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress_candidate4\\comparison.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress_candidate4\\config.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\stress_candidate4\\status.json",
+      "passed": true
+    },
+    {
+      "check": "prior_results_sha256:model\\results\\reward_search_2026-10-09\\validation_diagnostics.csv",
+      "passed": true
+    },
+    {
+      "check": "protocol:model/experiments/fine_reward_search.py",
+      "passed": true
+    },
+    {
+      "check": "protocol:model/experiments/fine_search_analysis.py",
+      "passed": true
+    },
+    {
+      "check": "rules_immutable",
+      "passed": true
+    },
+    {
+      "check": "git_head_unchanged",
+      "passed": true
+    },
+    {
+      "check": "tracked_files_unchanged",
+      "passed": true
+    },
+    {
+      "check": "fine_search_row_count",
+      "passed": true
+    },
+    {
+      "check": "multiseed_row_count",
+      "passed": true
+    },
+    {
+      "check": "final_holdout_row_count",
+      "passed": true
+    },
+    {
+      "check": "robustness_row_count",
+      "passed": true
+    },
+    {
+      "check": "no_collisions_or_teleports",
+      "passed": true
+    },
+    {
+      "check": "experiment_completed",
+      "passed": true
+    },
+    {
+      "check": "incumbent_retained_without_new_improvement_claim",
+      "passed": true
+    },
+    {
+      "check": "comparison_models_42",
+      "passed": true
+    },
+    {
+      "check": "integrity_retraining_passed",
+      "passed": true
+    },
+    {
+      "check": "35_saved_checkpoints_match",
+      "passed": true
+    },
+    {
+      "check": "sumo_preflight_passed",
+      "passed": true
+    },
+    {
+      "check": "pytest92passed5optin_skipped",
+      "passed": true
+    },
+    {
+      "check": "report_input:status.json",
+      "passed": true
+    },
+    {
+      "check": "report_input:search_config.json",
+      "passed": true
+    },
+    {
+      "check": "report_input:shortlist_lock.json",
+      "passed": true
+    },
+    {
+      "check": "report_input:selection_lock.json",
+      "passed": true
+    },
+    {
+      "check": "report_input:final_recommendation.json",
+      "passed": true
+    },
+    {
+      "check": "report_input:fine_search_results.csv",
+      "passed": true
+    },
+    {
+      "check": "report_input:fine_search_analysis.json",
+      "passed": true
+    },
+    {
+      "check": "report_input:multiseed_results.csv",
+      "passed": true
+    },
+    {
+      "check": "report_input:multiseed_analysis.json",
+      "passed": true
+    },
+    {
+      "check": "report_input:final_holdout_results.csv",
+      "passed": true
+    },
+    {
+      "check": "report_input:final_holdout_analysis.json",
+      "passed": true
+    },
+    {
+      "check": "report_input:robustness_results.csv",
+      "passed": true
+    },
+    {
+      "check": "report_input:robustness_analysis.json",
+      "passed": true
+    },
+    {
+      "check": "report_input:audit/retraining_integrity/audit_result.json",
+      "passed": true
+    },
+    {
+      "check": "report_source_matches",
+      "passed": true
+    },
+    {
+      "check": "report_root_copy_matches",
+      "passed": true
+    },
+    {
+      "check": "seven_png",
+      "passed": true
+    },
+    {
+      "check": "seven_pdf",
+      "passed": true
+    },
+    {
+      "check": "required_artifact:fine_search_results.csv",
+      "passed": true
+    },
+    {
+      "check": "required_artifact:multiseed_results.csv",
+      "passed": true
+    },
+    {
+      "check": "required_artifact:final_holdout_results.csv",
+      "passed": true
+    },
+    {
+      "check": "required_artifact:pareto_front.csv",
+      "passed": true
+    },
+    {
+      "check": "required_artifact:final_recommendation.json",
+      "passed": true
+    },
+    {
+      "check": "required_artifact:final-report-ko.txt",
+      "passed": true
+    },
+    {
+      "check": "required_artifact:README.md",
+      "passed": true
+    }
+  ]
+}
