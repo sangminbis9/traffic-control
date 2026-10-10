@@ -1,0 +1,10 @@
+[
+  {
+    "started_at": "2026-10-10T11:17:19.009323+00:00",
+    "ended_at": "2026-10-10T11:17:56.160716+00:00",
+    "wall_seconds": 37.15140020000035,
+    "previous_completed_cases": 0,
+    "new_completed_cases": 20,
+    "scope": "this worker invocation including model load/SUMO startups; concurrent workers overlap"
+  }
+]

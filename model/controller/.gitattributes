@@ -1,0 +1,2 @@
+# Keep the rule policy source hash used by frozen comparison evidence.
+rule_based_controller.py -text

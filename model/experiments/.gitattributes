@@ -4,3 +4,5 @@ fine_search_analysis.py -text
 fine_search_integrity.py -text
 fine_search_report.py -text
 paired_reward_comparison.py -text
+rule_based_comparison.py -text
+report_rule_comparison.py -text

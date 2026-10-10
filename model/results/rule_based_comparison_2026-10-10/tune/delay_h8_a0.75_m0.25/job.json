@@ -1,0 +1,16 @@
+{
+  "stage": "tune",
+  "policy_id": "delay_h8_a0.75_m0.25",
+  "kind": "rule",
+  "settings": {
+    "waiting_weight": 12.0,
+    "max_waiting_weight": 2.0,
+    "approaching_weight": 0.75,
+    "red_age_weight": 0.25,
+    "service_horizon": 8.0,
+    "discharge_headway": 2.0,
+    "switch_margin": 0.25,
+    "relative_margin": 0.1
+  },
+  "protocol_sha256": "0dddc755f1d1532e269ab551a51435337569c403294c0170e085a4eba046ebab"
+}

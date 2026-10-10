@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-10",
+  "model_test_suite": {
+    "command": "RUN_SUMO_INTEGRATION=1 python -m pytest model/tests -q --basetemp <fresh workspace temporary directory>",
+    "passed": 175,
+    "failed": 0,
+    "skipped": 0,
+    "includes": [
+      "Gymnasium check_env",
+      "Stable-Baselines3 check_env",
+      "real SUMO grouped waiting verification",
+      "rule policy behavior and all eight phase mappings",
+      "rule policy real SUMO 90-second smoke",
+      "benchmark completeness, selection integrity and paired aggregation"
+    ]
+  },
+  "rule_cli_smoke": {
+    "controllers": ["rule"],
+    "default_policy": {"scenario": "uniform", "episode_seconds": 30, "exit_code": 0},
+    "selected_policy": {"scenario": "random", "episode_seconds": 60, "exit_code": 0},
+    "legacy_checkpoint_required": false
+  },
+  "execution_note": "SUMO/TraCI checks and benchmark ran outside the restrictive process sandbox after local SUMO startup stalled inside it. Pytest used workspace temporary directories.",
+  "benchmark_verification": "See verification.json for the separately verified full tuning/heldout run."
+}

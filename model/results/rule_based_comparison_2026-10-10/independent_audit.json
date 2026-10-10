@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "reviewed_at": "2026-10-10T11:27:05.443438+00:00",
+  "reviewer": "independent read-only comparison audit",
+  "scope": "Implementation, frozen evidence, raw episode accounting, summary arithmetic and conditional statistical interpretation; no retuning or controller changes.",
+  "source_modifications_by_reviewer": false,
+  "only_file_created_by_reviewer": "model/results/rule_based_comparison_2026-10-10/independent_audit.json",
+  "input_sha256": {
+    "protocol.json": "0dddc755f1d1532e269ab551a51435337569c403294c0170e085a4eba046ebab",
+    "selection.json": "a415186f24cc03a6c2b39e8523c55a974e6f2bc398d96d7ae04c81e179b1769f",
+    "heldout_opened.json": "54144b71a95b64a15c49fe706e44ddcbc8e8c8788f1f2f981fdb146eae083658",
+    "heldout_episodes.csv": "44b7c92d60d1c79b54c24d07074a4b8332bc38fca692fa99f230c7eea9d85e61",
+    "summary.csv": "08be03e979f50cb87501cd90e17f18c19e8e2fb4745009ec54ccc49798d212e4",
+    "paired_differences.csv": "5968cbb987c29204ea24fddde5c3098fb9328385a7e7fa381345475bfc45ebf8",
+    "dqn_training_seed_variation.csv": "857cecfdb10f7ba404eee361f43816646b97877ab11d259e2b562e3e9fa65617",
+    "comparison.json": "a5c99b83c23cd17feef714fd0b4e529b19139fe8dd33988767f6dc896480343d",
+    "verification.json": "3032b8a8a8641704d7b939616e967cd7a7fcc34b2b37059da466767e9628f467"
+  },
+  "completed_checks": {
+    "all_frozen_source_hashes_match": true,
+    "all_three_checkpoint_hashes_match": true,
+    "all_80_frozen_tuning_and_heldout_route_hashes_match": true,
+    "all_37_tuning_candidates_have_20_cases_and_matching_selection_evidence_hashes": true,
+    "selection_recomputed_from_reward_then_waiting_then_candidate_id": "balanced_h8_a0.75_m0.25",
+    "heldout_opened_under_matching_selection_hash": true,
+    "observed_heldout_episodes": 300,
+    "distinct_heldout_traffic_cases": 60,
+    "episodes_by_policy": {
+      "cycle_safe": 60,
+      "dqn_seed_22": 60,
+      "dqn_seed_42": 60,
+      "rule": 60,
+      "dqn_seed_62": 60
+    },
+    "all_three_predeclared_dqn_training_seeds_included": [
+      22,
+      42,
+      62
+    ],
+    "same_clipped_60D_observation_and_8_actions": true,
+    "shared_signal_safety_path_without_legacy_force_override": true,
+    "all_heldout_episode_route_hashes_match_declared_cases": true,
+    "demanded_equals_departed_plus_pending_for_every_episode": true,
+    "departed_equals_throughput_plus_unfinished_for_every_episode": true,
+    "all_episodes_complete_300_seconds": true,
+    "collision_events": 0,
+    "teleport_events": 0,
+    "all_policy_and_scenario_means_and_sample_standard_deviations_recomputed_from_raw": true,
+    "dqn_mean_recomputed_by_averaging_three_models_per_traffic_case": true,
+    "training_seed_standard_deviations_recomputed_from_three_policy_means": true,
+    "paired_difference_and_bootstrap_rows_recomputed": 384,
+    "paired_bootstrap_samples": 5000,
+    "maximum_allowed_absolute_recalculation_difference": 1e-09
+  },
+  "interpretation": {
+    "all_60_cases_are_predeclared_aggregate": "Random 30-case results are a subgroup, not a retrospectively declared primary endpoint.",
+    "all_60_mean_waiting": {
+      "rule_seconds": 19.87763855518474,
+      "dqn_mean_seconds": 19.507445337152078,
+      "rule_minus_dqn_mean_seconds": 0.37019321803266947,
+      "frozen_bootstrap_ci95": [
+        -0.22989810290599758,
+        0.9993844936990595
+      ],
+      "ci_includes_zero": true,
+      "conclusion": "Overall average-waiting superiority is not established by this interval."
+    },
+    "other_aggregate_metrics": "The frozen DQN mean has lower episode-maximum waiting, higher throughput, and fewer phase changes than the selected rule; interpretation is limited to these checkpoints and traffic cases.",
+    "low_demand_counterexample": {
+      "rule": {
+        "avg_waiting_time": 2.2686196789585207,
+        "max_waiting_time": 14.4,
+        "throughput": 40.2,
+        "unfinished": 0.0
+      },
+      "dqn_mean": {
+        "avg_waiting_time": 8.822571118702061,
+        "max_waiting_time": 34.16666666666667,
+        "throughput": 39.6,
+        "unfinished": 0.6000000000000001
+      }
+    },
+    "heavy_demand_counterexample": {
+      "cycle_safe": {
+        "avg_waiting_time": 39.19649808959634,
+        "max_waiting_time": 118.4,
+        "throughput": 281.2,
+        "unfinished": 160.8
+      },
+      "rule": {
+        "avg_waiting_time": 40.587245367136106,
+        "max_waiting_time": 146.0,
+        "throughput": 256.6,
+        "unfinished": 186.0
+      },
+      "dqn_mean": {
+        "avg_waiting_time": 44.42302578157491,
+        "max_waiting_time": 127.59999999999998,
+        "throughput": 249.26666666666665,
+        "unfinished": 191.26666666666668
+      }
+    },
+    "counterexample_conclusion": "Rule has substantially lower waiting in low demand; in heavy demand rule improves some measures over DQN, while the existing fixed schedule outperforms both on average waiting and throughput. Heavy cases retain substantial unfinished demand.",
+    "dqn_mean_is_not_an_executable_ensemble": true,
+    "ci_scope": "Traffic variation conditional on three frozen DQN checkpoints, not uncertainty from retraining.",
+    "pooled_ci_limitation": "The frozen stratified bootstrap does not preserve common explicit-scenario seeds across all six scenarios; pooled intervals are descriptive.",
+    "small_sample_limitation": "Each explicit scenario has five traffic seeds; intervals have no multiple-comparison correction.",
+    "generalization_limit": "Comparison covers one tuned rule family and an existing fixed schedule; it does not rank every possible rule controller or establish universal RL superiority."
+  }
+}

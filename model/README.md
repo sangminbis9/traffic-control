@@ -80,6 +80,97 @@ python -m model.evaluate --model model\results\dqn_intersection.zip --episodes 3
 
 각 평가 episode는 controller별로 같은 seed와 같은 수요 생성 규칙을 사용합니다. `routes_DQN_2001_random.rou.xml`과 `routes_fixed-time_2001_random.rou.xml`의 내용은 seed가 같으면 동일합니다.
 
+### Rule-based controller and fair comparison
+
+`controller/rule_based_controller.py`의 `RuleBasedController`는 DQN과 **동일한
+clipped 60차원 observation**만 받는 결정론적 감응 제어기입니다. SUMO 내부 차량
+위치·미래 route·정규화 이전 값·DQN Q값을 읽지 않습니다. Reward, DQN 학습,
+8개 Action 및 기존 신호 안전 제약은 변경하지 않았습니다.
+
+- 이동 그룹 우선순위는 `queue + w_W * total_waiting + w_M * max_waiting + w_A * approaching`입니다.
+  여기서 모든 입력은 observation의 정규화 값이며, **규칙 계수는 Reward 가중치와 별개**입니다.
+- 각 Phase가 서비스하는 두 그룹을 합산하고, 수요가 관측된 Phase에는
+  `w_R * normalized_red_age²`를 더합니다. Red-age는 이동 그룹이 아닌 Phase별 값입니다.
+- 용량 추정 변형은 직진 그룹 2차로·좌회전 그룹 1차로, 추정 차두시간과
+  녹색시간을 이용해 해당 구간에 처리 가능한 비율을 적용합니다. 다른 Phase는
+  황색·전체 적색 시간을 제외하고, 현재 Phase는 최대 녹색까지 남은 시간을 고려합니다.
+  차두시간 2초와 8초 관측 창은 **검증된 물리 모델이 아닌 규칙의 근사 설정**입니다.
+- 경쟁 Phase가 현재 점수의 `(1 + relative_margin)`배와 `switch_margin`을 넘을 때
+  전환합니다. 수요가 없는 현재 Phase에서는 기다리지 않습니다. Waiting만 관측되는
+  움직이거나 먼 차량도 빈 그룹으로 취급하지 않습니다.
+- 최소 녹색 및 전환 중에는 유지하며, 최대 녹색 자동 전환 직전에는 수요에 맞는
+  다음 Phase를 요청합니다. 실제 적용과 max-red override는 공통 `SignalController`가 수행합니다.
+
+규칙 단독 실행에는 모델 파일이 필요하지 않습니다.
+
+```powershell
+python -m model.evaluate --controllers rule --episodes 5 --scenario random --output-dir .tmp/rule_preview
+```
+
+기존 `model.evaluate`의 기본 Fixed-Time/DQN 동작과 웹/API의 과거 평가 경로는 유지합니다.
+기존 Fixed-Time은 `force=True` 경로를 사용하므로, **공정한 규칙/DQN/고정 신호 비교에는
+아래 전용 실험 명령을 사용**합니다. 전용 고정 신호는 동일한 주기 요청을 일반
+`env.step()`으로 전달하며 다른 제어기와 똑같은 안전 제약을 거칩니다.
+
+```powershell
+python -m model.experiments.rule_based_comparison --output model/results/rule_based_comparison_2026-10-10 --workers 4
+```
+
+이 실험은 다음 절차를 고정합니다.
+
+1. 대기 우선순위, 접근 차량 가중치, 전환 억제 및 용량 추정 유무를 조합한 37개
+   규칙 후보를 20개 조정용 교통에서 비교합니다. 대기열만 사용하는 단순 후보도 포함합니다.
+   **평균 episode reward 최대**를 선정 기준으로 사용하며 동점이면 평균 대기시간,
+   후보 이름 순으로 결정합니다. 조정 비용은 740 episode / 222,000 결정 step입니다.
+2. 선택을 저장한 뒤 별도 60개 교통에서 규칙 1개, 고정 신호 1개, 기존 DQN 3개를
+   평가합니다. DQN은 Reward `1 / 0.3 / 0.5 / 0.5`, 학습 seed 22/42/62,
+   각 150,000 step의 고정 checkpoint입니다. 재학습하거나 모델을 덮어쓰지 않습니다.
+3. 조정은 random 8개와 나머지 6개 시나리오 각 2개, 평가는 random 30개와 나머지
+   각 5개입니다. 두 집합의 seed는 분리하며 episode 300초, 수요 발생 240초입니다.
+   random 비중은 조정 40%, 평가 50%로 다르므로 시나리오별 결과도 함께 기록합니다.
+4. 코드·모델·설정·route SHA를 고정하고, 모든 정책이 같은 route와 SUMO seed를
+   사용했는지 확인합니다. 대기·대기열·통과량·전환 외에 미완료 차량, 진입 대기 차량,
+   강제 전환과 충돌/teleport를 기록하여 300초 종료 시 남은 수요를 숨기지 않습니다.
+
+`selection.json`은 선택된 규칙, `summary.csv`는 시나리오별 결과,
+`heldout_episodes.csv`는 평가 원자료, `paired_differences.csv`는 paired 차이와
+bootstrap 95% 구간, `verification.json`은 실험 무결성 결과입니다.
+`dqn_mean`은 세 모델을 각각 실행한 결과의 평균이며 **앙상블 제어기가 아닙니다**.
+신뢰구간은 이 세 checkpoint를 고정했을 때의 교통 변동을 나타내며, 새로운 학습
+seed에 대한 불확실성까지 포함하지 않습니다. 학습 seed 간 편차는 별도로 제공합니다.
+평가 결과를 확인한 뒤 같은 평가 집합으로 규칙을 다시 조정하지 않습니다.
+
+선택된 규칙을 재사용하려면 다음과 같이 실행합니다.
+
+```powershell
+python -m model.evaluate --controllers rule --rule-policy model/results/rule_based_comparison_2026-10-10/selection.json --episodes 5 --output-dir .tmp/rule_selected
+```
+
+별도 설정을 지정하지 않은 규칙의 기본값은 시작점이며, 비교에서 선정된 설정과
+다를 수 있습니다. 입력 구조와 규칙 계수를 유지하면 같은 정책을 다른 state provider에도
+연결할 수 있으나, 카메라 및 실제 모형에서의 성능은 별도 검증이 필요합니다.
+
+2026-10-10 완료 결과는 [비교 보고서](results/rule_based_comparison_2026-10-10/comparison-ko.txt),
+[그래프](results/rule_based_comparison_2026-10-10/comparison.png),
+[검증 기록](results/rule_based_comparison_2026-10-10/checks.json)에 저장했습니다.
+선정된 규칙은 `balanced_h8_a0.75_m0.25`이며, 아래는 사전에 고정한 **전체 60개 교통 사례**의 평균입니다.
+
+| 제어 방식 | 평균 대기시간(초) ↓ | 회차별 최대 대기시간의 평균(초) ↓ | 통과 차량 수 ↑ | 신호 전환 횟수 ↓ |
+| --- | ---: | ---: | ---: | ---: |
+| 기존 고정 순환 + 공통 안전 제약 | 23.81 | 95.12 | 185.27 | 40.00 |
+| 조정한 규칙 기반 | 19.88 | 81.75 | 183.52 | 47.07 |
+| DQN 3개 모델의 평가 평균 | 19.51 | 68.58 | 187.47 | 41.32 |
+
+전체 평균 대기시간 차이(rule − DQN)는 0.37초이며 bootstrap 구간이 0을 포함하므로,
+평균 대기시간의 확실한 우위를 주장하지 않습니다. 전체 구간은 명시적 시나리오 사이의
+seed 재사용에 따른 의존성을 보존하지 않아 참고용으로 해석합니다.
+random 30개 하위 집합에서는 규칙 21.93초, DQN 20.19초였지만,
+저수요 5개에서는 규칙 2.27초, DQN 8.82초로 규칙이 더 좋았습니다.
+heavy 5개에서는 기존 고정 순환의 평균 대기시간과 통과량이 두 방식보다 좋았으며,
+세 방식 모두 종료 시 상당한 미완료 차량이 남았습니다.
+고정 순환은 이번 실험에서 최적화하지 않은 기존 시간표이므로,
+이 비교만으로 강화학습의 필수성이나 모든 수요에서의 우월성을 주장할 수 없습니다.
+
 ## Project structure
 
 ```text

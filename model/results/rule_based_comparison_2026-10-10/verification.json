@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-10-10T11:22:51.348115+00:00",
+  "observed_heldout_episodes": 300,
+  "distinct_heldout_traffic_cases": 60,
+  "matched_routes": true,
+  "frozen_code_models_runtime": true,
+  "selection_precedes_heldout": true,
+  "complete_horizons": true,
+  "same_safety_path": true,
+  "protocol_sha256": "0dddc755f1d1532e269ab551a51435337569c403294c0170e085a4eba046ebab",
+  "selection_sha256": "a415186f24cc03a6c2b39e8523c55a974e6f2bc398d96d7ae04c81e179b1769f"
+}

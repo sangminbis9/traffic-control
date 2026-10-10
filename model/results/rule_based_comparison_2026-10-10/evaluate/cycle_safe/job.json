@@ -1,0 +1,7 @@
+{
+  "stage": "evaluate",
+  "policy_id": "cycle_safe",
+  "kind": "cycle",
+  "settings": {},
+  "protocol_sha256": "0dddc755f1d1532e269ab551a51435337569c403294c0170e085a4eba046ebab"
+}
